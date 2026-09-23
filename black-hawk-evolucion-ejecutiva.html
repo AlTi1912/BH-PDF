@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Black Hawk: evolución web</title>
+<meta name="description" content="Presentación ejecutiva: cómo evolucionó la web de Black Hawk Car Audio, de catálogo a experiencia de marca.">
+<style>
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/Archivo-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/Archivo-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/Archivo-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/Archivo-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/Archivo-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/Archivo-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/Archivo-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/Archivo-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/IBMPlexMono-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/IBMPlexMono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/IBMPlexMono-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/IBMPlexMono-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/SairaCondensed-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/SairaCondensed-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/SairaCondensed-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/SairaCondensed-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/SairaCondensed-800-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/SairaCondensed-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+:root{
+  color-scheme:dark;
+  --ink:#0b0c0e; --carbon:#15171b; --carbon-2:#1f2227; --line:#30343b;
+  --paper:#f1f0ec; --paper-2:#e4e2dc; --paper-ink:#121316; --paper-mut:#5d6068;
+  --white:#f4f4f1; --mut:#a0a4ab;
+  --red:#e3121b; --red-tx:#ff3b43; --wa:#25d366;
+  --f-disp:'Saira Condensed','Arial Narrow','Roboto Condensed',sans-serif;
+  --f-body:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  /* escala de la diapositiva: 1cqw = 12,8 px en 1280 px */
+  --fs-hero:10.5cqw; --fs-h:4.5cqw; --fs-h2:3.2cqw; --fs-lead:1.72cqw; --fs-b:1.4cqw; --fs-s:1.12cqw; --fs-xs:.92cqw;
+  --pad:4.4cqw;
+}
+*{box-sizing:border-box}
+html{background:#050506}
+body{margin:0;background:#050506;color:var(--white);font:400 16px/1.45 var(--f-body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--red-tx);outline-offset:3px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--red);color:#fff;padding:10px 16px;z-index:20}
+.skip:focus{top:12px}
+
+/* ---------- deck ---------- */
+.deck{display:grid;gap:28px;justify-items:center;padding:28px 16px 90px}
+.s{position:relative;container-type:inline-size;width:min(100%,calc((100vh - 56px) * 16 / 9),1600px);aspect-ratio:16/9;overflow:hidden;background:var(--ink);color:var(--white);scroll-margin-top:28px;isolation:isolate}
+.s--light{background:var(--paper);color:var(--paper-ink)}
+.s--carbon{background:var(--carbon)}
+.in{position:absolute;inset:0;padding:var(--pad) var(--pad) calc(var(--pad) * 1.25)}
+
+/* type */
+.eyebrow{display:flex;align-items:center;gap:.8cqw;font:500 var(--fs-xs)/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin:0 0 1.6cqw}
+.eyebrow::before{content:"";width:2.4cqw;height:.3cqw;background:var(--red)}
+.s--light .eyebrow{color:var(--paper-mut)}
+h1,h2{font-family:var(--f-disp);font-weight:800;text-transform:uppercase;line-height:.9;letter-spacing:.004em;margin:0;text-wrap:balance}
+h2{font-size:var(--fs-h)}
+h2 em,h1 em,.accent{font-style:normal;color:var(--red-tx)}
+.s--light h2 em,.s--light .accent{color:var(--red)}
+p{margin:0}
+.lead{font-size:var(--fs-lead);line-height:1.3;color:var(--mut);max-width:40ch;margin-top:1.4cqw}
+.s--light .lead{color:var(--paper-mut)}
+.big-line{font:700 var(--fs-lead)/1.25 var(--f-body);color:var(--white)}
+.s--light .big-line{color:var(--paper-ink)}
+
+/* labels */
+.lbl{display:inline-flex;align-items:center;font:600 var(--fs-xs)/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;padding:.55cqw .8cqw;background:#4b5058;color:#fff;width:fit-content}
+.lbl--red{background:var(--red)}
+.chip{display:inline-flex;align-items:center;gap:.6cqw;font:600 var(--fs-s)/1.1 var(--f-body);padding:.7cqw 1cqw;border:1px solid var(--line);color:var(--white);width:fit-content}
+.s--light .chip{border-color:#c9c6be;color:var(--paper-ink);background:#fff}
+.chip--red{border-color:var(--red)!important}
+.chip::before{content:"";width:.55cqw;height:.55cqw;background:currentColor;border-radius:50%;opacity:.55}
+.chip--red::before{background:var(--red);opacity:1}
+
+/* screenshots */
+.shot{position:relative;background:#fff;box-shadow:0 1.2cqw 3.2cqw rgba(0,0,0,.35);overflow:hidden}
+.s--light .shot{box-shadow:0 .8cqw 2.4cqw rgba(20,20,20,.16);outline:1px solid #d4d1ca}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.browser{background:#1b1d21;padding-top:1.9cqw;position:relative}
+.browser::before{content:"";position:absolute;left:1cqw;top:.7cqw;width:.55cqw;height:.55cqw;border-radius:50%;background:#e3121b;box-shadow:.9cqw 0 0 #6b6f76,1.8cqw 0 0 #6b6f76}
+.phone{background:#0e0f11;border-radius:2.2cqw;padding:.55cqw;box-shadow:0 1.2cqw 3cqw rgba(0,0,0,.45)}
+.phone img{border-radius:1.7cqw;width:100%;height:auto}
+
+/* checks */
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:1.25cqw}
+.checks li{display:grid;grid-template-columns:2.2cqw 1fr;gap:1cqw;align-items:center;font:600 var(--fs-b)/1.2 var(--f-body)}
+.checks li::before{content:"";width:2.2cqw;height:2.2cqw;border-radius:50%;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/62% no-repeat}
+
+/* footer */
+.ft{position:absolute;left:var(--pad);right:var(--pad);bottom:1.5cqw;display:flex;align-items:center;gap:2cqw;font:500 var(--fs-xs)/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#6c7078;z-index:3}
+.s--light .ft{color:#8b8d93}
+.ft .n{margin-left:auto;color:var(--white);background:var(--red);padding:.45cqw .7cqw;letter-spacing:.06em}
+.axis{display:flex;gap:1.4cqw}
+.axis span{opacity:.45}
+.axis span.on{opacity:1;color:var(--red-tx)}
+.s--light .axis span.on{color:var(--red)}
+
+/* ---------- 01 portada ---------- */
+.cover-img{position:absolute;inset:0 0 auto 0;height:66%;z-index:-1}
+.cover-img img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.cover-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,14,.1) 30%,rgba(11,12,14,.7) 70%,var(--ink) 100%)}
+.cover-logo{position:absolute;left:var(--pad);top:3.2cqw;width:11cqw}
+.cover-txt{position:absolute;left:var(--pad);right:var(--pad);bottom:4.6cqw;display:grid;gap:1.2cqw}
+.cover-txt h1{font-size:var(--fs-hero);line-height:.82}
+.cover-sub{font:700 2.4cqw/1 var(--f-disp);letter-spacing:.08em;text-transform:uppercase;color:#d6d7da}
+.cover-concept{display:flex;align-items:center;gap:1.4cqw;margin-top:1cqw;font:700 var(--fs-lead)/1.2 var(--f-body)}
+.cover-concept::before{content:"";width:4cqw;height:.35cqw;background:var(--red)}
+
+/* ---------- 02 punto de partida ---------- */
+.split{position:absolute;inset:0;display:grid;grid-template-columns:42% 58%;grid-template-rows:minmax(0,1fr)}
+.split>div{position:relative;padding:var(--pad) var(--pad) calc(var(--pad)*1.25)}
+.split .dark{background:var(--ink)}
+.split .light{background:var(--paper);display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0;gap:2cqw;padding-left:3.4cqw}
+.p2 h2{font-size:4cqw}
+.p2 .checks{margin-top:3cqw}
+.p2 .shot{height:100%;min-height:0}
+.bar{background:var(--red);color:#fff;font:700 var(--fs-b)/1.3 var(--f-body);padding:1.4cqw 1.8cqw}
+.bar b{font-weight:800}
+
+/* ---------- 03 home ---------- */
+.p3 .grid{position:absolute;left:var(--pad);right:var(--pad);top:17.4cqw;display:grid;grid-template-columns:1fr 1fr;gap:3cqw}
+.col{display:grid;gap:1.1cqw;align-content:start}
+.p3 .shot{aspect-ratio:1440/900}
+.chips{display:flex;flex-wrap:wrap;gap:.7cqw}
+.p3 .close{position:absolute;left:var(--pad);right:var(--pad);bottom:5cqw}
+
+/* ---------- 04 catálogo ---------- */
+.p4 .grid{position:absolute;left:var(--pad);right:var(--pad);top:13.2cqw;bottom:5.4cqw;display:grid;grid-template-columns:18cqw 25cqw 1fr;gap:2.6cqw;align-items:center}
+.stat b{display:block;font:800 13cqw/.8 var(--f-disp);color:var(--red);letter-spacing:-.01em}
+.stat span{display:block;font:700 var(--fs-lead)/1 var(--f-disp);letter-spacing:.14em;text-transform:uppercase;margin-top:.8cqw}
+.p4 .tags{display:grid;gap:.8cqw;margin-top:3cqw}
+.p4 .shot--antes{aspect-ratio:1440/900;opacity:.92}
+.p4 .shot--ahora{aspect-ratio:1440/900}
+.cap{font:600 var(--fs-s)/1.25 var(--f-body);display:flex;gap:.8cqw;align-items:center;flex-wrap:wrap}
+.cap span:not(.lbl){color:var(--paper-mut);font-weight:500}
+.s:not(.s--light) .cap span:not(.lbl){color:var(--mut)}
+
+/* ---------- 05 encontrar ---------- */
+.p5 .search{position:absolute;left:var(--pad);top:18.6cqw;width:51cqw}
+.p5 .search .shot{aspect-ratio:1440/900}
+.p5 .cards{position:absolute;right:var(--pad);top:18.6cqw;width:35cqw;display:grid;gap:1.4cqw}
+.p5 .cards .shot{aspect-ratio:1090/472;background:#fff}
+.anno{position:relative}
+.tags4{display:grid;grid-template-columns:1fr 1fr;gap:.8cqw 1.2cqw}
+.tag4{display:flex;align-items:center;gap:.8cqw;font:700 var(--fs-s)/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;padding:.9cqw 1cqw;background:var(--carbon-2);border-left:.35cqw solid var(--red)}
+.tag4 small{font:500 var(--fs-xs)/1.2 var(--f-body);letter-spacing:0;text-transform:none;color:var(--mut);margin-left:auto}
+.p5 .close{position:absolute;right:var(--pad);width:34cqw;bottom:5.4cqw}
+
+/* ---------- 06 ficha ---------- */
+.p6 .grid{position:absolute;left:var(--pad);right:var(--pad);top:14.4cqw;display:grid;grid-template-columns:1fr 1fr;gap:3cqw}
+.p6 .shot{aspect-ratio:1440/900}
+.points{display:flex;gap:1.6cqw;flex-wrap:wrap}
+.point{font:700 var(--fs-b)/1.2 var(--f-body);display:flex;align-items:center;gap:.8cqw}
+.point b{font:800 var(--fs-lead)/1 var(--f-disp);color:var(--red)}
+.p6 .foot{position:absolute;left:var(--pad);right:var(--pad);bottom:5cqw;display:flex;justify-content:space-between;align-items:end;gap:3cqw}
+.note{font:500 var(--fs-s)/1.35 var(--f-body);color:var(--paper-mut);max-width:44ch}
+
+/* ---------- 07 comparador ---------- */
+.p7 .left{position:absolute;left:var(--pad);top:var(--pad);bottom:5.4cqw;width:28cqw;display:grid;grid-template-rows:auto 1fr auto;gap:2cqw}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:1.6cqw;align-content:center}
+.steps li{display:grid;grid-template-columns:5.4cqw 1fr;align-items:center;gap:1.2cqw;font:800 3cqw/1 var(--f-disp);text-transform:uppercase;letter-spacing:.02em}
+.steps li span{font:800 5.4cqw/1 var(--f-disp);color:var(--red-tx)}
+.p7 .right{position:absolute;right:var(--pad);top:var(--pad);bottom:5.4cqw;width:55cqw;display:flex;align-items:center}
+.p7 .shot{aspect-ratio:1220/852;width:100%}
+
+/* ---------- 08 whatsapp ---------- */
+.flow{position:absolute;left:var(--pad);right:var(--pad);top:14.4cqw;display:grid;grid-template-columns:repeat(5,1fr);gap:1.6cqw}
+.node{position:relative;border:2px solid var(--line);padding:1.6cqw 1.4cqw 1.8cqw;display:grid;gap:.6cqw;background:var(--carbon)}
+.node b{font:800 2.3cqw/1 var(--f-disp);text-transform:uppercase;letter-spacing:.02em}
+.node span{font:500 var(--fs-s)/1.25 var(--f-body);color:var(--mut)}
+.node i{font:600 var(--fs-xs)/1 var(--f-mono);color:var(--red-tx);font-style:normal;letter-spacing:.1em}
+.node:not(:last-child)::after{content:"";position:absolute;right:-1.6cqw;top:50%;width:1.6cqw;height:2px;background:var(--red)}
+.node--wa{border-color:var(--wa);background:#0e1a12}
+.node--wa b,.node--wa i{color:var(--wa)}
+.p8 .below{position:absolute;left:var(--pad);right:var(--pad);top:25cqw;bottom:5.4cqw;display:grid;grid-template-columns:1fr 1fr;gap:3.4cqw;align-items:center}
+.msg-wrap{display:grid;gap:1.3cqw}
+.msg{position:relative;background:#e7fbe9;color:#0b2912;font:500 var(--fs-lead)/1.35 var(--f-body);padding:1.6cqw 2cqw;border-radius:1.2cqw 1.2cqw 1.2cqw .2cqw;max-width:40cqw}
+.msg b{font-weight:800;background:#bff2c8;padding:0 .3cqw}
+.msg small{display:block;font:500 var(--fs-xs)/1 var(--f-mono);color:#3e7a4c;margin-top:.8cqw;letter-spacing:.08em;text-transform:uppercase}
+.p8 .shot{aspect-ratio:1380/562}
+
+/* ---------- 09 visitantes ---------- */
+.p9 .grid{position:absolute;left:var(--pad);right:var(--pad);top:13.4cqw;bottom:5.4cqw;display:grid;grid-template-columns:repeat(4,1fr);gap:2cqw;align-content:start}
+.vis{display:grid;gap:1.1cqw;align-content:start}
+.vis .shot{aspect-ratio:1440/1900;background:#0c0c0d}
+.vis .shot img{object-fit:contain;object-position:top center}
+.vis b{font:800 2.3cqw/1 var(--f-disp);text-transform:uppercase;letter-spacing:.02em;display:block}
+.vis span{font:500 var(--fs-b)/1.2 var(--f-body);color:var(--paper-mut)}
+
+/* ---------- 10 móvil ---------- */
+.p10 .phones{position:absolute;left:var(--pad);top:18.4cqw;bottom:4.6cqw;width:56cqw;display:grid;grid-template-columns:repeat(4,1fr);gap:1.8cqw;align-items:start}
+.p10 .phone figcaption{font:600 var(--fs-xs)/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);text-align:center;margin-top:1cqw}
+.p10 .side{position:absolute;right:var(--pad);top:18.4cqw;bottom:5.4cqw;width:25cqw;display:grid;align-content:space-between}
+.figure{border-top:2px solid var(--line);padding-top:1.4cqw;display:grid;gap:.6cqw}
+.figure b{font:800 3.6cqw/1 var(--f-disp);white-space:nowrap}
+.figure b em{font-style:normal;color:var(--red-tx)}
+.figure span{font:500 var(--fs-s)/1.3 var(--f-body);color:var(--mut)}
+
+/* ---------- 11 resultado ---------- */
+.p11 .band{position:absolute;inset:auto 0 0 0;height:30%;z-index:-1}
+.p11 .band img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:.55}
+.p11 .band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink) 0%,rgba(11,12,14,.35) 60%,rgba(11,12,14,.6) 100%)}
+.verbs{position:absolute;left:var(--pad);right:var(--pad);top:18cqw;display:grid;grid-template-columns:repeat(3,1fr);gap:2.4cqw}
+.verb{border-top:.35cqw solid var(--red);padding-top:1.4cqw;display:grid;gap:.9cqw}
+.verb b{font:800 4.4cqw/1 var(--f-disp);text-transform:uppercase}
+.verb span{font:500 var(--fs-b)/1.3 var(--f-body);color:#c9ccd1}
+.p11 .closing{position:absolute;left:var(--pad);right:var(--pad);top:33.4cqw;font:600 var(--fs-lead)/1.35 var(--f-body);max-width:62cqw;color:var(--white)}
+.p11 .power{position:absolute;right:var(--pad);bottom:5cqw;font:800 5.6cqw/.9 var(--f-disp);text-transform:uppercase;letter-spacing:.02em;text-align:right}
+.p11 .power em{font-style:normal;color:var(--red-tx)}
+
+/* ---------- navegación en pantalla ---------- */
+.hud{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;z-index:30}
+.hud button{font:600 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;background:rgba(21,23,27,.92);color:#fff;border:1px solid #3a3e45;min-width:44px;min-height:44px;padding:0 14px;cursor:pointer}
+.hud button:hover{border-color:#fff}
+.hud .cnt{font:500 12px/44px var(--f-mono);color:#c9ccd1;background:rgba(21,23,27,.92);border:1px solid #3a3e45;padding:0 12px}
+
+/* ---------- móvil: diapositivas fluidas ---------- */
+@media (max-width:760px){
+  :root{--fs-hero:64px;--fs-h:36px;--fs-h2:28px;--fs-lead:18px;--fs-b:16px;--fs-s:14px;--fs-xs:11px;--pad:20px}
+  .deck{gap:16px;padding:0 0 90px}
+  .s{width:100%;aspect-ratio:auto;overflow:visible;container-type:normal}
+  .in,.split,.split>div,.p3 .grid,.p3 .close,.p4 .grid,.p5 .search,.p5 .cards,.p5 .close,.p6 .grid,.p6 .foot,.p7 .left,.p7 .right,.flow,.p8 .below,.p9 .grid,.p10 .phones,.p10 .side,.verbs,.p11 .closing,.p11 .power,.cover-txt,.cover-logo,.ft{position:static;width:auto;inset:auto}
+  .in{padding:28px 20px 20px;display:grid;gap:22px}
+  .eyebrow{margin-bottom:12px}
+  .eyebrow::before{width:24px;height:3px}
+  .split{display:block}.split>div{padding:28px 20px}
+  .grid,.p3 .grid,.p4 .grid,.p6 .grid,.p8 .below,.p9 .grid,.verbs{display:grid;grid-template-columns:1fr;gap:20px}
+  .p9 .grid{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr;gap:10px}.node:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-10px;width:2px;height:10px}
+  .p10 .phones{grid-template-columns:1fr 1fr;gap:14px}
+  .p7 .left{display:grid;gap:20px}.p7 .right{display:block}
+  .p4 .grid{align-items:start}
+  .stat b{font-size:96px}
+  .cover-img{position:relative;height:auto;aspect-ratio:1410/481}
+  .cover-txt{padding:0 20px 28px;display:grid;gap:12px}
+  .cover-logo{width:120px;margin:0 20px 8px}
+  .cover-sub{font-size:22px}
+  .p11 .band{position:relative;height:160px}
+  .p11 .power{text-align:left;font-size:44px}
+  .ft{padding:0 20px 18px;flex-wrap:wrap;gap:10px}
+  .lbl,.chip,.tag4{padding:6px 9px}
+  .checks li{grid-template-columns:24px 1fr;gap:10px}.checks li::before{width:24px;height:24px}
+  .steps li{grid-template-columns:48px 1fr;font-size:28px}.steps li span{font-size:44px}
+  .node b,.vis b{font-size:22px}.verb b{font-size:40px}.figure b{font-size:36px}
+  .msg{max-width:none}
+  .p2 h2{font-size:36px}
+  .bar{padding:14px 16px}
+  .shot,.phone{border-radius:0}
+  .hud .cnt{display:none}
+  .s{padding:0 20px 20px;display:grid;gap:20px;align-content:start}
+  .in{padding:28px 0 0}
+  .cover-img,.p11 .band{margin:0 -20px}
+  .split{margin:0 -20px -20px}
+  .cover-txt{padding:0 0 8px}.cover-logo{margin:0}
+  .ft{padding:4px 0 0}
+  .p11 .band{order:9}
+  .p7 .left{padding-top:28px}
+  .hud #fs{display:none}
+}
+
+/* ---------- impresión: una diapositiva por página ---------- */
+@page{size:13.333in 7.5in;margin:0}
+@media print{
+  html,body{background:var(--ink)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .deck{display:block;padding:0}
+  .s{width:1280px;height:720px;aspect-ratio:auto;break-after:page;break-inside:avoid;margin:0}
+  .hud,.skip{display:none!important}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#s2">Saltar la portada</a>
+<main class="deck" id="deck">
+
+<!-- 01 PORTADA -->
+<section class="s" id="s1" aria-label="Portada">
+  <div class="cover-img"><img src="assets/images/brand/PORTADA-2.jpg" alt="Banner oficial de Black Hawk «Siente el poder»: subwoofers, amplificadores y drivers iluminados en rojo y azul." width="1410" height="481"></div>
+  <img class="cover-logo" src="assets/images/brand/bh-mark-white.svg" alt="Black Hawk" width="140" height="75">
+  <div class="cover-txt">
+    <h1>Black Hawk</h1>
+    <p class="cover-sub">Evolución de la experiencia web</p>
+    <p class="cover-concept">De catálogo a <span class="accent">&nbsp;experiencia de marca</span></p>
+  </div>
+</section>
+
+<!-- 02 PUNTO DE PARTIDA -->
+<section class="s p2" id="s2" aria-label="El punto de partida">
+  <div class="split">
+    <div class="dark">
+      <p class="eyebrow">01 · El punto de partida</p>
+      <h2>Una base que ya funcionaba. <em>Una marca que podía mostrar más.</em></h2>
+      <ul class="checks">
+        <li>Catálogo existente</li>
+        <li>Categorías organizadas</li>
+        <li>Fichas de producto</li>
+        <li>Galería y buscador</li>
+      </ul>
+    </div>
+    <div class="light">
+      <div class="shot browser"><img src="assets/exec/partida.webp" alt="La web anterior de Black Hawk: header con buscador, banner, categorías y productos más buscados." width="1200" height="1250"></div>
+      <p class="bar">El objetivo no fue reemplazar Black Hawk. <b>Fue darle más dirección.</b></p>
+    </div>
+  </div>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="n">02</span></footer>
+</section>
+
+<!-- 03 HOME -->
+<section class="s s--carbon p3" id="s3" aria-label="Home antes y ahora">
+  <div class="in">
+    <p class="eyebrow">02 · Home</p>
+    <h2>La marca ahora entra <em>antes que el catálogo</em></h2>
+    <p class="lead" style="max-width:none">La primera pantalla ya explica quién es Black Hawk y qué puede hacer el visitante.</p>
+  </div>
+  <div class="grid">
+    <div class="col">
+      <span class="lbl">Antes</span>
+      <div class="shot"><img src="assets/exec/home-antes.webp" alt="Home anterior: buscador central, menú Inicio, Productos y Galería, banner y titular de trayectoria." width="1200" height="750"></div>
+      <div class="chips"><span class="chip">Catálogo como protagonista</span><span class="chip">Navegación básica</span></div>
+    </div>
+    <div class="col">
+      <span class="lbl lbl--red">Ahora</span>
+      <div class="shot"><img src="assets/exec/home-ahora.webp" alt="Home actual: menú Productos, Catálogo, Galería y Black Hawk, botones Buscar y Cotizar, banner y el titular «Marca líder en car audio en Perú»." width="1200" height="750"></div>
+      <div class="chips"><span class="chip chip--red">Identidad Black Hawk</span><span class="chip chip--red">Productos</span><span class="chip chip--red">Buscar / Cotizar</span></div>
+    </div>
+  </div>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="n">03</span></footer>
+</section>
+
+<!-- 04 CATÁLOGO -->
+<section class="s s--light p4" id="s4" aria-label="Catálogo">
+  <div class="in">
+    <p class="eyebrow">03 · Catálogo</p>
+    <h2>Todo el catálogo, <em>más fácil de recorrer.</em></h2>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="stat"><b>118</b><span>productos</span></div>
+      <div class="tags"><span class="chip chip--red">Categorías visibles</span><span class="chip chip--red">Buscar + filtrar + comparar</span></div>
+    </div>
+    <div class="col">
+      <p class="cap"><span class="lbl">Antes</span><span>Categorías en lista</span></p>
+      <div class="shot shot--antes"><img src="assets/exec/shop-antes.webp" alt="Página de productos anterior con la lista de categorías en una barra lateral." width="1000" height="625"></div>
+    </div>
+    <div class="col">
+      <p class="cap"><span class="lbl lbl--red">Ahora</span><span>Catálogo completo</span></p>
+      <div class="shot shot--ahora"><img src="assets/exec/shop-ahora.webp" alt="Catálogo actual: título Catálogo Black Hawk, 118 productos, pestañas por categoría, filtros y tarjetas de producto." width="1300" height="813"></div>
+    </div>
+  </div>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="axis" aria-label="Acción: descubrir"><span class="on">Descubrir</span><span>Comparar</span><span>Consultar</span></span><span class="n">04</span></footer>
+</section>
+
+<!-- 05 ENCONTRAR -->
+<section class="s p5" id="s5" aria-label="Encontrar el modelo">
+  <div class="in">
+    <p class="eyebrow">04 · Encontrar el modelo</p>
+    <h2>Menos tiempo buscando. <em>Más información antes de entrar.</em></h2>
+  </div>
+  <div class="search"><div class="shot"><img src="assets/exec/buscar.webp" alt="Buscador actual con la búsqueda sw12: ocho subwoofers de 12 pulgadas con categoría, modelo, tipo y potencia." width="1300" height="813"></div></div>
+  <div class="cards">
+    <div class="shot"><img src="assets/exec/tarjetas.webp" alt="Tres tarjetas de subwoofer con categoría, modelo, potencia y tipo: BH-SW10WBX, BH-SW1200SL PRO y BH-SW12IPAL." width="1090" height="472"></div>
+    <div class="tags4">
+      <span class="tag4">Modelo</span><span class="tag4">Potencia</span>
+      <span class="tag4">Tipo</span><span class="tag4">Categoría</span>
+    </div>
+  </div>
+  <p class="close big-line">El visitante ve el contexto antes de abrir el producto.</p>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="axis" aria-label="Acción: descubrir"><span class="on">Descubrir</span><span>Comparar</span><span>Consultar</span></span><span class="n">05</span></footer>
+</section>
+
+<!-- 06 FICHA -->
+<section class="s s--light p6" id="s6" aria-label="Ficha de producto">
+  <div class="in">
+    <p class="eyebrow">05 · Ficha de producto · BH-SW12XXG</p>
+    <h2>El producto pasa <em>a ser el protagonista.</em></h2>
+  </div>
+  <div class="grid">
+    <div class="col">
+      <span class="lbl">Antes</span>
+      <div class="shot"><img src="assets/exec/ficha-antes.webp" alt="Ficha anterior del BH-SW12XXG: imagen del subwoofer, nombre, Subwoofer 12 pulgadas y cuatro datos técnicos." width="1200" height="750"></div>
+    </div>
+    <div class="col">
+      <span class="lbl lbl--red">Ahora</span>
+      <div class="shot"><img src="assets/exec/ficha-ahora.webp" alt="Ficha actual del BH-SW12XXG: modelo en grande, 4000 W destacado, botón Cotizar, acciones copiar, compartir y comparar, y datos técnicos." width="1200" height="750"></div>
+    </div>
+  </div>
+  <div class="foot">
+    <p class="note">Los datos originales se mantienen; cambia cómo se presentan y cómo se utilizan.</p>
+    <div class="points"><span class="point"><b>01</b>Información más visible</span><span class="point"><b>02</b>Acciones junto al producto</span><span class="point"><b>03</b>Cotización por modelo</span></div>
+  </div>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="axis" aria-label="Acción: comparar"><span>Descubrir</span><span class="on">Comparar</span><span>Consultar</span></span><span class="n">06</span></footer>
+</section>
+
+<!-- 07 COMPARADOR -->
+<section class="s s--carbon p7" id="s7" aria-label="Comparador">
+  <div class="left">
+    <div>
+      <p class="eyebrow">06 · Comparador</p>
+      <h2>Tres modelos. <em>Una sola vista.</em></h2>
+    </div>
+    <ol class="steps">
+      <li><span>1</span>Selecciona</li>
+      <li><span>2</span>Compara</li>
+      <li><span>3</span>Cotiza</li>
+    </ol>
+    <p class="big-line" style="font-weight:600">El cliente revisa diferencias sin abrir producto por producto.</p>
+  </div>
+  <div class="right"><div class="shot"><img src="assets/exec/comparador.webp" alt="Comparador de Black Hawk con tres subwoofers lado a lado: BH-SW12XXG, BH-SW12IPAL y BH-SW12LJD, con potencia y botón Cotizar por WhatsApp en cada uno." width="1220" height="852"></div></div>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="axis" aria-label="Acción: comparar"><span>Descubrir</span><span class="on">Comparar</span><span>Consultar</span></span><span class="n">07</span></footer>
+</section>
+
+<!-- 08 WHATSAPP -->
+<section class="s p8" id="s8" aria-label="Del producto a la consulta">
+  <div class="in">
+    <p class="eyebrow">07 · Del producto a WhatsApp</p>
+    <h2>Del producto <em>a la consulta.</em></h2>
+  </div>
+  <div class="flow" role="list" aria-label="Recorrido del visitante">
+    <div class="node" role="listitem"><i>01</i><b>Descubre</b></div>
+    <div class="node" role="listitem"><i>02</i><b>Producto</b></div>
+    <div class="node" role="listitem"><i>03</i><b>Compara</b></div>
+    <div class="node" role="listitem"><i>04</i><b>Cotiza</b></div>
+    <div class="node node--wa" role="listitem"><i>05</i><b>WhatsApp</b></div>
+  </div>
+  <div class="below">
+    <div class="msg-wrap">
+      <p class="big-line">El modelo viaja escrito en el mensaje.</p>
+      <p class="msg">Hola Black Hawk, vengo de la web y quiero cotizar el modelo <b>BH-SW12XXG</b>.<small>Mensaje que se abre al pulsar Cotizar</small></p>
+      <p class="lead" style="margin-top:0">La conversación comercial empieza con contexto.</p>
+    </div>
+    <div class="shot"><img src="assets/exec/cotizar.webp" alt="Parte superior de la ficha del BH-SW12XXG con el modelo, 4000 W y el botón verde Cotizar." width="1100" height="462"></div>
+  </div>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="axis" aria-label="Acción: consultar"><span>Descubrir</span><span>Comparar</span><span class="on">Consultar</span></span><span class="n">08</span></footer>
+</section>
+
+<!-- 09 VISITANTES -->
+<section class="s s--light p9" id="s9" aria-label="Más que un catálogo">
+  <div class="in">
+    <p class="eyebrow">08 · Más que un catálogo</p>
+    <h2>Una web para <em>más de un tipo de visitante.</em></h2>
+  </div>
+  <div class="grid">
+    <div class="vis"><div class="shot"><img src="assets/exec/pag-marca.webp" alt="Página Black Hawk: Especialistas en car audio, más de 10 años y 6 categorías." width="800" height="722"></div><div><b>Black Hawk</b><span>Marca y trayectoria</span></div></div>
+    <div class="vis"><div class="shot"><img src="assets/exec/pag-comprar.webp" alt="Página Dónde comprar Black Hawk con el botón Consultar por WhatsApp." width="800" height="722"></div><div><b>Dónde comprar</b><span>Consulta comercial</span></div></div>
+    <div class="vis"><div class="shot"><img src="assets/exec/pag-soporte.webp" alt="Página Soporte Black Hawk: consulta de producto, garantía y manuales." width="800" height="722"></div><div><b>Soporte</b><span>Postventa</span></div></div>
+    <div class="vis"><div class="shot"><img src="assets/exec/pag-mayoristas.webp" alt="Página Conviértete en distribuidor Black Hawk, canal B2B." width="800" height="722"></div><div><b>Mayoristas</b><span>Canal B2B</span></div></div>
+  </div>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="axis" aria-label="Acción: consultar"><span>Descubrir</span><span>Comparar</span><span class="on">Consultar</span></span><span class="n">09</span></footer>
+</section>
+
+<!-- 10 MÓVIL -->
+<section class="s p10" id="s10" aria-label="Móvil y base técnica">
+  <div class="in">
+    <p class="eyebrow">09 · Móvil</p>
+    <h2>Pensada para verse <em>y funcionar en cualquier pantalla.</em></h2>
+  </div>
+  <div class="phones">
+    <figure class="phone" style="margin:0"><img src="assets/exec/m-home.webp" alt="Home en el móvil con banner y titular de marca." width="520" height="1125"><figcaption>Home</figcaption></figure>
+    <figure class="phone" style="margin:0"><img src="assets/exec/m-menu.webp" alt="Menú del móvil con las 12 categorías de productos." width="520" height="1125"><figcaption>Menú</figcaption></figure>
+    <figure class="phone" style="margin:0"><img src="assets/exec/m-ficha.webp" alt="Ficha del BH-SW12XXG en el móvil con 4000 W y botón Cotizar." width="520" height="1125"><figcaption>Ficha</figcaption></figure>
+    <figure class="phone" style="margin:0"><img src="assets/exec/m-comparador.webp" alt="Comparador en el móvil con tres subwoofers." width="520" height="1125"><figcaption>Comparador</figcaption></figure>
+  </div>
+  <div class="side">
+    <ul class="checks">
+      <li>Responsive</li>
+      <li>Más ligera</li>
+      <li>SEO preparado</li>
+      <li>Accesibilidad mejorada</li>
+    </ul>
+    <div class="figure"><b>5,3 MB <em>→</em> 0,4 MB</b><span>Datos que descarga la ficha de producto en escritorio (medición de laboratorio).</span></div>
+  </div>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="n">10</span></footer>
+</section>
+
+<!-- 11 RESULTADO -->
+<section class="s p11" id="s11" aria-label="Resultado">
+  <div class="band"><img src="assets/images/brand/PORTADA-2.jpg" alt="" width="1410" height="481"></div>
+  <div class="in">
+    <p class="eyebrow">10 · Resultado</p>
+    <h2>Black Hawk <em>ahora se puede recorrer.</em></h2>
+  </div>
+  <div class="verbs">
+    <div class="verb"><b>Descubrir</b><span>Productos, categorías y búsqueda.</span></div>
+    <div class="verb"><b>Comparar</b><span>Información y modelos en una misma experiencia.</span></div>
+    <div class="verb"><b>Consultar</b><span>WhatsApp, dónde comprar y soporte.</span></div>
+  </div>
+  <p class="closing">La web deja de ser solo una vitrina de productos: conecta marca, catálogo y consulta en una misma experiencia.</p>
+  <p class="power">Siente <em>el poder.</em></p>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="n">11</span></footer>
+</section>
+
+</main>
+
+<nav class="hud" aria-label="Navegación de la presentación">
+  <button type="button" id="prev" aria-label="Diapositiva anterior">←</button>
+  <span class="cnt" id="cnt" aria-live="polite">01 / 11</span>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">→</button>
+  <button type="button" id="fs">Presentar</button>
+</nav>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.s')), cnt=document.getElementById('cnt'), cur=0;
+  function pad(n){return (n<10?'0':'')+n;}
+  function go(i){cur=Math.max(0,Math.min(slides.length-1,i));slides[cur].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>.55){cur=slides.indexOf(e.target);cnt.textContent=pad(cur+1)+' / '+slides.length;}});},{threshold:[.55]});
+  slides.forEach(function(s){io.observe(s);});
+  document.getElementById('prev').addEventListener('click',function(){go(cur-1);});
+  document.getElementById('next').addEventListener('click',function(){go(cur+1);});
+  document.addEventListener('keydown',function(e){
+    if(e.target.closest&&e.target.closest('input,textarea,select'))return;
+    if(['ArrowRight','ArrowDown','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();go(cur+1);}
+    else if(['ArrowLeft','ArrowUp','PageUp'].indexOf(e.key)>-1){e.preventDefault();go(cur-1);}
+    else if(e.key==='Home'){e.preventDefault();go(0);}else if(e.key==='End'){e.preventDefault();go(slides.length-1);}
+  });
+  var fs=document.getElementById('fs');
+  if(!document.documentElement.requestFullscreen){fs.hidden=true;}
+  fs.addEventListener('click',function(){
+    if(document.fullscreenElement){document.exitFullscreen();}
+    else{document.documentElement.requestFullscreen().then(function(){go(cur);}).catch(function(){fs.hidden=true;});}
+  });
+  document.addEventListener('fullscreenchange',function(){fs.textContent=document.fullscreenElement?'Salir':'Presentar';});
+})();
+</script>
+</body>
+</html>

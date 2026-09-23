@@ -1,6 +1,6 @@
 // QA del informe: errores, recursos, overflow, capturas por sección, PDF
 const { chromium } = require('/opt/node22/lib/node_modules/playwright'); const fs = require('fs'); const path = require('path');
-const ROOT = path.resolve(__dirname, '..'); const URL = 'file://' + ROOT + '/black-hawk-evolucion-web.html'; const OUT = process.argv[2] || '/tmp/qa';
+const ROOT = path.resolve(__dirname, '..'); const URL = 'file://' + ROOT + '/black-hawk-evolucion-web-informe-completo.html'; const OUT = process.argv[2] || '/tmp/qa';
 fs.mkdirSync(OUT, { recursive: true });
 (async () => { const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
  for (const [name, vp] of [['d', { width: 1440, height: 900 }], ['m', { width: 390, height: 844 }], ['t', { width: 820, height: 1180 }]]) {
@@ -12,5 +12,5 @@ fs.mkdirSync(OUT, { recursive: true });
   await p.close(); }
  const p = await b.newPage(); await p.goto(URL, { waitUntil: 'load' }); await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 700) { scrollTo(0, y); await new Promise(r => setTimeout(r, 30)); } }); await p.waitForTimeout(500);
  await p.emulateMedia({ media: 'print' });
- await p.pdf({ path: ROOT + '/black-hawk-evolucion-web.pdf', preferCSSPageSize: true, printBackground: true, tagged: true, outline: true });
+ await p.pdf({ path: ROOT + '/black-hawk-evolucion-web-informe-completo.pdf', preferCSSPageSize: true, printBackground: true, tagged: true, outline: true });
  console.log('pdf ok'); await b.close(); })();

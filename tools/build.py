@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Construye black-hawk-evolucion-web.html a partir de la plantilla y la evidencia.
+"""Construye black-hawk-evolucion-web-informe-completo.html a partir de la plantilla y la evidencia.
 
 - Inyecta datos medidos (categorías, SEO, Lighthouse, matriz de evidencia).
 - Convierte a WebP solo las capturas que cita el HTML (sin retoques: escala proporcional).
@@ -181,6 +181,6 @@ for i in cited:
 
 # sanity: every referenced asset exists
 missing = [p for p in set(re.findall(r'(?:src|data-full|poster)="(assets/[^"]+)"', tpl)) if not os.path.exists(os.path.join(ROOT, p))]
-open(os.path.join(ROOT, 'black-hawk-evolucion-web.html'), 'w', encoding='utf8').write(tpl)
+open(os.path.join(ROOT, 'black-hawk-evolucion-web-informe-completo.html'), 'w', encoding='utf8').write(tpl)
 json.dump([dict(zip(['id', 'version', 'tipo', 'url', 'viewport', 'demuestra'], [i, *info(i)])) for i in cited], open(os.path.join(ROOT, 'assets/data/evidencia-citada.json'), 'w'), ensure_ascii=False, indent=1)
 print('cited', len(cited), 'converted', done, 'missing', missing, 'leftover markers', re.findall(r'/\*[A-Z_0-9]+\*/', tpl))

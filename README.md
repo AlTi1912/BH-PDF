@@ -1,6 +1,9 @@
 # Black Hawk: evolución de la experiencia web
 
-Informe editorial que documenta, con evidencia capturada, la evolución entre la web anterior de Black Hawk Car Audio y el rediseño actual.
+Documenta la evolución entre la web anterior de Black Hawk Car Audio y el rediseño actual, en dos niveles:
+
+1. **Presentación ejecutiva** (`black-hawk-evolucion-ejecutiva.*`): 11 diapositivas para dirección y gerencia. Poco texto, capturas grandes y una idea por página, con el eje descubrir → comparar → consultar.
+2. **Informe completo** (`black-hawk-evolucion-web-informe-completo.*`): el respaldo técnico. Contiene la metodología, la matriz de evidencia, SEO, Lighthouse y las limitaciones.
 
 - **ANTES:** <https://www.blackhawkcaraudio.com/>, sitio en producción.
 - **AHORA:** rediseño publicado en un túnel temporal de Cloudflare (`obj-sociology-humidity-delhi.trycloudflare.com`).
@@ -10,9 +13,12 @@ Informe editorial que documenta, con evidencia capturada, la evolución entre la
 
 | Ruta | Contenido |
 |---|---|
-| `black-hawk-evolucion-web.html` | Informe interactivo y responsive. Incluye comparadores antes/ahora, índice, ampliación de capturas y vídeo. |
-| `black-hawk-evolucion-web.pdf` | Versión de impresión en 16:9 (28 páginas), generada desde estilos `@media print` propios. |
-| `black-hawk-evolucion-web.zip` | Paquete autónomo: HTML, `assets/`, PDF y este README. |
+| `black-hawk-evolucion-ejecutiva.html` | Presentación ejecutiva en 16:9. Se navega con ← → o con los botones, y tiene modo «Presentar» a pantalla completa. |
+| `black-hawk-evolucion-ejecutiva.pdf` | La presentación en PDF, 11 páginas en 16:9. |
+| `black-hawk-evolucion-web-informe-completo.html` | Informe técnico completo e interactivo: comparadores antes/ahora, índice, ampliación de capturas y vídeo. |
+| `black-hawk-evolucion-web-informe-completo.pdf` | Informe completo en PDF, 28 páginas en 16:9. |
+| `black-hawk-evolucion-web.zip` | Paquete autónomo con los dos niveles, `assets/` y este README. |
+| `assets/exec/` | Recortes de las capturas archivadas que usa la presentación ejecutiva. Sin retoques: solo recorte y escalado proporcional. |
 | `assets/images/` | Capturas en WebP usadas por el informe (`screens/`, `interactions/`) y recursos de marca (`brand/`: logo SVG y banner «Siente el poder» descargados del sitio). |
 | `assets/video/` | Vídeo del comparador (`comparador.webm`, 23 s, sin sonido) y su fotograma. |
 | `assets/fonts/` | Saira Condensed, Archivo e IBM Plex Mono (Google Fonts, licencia OFL), servidas en local. |
@@ -22,7 +28,7 @@ Informe editorial que documenta, con evidencia capturada, la evolución entre la
 
 ## Cómo abrirlo
 
-Abre `black-hawk-evolucion-web.html` en cualquier navegador moderno, con la carpeta `assets/` al lado. Funciona sin conexión: no carga recursos externos. El único enlace externo es el del sitio anterior, en la sección Metodología.
+Abre `black-hawk-evolucion-ejecutiva.html` (presentación) o `black-hawk-evolucion-web-informe-completo.html` (respaldo) en cualquier navegador moderno, con la carpeta `assets/` al lado. Funciona sin conexión: no carga recursos externos. El único enlace externo es el del sitio anterior, en la sección Metodología.
 
 - **Comparadores antes/ahora:** arrastra el divisor, usa las flechas ← → con el foco en la imagen o pulsa «Ver antes», «Comparar» o «Ver ahora».
 - **Capturas:** haz clic en una captura para ampliarla; Esc la cierra.
@@ -47,14 +53,17 @@ Las capturas no están retocadas: solo se recortaron, se escalaron de forma prop
 - **Formularios:** no se envió el formulario mayorista para no generar solicitudes reales.
 - **Quick View de la home anterior:** no se probó su funcionamiento.
 - **Datos del comparador:** en BH-SW12LJD las especificaciones aparecen en un párrafo, no en lista. Es una inconsistencia de contenido observada en el rediseño.
-- **Túnel temporal:** si deja de estar activo, el informe sigue funcionando, porque todas las capturas están en `assets/` y `evidence/`.
+- **Túnel temporal:** si deja de estar activo, el informe sigue funcionando, porque todas las capturas están en `assets/` y `evidence/`. El 23-09-2026 a las 23:20 UTC el túnel ya respondía 502; la presentación ejecutiva se construyó solo con la evidencia archivada.
+- **Presentación ejecutiva:** el dato «5,3 MB → 0,4 MB» es el peso transferido por la ficha BH-SW12XXG en escritorio (mediana de Lighthouse). Los tiempos de carga no se comparan porque producción y staging usan infraestructuras distintas.
 
 ## Reconstruir
 
 ```bash
-python3 tools/build.py          # inyecta datos y convierte capturas → HTML
-node tools/qa.js /tmp/qa        # QA (errores, overflow, capturas por sección) + PDF
-python3 tools/compress_pdf.py   # recomprime las imágenes del PDF
+python3 tools/build_exec.py          # presentación ejecutiva: recortes + HTML
+node tools/qa_exec.js /tmp/qa-exec   # QA de la presentación + PDF
+python3 tools/build.py               # informe completo: datos + capturas → HTML
+node tools/qa.js /tmp/qa             # QA del informe completo + PDF
+python3 tools/compress_pdf.py        # recomprime las imágenes de ambos PDF
 ```
 
-Requiere Python 3 con Pillow y PyMuPDF, y Node con Playwright.
+Requiere Python 3 con Pillow, PyMuPDF y pikepdf, y Node con Playwright.
