@@ -1,0 +1,4 @@
+const L = require('./lib'); (async () => { const b = await L.launch(); const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }); const p = await ctx.newPage();
+await L.goto(p, L.N + '/'); await L.settle(p);
+const r = await p.evaluate(() => { const o = {}; for (const e of document.querySelectorAll('body *')) { const cs = getComputedStyle(e); if (cs.contentVisibility && cs.contentVisibility !== 'visible') o[cs.contentVisibility] = (o[cs.contentVisibility] || 0) + 1; } const lazy = [...document.images].filter(i => i.loading === 'lazy' && !i.complete).length; return { cv: o, lazyIncomplete: lazy, imgs: document.images.length, incomplete: [...document.images].filter(i => !i.complete || i.naturalWidth === 0).map(i => i.src.split('/').pop()).slice(0, 10) }; });
+console.log(JSON.stringify(r)); await b.close(); })();

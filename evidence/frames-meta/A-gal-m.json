@@ -1,0 +1,43 @@
+{
+ "id": "A-gal-m",
+ "url": "https://www.blackhawkcaraudio.com/galeria-de-fotos/",
+ "vp": {
+  "width": 390,
+  "height": 844
+ },
+ "dpr": 2,
+ "http": 200,
+ "date": "2026-09-23T22:35:44.169Z",
+ "frames": [
+  {
+   "f": "frames/A-gal-m/00.png",
+   "sy": 0,
+   "from": 0,
+   "to": 844
+  },
+  {
+   "f": "frames/A-gal-m/01.png",
+   "sy": 844,
+   "from": 844,
+   "to": 1688
+  },
+  {
+   "f": "frames/A-gal-m/02.png",
+   "sy": 1688,
+   "from": 1688,
+   "to": 2532
+  },
+  {
+   "f": "frames/A-gal-m/03.png",
+   "sy": 2532,
+   "from": 2532,
+   "to": 3376
+  },
+  {
+   "f": "frames/A-gal-m/04.png",
+   "sy": 2966,
+   "from": 3376,
+   "to": 3810
+  }
+ ]
+}

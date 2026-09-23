@@ -1,0 +1,43 @@
+{
+ "id": "N-cat-sub-d",
+ "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+ "vp": {
+  "width": 1440,
+  "height": 900
+ },
+ "dpr": 1,
+ "http": 200,
+ "date": "2026-09-23T22:27:55.471Z",
+ "frames": [
+  {
+   "f": "frames/N-cat-sub-d/00.png",
+   "sy": 0,
+   "from": 0,
+   "to": 900
+  },
+  {
+   "f": "frames/N-cat-sub-d/01.png",
+   "sy": 823,
+   "from": 900,
+   "to": 1723
+  },
+  {
+   "f": "frames/N-cat-sub-d/02.png",
+   "sy": 1646,
+   "from": 1723,
+   "to": 2546
+  },
+  {
+   "f": "frames/N-cat-sub-d/03.png",
+   "sy": 2469,
+   "from": 2546,
+   "to": 3369
+  },
+  {
+   "f": "frames/N-cat-sub-d/04.png",
+   "sy": 2555,
+   "from": 3369,
+   "to": 3455
+  }
+ ]
+}

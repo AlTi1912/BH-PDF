@@ -1,0 +1,43 @@
+{
+ "id": "N-gal-m",
+ "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/galeria/",
+ "vp": {
+  "width": 390,
+  "height": 844
+ },
+ "dpr": 2,
+ "http": 200,
+ "date": "2026-09-23T22:36:11.524Z",
+ "frames": [
+  {
+   "f": "frames/N-gal-m/00.png",
+   "sy": 0,
+   "from": 0,
+   "to": 844
+  },
+  {
+   "f": "frames/N-gal-m/01.png",
+   "sy": 775,
+   "from": 844,
+   "to": 1619
+  },
+  {
+   "f": "frames/N-gal-m/02.png",
+   "sy": 1550,
+   "from": 1619,
+   "to": 2394
+  },
+  {
+   "f": "frames/N-gal-m/03.png",
+   "sy": 2325,
+   "from": 2394,
+   "to": 3169
+  },
+  {
+   "f": "frames/N-gal-m/04.png",
+   "sy": 2444,
+   "from": 3169,
+   "to": 3288
+  }
+ ]
+}

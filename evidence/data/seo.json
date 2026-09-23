@@ -1,0 +1,467 @@
+{
+ "home|antes": {
+  "h": [
+   "H1: Más de 10 años de dedicación a la industria del Car Audio.",
+   "H1: Más de 10 años de dedicación a la industria del Car Audio.",
+   "H3: ¡LO MÁS BUSCADO!",
+   "H3: ¡LO MÁS BUSCADO!",
+   "H3: ¡SÍGUENOS!"
+  ],
+  "img": 42,
+  "img_noalt": 0,
+  "img_emptyalt": 34,
+  "og": {},
+  "ld": [],
+  "lang": "es",
+  "title": "Black Hawk – Linea completa en Car Audio",
+  "desc": null,
+  "canon": "https://www.blackhawkcaraudio.com/",
+  "robots": "max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main"
+  ],
+  "bytes_html": 137236,
+  "h1": [
+   "H1: Más de 10 años de dedicación a la industria del Car Audio.",
+   "H1: Más de 10 años de dedicación a la industria del Car Audio."
+  ],
+  "nh2": 0,
+  "nh3": 3
+ },
+ "home|ahora": {
+  "h": [
+   "H1: Marca líder en car audio en Perú.",
+   "H3: Amplificadores",
+   "H3: Subwoofer",
+   "H3: Medio Rango",
+   "H3: Drivers",
+   "H3: Tweeter",
+   "H3: Procesadores",
+   "H2: BH-SW12XXG",
+   "H2: BH-117SD",
+   "H2: BH-608PRO",
+   "H2: BH-8.12DSP",
+   "H2: Una familia, cinco niveles de potencia.",
+   "H3: BH-FR1500.1",
+   "H3: BH-FR2000.1"
+  ],
+  "img": 31,
+  "img_noalt": 0,
+  "img_emptyalt": 0,
+  "og": {
+   "og:locale": "es_PE",
+   "og:site_name": "Black Hawk Car Audio Perú",
+   "og:type": "website",
+   "og:title": "Black Hawk Car Audio Perú | Potencia y precisión",
+   "og:description": "Black Hawk Car Audio Perú: amplificadores, subwoofers, medios, drivers, tweeters y procesa",
+   "og:url": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+   "og:image": "https://obj-sociology-humidity-delhi.trycloudflare.com/wp-content/uploads/2024/06/PORTADA-"
+  },
+  "ld": [
+   "Organization",
+   "WebSite"
+  ],
+  "lang": "es",
+  "title": "Black Hawk Car Audio Perú | Potencia y precisión",
+  "desc": "Black Hawk Car Audio Perú: amplificadores, subwoofers, medios, drivers, tweeters y procesadores para sistemas de sonido automotriz.",
+  "canon": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "robots": "noindex, nofollow, max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main",
+   "nav"
+  ],
+  "bytes_html": 131379,
+  "h1": [
+   "H1: Marca líder en car audio en Perú."
+  ],
+  "nh2": 15,
+  "nh3": 19
+ },
+ "catalogo|antes": {
+  "h": [
+   "H1: Tienda"
+  ],
+  "img": 3,
+  "img_noalt": 0,
+  "img_emptyalt": 1,
+  "og": {},
+  "ld": [
+   "BreadcrumbList"
+  ],
+  "lang": "es",
+  "title": "Tienda – Black Hawk",
+  "desc": null,
+  "canon": "https://www.blackhawkcaraudio.com/shop/",
+  "robots": "max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main"
+  ],
+  "bytes_html": 61913,
+  "h1": [
+   "H1: Tienda"
+  ],
+  "nh2": 0,
+  "nh3": 0
+ },
+ "catalogo|ahora": {
+  "h": [
+   "H1: Catálogo Black Hawk",
+   "H2: Filtrar catálogo",
+   "H3: BH-114",
+   "H3: BH-117",
+   "H3: BH-117.5KT",
+   "H3: BH-117D",
+   "H3: BH-117D.HTLC",
+   "H3: BH-117SD",
+   "H3: BH-119FR",
+   "H3: BH-119M",
+   "H3: BH-120AB",
+   "H3: BH-120ALB",
+   "H3: BH-120XL",
+   "H3: BH-18100NDY"
+  ],
+  "img": 15,
+  "img_noalt": 0,
+  "img_emptyalt": 0,
+  "og": {
+   "og:locale": "es_PE",
+   "og:site_name": "Black Hawk Car Audio Perú",
+   "og:type": "website",
+   "og:title": "Catálogo de car audio Black Hawk Perú",
+   "og:description": "Explora el catálogo Black Hawk Car Audio Perú. Compara amplificadores, subwoofers, medios,",
+   "og:url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-114/",
+   "og:image": "https://obj-sociology-humidity-delhi.trycloudflare.com/wp-content/uploads/2024/06/PORTADA-"
+  },
+  "ld": [
+   "Organization",
+   "WebSite",
+   "ItemList",
+   "BreadcrumbList"
+  ],
+  "lang": "es",
+  "title": "Catálogo de car audio Black Hawk Perú",
+  "desc": "Explora el catálogo Black Hawk Car Audio Perú. Compara amplificadores, subwoofers, medios, drivers, tweeters y procesadores por modelo.",
+  "canon": "https://obj-sociology-humidity-delhi.trycloudflare.com/shop/",
+  "robots": "noindex, nofollow, max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main",
+   "nav"
+  ],
+  "bytes_html": 111216,
+  "h1": [
+   "H1: Catálogo Black Hawk"
+  ],
+  "nh2": 3,
+  "nh3": 14
+ },
+ "categoria|antes": {
+  "h": [
+   "H1: Subwoofer"
+  ],
+  "img": 18,
+  "img_noalt": 0,
+  "img_emptyalt": 16,
+  "og": {},
+  "ld": [
+   "BreadcrumbList"
+  ],
+  "lang": "es",
+  "title": "Subwoofer – Black Hawk",
+  "desc": null,
+  "canon": null,
+  "robots": "max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main",
+   "nav"
+  ],
+  "bytes_html": 91773,
+  "h1": [
+   "H1: Subwoofer"
+  ],
+  "nh2": 0,
+  "nh3": 0
+ },
+ "categoria|ahora": {
+  "h": [
+   "H1: Subwoofer",
+   "H2: Filtrar catálogo",
+   "H3: BH-SW10.3UST",
+   "H3: BH-SW10LTG",
+   "H3: BH-SW10UST",
+   "H3: BH-SW10WBX",
+   "H3: BH-SW1200SL PRO",
+   "H3: BH-SW12IPAL",
+   "H3: BH-SW12LJ SLIM",
+   "H3: BH-SW12LJD",
+   "H3: BH-SW12LS4",
+   "H3: BH-SW12XXG",
+   "H3: BH-SW12XZB",
+   "H3: BH-SW12XZG"
+  ],
+  "img": 15,
+  "img_noalt": 0,
+  "img_emptyalt": 0,
+  "og": {
+   "og:locale": "es_PE",
+   "og:site_name": "Black Hawk Car Audio Perú",
+   "og:type": "website",
+   "og:title": "Subwoofer Black Hawk | Catálogo de car audio",
+   "og:description": "Compara subwoofer Black Hawk para car audio. Explora modelos, características y disponibil",
+   "og:url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-sw10-3ust-2/",
+   "og:image": "https://obj-sociology-humidity-delhi.trycloudflare.com/wp-content/uploads/2024/06/PORTADA-"
+  },
+  "ld": [
+   "Organization",
+   "WebSite",
+   "ItemList",
+   "BreadcrumbList"
+  ],
+  "lang": "es",
+  "title": "Subwoofer Black Hawk | Catálogo de car audio",
+  "desc": "Compara subwoofer Black Hawk para car audio. Explora modelos, características y disponibilidad de la línea oficial en Perú.",
+  "canon": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "robots": "noindex, nofollow, max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main",
+   "nav"
+  ],
+  "bytes_html": 110775,
+  "h1": [
+   "H1: Subwoofer"
+  ],
+  "nh2": 3,
+  "nh3": 14
+ },
+ "producto|antes": {
+  "h": [
+   "H1: BH-SW12XXG",
+   "H2: Productos relacionados"
+  ],
+  "img": 10,
+  "img_noalt": 0,
+  "img_emptyalt": 8,
+  "og": {},
+  "ld": [
+   "BreadcrumbList"
+  ],
+  "lang": "es",
+  "title": "BH-SW12XXG – Black Hawk",
+  "desc": null,
+  "canon": "https://www.blackhawkcaraudio.com/product/bh-sw12xxg/",
+  "robots": "max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main"
+  ],
+  "bytes_html": 76830,
+  "h1": [
+   "H1: BH-SW12XXG"
+  ],
+  "nh2": 1,
+  "nh3": 0
+ },
+ "producto|ahora": {
+  "h": [
+   "H1: BH-SW12XXG",
+   "H2: Información del producto",
+   "H2: También podría interesarte",
+   "H3: BH-SW15XXG",
+   "H3: BH-SW10.3UST",
+   "H3: BH-SW15IPAL",
+   "H3: BH-SW808",
+   "H2: Vistos recientemente",
+   "H3: Productos",
+   "H3: Black Hawk",
+   "H2: Vista rápida de producto",
+   "H2: Compara referencias Black Hawk"
+  ],
+  "img": 9,
+  "img_noalt": 0,
+  "img_emptyalt": 0,
+  "og": {
+   "og:locale": "es_PE",
+   "og:site_name": "Black Hawk Car Audio Perú",
+   "og:type": "product",
+   "og:title": "BH-SW12XXG | Especificaciones y cotización – Black Hawk Perú",
+   "og:description": "BH-SW12XXG Black Hawk: Subwoofer, 4000W. Revisa especificaciones y consulta disponibilidad",
+   "og:url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-sw12xxg/",
+   "og:image": "https://obj-sociology-humidity-delhi.trycloudflare.com/wp-content/uploads/2026/09/4482-BH-"
+  },
+  "ld": [
+   "Organization",
+   "WebSite",
+   "Product",
+   "BreadcrumbList"
+  ],
+  "lang": "es",
+  "title": "BH-SW12XXG | Especificaciones y cotización – Black Hawk Perú",
+  "desc": "BH-SW12XXG Black Hawk: Subwoofer, 4000W. Revisa especificaciones y consulta disponibilidad por el canal oficial en Perú.",
+  "canon": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-sw12xxg/",
+  "robots": "noindex, nofollow, max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main",
+   "nav"
+  ],
+  "bytes_html": 88288,
+  "h1": [
+   "H1: BH-SW12XXG"
+  ],
+  "nh2": 5,
+  "nh3": 6
+ },
+ "galeria|antes": {
+  "h": [
+   "H3: GALERIA DE FOTOS"
+  ],
+  "img": 15,
+  "img_noalt": 0,
+  "img_emptyalt": 13,
+  "og": {},
+  "ld": [],
+  "lang": "es",
+  "title": "Galeria de fotos – Black Hawk",
+  "desc": null,
+  "canon": "https://www.blackhawkcaraudio.com/galeria-de-fotos/",
+  "robots": "max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main",
+   "nav"
+  ],
+  "bytes_html": 81353,
+  "h1": [],
+  "nh2": 0,
+  "nh3": 1
+ },
+ "galeria|ahora": {
+  "h": [
+   "H1: Black Hawk en acción",
+   "H2: Encuentra la referencia para tu próximo sistema.",
+   "H3: Productos",
+   "H3: Black Hawk",
+   "H2: Vista rápida de producto",
+   "H2: Compara referencias Black Hawk"
+  ],
+  "img": 16,
+  "img_noalt": 0,
+  "img_emptyalt": 1,
+  "og": {
+   "og:locale": "es_PE",
+   "og:site_name": "Black Hawk Car Audio Perú",
+   "og:type": "website",
+   "og:title": "Galería Black Hawk Car Audio Perú",
+   "og:description": "Explora imágenes de productos, sistemas y presencia de Black Hawk Car Audio en Perú.",
+   "og:url": "https://obj-sociology-humidity-delhi.trycloudflare.com/galeria/",
+   "og:image": "https://obj-sociology-humidity-delhi.trycloudflare.com/wp-content/uploads/2024/06/PORTADA-"
+  },
+  "ld": [
+   "Organization",
+   "WebSite"
+  ],
+  "lang": "es",
+  "title": "Galería Black Hawk Car Audio Perú",
+  "desc": "Explora imágenes de productos, sistemas y presencia de Black Hawk Car Audio en Perú.",
+  "canon": "https://obj-sociology-humidity-delhi.trycloudflare.com/galeria/",
+  "robots": "noindex, nofollow, max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main",
+   "nav"
+  ],
+  "bytes_html": 74314,
+  "h1": [
+   "H1: Black Hawk en acción"
+  ],
+  "nh2": 3,
+  "nh3": 2
+ },
+ "mayoristas|antes": {
+  "h": [
+   "H2: ¿Cómo ser distribuidor?",
+   "H2: Escríbenos aquí"
+  ],
+  "img": 10,
+  "img_noalt": 0,
+  "img_emptyalt": 3,
+  "og": {},
+  "ld": [],
+  "lang": "es",
+  "title": "Ventas al Mayor – Black Hawk",
+  "desc": null,
+  "canon": "https://www.blackhawkcaraudio.com/ventas-al-mayor/",
+  "robots": "max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main"
+  ],
+  "bytes_html": 83893,
+  "h1": [],
+  "nh2": 2,
+  "nh3": 0
+ },
+ "mayoristas|ahora": {
+  "h": [
+   "H1: Conviértete en distribuidor Black Hawk",
+   "H2: Una solicitud directa y profesional",
+   "H3: Cuéntanos sobre tu negocio",
+   "H3: Revisión comercial",
+   "H3: Contacto directo",
+   "H2: Hablemos de tu operación",
+   "H3: Productos",
+   "H3: Black Hawk",
+   "H2: Vista rápida de producto",
+   "H2: Compara referencias Black Hawk"
+  ],
+  "img": 5,
+  "img_noalt": 0,
+  "img_emptyalt": 2,
+  "og": {
+   "og:locale": "es_PE",
+   "og:site_name": "Black Hawk Car Audio Perú",
+   "og:type": "website",
+   "og:title": "Distribuidor mayorista Black Hawk Car Audio Perú",
+   "og:description": "Solicita información para distribuir productos Black Hawk Car Audio en Perú. Envía los dat",
+   "og:url": "https://obj-sociology-humidity-delhi.trycloudflare.com/mayoristas/",
+   "og:image": "https://obj-sociology-humidity-delhi.trycloudflare.com/wp-content/uploads/2024/06/PORTADA-"
+  },
+  "ld": [
+   "Organization",
+   "WebSite"
+  ],
+  "lang": "es",
+  "title": "Distribuidor mayorista Black Hawk Car Audio Perú",
+  "desc": "Solicita información para distribuir productos Black Hawk Car Audio en Perú. Envía los datos de tu empresa al canal comercial oficial.",
+  "canon": "https://obj-sociology-humidity-delhi.trycloudflare.com/mayoristas/",
+  "robots": "noindex, nofollow, max-image-preview:large",
+  "landmarks": [
+   "footer",
+   "header",
+   "main",
+   "nav"
+  ],
+  "bytes_html": 62813,
+  "h1": [
+   "H1: Conviértete en distribuidor Black Hawk"
+  ],
+  "nh2": 4,
+  "nh3": 5
+ }
+}

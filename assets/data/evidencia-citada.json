@@ -1,0 +1,306 @@
+[
+ {
+  "id": "N-hero1-d",
+  "version": "Ahora",
+  "tipo": "Captura de viewport",
+  "url": "staging/",
+  "viewport": "1440×900",
+  "demuestra": "Home actual, primera pantalla con la diapositiva 1 del mismo banner."
+ },
+ {
+  "id": "A-hero1-d",
+  "version": "Antes",
+  "tipo": "Captura de viewport",
+  "url": "blackhawkcaraudio.com/",
+  "viewport": "1440×900",
+  "demuestra": "Home anterior, primera pantalla con la diapositiva 1 del banner."
+ },
+ {
+  "id": "A-home-d-stitch",
+  "version": "Antes",
+  "tipo": "Página completa compuesta",
+  "url": "blackhawkcaraudio.com/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Estructura completa de la home anterior."
+ },
+ {
+  "id": "N-home-d-stitch",
+  "version": "Ahora",
+  "tipo": "Página completa compuesta",
+  "url": "staging/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Estructura completa de la home actual."
+ },
+ {
+  "id": "A-shop-d-view",
+  "version": "Antes",
+  "tipo": "Captura de viewport",
+  "url": "blackhawkcaraudio.com/shop/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "/shop/ sin productos listados (categorías en barra lateral)."
+ },
+ {
+  "id": "N-shop-d-view",
+  "version": "Ahora",
+  "tipo": "Captura de viewport",
+  "url": "staging/shop/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Catálogo con 118 productos, pestañas, filtros y tarjetas con potencia."
+ },
+ {
+  "id": "A-cat-sub-d-stitch",
+  "version": "Antes",
+  "tipo": "Página completa compuesta",
+  "url": "blackhawkcaraudio.com/product-category/subwoofer/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Tarjetas con categoría y modelo; orden y paginación."
+ },
+ {
+  "id": "N-cat-sub-d-stitch",
+  "version": "Ahora",
+  "tipo": "Página completa compuesta",
+  "url": "staging/product-category/subwoofer/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Tarjetas con potencia, tipo, vista rápida y comparar."
+ },
+ {
+  "id": "N-search-04-live-sw12-d",
+  "version": "Ahora",
+  "tipo": "Interacción",
+  "url": "staging/",
+  "viewport": "1440×900",
+  "demuestra": "Sugerencias en vivo para «sw12» con tipo y potencia."
+ },
+ {
+  "id": "A-search-04-typed-sw12-d",
+  "version": "Antes",
+  "tipo": "Interacción",
+  "url": "blackhawkcaraudio.com/",
+  "viewport": "1440×900",
+  "demuestra": "Sugerencias en vivo para «sw12» con miniatura."
+ },
+ {
+  "id": "N-prod-sw12xxg-d-view",
+  "version": "Ahora",
+  "tipo": "Captura de viewport",
+  "url": "staging/product/bh-sw12xxg/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Ficha actual: potencia destacada, COTIZAR, acciones, mismas especificaciones."
+ },
+ {
+  "id": "A-prod-sw12xxg-d-view",
+  "version": "Antes",
+  "tipo": "Captura de viewport",
+  "url": "blackhawkcaraudio.com/product/bh-sw12xxg/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Ficha anterior: breadcrumb, 4 especificaciones, sin consulta."
+ },
+ {
+  "id": "A-prod-812dsp-d-view",
+  "version": "Antes",
+  "tipo": "Captura de viewport",
+  "url": "blackhawkcaraudio.com/product/bh-8-12dsp/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Ficha sin especificaciones."
+ },
+ {
+  "id": "N-prod-812dsp-d-view",
+  "version": "Ahora",
+  "tipo": "Captura de viewport",
+  "url": "staging/product/bh-8-12dsp/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Ficha con cuatro características (origen no verificado)."
+ },
+ {
+  "id": "N-cmp-01-add1-d",
+  "version": "Ahora",
+  "tipo": "Interacción",
+  "url": "staging/product-category/subwoofer/",
+  "viewport": "1440×900",
+  "demuestra": "Comparador: primer modelo añadido."
+ },
+ {
+  "id": "N-cmp-03-add4-limit-d",
+  "version": "Ahora",
+  "tipo": "Interacción",
+  "url": "staging/product-category/subwoofer/",
+  "viewport": "1440×900",
+  "demuestra": "Comparador: límite de 3 productos."
+ },
+ {
+  "id": "N-cmp-04-open-d",
+  "version": "Ahora",
+  "tipo": "Interacción",
+  "url": "staging/product-category/subwoofer/",
+  "viewport": "1440×900",
+  "demuestra": "Comparador: vista comparada de 3 modelos."
+ },
+ {
+  "id": "N-cmp-06-specs-d",
+  "version": "Ahora",
+  "tipo": "Interacción",
+  "url": "staging/product-category/subwoofer/",
+  "viewport": "1440×900",
+  "demuestra": "Comparador: filas de especificaciones."
+ },
+ {
+  "id": "A-gal-d-stitch",
+  "version": "Antes",
+  "tipo": "Página completa compuesta",
+  "url": "blackhawkcaraudio.com/galeria-de-fotos/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Galería en cuadrícula de 12 fotos."
+ },
+ {
+  "id": "A-gal-01-lightbox-d",
+  "version": "Antes",
+  "tipo": "Interacción",
+  "url": "blackhawkcaraudio.com/galeria-de-fotos/",
+  "viewport": "1440×900",
+  "demuestra": "Lightbox anterior con zoom, pantalla completa y compartir."
+ },
+ {
+  "id": "N-gal-d-stitch",
+  "version": "Ahora",
+  "tipo": "Página completa compuesta",
+  "url": "staging/galeria/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Galería en mosaico con las mismas 12 fotos y cierre con CTA."
+ },
+ {
+  "id": "N-gal-01-lightbox-d",
+  "version": "Ahora",
+  "tipo": "Interacción",
+  "url": "staging/galeria/",
+  "viewport": "1440×900",
+  "demuestra": "Lightbox actual con anterior/siguiente y cierre."
+ },
+ {
+  "id": "N-distri-d-view",
+  "version": "Ahora",
+  "tipo": "Captura de viewport",
+  "url": "staging/distribuidores/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Dónde comprar: consulta por WhatsApp, sin listado."
+ },
+ {
+  "id": "N-nosotros-d-stitch",
+  "version": "Ahora",
+  "tipo": "Página completa compuesta",
+  "url": "staging/nosotros/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Página de marca completa."
+ },
+ {
+  "id": "N-nosotros-d-view",
+  "version": "Ahora",
+  "tipo": "Captura de viewport",
+  "url": "staging/nosotros/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Página de marca (primera pantalla)."
+ },
+ {
+  "id": "N-soporte-d-stitch",
+  "version": "Ahora",
+  "tipo": "Página completa compuesta",
+  "url": "staging/soporte/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Soporte completa con preguntas frecuentes."
+ },
+ {
+  "id": "N-soporte-d-view",
+  "version": "Ahora",
+  "tipo": "Captura de viewport",
+  "url": "staging/soporte/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Soporte: producto, garantía, manuales."
+ },
+ {
+  "id": "N-mayor-d-stitch",
+  "version": "Ahora",
+  "tipo": "Página completa compuesta",
+  "url": "staging/mayoristas/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Formulario B2B completo."
+ },
+ {
+  "id": "N-mayor-d-view",
+  "version": "Ahora",
+  "tipo": "Captura de viewport",
+  "url": "staging/mayoristas/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Canal mayorista B2B (primera pantalla)."
+ },
+ {
+  "id": "A-mayor-d-stitch",
+  "version": "Antes",
+  "tipo": "Página completa compuesta",
+  "url": "blackhawkcaraudio.com/ventas-al-mayor/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Formulario de 4 campos y logos de marcas sin cargar."
+ },
+ {
+  "id": "A-mayor-d-view",
+  "version": "Antes",
+  "tipo": "Captura de viewport",
+  "url": "blackhawkcaraudio.com/ventas-al-mayor/ · HTTP 200",
+  "viewport": "1440×900",
+  "demuestra": "Ventas al mayor a nombre de Estilo Car Audio."
+ },
+ {
+  "id": "A-mmenu-02-productos-m",
+  "version": "Antes",
+  "tipo": "Interacción",
+  "url": "blackhawkcaraudio.com/",
+  "viewport": "390×844",
+  "demuestra": "Menú móvil anterior con Productos desplegado."
+ },
+ {
+  "id": "N-mmenu-02-productos-m",
+  "version": "Ahora",
+  "tipo": "Interacción",
+  "url": "staging/",
+  "viewport": "390×844",
+  "demuestra": "Menú móvil actual con Productos desplegado."
+ },
+ {
+  "id": "A-msearch-03-sw12-wait-m",
+  "version": "Antes",
+  "tipo": "Interacción",
+  "url": "blackhawkcaraudio.com/",
+  "viewport": "390×844",
+  "demuestra": "Búsqueda móvil anterior: sin sugerencias tras 7 s."
+ },
+ {
+  "id": "N-msearch-02-sw12-m",
+  "version": "Ahora",
+  "tipo": "Interacción",
+  "url": "staging/",
+  "viewport": "390×844",
+  "demuestra": "Búsqueda móvil actual con sugerencias."
+ },
+ {
+  "id": "A-prod-sw12xxg-m-stitch",
+  "version": "Antes",
+  "tipo": "Página completa compuesta",
+  "url": "blackhawkcaraudio.com/product/bh-sw12xxg/ · HTTP 200",
+  "viewport": "390×844",
+  "demuestra": "Ficha móvil anterior sin botón de consulta."
+ },
+ {
+  "id": "N-prod-sw12xxg-m-stitch",
+  "version": "Ahora",
+  "tipo": "Página completa compuesta",
+  "url": "staging/product/bh-sw12xxg/ · HTTP 200",
+  "viewport": "390×844",
+  "demuestra": "Ficha móvil actual con COTIZAR en la primera pantalla."
+ },
+ {
+  "id": "N-cmp-04-open-m",
+  "version": "Ahora",
+  "tipo": "Interacción",
+  "url": "staging/product-category/subwoofer/",
+  "viewport": "390×844",
+  "demuestra": "Comparador en móvil."
+ }
+]

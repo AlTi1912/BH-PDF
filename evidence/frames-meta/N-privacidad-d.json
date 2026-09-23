@@ -1,0 +1,31 @@
+{
+ "id": "N-privacidad-d",
+ "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/politica-de-privacidad/",
+ "vp": {
+  "width": 1440,
+  "height": 900
+ },
+ "dpr": 1,
+ "http": 200,
+ "date": "2026-09-23T22:31:48.429Z",
+ "frames": [
+  {
+   "f": "frames/N-privacidad-d/00.png",
+   "sy": 0,
+   "from": 0,
+   "to": 900
+  },
+  {
+   "f": "frames/N-privacidad-d/01.png",
+   "sy": 823,
+   "from": 900,
+   "to": 1723
+  },
+  {
+   "f": "frames/N-privacidad-d/02.png",
+   "sy": 1601,
+   "from": 1723,
+   "to": 2501
+  }
+ ]
+}

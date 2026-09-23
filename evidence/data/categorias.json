@@ -1,0 +1,50 @@
+{
+ "amplificadores": {
+  "antes": "Showing 1&ndash;12 of 26 results",
+  "ahora": "31"
+ },
+ "medio-rango": {
+  "antes": "Showing 1&ndash;12 of 25 results",
+  "ahora": "25"
+ },
+ "tweeter": {
+  "antes": "Showing 1&ndash;12 of 24 results",
+  "ahora": "24"
+ },
+ "subwoofer": {
+  "antes": "Showing 1&ndash;12 of 16 results",
+  "ahora": "17"
+ },
+ "altavoces": {
+  "antes": "Showing all 9 results",
+  "ahora": "9"
+ },
+ "drivers": {
+  "antes": "Showing all 8 results",
+  "ahora": "8"
+ },
+ "ecualizador": {
+  "antes": "Showing all 7 results",
+  "ahora": "7"
+ },
+ "procesadores": {
+  "antes": "Showing all 5 results",
+  "ahora": "5"
+ },
+ "componentes": {
+  "antes": "Showing all 5 results",
+  "ahora": "5"
+ },
+ "subwoofer-activo": {
+  "antes": "Showing all 4 results",
+  "ahora": "4"
+ },
+ "parlantes": {
+  "antes": "Showing all 3 results",
+  "ahora": "3"
+ },
+ "cargadores": {
+  "antes": "ERR HTTP Error 404: Not Found",
+  "ahora": "2"
+ }
+}

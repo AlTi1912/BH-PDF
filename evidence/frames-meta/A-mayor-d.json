@@ -1,0 +1,25 @@
+{
+ "id": "A-mayor-d",
+ "url": "https://www.blackhawkcaraudio.com/ventas-al-mayor/",
+ "vp": {
+  "width": 1440,
+  "height": 900
+ },
+ "dpr": 1,
+ "http": 200,
+ "date": "2026-09-23T22:29:59.788Z",
+ "frames": [
+  {
+   "f": "frames/A-mayor-d/00.png",
+   "sy": 0,
+   "from": 0,
+   "to": 900
+  },
+  {
+   "f": "frames/A-mayor-d/01.png",
+   "sy": 794,
+   "from": 900,
+   "to": 1694
+  }
+ ]
+}

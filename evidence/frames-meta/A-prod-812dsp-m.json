@@ -1,0 +1,31 @@
+{
+ "id": "A-prod-812dsp-m",
+ "url": "https://www.blackhawkcaraudio.com/product/bh-8-12dsp/",
+ "vp": {
+  "width": 390,
+  "height": 844
+ },
+ "dpr": 2,
+ "http": 200,
+ "date": "2026-09-23T22:35:00.112Z",
+ "frames": [
+  {
+   "f": "frames/A-prod-812dsp-m/00.png",
+   "sy": 0,
+   "from": 0,
+   "to": 844
+  },
+  {
+   "f": "frames/A-prod-812dsp-m/01.png",
+   "sy": 844,
+   "from": 844,
+   "to": 1688
+  },
+  {
+   "f": "frames/A-prod-812dsp-m/02.png",
+   "sy": 892,
+   "from": 1688,
+   "to": 1736
+  }
+ ]
+}

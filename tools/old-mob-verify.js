@@ -1,0 +1,12 @@
+const L = require('./lib'); const OUT = '../evidence/interactions/';
+(async () => { const b = await L.launch(); const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }); const p = await ctx.newPage();
+ await L.goto(p, L.O + '/'); await L.settle(p);
+ const m = await p.evaluate(() => [...document.querySelectorAll('.mobile-menu a')].map(a => a.innerText.trim() + ' ' + a.getAttribute('href')));
+ console.log('mobile menu links:', m.length, '\n' + m.join('\n'));
+ const d = await p.evaluate(() => [...document.querySelectorAll('header nav a, .main-navigation a, #menu-main-menu a')].map(a => a.innerText.trim()).filter(Boolean)); console.log('desktop nav links:', d.length, d.join(' | '));
+ await p.locator('.search-block-mobile button').first().tap(); await p.waitForTimeout(1500);
+ const oi = p.locator('input[name=s]:visible').first(); await oi.type('sw12', { delay: 150 }); await p.waitForTimeout(7000);
+ const s = await p.evaluate(() => [...document.querySelectorAll('a[href*="/product/"]')].filter(a => a.offsetParent && a.getBoundingClientRect().top < 844 && a.getBoundingClientRect().top > 0).map(a => a.innerText.trim()).filter(Boolean));
+ console.log('mobile suggestions visible after 7s:', JSON.stringify(s)); await p.screenshot({ path: OUT + 'A-msearch-03-sw12-wait-m.png' });
+ await oi.press('Enter'); await p.waitForLoadState('domcontentloaded'); await L.settle(p); console.log(p.url()); await p.screenshot({ path: OUT + 'A-msearch-04-results-m.png' });
+ await b.close(); })();

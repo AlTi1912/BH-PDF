@@ -1,0 +1,154 @@
+{
+ "A-hero1-d": {
+  "url": "https://www.blackhawkcaraudio.com/",
+  "d": "Home anterior, primera pantalla con la diapositiva 1 del banner."
+ },
+ "N-hero1-d": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "d": "Home actual, primera pantalla con la diapositiva 1 del mismo banner."
+ },
+ "A-home-d-stitch": {
+  "url": "https://www.blackhawkcaraudio.com/",
+  "d": "Estructura completa de la home anterior."
+ },
+ "N-home-d-stitch": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "d": "Estructura completa de la home actual."
+ },
+ "A-shop-d-view": {
+  "url": "https://www.blackhawkcaraudio.com/shop/",
+  "d": "/shop/ sin productos listados (categorías en barra lateral)."
+ },
+ "N-shop-d-view": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/shop/",
+  "d": "Catálogo con 118 productos, pestañas, filtros y tarjetas con potencia."
+ },
+ "A-cat-sub-d-stitch": {
+  "url": "https://www.blackhawkcaraudio.com/product-category/subwoofer/",
+  "d": "Tarjetas con categoría y modelo; orden y paginación."
+ },
+ "N-cat-sub-d-stitch": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "d": "Tarjetas con potencia, tipo, vista rápida y comparar."
+ },
+ "A-prod-sw12xxg-d-view": {
+  "url": "https://www.blackhawkcaraudio.com/product/bh-sw12xxg/",
+  "d": "Ficha anterior: breadcrumb, 4 especificaciones, sin consulta."
+ },
+ "N-prod-sw12xxg-d-view": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-sw12xxg/",
+  "d": "Ficha actual: potencia destacada, COTIZAR, acciones, mismas especificaciones."
+ },
+ "A-prod-812dsp-d-view": {
+  "url": "https://www.blackhawkcaraudio.com/product/bh-8-12dsp/",
+  "d": "Ficha sin especificaciones."
+ },
+ "N-prod-812dsp-d-view": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-8-12dsp/",
+  "d": "Ficha con cuatro características (origen no verificado)."
+ },
+ "A-gal-d-stitch": {
+  "url": "https://www.blackhawkcaraudio.com/galeria-de-fotos/",
+  "d": "Galería en cuadrícula de 12 fotos."
+ },
+ "N-gal-d-stitch": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/galeria/",
+  "d": "Galería en mosaico con las mismas 12 fotos y cierre con CTA."
+ },
+ "A-gal-01-lightbox-d": {
+  "url": "https://www.blackhawkcaraudio.com/galeria-de-fotos/",
+  "d": "Lightbox anterior con zoom, pantalla completa y compartir."
+ },
+ "N-gal-01-lightbox-d": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/galeria/",
+  "d": "Lightbox actual con anterior/siguiente y cierre."
+ },
+ "N-distri-d-view": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/distribuidores/",
+  "d": "Dónde comprar: consulta por WhatsApp, sin listado."
+ },
+ "N-nosotros-d-view": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/nosotros/",
+  "d": "Página de marca (primera pantalla)."
+ },
+ "N-nosotros-d-stitch": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/nosotros/",
+  "d": "Página de marca completa."
+ },
+ "N-soporte-d-view": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/soporte/",
+  "d": "Soporte: producto, garantía, manuales."
+ },
+ "N-soporte-d-stitch": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/soporte/",
+  "d": "Soporte completa con preguntas frecuentes."
+ },
+ "N-mayor-d-view": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/mayoristas/",
+  "d": "Canal mayorista B2B (primera pantalla)."
+ },
+ "N-mayor-d-stitch": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/mayoristas/",
+  "d": "Formulario B2B completo."
+ },
+ "A-mayor-d-view": {
+  "url": "https://www.blackhawkcaraudio.com/ventas-al-mayor/",
+  "d": "Ventas al mayor a nombre de Estilo Car Audio."
+ },
+ "A-mayor-d-stitch": {
+  "url": "https://www.blackhawkcaraudio.com/ventas-al-mayor/",
+  "d": "Formulario de 4 campos y logos de marcas sin cargar."
+ },
+ "A-prod-sw12xxg-m-stitch": {
+  "url": "https://www.blackhawkcaraudio.com/product/bh-sw12xxg/",
+  "d": "Ficha móvil anterior sin botón de consulta."
+ },
+ "N-prod-sw12xxg-m-stitch": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-sw12xxg/",
+  "d": "Ficha móvil actual con COTIZAR en la primera pantalla."
+ },
+ "N-search-04-live-sw12-d": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "d": "Sugerencias en vivo para «sw12» con tipo y potencia."
+ },
+ "A-search-04-typed-sw12-d": {
+  "url": "https://www.blackhawkcaraudio.com/",
+  "d": "Sugerencias en vivo para «sw12» con miniatura."
+ },
+ "N-cmp-01-add1-d": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "d": "Comparador: primer modelo añadido."
+ },
+ "N-cmp-03-add4-limit-d": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "d": "Comparador: límite de 3 productos."
+ },
+ "N-cmp-04-open-d": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "d": "Comparador: vista comparada de 3 modelos."
+ },
+ "N-cmp-06-specs-d": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "d": "Comparador: filas de especificaciones."
+ },
+ "N-cmp-04-open-m": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "d": "Comparador en móvil."
+ },
+ "A-mmenu-02-productos-m": {
+  "url": "https://www.blackhawkcaraudio.com/",
+  "d": "Menú móvil anterior con Productos desplegado."
+ },
+ "N-mmenu-02-productos-m": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "d": "Menú móvil actual con Productos desplegado."
+ },
+ "A-msearch-03-sw12-wait-m": {
+  "url": "https://www.blackhawkcaraudio.com/",
+  "d": "Búsqueda móvil anterior: sin sugerencias tras 7 s."
+ },
+ "N-msearch-02-sw12-m": {
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "d": "Búsqueda móvil actual con sugerencias."
+ }
+}

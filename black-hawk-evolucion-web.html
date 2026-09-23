@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Black Hawk: evolución web</title>
+<meta name="description" content="Informe documentado de la evolución entre la web anterior de Black Hawk Car Audio y el rediseño actual, basado en capturas y pruebas equivalentes.">
+<style>
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/Archivo-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/Archivo-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/Archivo-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/Archivo-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/Archivo-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/Archivo-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/Archivo-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/Archivo-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/IBMPlexMono-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/IBMPlexMono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/IBMPlexMono-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/IBMPlexMono-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/SairaCondensed-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/SairaCondensed-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/SairaCondensed-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/SairaCondensed-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/SairaCondensed-800-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Saira Condensed';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/SairaCondensed-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+:root{
+  color-scheme: dark;
+  --c0:#0b0c0e; --c1:#121418; --c2:#1a1d22; --c3:#23272e; --line:#2c3139; --line-2:#3a4049;
+  --tx:#f1f1ee; --tx-2:#c9ccd1; --mut:#959ba5;
+  --red:#e3121b; --red-tx:#ff4d55; --wine:#6d0f1b; --violet:#3a2166; --violet-2:#6b45b8;
+  --wa:#25d366; --antes:#8d96a3;
+  --f-disp:'Saira Condensed','Arial Narrow','Roboto Condensed',sans-serif;
+  --f-body:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --gut:clamp(16px,4vw,56px);
+  --w:1320px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px;background:var(--c0)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--c0);color:var(--tx);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,video{max-width:100%;display:block}
+a{color:var(--tx);text-decoration-color:var(--red);text-underline-offset:3px}
+a:hover{color:#fff}
+:focus-visible{outline:2px solid var(--red-tx);outline-offset:3px}
+code,.mono{font-family:var(--f-mono);font-size:.82em;letter-spacing:0}
+h1,h2,h3{font-family:var(--f-disp);font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:.005em;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.4rem,5.4vw,4.6rem)}
+h3{font-size:clamp(1.35rem,2.2vw,1.8rem);font-weight:700;line-height:1}
+p{margin:0;max-width:66ch}
+.skip{position:absolute;left:16px;top:-60px;background:var(--red);color:#fff;padding:10px 16px;z-index:100;font-weight:600}
+.skip:focus{top:12px}
+
+/* ---------- top bar + index ---------- */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(11,12,14,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar__in{max-width:calc(var(--w) + 2*var(--gut));margin:0 auto;padding-inline:var(--gut);height:56px;display:flex;align-items:center;gap:16px}
+.topbar__brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:700 15px/1 var(--f-disp);letter-spacing:.12em;text-transform:uppercase}
+.topbar__brand img{width:44px;height:auto}
+.topbar__cur{font:500 12px/1 var(--f-mono);color:var(--mut);letter-spacing:.04em;margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.idx-btn{font:600 13px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;background:transparent;color:var(--tx);border:1px solid var(--line-2);padding:10px 14px;cursor:pointer;min-height:44px}
+.idx-btn[aria-expanded="true"]{background:var(--tx);color:var(--c0)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--red)}
+.idx{position:fixed;inset:57px 0 auto auto;width:min(420px,100%);max-height:calc(100dvh - 57px);overflow:auto;background:var(--c1);border-left:1px solid var(--line);border-bottom:1px solid var(--line);z-index:39;padding:12px 0 20px}
+.idx ol{list-style:none;margin:0;padding:0}
+.idx a{display:grid;grid-template-columns:42px 1fr;gap:6px;padding:10px 24px;text-decoration:none;color:var(--tx-2);font:500 15px/1.3 var(--f-body)}
+.idx a span{font:500 12px/1.6 var(--f-mono);color:var(--mut)}
+.idx a:hover,.idx a.is-active{background:var(--c2);color:#fff}
+.idx a.is-active span{color:var(--red-tx)}
+
+/* ---------- sheets ---------- */
+.sheet{position:relative;padding-block:clamp(56px,9vw,112px);border-bottom:1px solid var(--line)}
+.wrap{max-width:calc(var(--w) + 2*var(--gut));margin:0 auto;padding-inline:var(--gut)}
+.sheet--alt{background:var(--c1)}
+.eyebrow{display:flex;align-items:center;gap:12px;font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:22px}
+.eyebrow b{color:var(--red-tx);font-weight:500}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line);max-width:240px}
+.lede{font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--tx-2);margin-top:22px;max-width:62ch}
+.head{display:grid;gap:0;margin-bottom:clamp(32px,4vw,52px)}
+.cols{display:grid;gap:clamp(20px,3vw,40px)}
+.cols>*,.flow__row>*{min-width:0}
+@media (min-width:900px){.cols-2{grid-template-columns:1fr 1fr}.cols-3{grid-template-columns:repeat(3,1fr)}.cols-4{grid-template-columns:repeat(4,1fr)}.cols-12-7{grid-template-columns:7fr 5fr}.cols-12-5{grid-template-columns:5fr 7fr}}
+@media (min-width:640px) and (max-width:899px){.cols-4{grid-template-columns:1fr 1fr}.cols-3{grid-template-columns:1fr 1fr}}
+
+/* labels */
+.tag{display:inline-flex;align-items:center;gap:6px;font:600 11px/1.25 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;padding:5px 8px;border:1px solid currentColor;max-width:100%;width:fit-content}
+.tag--antes{color:var(--antes)}
+.tag--ahora{color:var(--red-tx)}
+.tag--ux{color:#b9a6e8}
+.tag--inf{color:#e0b36a}
+.tag--pend{color:#e0b36a;border-style:dashed}
+.tag--na{color:var(--mut);border-style:dashed}
+.tag--wa{color:var(--wa)}
+
+/* figures */
+figure{margin:0}
+.fig{display:grid;gap:12px}
+.frame{position:relative;background:#fff;border:1px solid var(--line-2);overflow:hidden}
+.frame img{width:100%;height:auto}
+.frame--dark{background:var(--c2)}
+.cap{font:400 13px/1.5 var(--f-body);color:var(--tx-2);display:grid;gap:6px}
+.meta{font:400 11.5px/1.5 var(--f-mono);color:var(--mut);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.meta code{font-size:1em;color:var(--tx-2)}
+.zoom{all:unset;cursor:zoom-in;display:block;position:relative}
+.zoom:focus-visible{outline:2px solid var(--red-tx);outline-offset:2px}
+.zoom::after{content:"Ampliar";position:absolute;right:8px;bottom:8px;font:600 10px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;background:rgba(11,12,14,.85);color:#fff;padding:6px 8px;opacity:0;transition:opacity .2s}
+.zoom:hover::after,.zoom:focus-visible::after{opacity:1}
+.scroller{max-height:min(78vh,760px);overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.scroller:focus-visible{outline:2px solid var(--red-tx)}
+.phone{max-width:340px;margin-inline:auto;width:100%}
+.phone .frame{border-radius:18px;border:6px solid #25292f}
+
+/* annotations */
+.mk{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font:700 12px/28px var(--f-mono);text-align:center;box-shadow:0 0 0 3px rgba(255,255,255,.95),0 2px 10px rgba(0,0,0,.45);pointer-events:none}
+.mk--antes{background:#4b5563}
+.notes{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.notes li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start}
+.notes .n{font:700 12px/26px var(--f-mono);width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;text-align:center}
+.notes--antes .n{background:#4b5563}
+.notes b{display:block;font:700 15px/1.25 var(--f-body);color:var(--tx)}
+.notes span{font-size:14px;color:var(--tx-2);line-height:1.5}
+
+/* before/after slider */
+.ba{display:grid;gap:14px}
+.ba__stage{position:relative;overflow:hidden;border:1px solid var(--line-2);background:#fff;touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none;--pos:50%}
+.ba__stage img{width:100%;height:auto;pointer-events:none;-webkit-user-drag:none}
+.ba__layer{position:absolute;inset:0}
+.ba__before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba__line{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.35);pointer-events:none}
+.ba__knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--c0);border:2px solid #fff;display:grid;place-items:center;color:#fff;font:700 14px/1 var(--f-mono)}
+.ba__lbl{position:absolute;bottom:12px;font:600 11px/1 var(--f-mono);letter-spacing:.14em;padding:7px 10px;pointer-events:none;z-index:2}
+.ba__lbl--a{left:12px;background:#4b5563;color:#fff}
+.ba__lbl--b{right:12px;background:var(--red);color:#fff}
+.ba__range{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.ba__stage:has(.ba__range:focus-visible){outline:2px solid var(--red-tx);outline-offset:3px}
+.ba__ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ba__ctl button{font:600 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--tx);border:1px solid var(--line-2);padding:0 14px;min-height:40px;cursor:pointer}
+.ba__ctl button:hover{border-color:var(--tx)}
+.ba__ctl button[aria-pressed="true"]{background:var(--tx);color:var(--c0);border-color:var(--tx)}
+.ba__ctl .hint{font:400 12px/1.4 var(--f-mono);color:var(--mut);margin-left:auto}
+.ba__static{display:none}
+
+/* lists / blocks */
+.plain{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.plain li{padding-left:18px;position:relative;color:var(--tx-2);font-size:15px}
+.plain li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--red)}
+.plain--mut li::before{background:var(--antes)}
+.plain b{color:var(--tx);font-weight:600}
+.block{border-top:2px solid var(--line-2);padding-top:18px;display:grid;gap:14px;align-content:start}
+.block--red{border-top-color:var(--red)}
+.block h3{font-size:1.5rem}
+.kicker{font:600 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.why{border-left:3px solid var(--red);padding:4px 0 4px 18px;display:grid;gap:8px;max-width:70ch;align-content:start}
+.why p{color:var(--tx);font-size:16px}
+.note{font-size:13.5px;color:var(--mut);max-width:80ch}
+.stat{display:grid;gap:4px}
+.stat b{font:800 clamp(2.4rem,4.5vw,3.6rem)/.9 var(--f-disp);color:var(--tx)}
+.stat span{font:500 12px/1.4 var(--f-mono);color:var(--mut);letter-spacing:.04em}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font:600 11px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);background:var(--c2);position:sticky;top:0}
+tbody th{font-weight:600;color:var(--tx)}
+td{color:var(--tx-2)}
+td.num,th.num{text-align:right}
+tr:last-child td,tr:last-child th{border-bottom:0}
+.hl{color:var(--tx);font-weight:600}
+.dim{color:var(--mut)}
+
+/* cover */
+.cover{position:relative;overflow:hidden;border-bottom:1px solid var(--line);isolation:isolate;background:radial-gradient(70% 60% at 85% 20%,rgba(107,69,184,.22),transparent 70%),var(--c0)}
+.cover__bg{position:relative;z-index:-1;aspect-ratio:1410/481;max-height:62vh;width:100%;overflow:hidden}
+.cover__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.cover__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,14,0) 45%,rgba(11,12,14,.75) 80%,var(--c0) 100%)}
+.cover__in{padding-block:0 clamp(40px,7vw,80px);margin-top:clamp(-150px,-9vw,-40px);display:grid;gap:22px;position:relative}
+.cover__logo{width:clamp(110px,14vw,170px)}
+.cover h1{font-size:clamp(4.2rem,15vw,12.5rem);line-height:.8;letter-spacing:-.005em}
+.cover__sub{font:700 clamp(1.4rem,3.2vw,2.6rem)/1 var(--f-disp);text-transform:uppercase;letter-spacing:.06em;color:var(--tx-2)}
+.cover__thesis{font:500 clamp(1.1rem,1.8vw,1.45rem)/1.35 var(--f-body);max-width:34ch;color:var(--tx)}
+.cover__meta{display:flex;flex-wrap:wrap;gap:10px 28px;font:400 12px/1.5 var(--f-mono);color:var(--mut);border-top:1px solid var(--line-2);padding-top:18px}
+.cover__meta b{color:var(--tx-2);font-weight:500}
+
+/* flow */
+.flow{display:grid;gap:10px}
+.flow__row{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px}
+.step{flex:1 1 118px;border:1px solid var(--line-2);background:var(--c2);padding:14px 14px 12px;display:grid;gap:6px;align-content:start;position:relative}
+.step b{font:700 1.15rem/1 var(--f-disp);text-transform:uppercase;letter-spacing:.03em}
+.step span{font-size:13px;color:var(--tx-2);line-height:1.4}
+.step code{font-size:11px;color:var(--mut)}
+.step--ahora{border-color:var(--red)}
+.step--gap{border-style:dashed;background:transparent}
+.step--wa{border-color:var(--wa)}
+.step--wa b{color:var(--wa)}
+.arrow{flex:0 0 18px;display:grid;place-items:center;color:var(--mut);font:700 16px/1 var(--f-mono)}
+.flow__lbl{display:flex;gap:10px;align-items:center}
+
+/* verbs */
+.verbs{display:grid;gap:0;border-top:1px solid var(--line-2)}
+.verb{display:grid;gap:10px;padding:28px 0;border-bottom:1px solid var(--line-2)}
+@media (min-width:900px){.verb{grid-template-columns:27rem 1fr;gap:40px;align-items:center}}
+.verb h3{font-size:clamp(2.8rem,6vw,5rem);font-weight:800}
+.verb:nth-child(2) h3{color:var(--red-tx)}
+
+/* evidence matrix */
+details.mx summary{cursor:pointer;font:600 13px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:14px 0;list-style:none}
+details.mx summary::-webkit-details-marker{display:none}
+details.mx summary::before{content:"+ ";color:var(--red-tx)}
+details.mx[open] summary::before{content:"– "}
+.mx table{font-size:12.5px}
+.perf table{font-size:13px}.perf td,.perf th{padding:8px 10px;white-space:nowrap}
+.mx td,.mx th{padding:7px 10px}
+
+/* lightbox */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(96vw,1500px);max-height:94vh;width:auto;color:var(--tx)}
+dialog.lb::backdrop{background:rgba(5,5,7,.9)}
+.lb__in{display:grid;gap:10px}
+.lb__img{max-height:84vh;overflow:auto;background:#fff}
+.lb__img img{width:auto;max-width:none;height:auto}
+.lb__bar{display:flex;justify-content:space-between;align-items:center;gap:16px;font:400 12px/1.4 var(--f-mono);color:var(--tx-2)}
+.lb__close{font:600 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;background:var(--tx);color:var(--c0);border:0;padding:0 16px;min-height:40px;cursor:pointer}
+
+.video{border:1px solid var(--line-2);background:#000}
+.video video{width:100%;height:auto}
+.play-print{display:none}
+.footer{padding-block:48px;color:var(--mut);font:400 12px/1.6 var(--f-mono)}
+
+@media (min-width:1360px){
+  .idx{inset:57px auto 0 0;width:260px;max-height:none;border-right:1px solid var(--line);border-left:0;display:block!important;background:var(--c0)}
+  .idx-btn{display:none}
+  body{padding-left:260px}
+  .topbar{margin-left:-260px}
+}
+
+/* ================= PRINT: 16:9 slides ================= */
+@page{size:13.333in 7.5in;margin:0}
+@media print{
+  :root{--gut:48px}
+  html,body{background:var(--c0)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{padding:0!important;font-size:12px;line-height:1.45}
+  .topbar,.idx,.skip,dialog,.ba__ctl,.ba__stage,.screen-only,.zoom::after{display:none!important}
+  .print-only{display:block!important}
+  .sheet,.cover{height:7.5in;min-height:0;overflow:hidden;break-after:page;break-inside:avoid;padding:36px 0 30px;border:0;position:relative}
+  .sheet::after{content:attr(data-folio);position:absolute;right:48px;bottom:14px;font:400 9px/1 var(--f-mono);color:var(--mut);letter-spacing:.12em}
+  .wrap{max-width:none;padding-inline:48px;height:100%}
+  h2{font-size:48px}
+  h3{font-size:19px}
+  .head{margin-bottom:18px}
+  .eyebrow{margin-bottom:12px;font-size:10px}
+  .lede{font-size:13.5px;margin-top:10px}
+  p{font-size:12.5px}
+  .plain{gap:6px}.plain li{font-size:11.5px}
+  .notes{gap:7px}.notes b{font-size:12px}.notes span{font-size:11px}
+  .notes li{grid-template-columns:26px 1fr;gap:6px}.notes .n{width:22px;height:22px;line-height:22px;font-size:10px}
+  .mk{width:22px;height:22px;line-height:22px;font-size:10px}
+  .cap{font-size:10.5px;gap:3px}.meta{font-size:8.5px}
+  .cols{gap:22px}
+  .cols-2{grid-template-columns:1fr 1fr}.cols-3{grid-template-columns:repeat(3,1fr)}.cols-4{grid-template-columns:repeat(4,1fr)}.cols-12-7{grid-template-columns:7fr 5fr}.cols-12-5{grid-template-columns:5fr 7fr}
+  .ba__static{display:grid!important;grid-template-columns:1fr 1fr;gap:18px}
+  .scroller{max-height:none;overflow:hidden}
+  .p-h{max-height:var(--ph,360px);overflow:hidden}
+  .why p{font-size:12.5px}.why{padding-left:12px}
+  table{font-size:10.5px}th,td{padding:5px 8px}
+  thead th{font-size:8.5px;position:static}
+  .tbl-wrap{overflow:visible}
+  .block{gap:8px;padding-top:10px}.block h3{font-size:17px}
+  .stat b{font-size:34px}
+  .cover{padding:0}.cover__bg{height:400px;max-height:none;aspect-ratio:auto}.cover__in{padding:0 48px 30px;margin-top:-92px;gap:14px}
+  .cover h1{font-size:122px}.cover__sub{font-size:26px}.cover__thesis{font-size:16px}.cover__logo{width:120px}
+  .verb{padding:12px 0;grid-template-columns:330px 1fr;gap:28px}.verb h3{font-size:58px}
+  .video video{display:none}.play-print{display:grid!important}
+  .flow__row{flex-wrap:nowrap}.step{padding:9px 10px}.step b{font-size:13px}.step span{font-size:10.5px}
+  .p-hide{display:none!important}
+  details.mx>*{display:block}details.mx summary{display:none}
+  .phone .frame{border-width:4px;border-radius:12px}
+  .footer{display:none}
+  .cover__in{height:auto;align-content:end}
+  .cols-12-7:has(> .ba){grid-template-columns:1fr;gap:12px}
+  .cols-12-7:has(> .ba) > .cols{grid-template-columns:repeat(3,1fr);gap:20px}
+  .ba{gap:6px}
+  .ba__static .frame{width:fit-content;justify-self:center}
+  .ba__static .frame img{height:282px;width:auto;max-width:100%}
+  .phone{max-width:200px}
+  table .tag{padding:2px 5px;font-size:7.5px}
+  .mx td,.mx th{padding:4px 7px}.mx th code{white-space:nowrap;font-size:9px}
+  .perf td,.perf th{padding:6px 7px}
+}
+.print-only{display:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="topbar" role="banner">
+  <div class="topbar__in">
+    <a class="topbar__brand" href="#inicio" aria-label="Black Hawk — volver a la portada"><img src="assets/images/brand/bh-mark-white.svg" alt="" width="44" height="23"><span>Evolución web</span></a>
+    <span class="topbar__cur mono" id="cur" aria-live="off">Portada</span>
+    <button class="idx-btn" id="idxBtn" aria-expanded="false" aria-controls="idx">Índice</button>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<nav class="idx" id="idx" aria-label="Índice del informe" hidden>
+  <ol>
+    <li><a href="#inicio"><span>00</span>Portada</a></li>
+    <li><a href="#tesis"><span>01</span>Qué se conserva y qué evoluciona</a></li>
+    <li><a href="#punto-partida"><span>02</span>El punto de partida</a></li>
+    <li><a href="#home"><span>03</span>Home</a></li>
+    <li><a href="#catalogo"><span>04</span>Catálogo</a></li>
+    <li><a href="#busqueda"><span>05</span>Búsqueda</a></li>
+    <li><a href="#producto"><span>06</span>Ficha de producto</a></li>
+    <li><a href="#comparador"><span>07</span>Comparador</a></li>
+    <li><a href="#galeria"><span>08</span>Galería</a></li>
+    <li><a href="#recorrido"><span>09</span>Del producto a la consulta</a></li>
+    <li><a href="#paginas"><span>10</span>Páginas complementarias</a></li>
+    <li><a href="#mobile"><span>11</span>Experiencia móvil</a></li>
+    <li><a href="#tecnica"><span>12</span>Calidad estructural</a></li>
+    <li><a href="#rendimiento"><span>13</span>Rendimiento</a></li>
+    <li><a href="#conclusion"><span>14</span>Resultado</a></li>
+    <li><a href="#metodologia"><span>15</span>Fuentes y metodología</a></li>
+  </ol>
+</nav>
+
+<main id="contenido">
+
+<!-- ============ 00 PORTADA ============ -->
+<section class="cover" id="inicio" data-title="Portada" aria-label="Portada">
+  <div class="cover__bg"><img src="assets/images/brand/PORTADA-2.jpg" alt="Banner real de Black Hawk «Siente el poder», compartido por ambas versiones del sitio: amplificadores, subwoofers y drivers con iluminación roja y azul." width="1410" height="481"></div>
+  <div class="wrap cover__in">
+    <img class="cover__logo" src="assets/images/brand/bh-mark-white.svg" alt="Black Hawk" width="170" height="91">
+    <div>
+      <p class="eyebrow" style="margin-bottom:14px"><b>Informe de evolución digital</b> Car Audio · Perú</p>
+      <h1>Black Hawk</h1>
+    </div>
+    <p class="cover__sub">Evolución de la experiencia web</p>
+    <p class="cover__thesis">De un catálogo sólido a una experiencia con dirección.</p>
+    <div class="cover__meta">
+      <span><b>ANTES</b> blackhawkcaraudio.com (producción)</span>
+      <span><b>AHORA</b> rediseño en staging temporal</span>
+      <span><b>EVIDENCIA</b> capturas y pruebas del 23-09-2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 TESIS ============ -->
+<section class="sheet" id="tesis" data-title="Qué se conserva y qué evoluciona" data-folio="01 · TESIS">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>01</b> Tesis</p>
+      <h2>El mismo catálogo,<br>otra forma de recorrerlo</h2>
+      <p class="lede">La versión anterior ya organizaba los productos de Black Hawk en categorías, fichas y galería. El rediseño conserva esa base y añade tres cosas: una dirección de marca clara, una arquitectura que se deja explorar y un camino directo del modelo a la consulta.</p>
+    </div>
+    <div class="cols cols-3">
+      <div class="block">
+        <p class="kicker">Qué se conservó</p>
+        <ul class="plain plain--mut">
+          <li><b>El catálogo:</b> 109 de las 110 URLs de producto del sitemap anterior siguen existiendo con la misma ruta.</li>
+          <li><b>Las 11 categorías</b> originales y sus contenidos; el rediseño suma una (Cargadores).</li>
+          <li><b>Los datos técnicos</b> existentes: la ficha de BH-SW12XXG muestra los mismos valores en ambas versiones.</li>
+          <li><b>La galería</b> con las mismas 12 fotografías y el buscador con sugerencias.</li>
+        </ul>
+      </div>
+      <div class="block block--red">
+        <p class="kicker">Qué evolucionó</p>
+        <ul class="plain">
+          <li><b>Marca:</b> declaración de marca en la home y una página propia (Black Hawk).</li>
+          <li><b>Catálogo:</b> contadores por categoría, filtros y tarjetas con potencia y tipo.</li>
+          <li><b>Comparador</b> de hasta 3 modelos, disponible desde tarjetas y fichas.</li>
+          <li><b>Consulta:</b> WhatsApp visible en todo el sitio y con el modelo ya escrito en el mensaje.</li>
+          <li><b>Páginas nuevas:</b> dónde comprar, soporte, mayoristas B2B y privacidad.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <p class="kicker">Para qué</p>
+        <p style="font-size:1.12rem;color:var(--tx)">Para que quien llega a la web pueda <b>descubrir</b> la línea Black Hawk, <b>comparar</b> modelos con datos visibles y <b>consultar</b> sin perder la referencia que buscaba.</p>
+        <p class="note">La web no es una tienda en línea. Ninguna de las dos versiones muestra precios, carrito ni pago; en la anterior, <code>/cart/</code> y <code>/checkout/</code> redirigen a la home. La compra se concreta después de la consulta, fuera de la web.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 PUNTO DE PARTIDA ============ -->
+<section class="sheet sheet--alt" id="punto-partida" data-title="El punto de partida" data-folio="02 · PUNTO DE PARTIDA">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>02</b> El punto de partida <span class="tag tag--antes">Antes</span></p>
+      <h2>Una base de catálogo que ya funcionaba</h2>
+    </div>
+    <div class="cols cols-12-5">
+      <div class="block">
+        <p class="kicker">Lo que ya funcionaba</p>
+        <ul class="plain plain--mut">
+          <li><b>Menú Productos</b> con 10 categorías en desktop y submenú en dos niveles en móvil.</li>
+          <li><b>Buscador</b> en el centro del header, con sugerencias en vivo y miniatura (desktop). Buscar un modelo exacto abre su ficha directamente.</li>
+          <li><b>Categorías</b> con barra lateral, orden y paginación (Amplificadores: 26 resultados, 12 por página).</li>
+          <li><b>Fichas</b> con breadcrumb, imagen ampliable y productos relacionados.</li>
+          <li><b>Galería</b> de 12 fotos con lightbox: anterior/siguiente, zoom, pantalla completa y compartir.</li>
+          <li><b>Redes sociales</b> (Facebook, Instagram, TikTok) enlazadas desde la home.</li>
+        </ul>
+      </div>
+      <div class="cols" style="gap:22px">
+        <div class="block">
+          <p class="kicker">Visual</p>
+          <ul class="plain plain--mut">
+            <li>La marca aparece en el logo y los banners; bajo ellos, bloques de categoría sobre fondo gris claro.</li>
+            <li>Las tarjetas de producto muestran solo categoría y modelo.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <p class="kicker">Experiencia</p>
+          <ul class="plain plain--mut">
+            <li><code>/shop/</code>, destino del enlace «Productos», no listaba productos el 23-09-2026 (comprobado en navegador y en el HTML servido).</li>
+            <li>La home y las fichas no tienen enlaces a WhatsApp, teléfono ni correo.</li>
+            <li><code>/ventas-al-mayor/</code> no está enlazada desde el menú ni la home.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <p class="kicker">Contenido</p>
+          <ul class="plain plain--mut">
+            <li>La interfaz mezcla inglés y español: «Showing 1–12 of 26 results», «Default sorting», «Category:», «Quick View», «Log in».</li>
+            <li>Algunas fichas no incluyen especificaciones (BH-8.12DSP).</li>
+            <li>Páginas de demostración del tema (<code>/home-page-01/</code>, <code>/home-page-03/</code>) siguen publicadas y listadas en el sitemap.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 HOME ============ -->
+<section class="sheet" id="home" data-title="Home" data-folio="03 · HOME">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>03</b> Home · desktop 1440 × 900</p>
+      <h2>Una marca que entra<br>antes que el catálogo</h2>
+    </div>
+    <div class="cols cols-12-7" style="align-items:start">
+      <div class="ba" data-ba>
+        <div class="ba__stage" style="aspect-ratio:1440/900">
+          <img src="assets/images/screens/N-hero1-d.webp" alt="AHORA: home del rediseño en 1440×900. Header con Productos, Catálogo, Galería, Black Hawk, botón Buscar y botón verde COTIZAR; banner «Siente el poder»; debajo, el titular «Marca líder en car audio en Perú.» junto al logo." width="1440" height="900">
+          <span class="mk" style="--x:56%;--y:4.2%">01</span><span class="mk" style="--x:84.5%;--y:9.5%">02</span><span class="mk" style="--x:92.8%;--y:9.5%">03</span><span class="mk" style="--x:2.2%;--y:74%">04</span>
+          <div class="ba__layer ba__before">
+            <img src="assets/images/screens/A-hero1-d.webp" alt="ANTES: home anterior en 1440×900. Header blanco con logo y buscador central, barra negra con Inicio, Productos y Galería de fotos; banner «Siente el poder»; debajo, el titular «Más de 10 años de dedicación a la industria del Car Audio.»" width="1440" height="900">
+            <span class="mk mk--antes" style="--x:54%;--y:9.8%">01</span><span class="mk mk--antes" style="--x:9.9%;--y:13%">02</span><span class="mk mk--antes" style="--x:17%;--y:79.3%">03</span>
+          </div>
+          <div class="ba__line"><span class="ba__knob" aria-hidden="true">⟷</span></div>
+          <span class="ba__lbl ba__lbl--a">ANTES</span><span class="ba__lbl ba__lbl--b">AHORA</span>
+          <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Deslizar entre la home anterior y la actual">
+        </div>
+        <div class="ba__ctl"><button type="button" data-set="100">Ver antes</button><button type="button" data-set="50" aria-pressed="true">Comparar</button><button type="button" data-set="0">Ver ahora</button><span class="hint">Arrastra el divisor o usa ← →</span></div>
+        <div class="ba__static">
+          <figure class="fig"><div class="frame"><img src="assets/images/screens/A-hero1-d.webp" alt="" width="1440" height="900"><span class="mk mk--antes" style="--x:54%;--y:9.8%">01</span><span class="mk mk--antes" style="--x:9.9%;--y:13%">02</span><span class="mk mk--antes" style="--x:17%;--y:79.3%">03</span></div></figure>
+          <figure class="fig"><div class="frame"><img src="assets/images/screens/N-hero1-d.webp" alt="" width="1440" height="900"><span class="mk" style="--x:56%;--y:4.2%">01</span><span class="mk" style="--x:84.5%;--y:9.5%">02</span><span class="mk" style="--x:92.8%;--y:9.5%">03</span><span class="mk" style="--x:2.2%;--y:74%">04</span></div></figure>
+        </div>
+        <p class="meta"><span class="tag tag--antes">Antes</span><code>A-hero1-d</code> blackhawkcaraudio.com/ <span class="tag tag--ahora">Ahora</span><code>N-hero1-d</code> staging / · 1440×900 · 23-09-2026 · mismo banner, diapositiva 1</p>
+      </div>
+      <div class="cols" style="gap:24px">
+        <ol class="notes notes--antes" aria-label="Anotaciones de la versión anterior">
+          <li><span class="n">01</span><div><b>Buscador como eje del header</b><span>Campo de búsqueda ancho, centrado bajo el logo.</span></div></li>
+          <li><span class="n">02</span><div><b>Tres entradas de menú</b><span>Inicio, Productos y Galería de fotos.</span></div></li>
+          <li><span class="n">03</span><div><b>Titular de trayectoria</b><span>«Más de 10 años de dedicación…», repetido como dos H1.</span></div></li>
+        </ol>
+        <ol class="notes" aria-label="Anotaciones de la versión actual">
+          <li><span class="n">01</span><div><b>Navegación por intención</b><span>Productos (megamenú con 12 categorías y contador), Catálogo, Galería y Black Hawk.</span></div></li>
+          <li><span class="n">02</span><div><b>Búsqueda a demanda</b><span>El botón abre un buscador a pantalla completa por modelo, referencia o categoría.</span></div></li>
+          <li><span class="n">03</span><div><b>COTIZAR siempre visible</b><span>Abre WhatsApp con un mensaje ya redactado.</span></div></li>
+          <li><span class="n">04</span><div><b>Declaración de marca</b><span>Un único H1: «Marca líder en car audio en Perú.», junto al logo.</span></div></li>
+        </ol>
+        <div class="why"><span class="tag tag--ux">Observación UX</span><p>Desde la primera pantalla hay tres caminos visibles: explorar productos, buscar un modelo o consultar por WhatsApp.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" data-title="Home" data-folio="03 · HOME · ESTRUCTURA">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>03</b> Home · página completa</p>
+      <h2>De vitrina de categorías<br>a recorrido de producto</h2>
+    </div>
+    <div class="cols cols-4" style="align-items:start">
+      <figure class="fig">
+        <div class="frame p-h" style="--ph:340px"><div class="scroller" tabindex="0" aria-label="Home anterior completa, desplazable"><button class="zoom" data-full="assets/images/screens/A-home-d-stitch.webp" aria-label="Ampliar home anterior completa"><img src="assets/images/screens/A-home-d-stitch.webp" alt="Home anterior completa en desktop: banner, seis bloques de categoría, sección Lo más buscado con ocho productos, dos banners, redes sociales y footer con buscador." width="1440" height="2717" loading="lazy"></button></div></div>
+        <figcaption class="cap"><span class="meta"><span class="tag tag--antes">Antes</span><code>A-home-d-stitch</code> 2 717 px de alto</span></figcaption>
+      </figure>
+      <div class="block">
+        <p class="kicker">Antes · orden de la página</p>
+        <ul class="plain plain--mut">
+          <li>Banner con tres diapositivas</li>
+          <li>6 categorías con foto</li>
+          <li>«¡Lo más buscado!»: 8 productos</li>
+          <li>2 banners promocionales</li>
+          <li>«¡Síguenos!»: redes sociales</li>
+          <li>Footer con buscador</li>
+        </ul>
+      </div>
+      <figure class="fig">
+        <div class="frame p-h" style="--ph:340px"><div class="scroller" tabindex="0" aria-label="Home actual completa, desplazable"><button class="zoom" data-full="assets/images/screens/N-home-d-stitch.webp" aria-label="Ampliar home actual completa"><img src="assets/images/screens/N-home-d-stitch.webp" alt="Home actual completa en desktop: banner, titular de marca, seis categorías con contador, modelo destacado BH-SW12XXG, familia FR, productos destacados, bloques de valor, dónde comprar, canal B2B, cierre con llamada a la acción y footer con contacto." width="1440" height="7486" loading="lazy"></button></div></div>
+        <figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-home-d-stitch</code> 7 486 px de alto</span></figcaption>
+      </figure>
+      <div class="block block--red">
+        <p class="kicker">Ahora · orden de la página</p>
+        <ul class="plain">
+          <li>Banner + titular de marca</li>
+          <li>6 categorías con nº de productos</li>
+          <li>Modelo destacado BH-SW12XXG y 3 más</li>
+          <li>Familia FR: 5 niveles de potencia</li>
+          <li>Destacados con vista rápida y comparar</li>
+          <li>Información técnica · Comparar · Asesoría</li>
+          <li>Dónde comprar y canal mayorista</li>
+          <li>Cierre: catálogo o WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+    <div class="why" style="margin-top:28px"><span class="tag tag--inf">Inferencia de diseño</span><p>La home actual es unas 2,8 veces más larga. Ordena el contenido como marca → categorías → producto → consulta. Tiene más contenido de producto, pero también exige más desplazamiento.</p></div>
+  </div>
+</section>
+
+<!-- ============ 04 CATALOGO ============ -->
+<section class="sheet sheet--alt" id="catalogo" data-title="Catálogo" data-folio="04 · CATÁLOGO">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>04</b> Catálogo · <code>/shop/</code> · desktop</p>
+      <h2>Una entrada al catálogo<br>que sí muestra el catálogo</h2>
+    </div>
+    <div class="cols cols-2">
+      <figure class="fig">
+        <div class="frame"><button class="zoom" data-full="assets/images/screens/A-shop-d-view.webp" aria-label="Ampliar catálogo anterior"><img src="assets/images/screens/A-shop-d-view.webp" alt="ANTES: página Tienda. Barra lateral con 11 categorías y área de productos vacía." width="1440" height="900" loading="lazy"></button></div>
+        <figcaption class="cap"><span class="meta"><span class="tag tag--antes">Antes</span><code>A-shop-d-view</code> /shop/ · 1440×900</span><span>La barra lateral lista 11 categorías; el área de productos está vacía. El HTML servido tampoco contiene tarjetas, mientras que las páginas de categoría sí las tienen.</span></figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="frame"><button class="zoom" data-full="assets/images/screens/N-shop-d-view.webp" aria-label="Ampliar catálogo actual"><img src="assets/images/screens/N-shop-d-view.webp" alt="AHORA: Catálogo Black Hawk con 118 productos, pestañas por categoría con contador, filtro por modelo y por categoría, y tarjetas con potencia." width="1440" height="900" loading="lazy"></button></div>
+        <figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-shop-d-view</code> /shop/ · 1440×900</span><span>118 productos. Pestañas por categoría con contador, campo «Buscar modelo», filtros por categoría (la URL se puede compartir, p. ej. <code>?bh_cat[]=subwoofer-activo</code>) y orden (predeterminado / más recientes).</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sheet sheet--alt" data-title="Catálogo" data-folio="04 · CATÁLOGO · CATEGORÍA">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>04</b> Categoría Subwoofer · desktop</p>
+      <h2>Tarjetas que ya adelantan la ficha</h2>
+    </div>
+    <div class="cols cols-12-7" style="align-items:start">
+      <div class="cols cols-2" style="gap:18px">
+        <figure class="fig">
+          <div class="frame p-h" style="--ph:380px"><div class="scroller" style="max-height:560px" tabindex="0" aria-label="Categoría Subwoofer anterior, desplazable"><button class="zoom" data-full="assets/images/screens/A-cat-sub-d-stitch.webp" aria-label="Ampliar categoría anterior"><img src="assets/images/screens/A-cat-sub-d-stitch.webp" alt="ANTES: categoría Subwoofer con barra lateral y cuadrícula de 12 tarjetas con categoría y modelo." width="1440" height="2070" loading="lazy"></button></div></div>
+          <figcaption class="cap"><span class="meta"><span class="tag tag--antes">Antes</span><code>A-cat-sub-d-stitch</code></span></figcaption>
+        </figure>
+        <figure class="fig">
+          <div class="frame p-h" style="--ph:380px"><div class="scroller" style="max-height:560px" tabindex="0" aria-label="Categoría Subwoofer actual, desplazable"><button class="zoom" data-full="assets/images/screens/N-cat-sub-d-stitch.webp" aria-label="Ampliar categoría actual"><img src="assets/images/screens/N-cat-sub-d-stitch.webp" alt="AHORA: categoría Subwoofer con pestañas, filtros y tarjetas con modelo, potencia, tipo, vista rápida y comparar." width="1440" height="3455" loading="lazy"></button></div></div>
+          <figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-cat-sub-d-stitch</code></span></figcaption>
+        </figure>
+      </div>
+      <div class="cols" style="gap:20px">
+        <div class="tbl-wrap">
+          <table>
+            <caption class="print-only" style="display:none"></caption>
+            <thead><tr><th scope="col">Tarjeta de producto</th><th scope="col">Antes</th><th scope="col">Ahora</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Imagen · categoría · modelo</th><td>Sí</td><td>Sí</td></tr>
+              <tr><th scope="row">Potencia (W)</th><td class="dim">No</td><td class="hl">Sí</td></tr>
+              <tr><th scope="row">Tipo (p. ej. «Subwoofer 12"»)</th><td class="dim">No</td><td class="hl">Sí</td></tr>
+              <tr><th scope="row">Vista rápida</th><td class="dim">No en categoría*</td><td class="hl">Sí</td></tr>
+              <tr><th scope="row">Añadir a comparación</th><td class="dim">No</td><td class="hl">Sí</td></tr>
+              <tr><th scope="row">Orden y paginación</th><td>Sí</td><td>Sí</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">* La home anterior tiene un enlace «Quick View» en «¡Lo más buscado!»; no se probó su funcionamiento.</p>
+        <div class="why"><span class="tag tag--ux">Observación UX</span><p>Con la potencia y el tipo en la tarjeta, se pueden descartar modelos sin abrir cada ficha.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet sheet--alt" data-title="Catálogo" data-folio="04 · CATÁLOGO · COBERTURA">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>04</b> Cobertura del catálogo</p>
+      <h2>Las mismas familias,<br>con una categoría más</h2>
+      <p class="lede">Número de productos que cada categoría declara en su propia página. El catálogo se mantiene casi idéntico; cambian Amplificadores (la línea FR suma modelos), Subwoofer y la nueva categoría Cargadores.</p>
+    </div>
+    <div class="cols cols-12-5" style="align-items:start">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th scope="col">Categoría</th><th scope="col" class="num">Antes</th><th scope="col" class="num">Ahora</th><th scope="col">Nota</th></tr></thead>
+          <tbody>
+<tr><th scope="row">Amplificadores</th><td class="num">26</td><td class="num">31</td><td class="hl">+5</td></tr>
+<tr><th scope="row">Medio Rango</th><td class="num">25</td><td class="num">25</td><td class="dim">=</td></tr>
+<tr><th scope="row">Tweeter</th><td class="num">24</td><td class="num">24</td><td class="dim">=</td></tr>
+<tr><th scope="row">Subwoofer</th><td class="num">16</td><td class="num">17</td><td class="hl">+1</td></tr>
+<tr><th scope="row">Altavoces</th><td class="num">9</td><td class="num">9</td><td class="dim">=</td></tr>
+<tr><th scope="row">Drivers</th><td class="num">8</td><td class="num">8</td><td class="dim">=</td></tr>
+<tr><th scope="row">Ecualizador</th><td class="num">7</td><td class="num">7</td><td class="dim">=</td></tr>
+<tr><th scope="row">Procesadores</th><td class="num">5</td><td class="num">5</td><td class="dim">=</td></tr>
+<tr><th scope="row">Componentes</th><td class="num">5</td><td class="num">5</td><td class="dim">=</td></tr>
+<tr><th scope="row">Subwoofer Activo</th><td class="num">4</td><td class="num">4</td><td class="dim">=</td></tr>
+<tr><th scope="row">Parlantes</th><td class="num">3</td><td class="num">3</td><td class="dim">=</td></tr>
+<tr><th scope="row">Cargadores</th><td class="num">—</td><td class="num">2</td><td class="hl">Categoría nueva (404 en la versión anterior)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cols" style="gap:24px">
+        <div class="stat"><b>109 / 110</b><span>URLs de producto del sitemap anterior presentes con la misma ruta en el sitemap del rediseño</span></div>
+        <div class="stat"><b>110 → 118</b><span>URLs de producto en cada sitemap (wp-sitemap-posts-product-1.xml)</span></div>
+        <p class="note">La única URL anterior sin equivalente exacto es <code>bh-eq842prd</code>. El rediseño incluye <code>bh-842prd</code>; que sea el mismo producto renombrado está <span class="tag tag--pend">Pendiente de verificación</span>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 BUSQUEDA ============ -->
+<section class="sheet" id="busqueda" data-title="Búsqueda" data-folio="05 · BÚSQUEDA">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>05</b> Búsqueda · consulta «sw12» · desktop 1440 × 900</p>
+      <h2>Buscar por modelo, familia o fragmento</h2>
+    </div>
+    <div class="cols cols-12-7" style="align-items:start">
+      <div class="ba" data-ba>
+        <div class="ba__stage" style="aspect-ratio:1440/900">
+          <img src="assets/images/interactions/N-search-04-live-sw12-d.webp" alt="AHORA: buscador a pantalla completa con la consulta sw12 y 8 resultados en tarjetas con categoría, modelo, tipo y potencia." width="1440" height="900">
+          <span class="mk" style="--x:3%;--y:45.5%">01</span><span class="mk" style="--x:9%;--y:49.8%">02</span>
+          <div class="ba__layer ba__before">
+            <img src="assets/images/interactions/A-search-04-typed-sw12-d.webp" alt="ANTES: buscador del header con la consulta sw12 y una lista desplegable de sugerencias con miniatura y modelo." width="1440" height="900">
+            <span class="mk mk--antes" style="--x:27%;--y:11%">01</span>
+          </div>
+          <div class="ba__line"><span class="ba__knob" aria-hidden="true">⟷</span></div>
+          <span class="ba__lbl ba__lbl--a">ANTES</span><span class="ba__lbl ba__lbl--b">AHORA</span>
+          <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Deslizar entre la búsqueda anterior y la actual">
+        </div>
+        <div class="ba__ctl"><button type="button" data-set="100">Ver antes</button><button type="button" data-set="50" aria-pressed="true">Comparar</button><button type="button" data-set="0">Ver ahora</button><span class="hint">Arrastra el divisor o usa ← →</span></div>
+        <div class="ba__static">
+          <figure class="fig"><div class="frame"><img src="assets/images/interactions/A-search-04-typed-sw12-d.webp" alt="" width="1440" height="900"><span class="mk mk--antes" style="--x:27%;--y:11%">01</span></div></figure>
+          <figure class="fig"><div class="frame"><img src="assets/images/interactions/N-search-04-live-sw12-d.webp" alt="" width="1440" height="900"><span class="mk" style="--x:3%;--y:45.5%">01</span><span class="mk" style="--x:9%;--y:49.8%">02</span></div></figure>
+        </div>
+        <p class="meta"><span class="tag tag--antes">Antes</span><code>A-search-04-typed-sw12-d</code> <span class="tag tag--ahora">Ahora</span><code>N-search-04-live-sw12-d</code> · consulta escrita «sw12» · 23-09-2026</p>
+      </div>
+      <div class="cols" style="gap:20px">
+        <ol class="notes notes--antes"><li><span class="n">01</span><div><b>Sugerencias con miniatura</b><span>Lista desplegable con imagen y nombre del modelo.</span></div></li></ol>
+        <ol class="notes">
+          <li><span class="n">01</span><div><b>Recuento visible</b><span>«8 resultados» sobre la lista.</span></div></li>
+          <li><span class="n">02</span><div><b>Resultado con contexto</b><span>Categoría, modelo, tipo y potencia en cada sugerencia; accesos directos a categorías debajo.</span></div></li>
+        </ol>
+        <div class="why"><span class="tag tag--ux">Observación UX</span><p>Con el tipo y la potencia en la sugerencia, se puede distinguir entre modelos de nombre parecido (SW12LJ, SW12LJD, SW12LS4) antes de entrar a la ficha.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" data-title="Búsqueda" data-folio="05 · BÚSQUEDA · PRUEBAS">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>05</b> Tres consultas, mismas condiciones</p>
+      <h2>Qué devuelve cada versión</h2>
+      <p class="lede">Consultas escritas en el buscador del header en desktop (1440 × 900). «Sugerencias» se refiere a la lista en vivo al escribir; «Enviar», al resultado al pulsar Enter.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th scope="col">Consulta</th><th scope="col">Antes · sugerencias</th><th scope="col">Antes · enviar</th><th scope="col">Ahora · sugerencias</th><th scope="col">Ahora · enviar</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">BH-SW12XXG<br><span class="dim">modelo exacto</span></th><td>1 sugerencia (BH-SW12XXG)</td><td>Abre la ficha del producto</td><td>1 sugerencia: Subwoofer 12" · 4000W</td><td>Catálogo filtrado con 1 resultado (<code>/shop/?bh_q=BH-SW12XXG</code>)</td></tr>
+          <tr><th scope="row">FR<br><span class="dim">familia</span></th><td>Sin sugerencias visibles</td><td>69 resultados (12 por página), incluye modelos fuera de la familia</td><td>8 sugerencias: 5 amplificadores FR y 3 productos de otras categorías</td><td>77 productos (<code>/shop/?bh_q=FR</code>), incluye modelos fuera de la familia</td></tr>
+          <tr><th scope="row">sw12<br><span class="dim">fragmento</span></th><td>Sugerencias con miniatura (9 modelos en resultados)</td><td>9 resultados</td><td>«8 resultados» con categoría, tipo y potencia</td><td>10 productos (incluye BH-SW12XZP, que no existe en la versión anterior)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cols cols-2" style="margin-top:28px">
+      <div class="block"><p class="kicker">Lo que ya resolvía la versión anterior</p><p>La búsqueda por modelo exacto era muy directa: al enviar, lleva a la ficha sin pasar por resultados. Las sugerencias en vivo existían en desktop.</p></div>
+      <div class="block block--red"><p class="kicker">Lo que cambia</p><p>Cada resultado informa categoría, tipo y potencia, y la búsqueda funciona igual en móvil (ver sección 11). Ninguna de las dos versiones filtra la familia «FR» solo por nombre de modelo: ambas devuelven también productos cuyo texto contiene «FR».</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 PRODUCTO ============ -->
+<section class="sheet sheet--alt" id="producto" data-title="Ficha de producto" data-folio="06 · FICHA">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>06</b> Ficha · BH-SW12XXG · desktop 1440 × 900</p>
+      <h2>Los mismos datos,<br>otra jerarquía</h2>
+    </div>
+    <div class="cols cols-12-7" style="align-items:start">
+      <div class="ba" data-ba>
+        <div class="ba__stage" style="aspect-ratio:1440/900">
+          <img src="assets/images/screens/N-prod-sw12xxg-d-view.webp" alt="AHORA: ficha de BH-SW12XXG. Breadcrumb, imagen del subwoofer, categoría, modelo en grande, 4000 W destacado, botón COTIZAR, acciones copiar modelo, compartir y comparar, y lista de especificaciones." width="1440" height="900">
+          <span class="mk" style="--x:53.6%;--y:26.2%">01</span><span class="mk" style="--x:53.6%;--y:53.2%">02</span><span class="mk" style="--x:53.6%;--y:62.9%">03</span><span class="mk" style="--x:53.6%;--y:76.7%">04</span>
+          <div class="ba__layer ba__before">
+            <img src="assets/images/screens/A-prod-sw12xxg-d-view.webp" alt="ANTES: ficha de BH-SW12XXG. Breadcrumb Home, Subwoofer, BH-SW12XXG; imagen del subwoofer; título, Subwoofer 12 pulgadas y cuatro especificaciones; Category: Subwoofer." width="1440" height="900">
+            <span class="mk mk--antes" style="--x:2.1%;--y:20.4%">01</span><span class="mk mk--antes" style="--x:48.9%;--y:38.4%">02</span><span class="mk mk--antes" style="--x:48.9%;--y:48.9%">03</span>
+          </div>
+          <div class="ba__line"><span class="ba__knob" aria-hidden="true">⟷</span></div>
+          <span class="ba__lbl ba__lbl--a">ANTES</span><span class="ba__lbl ba__lbl--b">AHORA</span>
+          <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Deslizar entre la ficha anterior y la actual">
+        </div>
+        <div class="ba__ctl"><button type="button" data-set="100">Ver antes</button><button type="button" data-set="50" aria-pressed="true">Comparar</button><button type="button" data-set="0">Ver ahora</button><span class="hint">Arrastra el divisor o usa ← →</span></div>
+        <div class="ba__static">
+          <figure class="fig"><div class="frame"><img src="assets/images/screens/A-prod-sw12xxg-d-view.webp" alt="" width="1440" height="900"><span class="mk mk--antes" style="--x:2.1%;--y:20.4%">01</span><span class="mk mk--antes" style="--x:48.9%;--y:38.4%">02</span><span class="mk mk--antes" style="--x:48.9%;--y:48.9%">03</span></div></figure>
+          <figure class="fig"><div class="frame"><img src="assets/images/screens/N-prod-sw12xxg-d-view.webp" alt="" width="1440" height="900"><span class="mk" style="--x:53.6%;--y:26.2%">01</span><span class="mk" style="--x:53.6%;--y:53.2%">02</span><span class="mk" style="--x:53.6%;--y:62.9%">03</span><span class="mk" style="--x:53.6%;--y:76.7%">04</span></div></figure>
+        </div>
+        <p class="meta"><span class="tag tag--antes">Antes</span><code>A-prod-sw12xxg-d-view</code> /product/bh-sw12xxg/ <span class="tag tag--ahora">Ahora</span><code>N-prod-sw12xxg-d-view</code> misma ruta · 23-09-2026</p>
+      </div>
+      <div class="cols" style="gap:20px">
+        <ol class="notes notes--antes">
+          <li><span class="n">01</span><div><b>Breadcrumb</b><span>Home › Subwoofer › BH-SW12XXG.</span></div></li>
+          <li><span class="n">02</span><div><b>Modelo y tipo</b><span>Título y «Subwoofer 12"» en rojo.</span></div></li>
+          <li><span class="n">03</span><div><b>Especificaciones</b><span>Cuatro valores en lista; sin acción de consulta en la página.</span></div></li>
+        </ol>
+        <ol class="notes">
+          <li><span class="n">01</span><div><b>Modelo y potencia</b><span>«4000 W · potencia documentada» como dato principal.</span></div></li>
+          <li><span class="n">02</span><div><b>COTIZAR</b><span>WhatsApp con el texto «…quiero cotizar el modelo BH-SW12XXG.»</span></div></li>
+          <li><span class="n">03</span><div><b>Acciones de apoyo</b><span>Copiar modelo, compartir, comparar.</span></div></li>
+          <li><span class="n">04</span><div><b>Especificaciones</b><span>Los mismos cuatro valores + categoría y pulgadas.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet sheet--alt" data-title="Ficha de producto" data-folio="06 · FICHA · CONTENIDO">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>06</b> Ficha · consistencia de datos</p>
+      <h2>La evolución está en la<br>presentación, no en los datos</h2>
+    </div>
+    <div class="cols cols-2" style="align-items:start">
+      <div class="cols" style="gap:20px">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th scope="col">BH-SW12XXG</th><th scope="col">Antes</th><th scope="col">Ahora</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Max power</th><td>4000W</td><td>4000W</td></tr>
+              <tr><th scope="row">Watts RMS</th><td>2000 RMS</td><td>2000 RMS</td></tr>
+              <tr><th scope="row">Sensitivity</th><td>88dB</td><td>88dB</td></tr>
+              <tr><th scope="row">Frequency</th><td>40Hz – 1 KHz</td><td>40Hz - 1 KHz</td></tr>
+              <tr><th scope="row">Categoría · pulgadas</th><td>Subwoofer · 12″ (subtítulo)</td><td>Subwoofer · 12 (lista)</td></tr>
+              <tr><th scope="row">Bloque «Información del producto»</th><td class="dim">No</td><td class="hl">Resumen + especificaciones</td></tr>
+              <tr><th scope="row">Relacionados</th><td>4 tarjetas: categoría y modelo</td><td>4 tarjetas: + potencia y tipo</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Valores transcritos tal como aparecen en cada página. Evidencia: <code>A-prod-sw12xxg-d-stitch</code>, <code>N-prod-sw12xxg-d-stitch</code>.</p>
+      </div>
+      <div class="cols" style="gap:16px">
+        <p class="kicker">Caso secundario · BH-8.12DSP</p>
+        <div class="cols cols-2" style="gap:14px">
+          <figure class="fig"><div class="frame"><button class="zoom" data-full="assets/images/screens/A-prod-812dsp-d-view.webp" aria-label="Ampliar ficha anterior de BH-8.12DSP"><img src="assets/images/screens/A-prod-812dsp-d-view.webp" alt="ANTES: ficha de BH-8.12DSP con título y categorías, sin especificaciones." width="1440" height="900" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--antes">Antes</span><code>A-prod-812dsp-d-view</code></span></figcaption></figure>
+          <figure class="fig"><div class="frame"><button class="zoom" data-full="assets/images/screens/N-prod-812dsp-d-view.webp" aria-label="Ampliar ficha actual de BH-8.12DSP"><img src="assets/images/screens/N-prod-812dsp-d-view.webp" alt="AHORA: ficha de BH-8.12DSP con 62 bandas destacado, COTIZAR y cuatro características." width="1440" height="900" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-prod-812dsp-d-view</code></span></figcaption></figure>
+        </div>
+        <p>Antes la ficha solo tenía nombre y categorías. Ahora muestra «Procesador de audio de 12 canales» y cuatro características: 12 canales, ecualizador de 62 bandas, Bluetooth y app para Android e iOS.</p>
+        <p class="note"><span class="tag tag--pend">Pendiente de verificación</span> Estos datos se reproducen tal como aparecen en el staging. Su origen técnico no forma parte de la evidencia de este informe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 COMPARADOR ============ -->
+<section class="sheet" id="comparador" data-title="Comparador" data-folio="07 · COMPARADOR">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>07</b> Comparador · función nueva <span class="tag tag--ahora">Ahora</span></p>
+      <h2>Comparar sin salir del catálogo</h2>
+      <p class="lede">Prueba real en la categoría Subwoofer con tres modelos de 12″: BH-SW12XXG, BH-SW12IPAL y BH-SW12LJD. La versión anterior no tiene una función equivalente.</p>
+    </div>
+    <div class="cols cols-4">
+      <figure class="fig"><div class="frame"><button class="zoom" data-full="assets/images/interactions/N-cmp-01-add1-d.webp" aria-label="Ampliar paso 1"><img src="assets/images/interactions/N-cmp-01-add1-d.webp" alt="Paso 1: al añadir BH-SW12XXG aparece una barra inferior con 1 producto seleccionado." width="1440" height="900" loading="lazy"></button></div><figcaption class="cap"><b>1 · Añadir</b><span>El botón de la tarjeta añade el modelo y abre una barra con la selección.</span><span class="meta"><code>N-cmp-01-add1-d</code></span></figcaption></figure>
+      <figure class="fig"><div class="frame"><button class="zoom" data-full="assets/images/interactions/N-cmp-03-add4-limit-d.webp" aria-label="Ampliar paso 2"><img src="assets/images/interactions/N-cmp-03-add4-limit-d.webp" alt="Paso 2: al intentar añadir un cuarto modelo aparece el aviso Puedes comparar hasta 3 productos." width="1440" height="900" loading="lazy"></button></div><figcaption class="cap"><b>2 · Límite de 3</b><span>Un cuarto modelo no se añade: aviso «Puedes comparar hasta 3 productos.»</span><span class="meta"><code>N-cmp-03-add4-limit-d</code></span></figcaption></figure>
+      <figure class="fig"><div class="frame"><button class="zoom" data-full="assets/images/interactions/N-cmp-04-open-d.webp" aria-label="Ampliar paso 3"><img src="assets/images/interactions/N-cmp-04-open-d.webp" alt="Paso 3: ventana Compara referencias Black Hawk con los tres subwoofers, botón Quitar y COTIZAR POR WHATSAPP por modelo." width="1440" height="900" loading="lazy"></button></div><figcaption class="cap"><b>3 · Vista comparada</b><span>Imagen, modelo, «Quitar» y «Cotizar por WhatsApp» por columna.</span><span class="meta"><code>N-cmp-04-open-d</code></span></figcaption></figure>
+      <figure class="fig"><div class="frame"><button class="zoom" data-full="assets/images/interactions/N-cmp-06-specs-d.webp" aria-label="Ampliar paso 4"><img src="assets/images/interactions/N-cmp-06-specs-d.webp" alt="Paso 4: filas de potencia, tipo y especificaciones de los tres modelos." width="1440" height="900" loading="lazy"></button></div><figcaption class="cap"><b>4 · Especificaciones</b><span>Potencia, tipo y especificaciones alineadas por fila.</span><span class="meta"><code>N-cmp-06-specs-d</code></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" data-title="Comparador" data-folio="07 · COMPARADOR · DATOS">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>07</b> Comparador · datos y comportamiento</p>
+      <h2>Tres modelos en una misma vista</h2>
+    </div>
+    <div class="cols cols-12-7" style="align-items:start">
+      <div class="cols" style="gap:16px">
+        <div class="video screen-only">
+          <video controls muted playsinline preload="metadata" poster="assets/video/comparador-poster.webp" width="1280" height="800">
+            <source src="assets/video/comparador.webm" type="video/webm">
+            Tu navegador no reproduce vídeo WebM. El recorrido está documentado en las cuatro capturas anteriores.
+          </video>
+        </div>
+        <div class="play-print frame" style="position:relative"><img src="assets/video/comparador-poster.webp" alt="Fotograma del vídeo del comparador" width="1280" height="800"><span style="position:absolute;inset:0;display:grid;place-items:center"><span style="width:64px;height:64px;border-radius:50%;background:rgba(11,12,14,.85);display:grid;place-items:center;color:#fff;font:700 22px/1 var(--f-mono)">▶</span></span></div>
+        <p class="cap"><span>Vídeo (sin sonido): añadir tres modelos, abrir la comparación, recorrer las especificaciones y quitar un modelo. Grabado con Playwright en 1280 × 800 el 23-09-2026. <span class="print-only" style="display:none">En el PDF se muestra un fotograma; el vídeo está en <code>assets/video/comparador.webm</code>. No se incluye QR porque la URL del staging es temporal.</span></span></p>
+      </div>
+      <div class="cols" style="gap:18px">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th scope="col">Tal como aparece</th><th scope="col">SW12XXG</th><th scope="col">SW12IPAL</th><th scope="col">SW12LJD</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Potencia</th><td>4000W</td><td>3000W</td><td>2000W</td></tr>
+              <tr><th scope="row">Tipo</th><td>Subwoofer 12"</td><td>Subwoofer 12"</td><td>Subwoofer</td></tr>
+              <tr><th scope="row">RMS</th><td>2000 RMS</td><td>1500 RMS</td><td>500 W RMS*</td></tr>
+              <tr><th scope="row">Sensibilidad</th><td>88dB</td><td>88dB</td><td>85 dB*</td></tr>
+              <tr><th scope="row">Frecuencia</th><td>40Hz - 1 KHz</td><td>30 Hz - 12 KHz</td><td class="dim">No indicada</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">* En BH-SW12LJD estos valores aparecen dentro de un párrafo, no en la lista. <span class="tag tag--na">Consistencia de datos</span> La tabla alinea las filas, pero no normaliza el contenido de cada ficha.</p>
+        <ul class="plain">
+          <li><b>Estado visible:</b> el botón cambia a «Quitar de comparación» (<code>aria-pressed=true</code>).</li>
+          <li><b>Quitar y Limpiar</b> funcionan desde la ventana y desde la barra.</li>
+          <li><b>La selección se mantiene</b> al cambiar de página (almacenamiento local del navegador).</li>
+          <li><b>Móvil:</b> la tabla se desliza en horizontal (390 × 844, <code>N-cmp-04-open-m</code>).</li>
+        </ul>
+        <div class="why"><span class="tag tag--ux">Beneficio UX potencial</span><p>Quien visita la web puede revisar tres modelos a la vez y contrastar potencia y especificaciones sin abrir y cerrar fichas por separado.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 GALERIA ============ -->
+<section class="sheet sheet--alt" id="galeria" data-title="Galería" data-folio="08 · GALERÍA">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>08</b> Galería · desktop</p>
+      <h2>Las mismas 12 fotos,<br>otra lectura</h2>
+    </div>
+    <div class="cols cols-4" style="align-items:start">
+      <figure class="fig"><div class="frame p-h" style="--ph:330px"><button class="zoom" data-full="assets/images/screens/A-gal-d-stitch.webp" aria-label="Ampliar galería anterior"><img src="assets/images/screens/A-gal-d-stitch.webp" alt="ANTES: galería de fotos en cuadrícula uniforme de 3 por 4." width="1440" height="1856" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--antes">Antes</span><code>A-gal-d-stitch</code></span></figcaption></figure>
+      <figure class="fig"><div class="frame frame--dark"><button class="zoom" data-full="assets/images/interactions/A-gal-01-lightbox-d.webp" aria-label="Ampliar lightbox anterior"><img src="assets/images/interactions/A-gal-01-lightbox-d.webp" alt="ANTES: lightbox abierto en la foto 1 de 12 con controles de pantalla completa, zoom, compartir y cerrar." width="1440" height="900" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--antes">Antes</span><code>A-gal-01-lightbox-d</code></span><span>Lightbox «1 / 12»: anterior/siguiente, zoom, pantalla completa, compartir.</span></figcaption></figure>
+      <figure class="fig"><div class="frame p-h" style="--ph:330px"><button class="zoom" data-full="assets/images/screens/N-gal-d-stitch.webp" aria-label="Ampliar galería actual"><img src="assets/images/screens/N-gal-d-stitch.webp" alt="AHORA: galería Black Hawk en acción en mosaico de tamaños variables y cierre con llamada a productos y WhatsApp." width="1440" height="2564" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-gal-d-stitch</code></span></figcaption></figure>
+      <figure class="fig"><div class="frame frame--dark"><button class="zoom" data-full="assets/images/interactions/N-gal-01-lightbox-d.webp" aria-label="Ampliar lightbox actual"><img src="assets/images/interactions/N-gal-01-lightbox-d.webp" alt="AHORA: lightbox abierto en la foto 01 de 12 con botón de cierre y flechas." width="1440" height="900" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-gal-01-lightbox-d</code></span><span>Lightbox «01 / 12»: anterior/siguiente, cierre.</span></figcaption></figure>
+    </div>
+    <div class="cols cols-3" style="margin-top:26px">
+      <div class="block"><p class="kicker">Ya funcionaba</p><p>Lightbox completo con teclado: ← → para navegar y Esc para cerrar. De hecho, ofrecía más herramientas (zoom, pantalla completa, compartir) que el actual.</p></div>
+      <div class="block block--red"><p class="kicker">Cambia</p><p>Mosaico editorial con título «Black Hawk en acción», imágenes AVIF en varios tamaños y un cierre que lleva al catálogo o a WhatsApp.</p></div>
+      <div class="block"><p class="kicker">Texto alternativo</p><p>Antes: las 12 fotos sin <code>alt</code>. Ahora: <code>alt</code> presente, pero genérico («Black Hawk en acción 1…12»). Mejorable describiendo cada instalación.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 RECORRIDO ============ -->
+<section class="sheet" id="recorrido" data-title="Del producto a la consulta" data-folio="09 · RECORRIDO">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>09</b> Recorrido del visitante</p>
+      <h2>Del producto a la consulta</h2>
+      <p class="lede">Recorridos reconstruidos solo con pasos observados. La web no tiene carrito ni pago: el objetivo es llegar al modelo correcto y abrir una conversación.</p>
+    </div>
+    <div class="flow">
+      <div class="flow__lbl"><span class="tag tag--antes">Antes</span></div>
+      <div class="flow__row" role="list" aria-label="Recorrido anterior">
+        <div class="step" role="listitem"><b>Home</b><span>Menú Productos o buscador</span><code>/</code></div><span class="arrow" aria-hidden="true">→</span>
+        <div class="step" role="listitem"><b>Categoría</b><span>12 por página, orden</span><code>/product-category/…</code></div><span class="arrow" aria-hidden="true">→</span>
+        <div class="step" role="listitem"><b>Ficha</b><span>Especificaciones (si existen)</span><code>/product/…</code></div><span class="arrow" aria-hidden="true">→</span>
+        <div class="step step--gap" role="listitem"><b>Sin paso de consulta</b><span>La ficha no tiene enlaces a WhatsApp, teléfono ni correo</span></div><span class="arrow" aria-hidden="true">·</span>
+        <div class="step step--gap" role="listitem"><b>WhatsApp</b><span>Solo en /ventas-al-mayor/, sin enlace desde el menú</span></div>
+      </div>
+      <div class="flow__lbl" style="margin-top:22px"><span class="tag tag--ahora">Ahora</span></div>
+      <div class="flow__row" role="list" aria-label="Recorrido actual">
+        <div class="step step--ahora" role="listitem"><b>Home</b><span>Categorías, destacados o búsqueda</span><code>/</code></div><span class="arrow" aria-hidden="true">→</span>
+        <div class="step step--ahora" role="listitem"><b>Catálogo</b><span>Filtros, potencia en tarjeta</span><code>/shop/ · categorías</code></div><span class="arrow" aria-hidden="true">→</span>
+        <div class="step step--ahora" role="listitem"><b>Ficha</b><span>Especificaciones y relacionados</span><code>/product/…</code></div><span class="arrow" aria-hidden="true">→</span>
+        <div class="step step--ahora" role="listitem"><b>Comparar</b><span>Opcional, hasta 3</span></div><span class="arrow" aria-hidden="true">→</span>
+        <div class="step step--wa" role="listitem"><b>Cotizar</b><span>WhatsApp con el modelo escrito</span><code>wa.me/51906106315</code></div><span class="arrow" aria-hidden="true">→</span>
+        <div class="step step--gap" role="listitem"><b>Compra</b><span>Orientación al punto de venta, fuera de la web</span></div>
+      </div>
+    </div>
+    <div class="cols cols-2" style="margin-top:28px">
+      <div class="block"><p class="kicker">Descubrir → evaluar → consultar</p><p>El sitio separa <b>descubrir</b> (home, catálogo, búsqueda), <b>evaluar</b> (ficha, comparador) y <b>consultar</b> (WhatsApp). La compra no ocurre en la web: la página «Dónde comprar» indica que se orienta al punto de venta por WhatsApp.</p></div>
+      <div class="why" style="align-self:start"><span class="tag tag--ux">Observación UX</span><p>El paso de la ficha a la consulta pasó de no existir en la página a ser un botón junto al nombre del modelo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" data-title="Del producto a la consulta" data-folio="09 · WHATSAPP Y DISTRIBUCIÓN">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>09</b> WhatsApp · dónde comprar</p>
+      <h2>Un mensaje que ya<br>sabe qué se consulta</h2>
+    </div>
+    <div class="cols cols-12-5" style="align-items:start">
+      <div class="cols" style="gap:16px">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th scope="col">Página (ahora)</th><th scope="col">Texto prellenado del enlace de WhatsApp</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Home, catálogo, footer</th><td>«Hola Black Hawk, vengo de la web y quiero cotizar un producto.»</td></tr>
+              <tr><th scope="row">Ficha, vista rápida, comparador</th><td class="hl">«Hola Black Hawk, vengo de la web y quiero cotizar el modelo BH-SW12XXG.»</td></tr>
+              <tr><th scope="row">Dónde comprar</th><td>«Hola Black Hawk, quiero saber dónde comprar sus productos en Perú.»</td></tr>
+              <tr><th scope="row">Soporte</th><td>«Hola Black Hawk, necesito soporte para mi producto.»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Enlaces extraídos del atributo <code>href</code> en cada página (<code>wa.me/51906106315?text=…</code>). En la versión anterior, el único enlace de WhatsApp está en <code>/ventas-al-mayor/</code> y no lleva texto prellenado.</p>
+        <div class="why"><span class="tag tag--ux">Observación UX</span><p>El equipo comercial recibe la referencia exacta en el primer mensaje; el visitante no tiene que copiarla ni describir el producto.</p></div>
+      </div>
+      <figure class="fig">
+        <div class="frame"><button class="zoom" data-full="assets/images/screens/N-distri-d-view.webp" aria-label="Ampliar Dónde comprar"><img src="assets/images/screens/N-distri-d-view.webp" alt="AHORA: página Dónde comprar Black Hawk con el bloque Consulta dónde comprar y el botón Consultar por WhatsApp." width="1440" height="900" loading="lazy"></button></div>
+        <figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-distri-d-view</code> /distribuidores/</span><span>«Dónde comprar» no publica un listado de distribuidores: dirige la consulta a WhatsApp. <span class="tag tag--na">Evidencia no disponible</span> No hay mapa ni directorio de puntos de venta en ninguna de las dos versiones.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 PAGINAS ============ -->
+<section class="sheet sheet--alt" id="paginas" data-title="Páginas complementarias" data-folio="10 · PÁGINAS COMPLEMENTARIAS">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>10</b> Páginas complementarias</p>
+      <h2>Cada visitante, su puerta</h2>
+    </div>
+    <div class="cols cols-4" style="align-items:start">
+      <figure class="fig">
+        <div class="frame p-h" style="--ph:250px"><button class="zoom" data-full="assets/images/screens/N-nosotros-d-stitch.webp" aria-label="Ampliar página Black Hawk"><img src="assets/images/screens/N-nosotros-d-view.webp" alt="Página Black Hawk: Especialistas en car audio, más de 10 años, 6 categorías." width="1440" height="900" loading="lazy"></button></div>
+        <figcaption class="cap"><b>Black Hawk · <code>/nosotros/</code></b><span>Contexto de marca: trayectoria (+10 años), líneas de producto, comunidad y contacto. Aporta contenido temático indexable; su efecto en posicionamiento no está medido.</span><span class="meta"><span class="tag tag--ahora">Nueva</span><code>N-nosotros-d</code></span></figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="frame p-h" style="--ph:250px"><button class="zoom" data-full="assets/images/screens/N-soporte-d-stitch.webp" aria-label="Ampliar Soporte"><img src="assets/images/screens/N-soporte-d-view.webp" alt="Página Soporte Black Hawk con tres vías: consulta de producto, garantía y manuales." width="1440" height="900" loading="lazy"></button></div>
+        <figcaption class="cap"><b>Soporte · <code>/soporte/</code></b><span>Posventa: consulta de producto, garantía, manuales («disponible dentro del empaque») y 3 preguntas frecuentes.</span><span class="meta"><span class="tag tag--ahora">Nueva</span><code>N-soporte-d</code></span></figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="frame p-h" style="--ph:250px"><button class="zoom" data-full="assets/images/screens/N-mayor-d-stitch.webp" aria-label="Ampliar Mayoristas actual"><img src="assets/images/screens/N-mayor-d-view.webp" alt="Página Conviértete en distribuidor Black Hawk con bloque B2B." width="1440" height="900" loading="lazy"></button></div>
+        <figcaption class="cap"><b>Mayoristas · <code>/mayoristas/</code></b><span>Para negocios: proceso en 3 pasos y formulario con empresa, RUC, ciudad, WhatsApp, nº de tiendas y consentimiento de privacidad.</span><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-mayor-d</code></span></figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="frame p-h" style="--ph:250px"><button class="zoom" data-full="assets/images/screens/A-mayor-d-stitch.webp" aria-label="Ampliar Ventas al mayor anterior"><img src="assets/images/screens/A-mayor-d-view.webp" alt="ANTES: página Ventas al Mayor con banner, texto de Estilo Car Audio y formulario." width="1440" height="900" loading="lazy"></button></div>
+        <figcaption class="cap"><b>Antes · <code>/ventas-al-mayor/</code></b><span>Texto a nombre de «Estilo Car Audio», marcas de terceros y formulario de 4 campos. Los 4 logos de marcas no cargan (imágenes con 0 px de ancho natural).</span><span class="meta"><span class="tag tag--antes">Antes</span><code>A-mayor-d</code></span></figcaption>
+      </figure>
+    </div>
+    <p class="note" style="margin-top:22px">También nueva: <b>Política de privacidad</b> (<code>/politica-de-privacidad/</code>), enlazada desde el footer y desde el consentimiento del formulario mayorista. <span class="tag tag--pend">Pendiente de verificación</span> No se enviaron formularios para no generar solicitudes reales.</p>
+  </div>
+</section>
+
+<!-- ============ 11 MOBILE ============ -->
+<section class="sheet" id="mobile" data-title="Experiencia móvil" data-folio="11 · MÓVIL">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>11</b> Experiencia móvil · 390 × 844</p>
+      <h2>El catálogo cabe<br>en una mano</h2>
+    </div>
+    <div class="cols cols-4" style="align-items:start">
+      <figure class="fig phone"><div class="frame"><button class="zoom" data-full="assets/images/interactions/A-mmenu-02-productos-m.webp" aria-label="Ampliar menú móvil anterior"><img src="assets/images/interactions/A-mmenu-02-productos-m.webp" alt="ANTES: menú móvil con Inicio, Productos desplegado en seis entradas con subniveles y Galería de fotos." width="780" height="1688" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--antes">Antes</span><code>A-mmenu-02</code></span><span>10 categorías en dos niveles (p. ej. Subwoofer Activo dentro de Subwoofer).</span></figcaption></figure>
+      <figure class="fig phone"><div class="frame"><button class="zoom" data-full="assets/images/interactions/N-mmenu-02-productos-m.webp" aria-label="Ampliar menú móvil actual"><img src="assets/images/interactions/N-mmenu-02-productos-m.webp" alt="AHORA: menú móvil con Productos desplegado en 12 categorías y Todos los productos." width="780" height="1688" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-mmenu-02</code></span><span>12 categorías en un nivel + «Todos los productos».</span></figcaption></figure>
+      <figure class="fig phone"><div class="frame"><button class="zoom" data-full="assets/images/interactions/A-msearch-03-sw12-wait-m.webp" aria-label="Ampliar búsqueda móvil anterior"><img src="assets/images/interactions/A-msearch-03-sw12-wait-m.webp" alt="ANTES: búsqueda móvil con sw12 escrito y sin sugerencias visibles." width="780" height="1688" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--antes">Antes</span><code>A-msearch-03</code></span><span>«sw12»: sin sugerencias tras 7 s; al enviar, página de resultados.</span></figcaption></figure>
+      <figure class="fig phone"><div class="frame"><button class="zoom" data-full="assets/images/interactions/N-msearch-02-sw12-m.webp" aria-label="Ampliar búsqueda móvil actual"><img src="assets/images/interactions/N-msearch-02-sw12-m.webp" alt="AHORA: búsqueda móvil con sw12 y resultados en tarjetas con categoría, tipo y potencia." width="780" height="1688" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-msearch-02</code></span><span>«sw12»: sugerencias en vivo con tipo y potencia.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" data-title="Experiencia móvil" data-folio="11 · MÓVIL · FICHA Y CONTROLES">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>11</b> Ficha BH-SW12XXG en móvil · controles táctiles</p>
+      <h2>La consulta, al alcance del pulgar</h2>
+    </div>
+    <div class="cols cols-12-5" style="align-items:start">
+      <div class="cols cols-3" style="gap:16px">
+        <figure class="fig phone"><div class="frame p-h" style="--ph:430px"><div class="scroller" style="max-height:640px" tabindex="0" aria-label="Ficha anterior en móvil, desplazable"><img src="assets/images/screens/A-prod-sw12xxg-m-stitch.webp" alt="ANTES: ficha de BH-SW12XXG en móvil completa: imagen, título, especificaciones, relacionados y footer, sin botón de consulta." width="390" height="1926" loading="lazy"></div></div><figcaption class="cap"><span class="meta"><span class="tag tag--antes">Antes</span><code>A-prod-sw12xxg-m-stitch</code></span></figcaption></figure>
+        <figure class="fig phone"><div class="frame p-h" style="--ph:430px"><div class="scroller" style="max-height:640px" tabindex="0" aria-label="Ficha actual en móvil, desplazable"><img src="assets/images/screens/N-prod-sw12xxg-m-stitch.webp" alt="AHORA: ficha de BH-SW12XXG en móvil completa: imagen, modelo, 4000 W, COTIZAR, acciones, especificaciones, bloque técnico y relacionados." width="390" height="3883" loading="lazy"></div></div><figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-prod-sw12xxg-m-stitch</code></span></figcaption></figure>
+        <figure class="fig phone"><div class="frame"><button class="zoom" data-full="assets/images/interactions/N-cmp-04-open-m.webp" aria-label="Ampliar comparador móvil"><img src="assets/images/interactions/N-cmp-04-open-m.webp" alt="AHORA: comparador en móvil con la tabla deslizable de tres subwoofers." width="780" height="1688" loading="lazy"></button></div><figcaption class="cap"><span class="meta"><span class="tag tag--ahora">Ahora</span><code>N-cmp-04-open-m</code></span><span>Comparador en móvil.</span></figcaption></figure>
+      </div>
+      <div class="cols" style="gap:18px">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th scope="col">Control del header (390 px)</th><th scope="col" class="num">Antes</th><th scope="col" class="num">Ahora</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Menú</th><td class="num">25 × 38 px</td><td class="num hl">44 × 44 px</td></tr>
+              <tr><th scope="row">Búsqueda</th><td class="num">20 × 22 px</td><td class="num hl">44 × 44 px</td></tr>
+              <tr><th scope="row">WhatsApp</th><td class="num dim">—</td><td class="num hl">44 × 44 px</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Medidas del área clicable (<code>getBoundingClientRect</code>). WCAG 2.2, criterio 2.5.8, pide al menos 24 × 24 px, con excepciones por espaciado.</p>
+        <ul class="plain">
+          <li><b>Sin desplazamiento horizontal</b> en ninguna de las páginas capturadas a 390 px, en ambas versiones.</li>
+          <li><b>COTIZAR bajo el modelo:</b> en la ficha actual la consulta aparece en la primera pantalla; en la anterior no hay botón de consulta.</li>
+          <li><b>Header persistente:</b> búsqueda, WhatsApp y menú fijos al desplazarse.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 TECNICA ============ -->
+<section class="sheet sheet--alt" id="tecnica" data-title="Calidad estructural" data-folio="12 · CALIDAD ESTRUCTURAL">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>12</b> SEO técnico y semántica · HTML servido</p>
+      <h2>Estructura que<br>describe el contenido</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th scope="col">Página</th><th scope="col">Versión</th><th scope="col">Title</th><th scope="col">Meta description</th><th scope="col" class="num">H1</th><th scope="col">Open Graph</th><th scope="col">JSON-LD</th><th scope="col" class="num">Imágenes sin alt</th></tr></thead>
+        <tbody>
+<tr><th scope="row">Home</th><td><span class="tag tag--antes">Antes</span></td><td>Black Hawk – Linea completa en Car Audio</td><td class="dim">No</td><td class="num">2</td><td class="dim">No</td><td>—</td><td class="num">34 de 42</td></tr>
+<tr><th scope="row"></th><td><span class="tag tag--ahora">Ahora</span></td><td>Black Hawk Car Audio Perú | Potencia y precisión</td><td class="">Sí</td><td class="num">1</td><td class="">Sí</td><td>Organization, WebSite</td><td class="num">0 de 31</td></tr>
+<tr><th scope="row">Catálogo</th><td><span class="tag tag--antes">Antes</span></td><td>Tienda – Black Hawk</td><td class="dim">No</td><td class="num">1</td><td class="dim">No</td><td>BreadcrumbList</td><td class="num">1 de 3</td></tr>
+<tr><th scope="row"></th><td><span class="tag tag--ahora">Ahora</span></td><td>Catálogo de car audio Black Hawk Perú</td><td class="">Sí</td><td class="num">1</td><td class="">Sí</td><td>ItemList, BreadcrumbList, Organization, WebSite</td><td class="num">0 de 15</td></tr>
+<tr><th scope="row">Categoría</th><td><span class="tag tag--antes">Antes</span></td><td>Subwoofer – Black Hawk</td><td class="dim">No</td><td class="num">1</td><td class="dim">No</td><td>BreadcrumbList</td><td class="num">16 de 18</td></tr>
+<tr><th scope="row"></th><td><span class="tag tag--ahora">Ahora</span></td><td>Subwoofer Black Hawk | Catálogo de car audio</td><td class="">Sí</td><td class="num">1</td><td class="">Sí</td><td>ItemList, BreadcrumbList, Organization, WebSite</td><td class="num">0 de 15</td></tr>
+<tr><th scope="row">Ficha</th><td><span class="tag tag--antes">Antes</span></td><td>BH-SW12XXG – Black Hawk</td><td class="dim">No</td><td class="num">1</td><td class="dim">No</td><td>BreadcrumbList</td><td class="num">8 de 10</td></tr>
+<tr><th scope="row"></th><td><span class="tag tag--ahora">Ahora</span></td><td>BH-SW12XXG | Especificaciones y cotización – Black Hawk Perú</td><td class="">Sí</td><td class="num">1</td><td class="">Sí</td><td>Product, BreadcrumbList, Organization, WebSite</td><td class="num">0 de 9</td></tr>
+<tr><th scope="row">Galería</th><td><span class="tag tag--antes">Antes</span></td><td>Galeria de fotos – Black Hawk</td><td class="dim">No</td><td class="num">0</td><td class="dim">No</td><td>—</td><td class="num">13 de 15</td></tr>
+<tr><th scope="row"></th><td><span class="tag tag--ahora">Ahora</span></td><td>Galería Black Hawk Car Audio Perú</td><td class="">Sí</td><td class="num">1</td><td class="">Sí</td><td>Organization, WebSite</td><td class="num">1 de 16</td></tr>
+<tr><th scope="row">Mayoristas</th><td><span class="tag tag--antes">Antes</span></td><td>Ventas al Mayor – Black Hawk</td><td class="dim">No</td><td class="num">0</td><td class="dim">No</td><td>—</td><td class="num">3 de 10</td></tr>
+<tr><th scope="row"></th><td><span class="tag tag--ahora">Ahora</span></td><td>Distribuidor mayorista Black Hawk Car Audio Perú</td><td class="">Sí</td><td class="num">1</td><td class="">Sí</td><td>Organization, WebSite</td><td class="num">2 de 5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cols cols-3" style="margin-top:24px">
+      <p class="note"><b>Ficha:</b> el rediseño publica <code>Product</code> con marca, categoría, imagen y potencia, sin <code>offers</code> ni precio, coherente con una web que no vende en línea.</p>
+      <p class="note"><b>Accesibilidad estructural:</b> el rediseño incluye enlace «Saltar al contenido» y el landmark <code>nav</code> en todas las páginas medidas; en la versión anterior no se encontró enlace de salto.</p>
+      <p class="note"><span class="tag tag--na">No comparable</span> El staging declara <code>noindex, nofollow</code> y su canonical apunta al dominio temporal. Es lo esperable en un entorno de pruebas y habrá que revisarlo al publicar. No se afirman mejoras de posicionamiento ni tráfico: no hay datos de Search Console ni Analytics.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13 RENDIMIENTO ============ -->
+<section class="sheet" id="rendimiento" data-title="Rendimiento" data-folio="13 · RENDIMIENTO">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>13</b> Rendimiento · datos de laboratorio (lab data)</p>
+      <h2>Qué se puede medir<br>y qué no se puede comparar</h2>
+    </div>
+
+    <div class="cols cols-12-5" style="align-items:start;margin-bottom:22px">
+      <div class="why"><span class="tag tag--na">Las pruebas no son directamente comparables en tiempos</span><p>El ANTES se sirve desde producción (LiteSpeed) y el AHORA desde un túnel temporal de Cloudflare hacia el entorno de staging. El tiempo de respuesta del servidor (TTFB) y la red no son equivalentes, así que no se afirma que una versión sea «más rápida».</p></div>
+      <ul class="plain plain--mut">
+        <li><b>Herramienta:</b> Lighthouse 12.8.2, Chromium headless, throttling simulado.</li>
+        <li><b>Móvil:</b> 412 × 823, RTT 150 ms, 1,6 Mbps, CPU ×4. <b>Desktop:</b> 1350 × 940, RTT 40 ms, 10 Mbps.</li>
+        <li><b>Ejecuciones:</b> 3 por página, formato y versión, alternando ANTES/AHORA; se muestra la mediana. 23-09-2026, 22:39–22:50 UTC.</li>
+      </ul>
+    </div>
+    <div class="tbl-wrap perf">
+      <table>
+        <thead>
+          <tr><th scope="col" rowspan="2">Página · formato</th><th scope="colgroup" colspan="2">Rendimiento</th><th scope="colgroup" colspan="2">LCP</th><th scope="colgroup" colspan="2">CLS</th><th scope="colgroup" colspan="2">TTFB</th><th scope="colgroup" colspan="2">Peso transferido</th><th scope="colgroup" colspan="2">Peticiones</th><th scope="colgroup" colspan="2">Accesib. (auto)</th></tr>
+          <tr><th scope="col" class="num">Antes</th><th scope="col" class="num">Ahora</th><th scope="col" class="num">Antes</th><th scope="col" class="num">Ahora</th><th scope="col" class="num">Antes</th><th scope="col" class="num">Ahora</th><th scope="col" class="num">Antes</th><th scope="col" class="num">Ahora</th><th scope="col" class="num">Antes</th><th scope="col" class="num">Ahora</th><th scope="col" class="num">Antes</th><th scope="col" class="num">Ahora</th><th scope="col" class="num">Antes</th><th scope="col" class="num">Ahora</th></tr>
+        </thead>
+        <tbody>
+<tr><th scope="row">Home<br><span class="dim">Móvil</span></th><td class="num">49</td><td class="num">85</td><td class="num">6.9 s</td><td class="num">2.6 s</td><td class="num">0.326</td><td class="num">0.107</td><td class="num">910 ms</td><td class="num">913 ms</td><td class="num">1 540 KB</td><td class="num">1 013 KB</td><td class="num">76</td><td class="num">34</td><td class="num">83</td><td class="num">95</td></tr>
+<tr><th scope="row">Categoría<br><span class="dim">Móvil</span></th><td class="num">78</td><td class="num">91</td><td class="num">4.9 s</td><td class="num">2.9 s</td><td class="num">0.018</td><td class="num">0.000</td><td class="num">521 ms</td><td class="num">884 ms</td><td class="num">890 KB</td><td class="num">397 KB</td><td class="num">56</td><td class="num">30</td><td class="num">82</td><td class="num">94</td></tr>
+<tr><th scope="row">Ficha<br><span class="dim">Móvil</span></th><td class="num">69</td><td class="num">86</td><td class="num">5.8 s</td><td class="num">3.2 s</td><td class="num">0.069</td><td class="num">0.000</td><td class="num">533 ms</td><td class="num">671 ms</td><td class="num">745 KB</td><td class="num">340 KB</td><td class="num">61</td><td class="num">35</td><td class="num">82</td><td class="num">96</td></tr>
+<tr><th scope="row">Home<br><span class="dim">Desktop</span></th><td class="num">88</td><td class="num">91</td><td class="num">1.8 s</td><td class="num">1.5 s</td><td class="num">0.019</td><td class="num">0.000</td><td class="num">874 ms</td><td class="num">833 ms</td><td class="num">2 472 KB</td><td class="num">1 119 KB</td><td class="num">89</td><td class="num">35</td><td class="num">87</td><td class="num">95</td></tr>
+<tr><th scope="row">Categoría<br><span class="dim">Desktop</span></th><td class="num">94</td><td class="num">88</td><td class="num">1.5 s</td><td class="num">1.7 s</td><td class="num">0.000</td><td class="num">0.001</td><td class="num">578 ms</td><td class="num">715 ms</td><td class="num">2 309 KB</td><td class="num">426 KB</td><td class="num">62</td><td class="num">31</td><td class="num">86</td><td class="num">96</td></tr>
+<tr><th scope="row">Ficha<br><span class="dim">Desktop</span></th><td class="num">92</td><td class="num">88</td><td class="num">1.6 s</td><td class="num">1.6 s</td><td class="num">0.002</td><td class="num">0.001</td><td class="num">453 ms</td><td class="num">877 ms</td><td class="num">5 156 KB</td><td class="num">367 KB</td><td class="num">61</td><td class="num">35</td><td class="num">85</td><td class="num">96</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="sheet" data-title="Rendimiento" data-folio="13 · RENDIMIENTO · LECTURA">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>13</b> Rendimiento · cómo leer los datos</p>
+      <h2>Menos peso, tiempos<br>que aún no se pueden comparar</h2>
+    </div>
+    <div class="cols cols-3">
+      <div class="block block--red"><p class="kicker">Se observa en las 6 combinaciones</p><p>El rediseño transfiere menos datos y hace menos peticiones en las tres páginas, tanto en móvil como en desktop. Estas dos cifras dependen menos del servidor, aunque la compresión puede variar entre LiteSpeed y Cloudflare.</p></div>
+      <div class="block"><p class="kicker">Resultados mixtos</p><p>En móvil simulado, el LCP del rediseño es menor en las tres páginas. En desktop, la versión anterior obtiene mejor puntuación en Categoría y Ficha. El TTFB del staging es igual o mayor en 5 de 6 casos.</p></div>
+      <div class="block"><p class="kicker">Datos de campo</p><p><span class="tag tag--na">Evidencia no disponible</span> No hay datos de usuarios reales (CrUX): el staging no recibe tráfico. La comparación válida requiere medir ambas versiones en producción, con la misma infraestructura.</p></div>
+    </div>
+    <p class="note" style="margin-top:26px"><b>Accesibilidad (auto):</b> puntuación automática de Lighthouse (82–87 antes, 94–96 ahora en las páginas medidas). Detecta problemas como contraste, etiquetas o textos alternativos, pero no sustituye una revisión manual con teclado y lector de pantalla.</p>
+  </div>
+</section>
+
+<!-- ============ 14 CONCLUSION ============ -->
+<section class="sheet sheet--alt" id="conclusion" data-title="Resultado" data-folio="14 · RESULTADO">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>14</b> Resultado</p>
+      <h2>Un ecosistema de car audio<br>que se puede recorrer</h2>
+      <p class="lede">La versión anterior ya mostraba productos. El rediseño busca que Black Hawk no se perciba solo como una colección de modelos, sino como una marca de car audio cuyo catálogo se explora con una estructura más clara.</p>
+    </div>
+    <div class="verbs">
+      <div class="verb"><h3>Descubrir</h3><p>Declaración de marca en la home, 12 categorías con contador, catálogo completo en <code>/shop/</code>, búsqueda con contexto en desktop y móvil, y una página propia de marca.</p></div>
+      <div class="verb"><h3>Comparar</h3><p>Potencia y tipo en cada tarjeta; comparador de hasta 3 modelos con la selección guardada entre páginas; fichas con bloque técnico y relacionados con potencia.</p></div>
+      <div class="verb"><h3>Consultar</h3><p>WhatsApp en el header de todas las páginas, un mensaje con el modelo ya escrito desde ficha, vista rápida y comparador, y páginas de dónde comprar, soporte y mayoristas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 15 METODOLOGIA ============ -->
+<section class="sheet" id="metodologia" data-title="Fuentes y metodología" data-folio="15 · METODOLOGÍA">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>15</b> Fuentes y metodología</p>
+      <h2>Cómo se obtuvo la evidencia</h2>
+    </div>
+    <div class="cols cols-3">
+      <div class="block">
+        <p class="kicker">Fuentes</p>
+        <ul class="plain plain--mut">
+          <li><b>Antes:</b> <a href="https://www.blackhawkcaraudio.com/" rel="noopener">www.blackhawkcaraudio.com</a>, sitio en producción.</li>
+          <li><b>Ahora:</b> rediseño expuesto en un túnel temporal de Cloudflare (<code>obj-sociology-humidity-delhi.trycloudflare.com</code>). Las capturas guardadas en <code>assets/</code> no dependen de que el túnel siga activo.</li>
+          <li>Sitemaps <code>wp-sitemap.xml</code> y <code>robots.txt</code> de ambos.</li>
+          <li>Recursos de marca: logo SVG y banner «Siente el poder» descargados del sitio.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <p class="kicker">Herramientas y condiciones</p>
+        <ul class="plain plain--mut">
+          <li>Playwright 1.56.1 + Chromium (headless), 23-09-2026, 22:00–22:54 UTC.</li>
+          <li>Viewports idénticos: <b>1440 × 900</b> (DPR 1) y <b>390 × 844</b> (DPR 2, táctil).</li>
+          <li>Antes de capturar: carga de red en reposo, fuentes, imágenes y recorrido lento de la página para activar la carga diferida y las animaciones de entrada.</li>
+          <li>Lighthouse 12.8.2, 3 ejecuciones por página y formato (ver sección 13).</li>
+        </ul>
+      </div>
+      <div class="block">
+        <p class="kicker">Tratamiento de las capturas</p>
+        <ul class="plain plain--mut">
+          <li>Sin retoques: solo recorte, escalado proporcional y conversión a WebP.</li>
+          <li>Las páginas completas (<code>-stitch</code>) se componen uniendo capturas de viewport sucesivas. La captura de página completa del navegador estira las secciones con altura en <code>vh</code> y deja huecos que no ve ningún visitante.</li>
+          <li>Los originales PNG están en <code>evidence/</code>, con metadatos de URL, estado HTTP, viewport y hora.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" data-title="Fuentes y metodología" data-folio="15 · MATRIZ DE EVIDENCIA 1/3">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>15</b> Matriz de evidencia</p>
+      <h2>Cada afirmación, una captura <span class="dim">(1/3)</span></h2>
+    </div>
+    <details class="mx" open>
+      <summary>Ver la matriz de evidencia (38 elementos)</summary>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th scope="col">ID</th><th scope="col">Versión</th><th scope="col">Tipo</th><th scope="col">URL / estado</th><th scope="col">Viewport</th><th scope="col">Qué demuestra</th></tr></thead>
+          <tbody>
+<tr><th scope="row"><code>N-hero1-d</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Captura de viewport</td><td><code>staging/</code></td><td class="num">1440×900</td><td>Home actual, primera pantalla con la diapositiva 1 del mismo banner.</td></tr>
+<tr><th scope="row"><code>A-hero1-d</code></th><td><span class="tag tag--antes">Antes</span></td><td>Captura de viewport</td><td><code>blackhawkcaraudio.com/</code></td><td class="num">1440×900</td><td>Home anterior, primera pantalla con la diapositiva 1 del banner.</td></tr>
+<tr><th scope="row"><code>A-home-d-stitch</code></th><td><span class="tag tag--antes">Antes</span></td><td>Página completa compuesta</td><td><code>blackhawkcaraudio.com/ · HTTP 200</code></td><td class="num">1440×900</td><td>Estructura completa de la home anterior.</td></tr>
+<tr><th scope="row"><code>N-home-d-stitch</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Página completa compuesta</td><td><code>staging/ · HTTP 200</code></td><td class="num">1440×900</td><td>Estructura completa de la home actual.</td></tr>
+<tr><th scope="row"><code>A-shop-d-view</code></th><td><span class="tag tag--antes">Antes</span></td><td>Captura de viewport</td><td><code>blackhawkcaraudio.com/shop/ · HTTP 200</code></td><td class="num">1440×900</td><td>/shop/ sin productos listados (categorías en barra lateral).</td></tr>
+<tr><th scope="row"><code>N-shop-d-view</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Captura de viewport</td><td><code>staging/shop/ · HTTP 200</code></td><td class="num">1440×900</td><td>Catálogo con 118 productos, pestañas, filtros y tarjetas con potencia.</td></tr>
+<tr><th scope="row"><code>A-cat-sub-d-stitch</code></th><td><span class="tag tag--antes">Antes</span></td><td>Página completa compuesta</td><td><code>blackhawkcaraudio.com/product-category/subwoofer/ · HTTP 200</code></td><td class="num">1440×900</td><td>Tarjetas con categoría y modelo; orden y paginación.</td></tr>
+<tr><th scope="row"><code>N-cat-sub-d-stitch</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Página completa compuesta</td><td><code>staging/product-category/subwoofer/ · HTTP 200</code></td><td class="num">1440×900</td><td>Tarjetas con potencia, tipo, vista rápida y comparar.</td></tr>
+<tr><th scope="row"><code>N-search-04-live-sw12-d</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Interacción</td><td><code>staging/</code></td><td class="num">1440×900</td><td>Sugerencias en vivo para «sw12» con tipo y potencia.</td></tr>
+<tr><th scope="row"><code>A-search-04-typed-sw12-d</code></th><td><span class="tag tag--antes">Antes</span></td><td>Interacción</td><td><code>blackhawkcaraudio.com/</code></td><td class="num">1440×900</td><td>Sugerencias en vivo para «sw12» con miniatura.</td></tr>
+<tr><th scope="row"><code>N-prod-sw12xxg-d-view</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Captura de viewport</td><td><code>staging/product/bh-sw12xxg/ · HTTP 200</code></td><td class="num">1440×900</td><td>Ficha actual: potencia destacada, COTIZAR, acciones, mismas especificaciones.</td></tr>
+<tr><th scope="row"><code>A-prod-sw12xxg-d-view</code></th><td><span class="tag tag--antes">Antes</span></td><td>Captura de viewport</td><td><code>blackhawkcaraudio.com/product/bh-sw12xxg/ · HTTP 200</code></td><td class="num">1440×900</td><td>Ficha anterior: breadcrumb, 4 especificaciones, sin consulta.</td></tr>
+<tr><th scope="row"><code>A-prod-812dsp-d-view</code></th><td><span class="tag tag--antes">Antes</span></td><td>Captura de viewport</td><td><code>blackhawkcaraudio.com/product/bh-8-12dsp/ · HTTP 200</code></td><td class="num">1440×900</td><td>Ficha sin especificaciones.</td></tr>
+<tr><th scope="row"><code>N-prod-812dsp-d-view</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Captura de viewport</td><td><code>staging/product/bh-8-12dsp/ · HTTP 200</code></td><td class="num">1440×900</td><td>Ficha con cuatro características (origen no verificado).</td></tr>
+<tr><th scope="row"><code>N-cmp-01-add1-d</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Interacción</td><td><code>staging/product-category/subwoofer/</code></td><td class="num">1440×900</td><td>Comparador: primer modelo añadido.</td></tr>
+<tr><th scope="row"><code>N-cmp-03-add4-limit-d</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Interacción</td><td><code>staging/product-category/subwoofer/</code></td><td class="num">1440×900</td><td>Comparador: límite de 3 productos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+<section class="sheet" data-title="Fuentes y metodología" data-folio="15 · MATRIZ DE EVIDENCIA 2/3">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>15</b> Matriz de evidencia</p>
+      <h2>Cada afirmación, una captura <span class="dim">(2/3)</span></h2>
+    </div>
+    <details class="mx" open>
+      <summary class="p-hide" hidden>Ver la matriz de evidencia (38 elementos)</summary>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th scope="col">ID</th><th scope="col">Versión</th><th scope="col">Tipo</th><th scope="col">URL / estado</th><th scope="col">Viewport</th><th scope="col">Qué demuestra</th></tr></thead>
+          <tbody>
+<tr><th scope="row"><code>N-cmp-04-open-d</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Interacción</td><td><code>staging/product-category/subwoofer/</code></td><td class="num">1440×900</td><td>Comparador: vista comparada de 3 modelos.</td></tr>
+<tr><th scope="row"><code>N-cmp-06-specs-d</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Interacción</td><td><code>staging/product-category/subwoofer/</code></td><td class="num">1440×900</td><td>Comparador: filas de especificaciones.</td></tr>
+<tr><th scope="row"><code>A-gal-d-stitch</code></th><td><span class="tag tag--antes">Antes</span></td><td>Página completa compuesta</td><td><code>blackhawkcaraudio.com/galeria-de-fotos/ · HTTP 200</code></td><td class="num">1440×900</td><td>Galería en cuadrícula de 12 fotos.</td></tr>
+<tr><th scope="row"><code>A-gal-01-lightbox-d</code></th><td><span class="tag tag--antes">Antes</span></td><td>Interacción</td><td><code>blackhawkcaraudio.com/galeria-de-fotos/</code></td><td class="num">1440×900</td><td>Lightbox anterior con zoom, pantalla completa y compartir.</td></tr>
+<tr><th scope="row"><code>N-gal-d-stitch</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Página completa compuesta</td><td><code>staging/galeria/ · HTTP 200</code></td><td class="num">1440×900</td><td>Galería en mosaico con las mismas 12 fotos y cierre con CTA.</td></tr>
+<tr><th scope="row"><code>N-gal-01-lightbox-d</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Interacción</td><td><code>staging/galeria/</code></td><td class="num">1440×900</td><td>Lightbox actual con anterior/siguiente y cierre.</td></tr>
+<tr><th scope="row"><code>N-distri-d-view</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Captura de viewport</td><td><code>staging/distribuidores/ · HTTP 200</code></td><td class="num">1440×900</td><td>Dónde comprar: consulta por WhatsApp, sin listado.</td></tr>
+<tr><th scope="row"><code>N-nosotros-d-stitch</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Página completa compuesta</td><td><code>staging/nosotros/ · HTTP 200</code></td><td class="num">1440×900</td><td>Página de marca completa.</td></tr>
+<tr><th scope="row"><code>N-nosotros-d-view</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Captura de viewport</td><td><code>staging/nosotros/ · HTTP 200</code></td><td class="num">1440×900</td><td>Página de marca (primera pantalla).</td></tr>
+<tr><th scope="row"><code>N-soporte-d-stitch</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Página completa compuesta</td><td><code>staging/soporte/ · HTTP 200</code></td><td class="num">1440×900</td><td>Soporte completa con preguntas frecuentes.</td></tr>
+<tr><th scope="row"><code>N-soporte-d-view</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Captura de viewport</td><td><code>staging/soporte/ · HTTP 200</code></td><td class="num">1440×900</td><td>Soporte: producto, garantía, manuales.</td></tr>
+<tr><th scope="row"><code>N-mayor-d-stitch</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Página completa compuesta</td><td><code>staging/mayoristas/ · HTTP 200</code></td><td class="num">1440×900</td><td>Formulario B2B completo.</td></tr>
+<tr><th scope="row"><code>N-mayor-d-view</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Captura de viewport</td><td><code>staging/mayoristas/ · HTTP 200</code></td><td class="num">1440×900</td><td>Canal mayorista B2B (primera pantalla).</td></tr>
+<tr><th scope="row"><code>A-mayor-d-stitch</code></th><td><span class="tag tag--antes">Antes</span></td><td>Página completa compuesta</td><td><code>blackhawkcaraudio.com/ventas-al-mayor/ · HTTP 200</code></td><td class="num">1440×900</td><td>Formulario de 4 campos y logos de marcas sin cargar.</td></tr>
+<tr><th scope="row"><code>A-mayor-d-view</code></th><td><span class="tag tag--antes">Antes</span></td><td>Captura de viewport</td><td><code>blackhawkcaraudio.com/ventas-al-mayor/ · HTTP 200</code></td><td class="num">1440×900</td><td>Ventas al mayor a nombre de Estilo Car Audio.</td></tr>
+<tr><th scope="row"><code>A-mmenu-02-productos-m</code></th><td><span class="tag tag--antes">Antes</span></td><td>Interacción</td><td><code>blackhawkcaraudio.com/</code></td><td class="num">390×844</td><td>Menú móvil anterior con Productos desplegado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+<section class="sheet" data-title="Fuentes y metodología" data-folio="15 · MATRIZ DE EVIDENCIA 3/3">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><b>15</b> Matriz de evidencia</p>
+      <h2>Cada afirmación, una captura <span class="dim">(3/3)</span></h2>
+    </div>
+    <details class="mx" open>
+      <summary class="p-hide" hidden>Ver la matriz de evidencia (38 elementos)</summary>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th scope="col">ID</th><th scope="col">Versión</th><th scope="col">Tipo</th><th scope="col">URL / estado</th><th scope="col">Viewport</th><th scope="col">Qué demuestra</th></tr></thead>
+          <tbody>
+<tr><th scope="row"><code>N-mmenu-02-productos-m</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Interacción</td><td><code>staging/</code></td><td class="num">390×844</td><td>Menú móvil actual con Productos desplegado.</td></tr>
+<tr><th scope="row"><code>A-msearch-03-sw12-wait-m</code></th><td><span class="tag tag--antes">Antes</span></td><td>Interacción</td><td><code>blackhawkcaraudio.com/</code></td><td class="num">390×844</td><td>Búsqueda móvil anterior: sin sugerencias tras 7 s.</td></tr>
+<tr><th scope="row"><code>N-msearch-02-sw12-m</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Interacción</td><td><code>staging/</code></td><td class="num">390×844</td><td>Búsqueda móvil actual con sugerencias.</td></tr>
+<tr><th scope="row"><code>A-prod-sw12xxg-m-stitch</code></th><td><span class="tag tag--antes">Antes</span></td><td>Página completa compuesta</td><td><code>blackhawkcaraudio.com/product/bh-sw12xxg/ · HTTP 200</code></td><td class="num">390×844</td><td>Ficha móvil anterior sin botón de consulta.</td></tr>
+<tr><th scope="row"><code>N-prod-sw12xxg-m-stitch</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Página completa compuesta</td><td><code>staging/product/bh-sw12xxg/ · HTTP 200</code></td><td class="num">390×844</td><td>Ficha móvil actual con COTIZAR en la primera pantalla.</td></tr>
+<tr><th scope="row"><code>N-cmp-04-open-m</code></th><td><span class="tag tag--ahora">Ahora</span></td><td>Interacción</td><td><code>staging/product-category/subwoofer/</code></td><td class="num">390×844</td><td>Comparador en móvil.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer wrap">Black Hawk · Evolución de la experiencia web · Informe generado el 23-09-2026 a partir de evidencia capturada ese día. Las marcas y capturas pertenecen a Black Hawk Car Audio.</footer>
+
+<dialog class="lb" id="lb" aria-label="Imagen ampliada">
+  <div class="lb__in">
+    <div class="lb__bar"><span id="lbCap"></span><button class="lb__close" id="lbClose" type="button">Cerrar</button></div>
+    <div class="lb__img"><img id="lbImg" alt=""></div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  // --- before/after sliders ---
+  document.querySelectorAll('[data-ba]').forEach(function(ba){
+    var stage=ba.querySelector('.ba__stage'), range=ba.querySelector('.ba__range'), btns=ba.querySelectorAll('[data-set]');
+    function set(v){v=Math.max(0,Math.min(100,v));stage.style.setProperty('--pos',v+'%');range.value=Math.round(v);range.setAttribute('aria-valuetext',v>=99?'Solo antes':v<=1?'Solo ahora':Math.round(v)+'% antes');btns.forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.set===Math.round(v)))});}
+    function fromX(x){var r=stage.getBoundingClientRect();set((x-r.left)/r.width*100);}
+    var drag=false;
+    stage.addEventListener('pointerdown',function(e){drag=true;stage.setPointerCapture(e.pointerId);fromX(e.clientX);range.focus({preventScroll:true});});
+    stage.addEventListener('pointermove',function(e){if(drag)fromX(e.clientX);});
+    ['pointerup','pointercancel'].forEach(function(t){stage.addEventListener(t,function(){drag=false;});});
+    range.addEventListener('input',function(){set(+range.value);});
+    btns.forEach(function(b){b.addEventListener('click',function(){set(+b.dataset.set);});});
+    set(50);
+  });
+  // --- lightbox ---
+  var lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap'), last=null;
+  document.querySelectorAll('.zoom').forEach(function(z){z.addEventListener('click',function(){
+    var img=z.querySelector('img'); last=z; lbImg.src=z.dataset.full||img.src; lbImg.alt=img.alt; lbCap.textContent=img.alt;
+    if(lb.showModal){lb.showModal();}else{window.open(lbImg.src,'_blank');}
+  });});
+  document.getElementById('lbClose').addEventListener('click',function(){lb.close();});
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.close();});
+  lb.addEventListener('close',function(){if(last)last.focus();});
+  // --- index + progress ---
+  var btn=document.getElementById('idxBtn'), idx=document.getElementById('idx'), cur=document.getElementById('cur'), prog=document.getElementById('progress');
+  var wide=window.matchMedia('(min-width:1360px)');
+  function syncIdx(){ if(wide.matches){idx.hidden=false;} else {idx.hidden=btn.getAttribute('aria-expanded')!=='true';} }
+  wide.addEventListener?wide.addEventListener('change',syncIdx):wide.addListener(syncIdx); syncIdx();
+  btn.addEventListener('click',function(){var o=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!o));syncIdx();});
+  idx.addEventListener('click',function(e){if(e.target.closest('a')&&!wide.matches){btn.setAttribute('aria-expanded','false');syncIdx();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&btn.getAttribute('aria-expanded')==='true'){btn.setAttribute('aria-expanded','false');syncIdx();btn.focus();}});
+  var links={}; idx.querySelectorAll('a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var secs=[].slice.call(document.querySelectorAll('main > section[id]'));
+  function onScroll(){
+    var h=document.documentElement; var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1); prog.style.transform='scaleX('+p.toFixed(4)+')';
+    var y=h.scrollTop+window.innerHeight*0.3, active=secs[0];
+    secs.forEach(function(s){if(s.offsetTop<=y)active=s;});
+    if(active){Object.keys(links).forEach(function(k){links[k].classList.toggle('is-active',k===active.id);links[k].toggleAttribute&&links[k].removeAttribute('aria-current');});
+      if(links[active.id]){links[active.id].setAttribute('aria-current','true');} cur.textContent=active.dataset.title||'';}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>

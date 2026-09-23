@@ -1,0 +1,55 @@
+{
+ "id": "N-nosotros-m",
+ "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/nosotros/",
+ "vp": {
+  "width": 390,
+  "height": 844
+ },
+ "dpr": 2,
+ "http": 200,
+ "date": "2026-09-23T22:37:43.538Z",
+ "frames": [
+  {
+   "f": "frames/N-nosotros-m/00.png",
+   "sy": 0,
+   "from": 0,
+   "to": 844
+  },
+  {
+   "f": "frames/N-nosotros-m/01.png",
+   "sy": 775,
+   "from": 844,
+   "to": 1619
+  },
+  {
+   "f": "frames/N-nosotros-m/02.png",
+   "sy": 1550,
+   "from": 1619,
+   "to": 2394
+  },
+  {
+   "f": "frames/N-nosotros-m/03.png",
+   "sy": 2325,
+   "from": 2394,
+   "to": 3169
+  },
+  {
+   "f": "frames/N-nosotros-m/04.png",
+   "sy": 3100,
+   "from": 3169,
+   "to": 3944
+  },
+  {
+   "f": "frames/N-nosotros-m/05.png",
+   "sy": 3875,
+   "from": 3944,
+   "to": 4719
+  },
+  {
+   "f": "frames/N-nosotros-m/06.png",
+   "sy": 4512,
+   "from": 4719,
+   "to": 5356
+  }
+ ]
+}

@@ -1,0 +1,642 @@
+[
+ {
+  "id": "A-home-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:18:38.755Z",
+  "files": [
+   "screens/A-home-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/",
+  "title": "Black Hawk – Linea completa en Car Audio",
+  "height": 2717,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-home-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:18:50.632Z",
+  "files": [
+   "screens/N-home-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "title": "Black Hawk Car Audio Perú | Potencia y precisión",
+  "height": 7486,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-home-m",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:00:03.316Z",
+  "files": [
+   "screens/A-home-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/",
+  "title": "Black Hawk – Linea completa en Car Audio",
+  "height": 2923,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-home-m",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:00:20.183Z",
+  "files": [
+   "screens/N-home-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+  "title": "Black Hawk Car Audio Perú | Potencia y precisión",
+  "height": 8405,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-shop-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/shop/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:00:38.410Z",
+  "files": [
+   "screens/A-shop-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/shop/",
+  "title": "Tienda – Black Hawk",
+  "height": 1630,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-shop-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/shop/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:00:44.420Z",
+  "files": [
+   "screens/N-shop-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/shop/",
+  "title": "Catálogo de car audio Black Hawk Perú",
+  "height": 3494,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-shop-m",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/shop/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:00:59.605Z",
+  "files": [
+   "screens/A-shop-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/shop/",
+  "title": "Tienda – Black Hawk",
+  "height": 1053,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-shop-m",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/shop/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:01:05.570Z",
+  "files": [
+   "screens/N-shop-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/shop/",
+  "title": "Catálogo de car audio Black Hawk Perú",
+  "height": 3890,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-prod-sw12xxg-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/product/bh-sw12xxg/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:01:41.611Z",
+  "files": [
+   "screens/A-prod-sw12xxg-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/product/bh-sw12xxg/",
+  "title": "BH-SW12XXG – Black Hawk",
+  "height": 2073,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-prod-sw12xxg-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-sw12xxg/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:01:48.174Z",
+  "files": [
+   "screens/N-prod-sw12xxg-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-sw12xxg/",
+  "title": "BH-SW12XXG | Especificaciones y cotización – Black Hawk Perú",
+  "height": 3152,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-prod-812dsp-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/product/bh-8-12dsp/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:02:03.836Z",
+  "files": [
+   "screens/A-prod-812dsp-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/product/bh-8-12dsp/",
+  "title": "BH-8.12DSP – Black Hawk",
+  "height": 2073,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-prod-812dsp-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-8-12dsp/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:02:10.485Z",
+  "files": [
+   "screens/N-prod-812dsp-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-8-12dsp/",
+  "title": "BH-8.12DSP | Especificaciones y cotización – Black Hawk Perú",
+  "height": 3022,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-gal-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/galeria-de-fotos/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:02:25.778Z",
+  "files": [
+   "screens/A-gal-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/galeria-de-fotos/",
+  "title": "Galeria de fotos – Black Hawk",
+  "height": 1856,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-gal-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/galeria/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:02:32.655Z",
+  "files": [
+   "screens/N-gal-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/galeria/",
+  "title": "Galería Black Hawk Car Audio Perú",
+  "height": 2564,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-mayor-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/ventas-al-mayor/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:02:48.018Z",
+  "files": [
+   "screens/A-mayor-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/ventas-al-mayor/",
+  "title": "Ventas al Mayor – Black Hawk",
+  "height": 1694,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-mayor-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/mayoristas/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:02:54.952Z",
+  "files": [
+   "screens/N-mayor-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/mayoristas/",
+  "title": "Distribuidor mayorista Black Hawk Car Audio Perú",
+  "height": 2792,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-distri-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/distribuidores/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:03:09.674Z",
+  "files": [
+   "screens/N-distri-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/distribuidores/",
+  "title": "Dónde comprar Black Hawk Car Audio en Perú",
+  "height": 1423,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-nosotros-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/nosotros/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:19:14.723Z",
+  "files": [
+   "screens/N-nosotros-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/nosotros/",
+  "title": "Black Hawk Car Audio Perú: marca y trayectoria",
+  "height": 4434,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-soporte-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/soporte/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:03:39.208Z",
+  "files": [
+   "screens/N-soporte-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/soporte/",
+  "title": "Soporte de productos Black Hawk Car Audio",
+  "height": 1710,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-privacidad-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/politica-de-privacidad/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:03:53.200Z",
+  "files": [
+   "screens/N-privacidad-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/politica-de-privacidad/",
+  "title": "Política de privacidad | Black Hawk Car Audio Perú",
+  "height": 2501,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-blog-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/blog/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:04:07.680Z",
+  "files": [
+   "screens/A-blog-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/blog/",
+  "title": "Blog – Black Hawk",
+  "height": 2274,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-cart-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/cart/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:04:15.504Z",
+  "files": [
+   "screens/A-cart-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/",
+  "title": "Black Hawk – Linea completa en Car Audio",
+  "height": 2717,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-cat-amp-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/product-category/amplificadores/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:04:24.152Z",
+  "files": [
+   "screens/A-cat-amp-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/product-category/amplificadores/",
+  "title": "Amplificadores – Black Hawk",
+  "height": 2070,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-cat-amp-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/amplificadores/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:04:30.292Z",
+  "files": [
+   "screens/N-cat-amp-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/amplificadores/",
+  "title": "Amplificadores Black Hawk | Catálogo de car audio",
+  "height": 3480,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-homepage01-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/home-page-01/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:13:12.836Z",
+  "files": [
+   "screens/A-homepage01-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/home-page-01/",
+  "title": "Home 01 – Black Hawk",
+  "height": 4451,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-homepage03-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/home-page-03/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:13:25.113Z",
+  "files": [
+   "screens/A-homepage03-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/home-page-03/",
+  "title": "Home 03 – Black Hawk",
+  "height": 2370,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-deseos-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/lista-de-deseos/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:13:40.625Z",
+  "files": [
+   "screens/A-deseos-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/lista-de-deseos/",
+  "title": "Lista de deseos – Black Hawk",
+  "height": 1053,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-prod-sw12xxg-m",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/product/bh-sw12xxg/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:19:34.160Z",
+  "files": [
+   "screens/A-prod-sw12xxg-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/product/bh-sw12xxg/",
+  "title": "BH-SW12XXG – Black Hawk",
+  "height": 1926,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-prod-sw12xxg-m",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-sw12xxg/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:19:43.550Z",
+  "files": [
+   "screens/N-prod-sw12xxg-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/product/bh-sw12xxg/",
+  "title": "BH-SW12XXG | Especificaciones y cotización – Black Hawk Perú",
+  "height": 3883,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-cat-sub-m",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/product-category/subwoofer/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:20:02.887Z",
+  "files": [
+   "screens/A-cat-sub-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/product-category/subwoofer/",
+  "title": "Subwoofer – Black Hawk",
+  "height": 2838,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-cat-sub-m",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:20:12.975Z",
+  "files": [
+   "screens/N-cat-sub-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "title": "Subwoofer Black Hawk | Catálogo de car audio",
+  "height": 3895,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-cat-sub-d",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/product-category/subwoofer/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:20:32.018Z",
+  "files": [
+   "screens/A-cat-sub-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/product-category/subwoofer/",
+  "title": "Subwoofer – Black Hawk",
+  "height": 2070,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-cat-sub-d",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "viewport": "1440x900",
+  "date": "2026-09-23T22:20:41.259Z",
+  "files": [
+   "screens/N-cat-sub-d-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/product-category/subwoofer/",
+  "title": "Subwoofer Black Hawk | Catálogo de car audio",
+  "height": 3455,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-gal-m",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/galeria-de-fotos/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:20:59.727Z",
+  "files": [
+   "screens/A-gal-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/galeria-de-fotos/",
+  "title": "Galeria de fotos – Black Hawk",
+  "height": 3810,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-gal-m",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/galeria/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:21:11.527Z",
+  "files": [
+   "screens/N-gal-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/galeria/",
+  "title": "Galería Black Hawk Car Audio Perú",
+  "height": 3288,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "A-mayor-m",
+  "version": "antes",
+  "url": "https://www.blackhawkcaraudio.com/ventas-al-mayor/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:21:30.740Z",
+  "files": [
+   "screens/A-mayor-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://www.blackhawkcaraudio.com/ventas-al-mayor/",
+  "title": "Ventas al Mayor – Black Hawk",
+  "height": 2623,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-mayor-m",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/mayoristas/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:21:41.172Z",
+  "files": [
+   "screens/N-mayor-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/mayoristas/",
+  "title": "Distribuidor mayorista Black Hawk Car Audio Perú",
+  "height": 4492,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-distri-m",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/distribuidores/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:22:00.499Z",
+  "files": [
+   "screens/N-distri-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/distribuidores/",
+  "title": "Dónde comprar Black Hawk Car Audio en Perú",
+  "height": 1701,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-soporte-m",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/soporte/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:22:17.469Z",
+  "files": [
+   "screens/N-soporte-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/soporte/",
+  "title": "Soporte de productos Black Hawk Car Audio",
+  "height": 2703,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ },
+ {
+  "id": "N-nosotros-m",
+  "version": "ahora",
+  "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/nosotros/",
+  "viewport": "390x844",
+  "date": "2026-09-23T22:22:35.451Z",
+  "files": [
+   "screens/N-nosotros-m-view.png"
+  ],
+  "http": 200,
+  "finalUrl": "https://obj-sociology-humidity-delhi.trycloudflare.com/nosotros/",
+  "title": "Black Hawk Car Audio Perú: marca y trayectoria",
+  "height": 5356,
+  "hscroll": false,
+  "nota": "Captura full-page del navegador descartada: estira secciones con altura en vh. Ver *-stitch.png (frames-meta/)."
+ }
+]

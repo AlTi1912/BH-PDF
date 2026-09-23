@@ -1,0 +1,73 @@
+{
+ "id": "N-home-d",
+ "url": "https://obj-sociology-humidity-delhi.trycloudflare.com/",
+ "vp": {
+  "width": 1440,
+  "height": 900
+ },
+ "dpr": 1,
+ "http": 200,
+ "date": "2026-09-23T22:26:39.543Z",
+ "frames": [
+  {
+   "f": "frames/N-home-d/00.png",
+   "sy": 0,
+   "from": 0,
+   "to": 900
+  },
+  {
+   "f": "frames/N-home-d/01.png",
+   "sy": 823,
+   "from": 900,
+   "to": 1723
+  },
+  {
+   "f": "frames/N-home-d/02.png",
+   "sy": 1646,
+   "from": 1723,
+   "to": 2546
+  },
+  {
+   "f": "frames/N-home-d/03.png",
+   "sy": 2469,
+   "from": 2546,
+   "to": 3369
+  },
+  {
+   "f": "frames/N-home-d/04.png",
+   "sy": 3292,
+   "from": 3369,
+   "to": 4192
+  },
+  {
+   "f": "frames/N-home-d/05.png",
+   "sy": 4115,
+   "from": 4192,
+   "to": 5015
+  },
+  {
+   "f": "frames/N-home-d/06.png",
+   "sy": 4938,
+   "from": 5015,
+   "to": 5838
+  },
+  {
+   "f": "frames/N-home-d/07.png",
+   "sy": 5761,
+   "from": 5838,
+   "to": 6661
+  },
+  {
+   "f": "frames/N-home-d/08.png",
+   "sy": 6584,
+   "from": 6661,
+   "to": 7484
+  },
+  {
+   "f": "frames/N-home-d/09.png",
+   "sy": 6586,
+   "from": 7484,
+   "to": 7486
+  }
+ ]
+}
