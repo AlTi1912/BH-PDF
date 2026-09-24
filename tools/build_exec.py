@@ -14,7 +14,7 @@ os.makedirs(OUT, exist_ok=True)
 
 # nombre destino: (origen, caja de recorte o None, ancho final)
 CROPS = {
-    'partida':        ('screens/A-home-d-stitch.png', (0, 0, 1440, 1500), 1200),
+    'partida':        ('screens/A-home-d-partida.png', (0, 0, 1440, 1128), 1200),
     'home-antes':     ('screens/A-home-d-stitch.png', (0, 0, 1440, 900), 1200),
     'home-ahora':     ('screens/N-home-d-stitch.png', (0, 0, 1440, 900), 1200),
     'shop-antes':     ('screens/A-shop-d-view.png', None, 1000),
