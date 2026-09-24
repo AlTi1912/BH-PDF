@@ -33,6 +33,7 @@ CROPS = {
     'm-menu':         ('interactions/N-mmenu-02-productos-m.png', None, 520),
     'm-ficha':        ('screens/N-prod-sw12xxg-m-stitch.png', (0, 0, 780, 1688), 520),
     'm-comparador':   ('interactions/N-cmp-04-open-m.png', None, 520),
+    'psi-antes':      ('pagespeed/psi-antes-mobile-campo.png', None, 1300),
 }
 
 for name, (src, box, width) in CROPS.items():

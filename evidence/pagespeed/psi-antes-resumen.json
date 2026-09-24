@@ -1,0 +1,42 @@
+{
+ "mobile": {
+  "ff": "mobile",
+  "fetch": "2026-09-24T19:28:22.174Z",
+  "lh": "13.5.0",
+  "url": "https://www.blackhawkcaraudio.com/",
+  "scores": {
+   "accessibility": 84,
+   "agentic-browsing": 32,
+   "best-practices": 100,
+   "performance": 59,
+   "seo": 85
+  },
+  "fcp": "2.9 s",
+  "lcp": "8.9 s",
+  "tbt": "60 ms",
+  "cls": "0.192",
+  "si": "4.4 s",
+  "bytes": 1597,
+  "reqs": 76
+ },
+ "desktop": {
+  "ff": "desktop",
+  "fetch": "2026-09-24T19:28:21.332Z",
+  "lh": "13.5.0",
+  "url": "https://www.blackhawkcaraudio.com/",
+  "scores": {
+   "accessibility": 87,
+   "agentic-browsing": 50,
+   "best-practices": 100,
+   "performance": 87,
+   "seo": 85
+  },
+  "fcp": "0.7 s",
+  "lcp": "2.0 s",
+  "tbt": "120 ms",
+  "cls": "0.014",
+  "si": "1.5 s",
+  "bytes": 2458,
+  "reqs": 88
+ }
+}
