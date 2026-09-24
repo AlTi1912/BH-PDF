@@ -1,0 +1,67 @@
+{
+ "fuente": "Mediciones del equipo de desarrollo (entregadas por el cliente), Lighthouse 13.5, mismo equipo para las tres versiones, 3 páginas x móvil/escritorio x 3 repeticiones, mediana. Septiembre 2026.",
+ "pagina": "inicio",
+ "movil": {
+  "oficial": {
+   "rendimiento": 64,
+   "rango": [
+    62,
+    65
+   ],
+   "fcp_s": 2.47,
+   "lcp_s": 8.02,
+   "cls": 0.113,
+   "tbt_ms": 104,
+   "peso_kib": 1585,
+   "peticiones": 77,
+   "accesibilidad": 84,
+   "navegacion_agentica": 43,
+   "seo": 85
+  },
+  "local_actual": {
+   "rendimiento": 89,
+   "rango": [
+    89,
+    94
+   ],
+   "fcp_s": 1.51,
+   "lcp_s": 2.72,
+   "cls": 0,
+   "tbt_ms": 318,
+   "peso_kib": 467,
+   "peticiones": 30,
+   "accesibilidad": 95,
+   "navegacion_agentica": 100,
+   "seo": 69,
+   "nota_seo": "noindex intencional en desarrollo"
+  },
+  "local_entregada": {
+   "rendimiento": 89,
+   "lcp_s": 2.78,
+   "tbt_ms": 297,
+   "peso_kib": 467,
+   "peticiones": 30
+  }
+ },
+ "escritorio": {
+  "oficial": {
+   "rendimiento": 80,
+   "lcp_s": 2.88,
+   "cls": 0.019,
+   "peso_kib": 2445,
+   "peticiones": 89
+  },
+  "local_actual": {
+   "rendimiento": 99,
+   "lcp_s": 0.75,
+   "cls": 0,
+   "peso_kib": 540,
+   "peticiones": 31
+  }
+ },
+ "limitaciones": [
+  "La versión local se sirve desde el mismo PC: respuesta del servidor ~450 ms vs 600–1700 ms de la oficial.",
+  "Peso, número de peticiones y CLS no dependen de la red y son directamente comparables.",
+  "TBT móvil sube (104 -> ~300 ms, variable 150–320 ms entre repeticiones)."
+ ]
+}

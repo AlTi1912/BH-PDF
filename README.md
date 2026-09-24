@@ -2,7 +2,7 @@
 
 Documenta la evolución entre la web anterior de Black Hawk Car Audio y el rediseño actual, en dos niveles:
 
-1. **Presentación ejecutiva** (`black-hawk-evolucion-ejecutiva.*`): 13 diapositivas para dirección y gerencia. Poco texto, capturas grandes y una idea por página, con el eje descubrir → comparar → consultar.
+1. **Presentación ejecutiva** (`black-hawk-evolucion-ejecutiva.*`): 14 diapositivas para dirección y gerencia. Poco texto, capturas grandes y una idea por página, con el eje descubrir → comparar → consultar.
 2. **Informe completo** (`black-hawk-evolucion-web-informe-completo.*`): el respaldo técnico. Contiene la metodología, la matriz de evidencia, SEO, Lighthouse y las limitaciones.
 
 - **ANTES:** <https://www.blackhawkcaraudio.com/>, sitio en producción.
@@ -14,7 +14,7 @@ Documenta la evolución entre la web anterior de Black Hawk Car Audio y el redis
 | Ruta | Contenido |
 |---|---|
 | `black-hawk-evolucion-ejecutiva.html` | Presentación ejecutiva en 16:9. Se navega con ← → o con los botones, y tiene modo «Presentar» a pantalla completa. |
-| `black-hawk-evolucion-ejecutiva.pdf` | La presentación en PDF, 13 páginas en 16:9. |
+| `black-hawk-evolucion-ejecutiva.pdf` | La presentación en PDF, 14 páginas en 16:9. |
 | `black-hawk-evolucion-web-informe-completo.html` | Informe técnico completo e interactivo: comparadores antes/ahora, índice, ampliación de capturas y vídeo. |
 | `black-hawk-evolucion-web-informe-completo.pdf` | Informe completo en PDF, 28 páginas en 16:9. |
 | `black-hawk-evolucion-web.zip` | Paquete autónomo con los dos niveles, `assets/` y este README. |
@@ -54,6 +54,7 @@ Las capturas no están retocadas: solo se recortaron, se escalaron de forma prop
 - **Quick View de la home anterior:** no se probó su funcionamiento.
 - **Datos del comparador:** en BH-SW12LJD las especificaciones aparecen en un párrafo, no en lista. Es una inconsistencia de contenido observada en el rediseño.
 - **Túnel temporal:** si deja de estar activo, el informe sigue funcionando, porque todas las capturas están en `assets/` y `evidence/`. El 23-09-2026 a las 23:20 UTC el túnel ya respondía 502; la presentación ejecutiva se construyó solo con la evidencia archivada.
+- **Web oficial vs nueva web (diapositivas 12 y 13):** usan las mediciones del equipo de desarrollo (`evidence/data/lighthouse-local-vs-oficial.json`). Se midieron en el mismo equipo con Lighthouse 13.5, con 3 repeticiones y mediana. La nueva web se sirvió en local, así que el servidor respondió más rápido (unos 450 ms frente a 600–1.700 ms de la oficial). Peso, peticiones y saltos (CLS) no dependen del servidor. El tiempo de bloqueo en móvil (TBT) sube de 104 a unos 300 ms y no se muestra en la presentación, aunque ya está incluido en la puntuación de rendimiento. El SEO local (69) se debe al `noindex` de desarrollo.
 - **PageSpeed (antes):** las diapositivas 11 y 12 usan el informe público de PageSpeed Insights de blackhawkcaraudio.com del 24-09-2026 (`evidence/pagespeed/`: JSON completo de Lighthouse para celular y escritorio, y captura de los datos de campo). El «ahora» es la mediana de 3 mediciones con Lighthouse 12.8.2 sobre el entorno de prueba (23-09-2026), con la misma simulación. Las diferencias de versión y servidor impiden tomarlo como comparación exacta; debe confirmarse con PageSpeed cuando la nueva web se publique. Con nuestra propia medición del antes, el rendimiento en celular fue 49, más bajo que el 59 de PageSpeed, así que la comparación no favorece artificialmente a la nueva web.
 - **Presentación ejecutiva:** el dato «5,3 MB → 0,4 MB» es el peso transferido por la ficha BH-SW12XXG en escritorio (mediana de Lighthouse). Los tiempos de carga no se comparan porque producción y staging usan infraestructuras distintas.
 

@@ -233,6 +233,11 @@ p{margin:0}
 .bar2 em{font:700 var(--fs-s)/1 var(--f-body);font-style:normal;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .bar2--a i{background:var(--antes)}.bar2--a em{color:#b9bdc4}
 .bar2--n i{background:var(--red)}.bar2--n em{color:#fff}
+.p14 .values{position:absolute;left:var(--pad);right:var(--pad);top:21.5cqw;display:grid;grid-template-columns:repeat(4,1fr);gap:2.2cqw}
+.value{border-top:.35cqw solid var(--red);padding-top:1.6cqw;display:grid;gap:.9cqw;align-content:start}
+.value b{font:800 7.4cqw/.85 var(--f-disp);color:var(--red);letter-spacing:-.01em}
+.value strong{font:800 2cqw/1 var(--f-disp);text-transform:uppercase;letter-spacing:.03em}
+.value span{font:500 var(--fs-b)/1.35 var(--f-body);color:var(--paper-mut)}
 .legend{position:absolute;right:var(--pad);top:10.4cqw;display:flex;gap:1.6cqw;font:600 var(--fs-xs)/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
 .legend span{display:flex;align-items:center;gap:.6cqw}
 .legend span::before{content:"";width:1.6cqw;height:1cqw;background:var(--antes)}
@@ -285,7 +290,8 @@ p{margin:0}
   .ft{padding:4px 0 0}
   .p11 .band{order:9}
   .p7 .left{padding-top:28px}
-  .p12 .shot,.p12 .side,.p13 .panels,.legend,.src{position:static;width:auto;inset:auto}
+  .p12 .shot,.p12 .side,.p13 .panels,.p14 .values,.legend,.src{position:static;width:auto;inset:auto}
+  .p14 .values{grid-template-columns:1fr 1fr;gap:20px}.value b{font-size:56px}.value strong{font-size:20px}
   .p13 .panels{grid-template-columns:1fr;gap:16px}
   .panel{padding:16px}.panel h3{font-size:22px}
   .duo{--gs:88px;gap:18px}.duo .arr{font-size:26px}
@@ -534,22 +540,39 @@ p{margin:0}
 </section>
 
 <!-- 12 ANTES VS AHORA -->
-<section class="s s--carbon p13" id="s12" aria-label="Rendimiento antes y ahora">
+<section class="s s--carbon p13" id="s12" aria-label="Rendimiento: web oficial y nueva web">
   <div class="in">
-    <p class="eyebrow">11 · Antes y ahora</p>
+    <p class="eyebrow">11 · Web oficial vs nueva web</p>
     <h2>Más liviana. <em>Más rápida de mostrar.</em></h2>
   </div>
-  <div class="legend" aria-hidden="true"><span>Antes</span><span class="n">Ahora</span></div>
-  <div class="panels"><div class="panel"><h3>Celular<small>Rendimiento</small></h3><div class="duo"><div class="gauge"><svg viewBox="0 0 100 100" role="img" aria-label="Antes: 59 de 100"><circle class="trk" cx="50" cy="50" r="42"/><circle class="val" cx="50" cy="50" r="42" pathLength="100" stroke="var(--antes)" stroke-dasharray="59 100"/><text x="50" y="52" fill="var(--antes)">59</text></svg><span class="gl">Antes</span></div><span class="arr" aria-hidden="true">→</span><div class="gauge"><svg viewBox="0 0 100 100" role="img" aria-label="Ahora: 85 de 100"><circle class="trk" cx="50" cy="50" r="42"/><circle class="val" cx="50" cy="50" r="42" pathLength="100" stroke="var(--red-tx)" stroke-dasharray="85 100"/><text x="50" y="52" fill="var(--red-tx)">85</text></svg><span class="gl">Ahora</span></div></div><div class="rows"><div class="row"><span>Contenido principal visible<small>menos es mejor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:100.0%"></i><em>8,9 s</em></div><div class="bar2 bar2--n"><i style="--w:29.2%"></i><em>2,6 s</em></div></div></div><div class="row"><span>Peso de la página<small>menos es mejor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:64.0%"></i><em>1,6 MB</em></div><div class="bar2 bar2--n"><i style="--w:40.0%"></i><em>1,0 MB</em></div></div></div><div class="row"><span>Archivos que descarga<small>menos es mejor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:84.4%"></i><em>76</em></div><div class="bar2 bar2--n"><i style="--w:37.8%"></i><em>34</em></div></div></div><div class="row"><span>Accesibilidad<small>más es mejor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:84.0%"></i><em>84</em></div><div class="bar2 bar2--n"><i style="--w:95.0%"></i><em>95</em></div></div></div></div></div><div class="panel"><h3>Escritorio<small>Rendimiento</small></h3><div class="duo"><div class="gauge"><svg viewBox="0 0 100 100" role="img" aria-label="Antes: 87 de 100"><circle class="trk" cx="50" cy="50" r="42"/><circle class="val" cx="50" cy="50" r="42" pathLength="100" stroke="var(--antes)" stroke-dasharray="87 100"/><text x="50" y="52" fill="var(--antes)">87</text></svg><span class="gl">Antes</span></div><span class="arr" aria-hidden="true">→</span><div class="gauge"><svg viewBox="0 0 100 100" role="img" aria-label="Ahora: 91 de 100"><circle class="trk" cx="50" cy="50" r="42"/><circle class="val" cx="50" cy="50" r="42" pathLength="100" stroke="var(--red-tx)" stroke-dasharray="91 100"/><text x="50" y="52" fill="var(--red-tx)">91</text></svg><span class="gl">Ahora</span></div></div><div class="rows"><div class="row"><span>Contenido principal visible<small>menos es mejor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:22.5%"></i><em>2,0 s</em></div><div class="bar2 bar2--n"><i style="--w:16.9%"></i><em>1,5 s</em></div></div></div><div class="row"><span>Peso de la página<small>menos es mejor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:96.0%"></i><em>2,4 MB</em></div><div class="bar2 bar2--n"><i style="--w:44.0%"></i><em>1,1 MB</em></div></div></div><div class="row"><span>Archivos que descarga<small>menos es mejor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:97.8%"></i><em>88</em></div><div class="bar2 bar2--n"><i style="--w:38.9%"></i><em>35</em></div></div></div><div class="row"><span>Accesibilidad<small>más es mejor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:87.0%"></i><em>87</em></div><div class="bar2 bar2--n"><i style="--w:95.0%"></i><em>95</em></div></div></div></div></div></div>
-  <p class="src">Página de inicio, misma prueba de Google (Lighthouse). Antes: PageSpeed Insights, 24-09-2026. Ahora: nueva web en entorno de prueba, mediana de 3 mediciones, 23-09-2026; se confirmará en PageSpeed al publicarla.</p>
+  <div class="legend" aria-hidden="true"><span>Oficial</span><span class="n">Nueva</span></div>
+  <div class="panels"><div class="panel"><h3>Celular<small>Rendimiento</small></h3><div class="duo"><div class="gauge"><svg viewBox="0 0 100 100" role="img" aria-label="Oficial: 64 de 100"><circle class="trk" cx="50" cy="50" r="42"/><circle class="val" cx="50" cy="50" r="42" pathLength="100" stroke="var(--antes)" stroke-dasharray="64 100"/><text x="50" y="52" fill="var(--antes)">64</text></svg><span class="gl">Oficial</span></div><span class="arr" aria-hidden="true">→</span><div class="gauge"><svg viewBox="0 0 100 100" role="img" aria-label="Nueva: 89 de 100"><circle class="trk" cx="50" cy="50" r="42"/><circle class="val" cx="50" cy="50" r="42" pathLength="100" stroke="var(--red-tx)" stroke-dasharray="89 100"/><text x="50" y="52" fill="var(--red-tx)">89</text></svg><span class="gl">Nueva</span></div></div><div class="rows"><div class="row"><span>Producto visible<small>contenido principal</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:100.0%"></i><em>8,0 s</em></div><div class="bar2 bar2--n"><i style="--w:33.9%"></i><em>2,7 s</em></div></div></div><div class="row"><span>Peso de la página<small>datos que descarga</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:64.8%"></i><em>1,5 MB</em></div><div class="bar2 bar2--n"><i style="--w:19.1%"></i><em>0,46 MB</em></div></div></div><div class="row"><span>Archivos que pide<small>al servidor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:86.5%"></i><em>77</em></div><div class="bar2 bar2--n"><i style="--w:33.7%"></i><em>30</em></div></div></div><div class="row"><span>Saltos al cargar<small>estabilidad visual</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:100.0%"></i><em>0,113</em></div><div class="bar2 bar2--n"><i style="--w:1.5%"></i><em>0</em></div></div></div></div></div><div class="panel"><h3>Escritorio<small>Rendimiento</small></h3><div class="duo"><div class="gauge"><svg viewBox="0 0 100 100" role="img" aria-label="Oficial: 80 de 100"><circle class="trk" cx="50" cy="50" r="42"/><circle class="val" cx="50" cy="50" r="42" pathLength="100" stroke="var(--antes)" stroke-dasharray="80 100"/><text x="50" y="52" fill="var(--antes)">80</text></svg><span class="gl">Oficial</span></div><span class="arr" aria-hidden="true">→</span><div class="gauge"><svg viewBox="0 0 100 100" role="img" aria-label="Nueva: 99 de 100"><circle class="trk" cx="50" cy="50" r="42"/><circle class="val" cx="50" cy="50" r="42" pathLength="100" stroke="var(--red-tx)" stroke-dasharray="99 100"/><text x="50" y="52" fill="var(--red-tx)">99</text></svg><span class="gl">Nueva</span></div></div><div class="rows"><div class="row"><span>Producto visible<small>contenido principal</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:35.9%"></i><em>2,9 s</em></div><div class="bar2 bar2--n"><i style="--w:9.4%"></i><em>0,75 s</em></div></div></div><div class="row"><span>Peso de la página<small>datos que descarga</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:100.0%"></i><em>2,4 MB</em></div><div class="bar2 bar2--n"><i style="--w:22.1%"></i><em>0,53 MB</em></div></div></div><div class="row"><span>Archivos que pide<small>al servidor</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:100.0%"></i><em>89</em></div><div class="bar2 bar2--n"><i style="--w:34.8%"></i><em>31</em></div></div></div><div class="row"><span>Saltos al cargar<small>estabilidad visual</small></span><div class="bars"><div class="bar2 bar2--a"><i style="--w:16.8%"></i><em>0,019</em></div><div class="bar2 bar2--n"><i style="--w:1.5%"></i><em>0</em></div></div></div></div></div></div>
+  <p class="src">Página de inicio. Ambas medidas en el mismo equipo con la misma herramienta de Google (Lighthouse 13.5), mediana de 3 mediciones, septiembre 2026. La nueva web se sirvió en local; peso, archivos y saltos no dependen del servidor.</p>
   <footer class="ft"><span>Black Hawk · Evolución web</span><span class="n">12</span></footer>
 </section>
 
-<!-- 13 RESULTADO -->
-<section class="s p11" id="s13" aria-label="Resultado">
+<!-- 13 VALOR -->
+<section class="s s--light p14" id="s13" aria-label="Lo que gana cada visita">
+  <div class="in">
+    <p class="eyebrow">12 · Por qué importa</p>
+    <h2>Lo que gana <em>cada visita.</em></h2>
+    <p class="lead">Cada mejora técnica se traduce en algo que el cliente nota.</p>
+  </div>
+  <div class="values">
+    <div class="value"><b>3×</b><strong>antes en pantalla</strong><span>En celular, el producto aparece en 2,7 s en lugar de 8 s. Menos espera en el primer contacto con la marca.</span></div>
+    <div class="value"><b>3,4×</b><strong>más liviana</strong><span>0,46 MB en lugar de 1,5 MB. Gasta menos datos móviles y responde mejor con señal débil.</span></div>
+    <div class="value"><b>0</b><strong>saltos al cargar</strong><span>Nada se mueve mientras la página carga: el cliente toca el botón que quiere tocar.</span></div>
+    <div class="value"><b>100</b><strong>lista para la IA</strong><span>La prueba de Google para asistentes de IA pasa de 43 a 100. Accesibilidad: de 84 a 95.</span></div>
+  </div>
+  <p class="src">Cifras de celular, página de inicio, web oficial frente a nueva web (Lighthouse 13.5, mediana de 3 mediciones). Se confirmarán en PageSpeed Insights al publicar.</p>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="n">13</span></footer>
+</section>
+
+<!-- 14 RESULTADO -->
+<section class="s p11" id="s14" aria-label="Resultado">
   <div class="band"><img src="assets/images/brand/PORTADA-2.jpg" alt="" width="1410" height="481"></div>
   <div class="in">
-    <p class="eyebrow">12 · Resultado</p>
+    <p class="eyebrow">13 · Resultado</p>
     <h2>Black Hawk <em>ahora se puede recorrer.</em></h2>
   </div>
   <div class="verbs">
@@ -559,14 +582,14 @@ p{margin:0}
   </div>
   <p class="closing">La web deja de ser solo una vitrina de productos: conecta marca, catálogo y consulta en una misma experiencia.</p>
   <p class="power">Siente <em>el poder.</em></p>
-  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="n">13</span></footer>
+  <footer class="ft"><span>Black Hawk · Evolución web</span><span class="n">14</span></footer>
 </section>
 
 </main>
 
 <nav class="hud" aria-label="Navegación de la presentación">
   <button type="button" id="prev" aria-label="Diapositiva anterior">←</button>
-  <span class="cnt" id="cnt" aria-live="polite">01 / 13</span>
+  <span class="cnt" id="cnt" aria-live="polite">01 / 14</span>
   <button type="button" id="next" aria-label="Diapositiva siguiente">→</button>
   <button type="button" id="fs">Presentar</button>
 </nav>
