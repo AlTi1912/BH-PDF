@@ -6,3 +6,6 @@ _build/model.json
 _build/package-lock.json
 !_build/img/v2-*.png
 _build/v2data.json
+!_build/img/v3-*.png
+_build/v3data.json
+_build/v3orig.json

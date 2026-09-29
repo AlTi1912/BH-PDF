@@ -2,7 +2,31 @@
 
 Proyecto académico del curso **Diseño de Sistemas de Información**: aplicación de la metodología RUP al análisis, diseño y planificación del **Sistema de Gestión de Catálogo y Distribuidores Black Hawk (SGCD-BH)**.
 
-## Versión 2 · primera presentación (usar esta)
+## Versión 3 · sitio original → web renovada → ampliaciones (usar esta)
+
+| Archivo | Contenido |
+|---|---|
+| `BLACK_HAWK_RUP_PRESENTACION_V3.pptx` | 28 diapositivas (26 de contenido, preguntas y respaldo), unos 25 min. Parte del sitio original con capturas anotadas, presenta la web renovada como la solución desarrollada, compara antes y después, aplica RUP fase por fase y muestra cinco diagramas UML grandes. |
+| `BLACK_HAWK_RUP_MONOGRAFIA_V3.docx` | 22 páginas (cuerpo: 15), 10 figuras, 10 tablas, referencias APA 7 y anexos A–B. |
+| `BLACK_HAWK_RUP_GUIA_EXPOSICION_V3.docx` | 11 páginas: el proyecto en dos minutos, siete explicaciones clave y, por diapositiva, mensaje principal, explicación natural, ejemplo, conceptos y posible pregunta. |
+| `ANEXOS/BLACK_HAWK_RUP_ANEXOS_V3.xlsx` | Libro V2 corregido: hojas nuevas «Sitio original», «Antes y después» e «Iteraciones V3»; RF con estado en el sitio original y en la web renovada. |
+| `INFORME_AUDITORIA_V3.md` | Cambios respecto de la V2 y puntos que debes revisar. |
+| `DIAGRAMAS_UML/*/V3_0*` | Casos de uso, actividades, secuencia, clases y componentes de la web renovada. |
+
+Reconstruir la V3 (después de los pasos de la V1):
+
+```bash
+cd _build
+node -e "const v=require('./v3data');const o={...v};delete o.M;require('fs').writeFileSync('v3data.json',JSON.stringify(o,null,1));require('fs').writeFileSync('v3orig.json',JSON.stringify(require('./v3orig'),null,1))"
+NODE_PATH=/opt/node22/lib/node_modules node shots_v3.js   # capturas de ambos sitios (Playwright)
+./render_diagrams.sh
+node presentacion_v3.js                                     # PPTX + slides_v3.json
+./build_docx.sh monografia_v3.js ../BLACK_HAWK_RUP_MONOGRAFIA_V3.docx qa/mono_v3.pdf
+node guia_v3.js
+python3 anexos_v3.py                                        # parte del libro V2
+```
+
+## Versión 2 · primera presentación
 
 | Archivo | Contenido |
 |---|---|
