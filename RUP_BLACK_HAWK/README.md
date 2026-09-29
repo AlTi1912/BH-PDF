@@ -2,7 +2,31 @@
 
 Proyecto académico del curso **Diseño de Sistemas de Información**: aplicación de la metodología RUP al análisis, diseño y planificación del **Sistema de Gestión de Catálogo y Distribuidores Black Hawk (SGCD-BH)**.
 
-## Entregables
+## Versión 2 · primera presentación (usar esta)
+
+| Archivo | Contenido |
+|---|---|
+| `BLACK_HAWK_RUP_PRESENTACION_V2.pptx` | 15 diapositivas, unos 14 min. Responde a cinco preguntas: qué es Black Hawk, qué necesita, qué problema se resuelve, qué sistema se propone y cómo se aplicará RUP. Los diagramas de actividades, casos de uso y clases están dibujados con formas editables. |
+| `BLACK_HAWK_RUP_MONOGRAFIA_V2.docx` | 20 páginas (cuerpo: 12), con las 15 secciones pedidas, referencias en APA 7 y anexos A–C. |
+| `BLACK_HAWK_RUP_GUIA_EXPOSICION_V2.docx` | 5 páginas: el proyecto en dos minutos, una ficha por diapositiva (idea, qué explicar, ejemplo, palabras clave, transición) y 15 preguntas del profesor. |
+| `ANEXOS/BLACK_HAWK_RUP_ANEXOS_V2.xlsx` | Anexos organizados en tres niveles (hoja «LÉEME»), con las hojas nuevas «Datos verificados» y «Productos de referencia». |
+| `INFORME_AUDITORIA_V2.md` | Qué se eliminó, fusionó, conservó y trasladó a anexos, y las inconsistencias corregidas. |
+
+Datos verificados en la web renovada el 29-09-2026. La versión 1 (abajo) queda como documentación técnica de respaldo.
+
+Reconstruir la V2 (después de los pasos de la V1):
+
+```bash
+cd _build
+node -e "const m=require('./model');const v=require('./v2data');const fs=require('fs');fs.writeFileSync('model.json',JSON.stringify(m,null,1));const o={...v};delete o.M;fs.writeFileSync('v2data.json',JSON.stringify(o,null,1))"
+node presentacion_v2.js
+./build_docx.sh monografia_v2.js ../BLACK_HAWK_RUP_MONOGRAFIA_V2.docx qa/mono_v2.pdf
+node guia_v2.js
+python3 anexos_v2.py
+```
+
+## Versión 1 · documentación técnica completa
+
 
 | # | Archivo | Contenido |
 |---|---|---|

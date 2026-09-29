@@ -1,0 +1,1064 @@
+[
+ {
+  "u": "bh-114",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 248,
+  "proximamente": false
+ },
+ {
+  "u": "bh-119fr",
+  "verif": true,
+  "bloque": true,
+  "li": 8,
+  "p": 1,
+  "spec_txt": 376,
+  "proximamente": false
+ },
+ {
+  "u": "bh-120ab",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 283,
+  "proximamente": false
+ },
+ {
+  "u": "bh-800-4",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 283,
+  "proximamente": false
+ },
+ {
+  "u": "bh-3000-4d",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 285,
+  "proximamente": false
+ },
+ {
+  "u": "bh-4000-5d",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 302,
+  "proximamente": false
+ },
+ {
+  "u": "bh-5000-5t",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 328,
+  "proximamente": false
+ },
+ {
+  "u": "bh-5000-5d",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 328,
+  "proximamente": false
+ },
+ {
+  "u": "bh-5000",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 287,
+  "proximamente": false
+ },
+ {
+  "u": "bh-8000",
+  "verif": true,
+  "bloque": true,
+  "li": 1,
+  "p": 2,
+  "spec_txt": 159,
+  "proximamente": false
+ },
+ {
+  "u": "bh-603b",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 241,
+  "proximamente": false
+ },
+ {
+  "u": "bh-603cnt",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 243,
+  "proximamente": false
+ },
+ {
+  "u": "bh-608g",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 240,
+  "proximamente": false
+ },
+ {
+  "u": "bh-608tope",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 242,
+  "proximamente": false
+ },
+ {
+  "u": "bh-cx10pro",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 242,
+  "proximamente": false
+ },
+ {
+  "u": "bh-md1812",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 220,
+  "proximamente": false
+ },
+ {
+  "u": "bh-605nd",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 240,
+  "proximamente": false
+ },
+ {
+  "u": "bh-693",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 237,
+  "proximamente": false
+ },
+ {
+  "u": "bh-200",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 219,
+  "proximamente": false
+ },
+ {
+  "u": "bh-243",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 217,
+  "proximamente": false
+ },
+ {
+  "u": "bh-244",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 217,
+  "proximamente": false
+ },
+ {
+  "u": "bh-250",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 219,
+  "proximamente": false
+ },
+ {
+  "u": "bh-251s",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 217,
+  "proximamente": false
+ },
+ {
+  "u": "bh-350-mini",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 219,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw12xzb",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 244,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw12xzg",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 256,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw12ztx",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 258,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw808",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 253,
+  "proximamente": false
+ },
+ {
+  "u": "bh-tw333dr",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 270,
+  "proximamente": false
+ },
+ {
+  "u": "bh-dr250pro",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 238,
+  "proximamente": false
+ },
+ {
+  "u": "bh-pdn01",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 249,
+  "proximamente": false
+ },
+ {
+  "u": "bh-2-8prd",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 270,
+  "proximamente": false
+ },
+ {
+  "u": "bh-842prd",
+  "verif": true,
+  "bloque": true,
+  "li": 9,
+  "p": 1,
+  "spec_txt": 315,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr1000-1-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 273,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr2000-1-2",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 2,
+  "spec_txt": 356,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr5000-1",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 293,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr8000-1",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 293,
+  "proximamente": false
+ },
+ {
+  "u": "bh-py402",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 227,
+  "proximamente": false
+ },
+ {
+  "u": "bh-py602",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 227,
+  "proximamente": false
+ },
+ {
+  "u": "bh-653cst",
+  "verif": true,
+  "bloque": true,
+  "li": 0,
+  "p": 1,
+  "spec_txt": 205,
+  "proximamente": false
+ },
+ {
+  "u": "bh-654cst",
+  "verif": true,
+  "bloque": true,
+  "li": 0,
+  "p": 1,
+  "spec_txt": 205,
+  "proximamente": false
+ },
+ {
+  "u": "bh-658cst",
+  "verif": true,
+  "bloque": true,
+  "li": 0,
+  "p": 1,
+  "spec_txt": 205,
+  "proximamente": false
+ },
+ {
+  "u": "bh-603bn-pro",
+  "verif": true,
+  "bloque": true,
+  "li": 0,
+  "p": 1,
+  "spec_txt": 228,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sq6-5",
+  "verif": true,
+  "bloque": true,
+  "li": 0,
+  "p": 1,
+  "spec_txt": 206,
+  "proximamente": false
+ },
+ {
+  "u": "bh-603g",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 244,
+  "proximamente": false
+ },
+ {
+  "u": "bh-603-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 243,
+  "proximamente": false
+ },
+ {
+  "u": "bh-604bch",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 247,
+  "proximamente": false
+ },
+ {
+  "u": "bh-604pro",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 246,
+  "proximamente": false
+ },
+ {
+  "u": "bh-605cnt-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 246,
+  "proximamente": false
+ },
+ {
+  "u": "bh-605cng",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 246,
+  "proximamente": false
+ },
+ {
+  "u": "bh-608prohx",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 246,
+  "proximamente": false
+ },
+ {
+  "u": "bh-608pro-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 246,
+  "proximamente": false
+ },
+ {
+  "u": "bh-609pro",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 231,
+  "proximamente": false
+ },
+ {
+  "u": "bh-608ndy-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 244,
+  "proximamente": false
+ },
+ {
+  "u": "bh-608bpro",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 247,
+  "proximamente": false
+ },
+ {
+  "u": "bh-mb18100",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 249,
+  "proximamente": false
+ },
+ {
+  "u": "bh-18100ndy",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 250,
+  "proximamente": false
+ },
+ {
+  "u": "bh-210",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 233,
+  "proximamente": false
+ },
+ {
+  "u": "bh-330-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 233,
+  "proximamente": false
+ },
+ {
+  "u": "bh-332-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 235,
+  "proximamente": false
+ },
+ {
+  "u": "bh-332pro",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 236,
+  "proximamente": false
+ },
+ {
+  "u": "bh-335",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 233,
+  "proximamente": false
+ },
+ {
+  "u": "bh-335n",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 234,
+  "proximamente": false
+ },
+ {
+  "u": "bh-341-2",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 205,
+  "proximamente": false
+ },
+ {
+  "u": "bh-358v2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 235,
+  "proximamente": false
+ },
+ {
+  "u": "bh-s251",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 232,
+  "proximamente": false
+ },
+ {
+  "u": "bh-331sl-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 234,
+  "proximamente": false
+ },
+ {
+  "u": "bh-tw10",
+  "verif": true,
+  "bloque": true,
+  "li": 4,
+  "p": 1,
+  "spec_txt": 184,
+  "proximamente": false
+ },
+ {
+  "u": "bh-248",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 229,
+  "proximamente": false
+ },
+ {
+  "u": "bh-335pro-2",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 256,
+  "proximamente": false
+ },
+ {
+  "u": "bh-360-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 233,
+  "proximamente": false
+ },
+ {
+  "u": "bh-362-2",
+  "verif": true,
+  "bloque": true,
+  "li": 4,
+  "p": 1,
+  "spec_txt": 184,
+  "proximamente": false
+ },
+ {
+  "u": "bh-363",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 233,
+  "proximamente": false
+ },
+ {
+  "u": "bh-358ndy",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 207,
+  "proximamente": false
+ },
+ {
+  "u": "bh-360ndy",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 209,
+  "proximamente": false
+ },
+ {
+  "u": "bh-120alb",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 292,
+  "proximamente": false
+ },
+ {
+  "u": "bh-120xl-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 292,
+  "proximamente": false
+ },
+ {
+  "u": "bh-117",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 328,
+  "proximamente": false
+ },
+ {
+  "u": "bh-119m-2",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 299,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr114rev200",
+  "verif": true,
+  "bloque": true,
+  "li": 8,
+  "p": 1,
+  "spec_txt": 359,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr114rev300",
+  "verif": true,
+  "bloque": true,
+  "li": 9,
+  "p": 1,
+  "spec_txt": 361,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr114rev500",
+  "verif": true,
+  "bloque": true,
+  "li": 8,
+  "p": 1,
+  "spec_txt": 361,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr117",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 341,
+  "proximamente": false
+ },
+ {
+  "u": "bh-117d",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 322,
+  "proximamente": false
+ },
+ {
+  "u": "bh-117d-htlc",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 313,
+  "proximamente": false
+ },
+ {
+  "u": "bh-117-5kt",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 303,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw12ljd",
+  "verif": true,
+  "bloque": true,
+  "li": 0,
+  "p": 1,
+  "spec_txt": 213,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw12ipal",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 249,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw15ipal",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 249,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw15xxg",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 249,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw12ls4",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 244,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw1200sl-pro",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 250,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw12lj-slim",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 252,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw10wbx",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 250,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw10ltg",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 250,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw10ust-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 250,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw10-3ust-2",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 252,
+  "proximamente": false
+ },
+ {
+  "u": "bh-841eq",
+  "verif": true,
+  "bloque": true,
+  "li": 4,
+  "p": 1,
+  "spec_txt": 225,
+  "proximamente": false
+ },
+ {
+  "u": "bh-859eq",
+  "verif": true,
+  "bloque": true,
+  "li": 4,
+  "p": 1,
+  "spec_txt": 217,
+  "proximamente": false
+ },
+ {
+  "u": "bh-4-8dsp-2",
+  "verif": true,
+  "bloque": true,
+  "li": 11,
+  "p": 1,
+  "spec_txt": 513,
+  "proximamente": false
+ },
+ {
+  "u": "bh-6-12dsp",
+  "verif": true,
+  "bloque": true,
+  "li": 11,
+  "p": 1,
+  "spec_txt": 512,
+  "proximamente": false
+ },
+ {
+  "u": "bh-8-12dsp",
+  "verif": true,
+  "bloque": true,
+  "li": 4,
+  "p": 1,
+  "spec_txt": 221,
+  "proximamente": false
+ },
+ {
+  "u": "bh-tw331dr",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 242,
+  "proximamente": false
+ },
+ {
+  "u": "bh-tw332dr",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 243,
+  "proximamente": false
+ },
+ {
+  "u": "bh-tw337dr",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 242,
+  "proximamente": false
+ },
+ {
+  "u": "bh-tw339drg",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 243,
+  "proximamente": false
+ },
+ {
+  "u": "bh-tw339dr",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 242,
+  "proximamente": false
+ },
+ {
+  "u": "bh-605la",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 0,
+  "spec_txt": 245,
+  "proximamente": false
+ },
+ {
+  "u": "bh-117sd",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 1,
+  "spec_txt": 342,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw12xxg",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 246,
+  "proximamente": false
+ },
+ {
+  "u": "bh-70chr",
+  "verif": true,
+  "bloque": true,
+  "li": 4,
+  "p": 1,
+  "spec_txt": 192,
+  "proximamente": false
+ },
+ {
+  "u": "bh-200chr",
+  "verif": true,
+  "bloque": true,
+  "li": 4,
+  "p": 1,
+  "spec_txt": 194,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr1500-1",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 256,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr3000-1",
+  "verif": true,
+  "bloque": true,
+  "li": 5,
+  "p": 1,
+  "spec_txt": 256,
+  "proximamente": false
+ },
+ {
+  "u": "bh-sw12xzp",
+  "verif": true,
+  "bloque": true,
+  "li": 6,
+  "p": 1,
+  "spec_txt": 246,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr2000-1-naranja",
+  "verif": true,
+  "bloque": true,
+  "li": 7,
+  "p": 2,
+  "spec_txt": 370,
+  "proximamente": false
+ },
+ {
+  "u": "bh-fr15000-1",
+  "verif": true,
+  "bloque": true,
+  "li": 1,
+  "p": 1,
+  "spec_txt": 155,
+  "proximamente": true
+ },
+ {
+  "u": "bh-fr40000-1",
+  "verif": true,
+  "bloque": true,
+  "li": 1,
+  "p": 1,
+  "spec_txt": 155,
+  "proximamente": true
+ }
+]

@@ -33,9 +33,9 @@ found = []
 for kind, lvl, txt in entries:
     pg = None
     for i in range(ptr, len(pages)):
-        if kind == 'H' and lvl == 1:
-            if first_line(pages[i]).startswith(txt[:60]): pg = i; break
-        else:
+        if kind == 'H' and lvl == 1 and first_line(pages[i]).startswith(txt[:60]):
+            pg = i; break
+        if kind != 'H' or lvl != 1 or len(txt) > 12 or txt[0].isdigit():
             if txt[:45] in pages_n[i] and not re.search(re.escape(txt[:30]) + r'[^.]*\.{5,}', pages_n[i]): pg = i; break
     if pg is None:
         print('NO ENCONTRADO:', kind, txt); pg = ptr

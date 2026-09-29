@@ -1,0 +1,21 @@
+@startuml S03_flujo_propuesto
+!include _estilo.iuml
+skinparam defaultFontSize 14
+title S-03 · Actividades del proceso comercial propuesto (vista simplificada de D-16)
+|Cliente|
+start
+:Busca o explora el catálogo;
+:Revisa la ficha técnica;
+if (¿Quiere comparar?) then (sí)
+  :Compara hasta 3 modelos;
+endif
+:Pulsa «Cotizar»;
+|SGCD-BH|
+:Registra la consulta;
+:Abre WhatsApp con modelo y enlace;
+|Área comercial / Distribuidor|
+:Atiende y deriva al punto de venta;
+|SGCD-BH|
+:Gestor actualiza el estado de la consulta;
+stop
+@enduml

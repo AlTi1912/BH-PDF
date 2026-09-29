@@ -1,0 +1,33 @@
+@startuml S01_cu_simplificado
+!include _estilo.iuml
+left to right direction
+skinparam defaultFontSize 15
+title S-01 · Casos de uso principales del SGCD-BH (vista simplificada de D-02)
+
+actor "Cliente" as CL
+actor "Distribuidor" as DI
+rectangle "SGCD-BH" {
+  usecase "Consultar catálogo\ny ficha técnica" as U1
+  usecase "Comparar productos" as U2
+  usecase "Enviar consulta\npor WhatsApp" as U3
+  usecase "Registrar consulta" <<propuesto>> as U4
+  usecase "Ver dónde comprar" as U5
+  usecase "Administrar catálogo" as U6
+  usecase "Solicitar ser distribuidor" as U9
+  usecase "Gestionar distribuidores" <<propuesto>> as U7
+  usecase "Dar seguimiento a consultas\ny ver reportes" <<propuesto>> as U8
+}
+actor "Gestor /\nAdministrador" as GA
+actor "WhatsApp\n(sistema externo)" <<sistema>> as WA
+
+CL -- U1
+CL -- U2
+CL -- U3
+CL -- U5
+DI -- U9
+U3 ..> U4 : <<include>>
+U3 -- WA
+U6 -- GA
+U7 -- GA
+U8 -- GA
+@enduml

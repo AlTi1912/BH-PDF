@@ -18,7 +18,7 @@ function pngSize(file) {
 // Texto con **negrita** y _cursiva_ en línea
 function runs(text, base = {}) {
   const out = [];
-  const re = /(\*\*[^*]+\*\*|_[^_]+_)/g;
+  const re = /(\*\*[^*]+\*\*|(?<![\w])_[^_]+_(?![\w]))/g;
   let last = 0, m;
   while ((m = re.exec(text))) {
     if (m.index > last) out.push(new TextRun({ text: text.slice(last, m.index), ...base }));
@@ -91,7 +91,7 @@ function image(file, maxW = 16, maxH = 21) { // cm
 const baseStyles = {
   default: { document: { run: { font: FONT, size: 22, color: INK } } },
   paragraphStyles: [
-    { id: 'Heading1', name: 'Heading 1', basedOn: 'Normal', next: 'Normal', quickFormat: true, run: { size: 32, bold: true, font: FONT, color: INK }, paragraph: { spacing: { before: 120, after: 240 }, outlineLevel: 0 } },
+    { id: 'Heading1', name: 'Heading 1', basedOn: 'Normal', next: 'Normal', quickFormat: true, run: { size: 32, bold: true, font: FONT, color: INK }, paragraph: { spacing: { before: 120, after: 240 }, outlineLevel: 0, keepNext: true } },
     { id: 'Heading2', name: 'Heading 2', basedOn: 'Normal', next: 'Normal', quickFormat: true, run: { size: 26, bold: true, font: FONT, color: PURPLE }, paragraph: { spacing: { before: 280, after: 120 }, outlineLevel: 1, keepNext: true } },
     { id: 'FigCaption', name: 'FigCaption', basedOn: 'Normal', next: 'Normal', run: { size: 20, font: FONT, color: INK } },
     { id: 'TabCaption', name: 'TabCaption', basedOn: 'Normal', next: 'Normal', run: { size: 20, font: FONT, color: INK } },

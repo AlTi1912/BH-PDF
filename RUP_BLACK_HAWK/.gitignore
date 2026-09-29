@@ -1,6 +1,8 @@
 _build/node_modules/
 _build/plantuml.jar
 _build/qa/
-_build/img/
+_build/img/*
 _build/model.json
 _build/package-lock.json
+!_build/img/v2-*.png
+_build/v2data.json

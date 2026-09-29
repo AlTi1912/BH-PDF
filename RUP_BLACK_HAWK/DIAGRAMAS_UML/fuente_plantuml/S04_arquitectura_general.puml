@@ -1,0 +1,29 @@
+@startuml S04_arquitectura_general
+!include _estilo.iuml
+skinparam packageStyle rectangle
+skinparam defaultFontSize 14
+top to bottom direction
+title S-04 · Arquitectura general del SGCD-BH (vista simplificada de D-22)
+package "Interfaz web" {
+  component "Sitio público\n(tema hijo Black Hawk)" as A
+  component "Panel de administración\n(WordPress)" as B
+}
+package "Lógica del sistema" {
+  component "WooCommerce\n(catálogo)" as C
+  component "YITH Catalog Mode\n(sin carrito ni pago)" as D
+  component "Módulo propio bh-core\n(consultas, distribuidores, reportes)" <<propuesto>> as E
+}
+package "Datos" {
+  database "Base de datos\nMySQL / MariaDB" as F
+}
+cloud "WhatsApp\n(canal externo)" as G
+A -down-> C
+B -down-> C
+A -down-> E
+B -down-> E
+D .left.> C
+C -down-> F
+E -down-> F
+F -[hidden]right- G
+E .down.> G : enlace wa.me
+@enduml

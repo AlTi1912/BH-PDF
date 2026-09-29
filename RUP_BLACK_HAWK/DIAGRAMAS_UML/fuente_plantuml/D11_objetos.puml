@@ -7,11 +7,11 @@ object "cmp1 : ComparacionProducto" as cmp1 {
   idSesionAnonima = «uuid aleatorio»
 }
 object "p1 : Producto" as p1 {
-  modelo = "FR 1500.1"
+  modelo = "BH-FR1500.1"
   estado = PUBLICADO
 }
 object "p2 : Producto" as p2 {
-  modelo = "FR 2000.1"
+  modelo = "BH-FR2000.1"
   estado = PUBLICADO
 }
 object "amp : Categoria" as amp {
@@ -26,7 +26,7 @@ object "k1 : ConsultaComercial" as k1 {
   origen = COMPARADOR
   intencion = COTIZAR
   estado = REGISTRADA
-  mensaje = "…quiero cotizar el modelo FR 2000.1…"
+  mensaje = "…quiero cotizar el modelo BH-FR2000.1…"
 }
 
 cmp1 -- p1

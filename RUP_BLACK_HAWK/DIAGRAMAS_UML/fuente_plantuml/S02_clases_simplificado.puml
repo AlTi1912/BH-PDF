@@ -1,0 +1,20 @@
+@startuml S02_clases_simplificado
+!include _estilo.iuml
+hide empty members
+hide circle
+skinparam defaultFontSize 15
+title S-02 · Clases principales del SGCD-BH (vista simplificada de D-07)
+
+class Categoria
+class Producto
+class "Especificación técnica" as EspecificacionTecnica
+class "Consulta comercial" as ConsultaComercial <<propuesto>>
+class Distribuidor <<propuesto>>
+class Usuario
+
+Producto "0..*" -- "1..*" Categoria : pertenece a >
+Producto "1" *-- "0..*" EspecificacionTecnica : describe <
+ConsultaComercial "0..*" -- "0..1" Producto : sobre >
+ConsultaComercial "0..*" -- "0..1" Distribuidor : derivada a >
+Usuario "0..1" -- "0..*" ConsultaComercial : atiende >
+@enduml

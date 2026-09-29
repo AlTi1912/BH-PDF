@@ -1,0 +1,291 @@
+[
+ {
+  "title": "Portada",
+  "t": 30,
+  "idea": "Presentamos una propuesta de sistema para Black Hawk, diseñada con RUP.",
+  "explicar": [
+   "Quiénes somos y el curso.",
+   "Tema: aplicar RUP para diseñar un sistema de información para una empresa real.",
+   "Hoy presentamos la estructura y la propuesta del proyecto, no un sistema terminado."
+  ],
+  "ejemplo": "Black Hawk es una marca peruana de car audio: amplificadores, subwoofers, procesadores.",
+  "claves": [
+   "RUP",
+   "Propuesta",
+   "Black Hawk"
+  ],
+  "trans": "Empecemos por conocer a la empresa.",
+  "n": 1
+ },
+ {
+  "title": "¿Qué es Black Hawk?",
+  "t": 50,
+  "idea": "Black Hawk es una marca de car audio que usa su web como catálogo, no como tienda.",
+  "explicar": [
+   "Sector: audio automotriz en el Perú.",
+   "Productos: amplificadores, subwoofers, procesadores, parlantes, cargadores.",
+   "Público: quien equipa su vehículo y los negocios que venden la marca.",
+   "Modelo comercial: la web muestra y orienta; la compra ocurre con el área comercial o un distribuidor."
+  ],
+  "ejemplo": "La web renovada tiene 118 productos en 12 categorías, por ejemplo el amplificador BH-FR1500.1 o el subwoofer BH-SW12XZP.",
+  "claves": [
+   "Car audio",
+   "Catálogo",
+   "Distribuidores"
+  ],
+  "trans": "¿Cómo compra hoy un cliente?",
+  "visible": "¿Qué es Black Hawk?",
+  "n": 2
+ },
+ {
+  "title": "¿Cómo funciona actualmente?",
+  "t": 55,
+  "idea": "Hoy el cliente encuentra el producto en la web y la consulta termina en WhatsApp.",
+  "explicar": [
+   "Recorrer el flujo: cliente → catálogo → ficha → «Cotizar» → WhatsApp → compra fuera de la web.",
+   "Lo que ya existe: catálogo con filtros, ficha, comparador y el botón que escribe el modelo en el mensaje.",
+   "Aclarar que la compra no ocurre en la web."
+  ],
+  "ejemplo": "En la ficha del BH-FR1500.1, «Cotizar» abre WhatsApp con «quiero cotizar el modelo BH-FR1500.1».",
+  "claves": [
+   "Flujo actual",
+   "Cotizar",
+   "WhatsApp"
+  ],
+  "trans": "El flujo funciona, pero tiene vacíos. Veamos cuáles.",
+  "visible": "¿Cómo funciona actualmente?",
+  "n": 3
+ },
+ {
+  "title": "Problema o necesidad identificada",
+  "t": 60,
+  "idea": "El problema no es tener web: es mantener la información ordenada y medir la ruta hasta el distribuidor.",
+  "explicar": [
+   "Decir la frase del problema.",
+   "Tres necesidades: información técnica ordenada, llegar al punto de venta y saber qué se consulta.",
+   "Separar lo observado del supuesto académico."
+  ],
+  "ejemplo": "«Dónde comprar» no tiene un directorio: todas las consultas van al mismo WhatsApp.",
+  "claves": [
+   "Información",
+   "Derivación",
+   "Trazabilidad"
+  ],
+  "trans": "Para resolverlo, proponemos un sistema.",
+  "visible": "El problema, en una frase",
+  "n": 4
+ },
+ {
+  "title": "¿Qué proponemos?",
+  "t": 55,
+  "idea": "El SGCD-BH: un sistema web que ordena el catálogo, conecta con el distribuidor y registra cada consulta.",
+  "explicar": [
+   "Qué es, en una frase.",
+   "Para qué sirve: datos confiables, derivación al punto de venta, seguimiento.",
+   "Quién lo usa: cliente, gestor del catálogo, administrador y distribuidor.",
+   "Se construye sobre la web actual; no la reemplaza."
+  ],
+  "ejemplo": "Cuando un cliente pulsa «Cotizar» en el BH-SW12XZP, el sistema guarda la consulta y el gestor luego la deriva a un distribuidor de su ciudad.",
+  "claves": [
+   "SGCD-BH",
+   "Usuarios",
+   "Sobre la web actual"
+  ],
+  "trans": "¿Qué objetivos tiene y hasta dónde llega?",
+  "visible": "¿Qué proponemos?",
+  "n": 5
+ },
+ {
+  "title": "Objetivos y alcance",
+  "t": 55,
+  "idea": "Un objetivo general, cuatro específicos y un alcance agrupado en cuatro áreas.",
+  "explicar": [
+   "Leer el objetivo general con tus palabras.",
+   "Los cuatro específicos siguen el orden del trabajo: analizar, especificar, modelar, planificar.",
+   "Alcance: catálogo, consultas, distribuidores y administración.",
+   "Exclusiones: no es tienda en línea ni ERP."
+  ],
+  "ejemplo": "No incluimos carrito ni pagos porque Black Hawk vende a través de su área comercial y de distribuidores.",
+  "claves": [
+   "Objetivo general",
+   "Alcance",
+   "Exclusiones"
+  ],
+  "trans": "Veamos cómo funcionará la solución.",
+  "visible": "Objetivos y alcance",
+  "n": 6
+ },
+ {
+  "title": "¿Cómo funcionará la solución?",
+  "t": 65,
+  "idea": "El recorrido del cliente, con lo que el sistema hace en cada paso.",
+  "explicar": [
+   "Es un diagrama de actividades simplificado: una fila por participante.",
+   "Cliente: busca, revisa la ficha, compara y pulsa «Cotizar».",
+   "Sistema: registra la consulta y abre WhatsApp con el modelo y el enlace.",
+   "Área comercial o distribuidor: atiende y deriva. El gestor actualiza el estado y ve reportes."
+  ],
+  "ejemplo": "Un cliente compara BH-FR1500.1 y BH-FR3000.1, cotiza el segundo y el gestor ve después que ese modelo es el más consultado.",
+  "claves": [
+   "Recorrido",
+   "Registro",
+   "Seguimiento"
+  ],
+  "trans": "¿Con qué metodología vamos a desarrollar esto? Con RUP.",
+  "visible": "¿Cómo funcionará la solución?",
+  "n": 7
+ },
+ {
+  "title": "¿Por qué utilizamos RUP?",
+  "t": 55,
+  "idea": "RUP organiza el desarrollo en iteraciones guiadas por casos de uso y por la arquitectura.",
+  "explicar": [
+   "RUP es una metodología (un proceso) de desarrollo de software.",
+   "Iterativo e incremental: el sistema crece por partes.",
+   "Dirigido por casos de uso: el caso «Enviar consulta» guía el diseño y las pruebas.",
+   "Centrado en la arquitectura: se valida la estructura antes de construir."
+  ],
+  "ejemplo": "Primero se construye el catálogo, luego las consultas y al final la administración; cada parte se prueba antes de seguir.",
+  "claves": [
+   "Iterativo",
+   "Casos de uso",
+   "Arquitectura"
+  ],
+  "trans": "RUP organiza el trabajo en cuatro fases.",
+  "visible": "¿Por qué utilizamos RUP?",
+  "n": 8
+ },
+ {
+  "title": "Las cuatro fases de RUP",
+  "t": 90,
+  "idea": "Cuatro fases, cada una con un propósito, sus entregables y un hito que la cierra.",
+  "explicar": [
+   "Recorrer Inicio → Elaboración → Construcción → Transición: qué haremos, qué entregaremos y qué significa en Black Hawk.",
+   "Cada fase termina en un hito: LCO, LCA, IOC y PR.",
+   "No es una cascada: dentro de cada fase se repiten ciclos de análisis, diseño, desarrollo y prueba.",
+   "Esta entrega cubre Inicio y Elaboración; Construcción y Transición quedan planificadas. Las semanas son una estimación académica."
+  ],
+  "ejemplo": "En Elaboración se prueba con un prototipo que registrar la consulta no retrasa la apertura de WhatsApp.",
+  "claves": [
+   "Fases",
+   "Hitos",
+   "No es cascada"
+  ],
+  "trans": "¿Qué requisitos salieron del análisis?",
+  "visible": "Las cuatro fases de RUP y el plan de desarrollo",
+  "n": 9
+ },
+ {
+  "title": "Requisitos principales",
+  "t": 60,
+  "idea": "Los requisitos dicen qué debe hacer el sistema (funcionales) y cómo debe hacerlo (no funcionales).",
+  "explicar": [
+   "Funcionales: buscar y ver fichas, comparar, consultar por WhatsApp con registro, administrar.",
+   "Marcar cuáles ya existen y cuáles se proponen.",
+   "No funcionales: usabilidad, adaptabilidad, rendimiento y seguridad.",
+   "El catálogo completo, con criterios de aceptación, está en los anexos."
+  ],
+  "ejemplo": "Requisito propuesto: antes de abrir WhatsApp, el sistema registra la fecha, el producto y la página de origen, sin datos personales.",
+  "claves": [
+   "Funcional",
+   "No funcional",
+   "Criterio de aceptación"
+  ],
+  "trans": "Los requisitos se modelan con UML.",
+  "visible": "Requisitos principales",
+  "n": 10
+ },
+ {
+  "title": "Modelado UML y Rational Rose",
+  "t": 75,
+  "idea": "Con UML mostramos quién usa el sistema, qué puede hacer y cómo se relacionan sus datos.",
+  "explicar": [
+   "RUP es la metodología, UML el lenguaje de los diagramas y Rational Rose la herramienta para dibujarlos.",
+   "Casos de uso: actores (cliente, gestor, distribuidor y WhatsApp como sistema externo) y lo que pueden hacer.",
+   "«include»: enviar la consulta siempre la registra.",
+   "Clases: el producto pertenece a categorías y tiene especificaciones; una consulta puede referirse a un producto y derivarse a un distribuidor."
+  ],
+  "ejemplo": "Un producto tiene de 0 a muchas especificaciones, y si se borra el producto, sus especificaciones desaparecen (composición).",
+  "claves": [
+   "UML",
+   "Actor",
+   "Clase"
+  ],
+  "trans": "¿Cómo se estructura técnicamente la solución?",
+  "visible": "Modelado UML y Rational Rose",
+  "n": 11
+ },
+ {
+  "title": "Arquitectura general",
+  "t": 55,
+  "idea": "La solución tiene cuatro capas y se apoya en la plataforma que ya existe.",
+  "explicar": [
+   "Interfaz web: el sitio público y el panel de administración.",
+   "Lógica: WooCommerce maneja el catálogo; YITH Catalog Mode oculta precio, carrito y pago; un módulo propio agrega lo nuevo.",
+   "Datos: una base MySQL.",
+   "WhatsApp es un canal externo: el sistema solo genera el enlace."
+  ],
+  "ejemplo": "El módulo propio guarda la consulta y arma el enlace wa.me; WooCommerce no se modifica, así sus actualizaciones no borran nada.",
+  "claves": [
+   "Capas",
+   "WooCommerce",
+   "Módulo propio"
+  ],
+  "trans": "¿Qué resultados esperamos?",
+  "visible": "Arquitectura general",
+  "n": 12
+ },
+ {
+  "title": "Resultados esperados",
+  "t": 55,
+  "idea": "Tres cosas distintas: lo que ya diseñamos, lo que proponemos implementar y lo que esperamos lograr.",
+  "explicar": [
+   "Realizado: análisis y diseño (problema, requisitos, casos de uso, modelos, arquitectura, plan).",
+   "Propuesto: las funciones nuevas que se implementarían.",
+   "Esperado: beneficios de una futura implementación, que se medirían con indicadores.",
+   "No afirmamos ventas ni tráfico: no tenemos esos datos."
+  ],
+  "ejemplo": "Un indicador esperado: el porcentaje de consultas que llegan con el producto identificado.",
+  "claves": [
+   "Realizado",
+   "Propuesto",
+   "Esperado"
+  ],
+  "trans": "Para cerrar, nuestras conclusiones.",
+  "visible": "Resultados esperados",
+  "n": 13
+ },
+ {
+  "title": "Conclusiones",
+  "t": 50,
+  "idea": "Necesidad, solución y metodología, en tres ideas.",
+  "explicar": [
+   "La necesidad: información confiable y una ruta clara al distribuidor, no una tienda.",
+   "La solución: el SGCD-BH extiende la plataforma existente.",
+   "La metodología: RUP permitió definir, modelar y planificar antes de construir."
+  ],
+  "ejemplo": "Cierre: «Diseñar bien antes de construir: ese es el valor de aplicar RUP a Black Hawk».",
+  "claves": [
+   "Necesidad",
+   "Solución",
+   "RUP"
+  ],
+  "trans": "Muchas gracias. ¿Preguntas?",
+  "visible": "Conclusiones",
+  "n": 14
+ },
+ {
+  "title": "Preguntas",
+  "t": 10,
+  "idea": "Abrimos la ronda de preguntas.",
+  "explicar": [
+   "Agradecer y escuchar la pregunta completa antes de responder."
+  ],
+  "ejemplo": "—",
+  "claves": [
+   "Preguntas"
+  ],
+  "trans": "—",
+  "n": 15
+ }
+]
