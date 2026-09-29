@@ -208,108 +208,12 @@ function diagSlide(meta, file, blocks, imgW = 8.55, src) {
     text(s, [{ text: 'No incluye: ', options: { bold: true, color: C.purM } }, { text: V.EXCLUSIONES.join(' · '), options: { color: C.white } }], { x: 7.45, y: 5.6, w: W - MX - 7.65, h: 1.0, fontSize: 12, valign: 'middle' });
   }
 
-  // ═══════════ BLOQUE II — PROPUESTA DE SOLUCIÓN
-  { // 7 Sistema renovado
-    const s = add({ title: 'El sistema renovado', t: 55, kicker: '02 · La solución', msg: 'Lo que entrego a Black Hawk es la web renovada: rediseño, catálogo y recorrido comercial sobre la misma plataforma.',
-      exp: 'Hay que separar tres cosas: el sitio original (punto de partida), la web renovada que desarrollo (la solución) y las ampliaciones que propongo (lo que viene después).',
-      ej: 'La web renovada está construida como tema hijo sobre WordPress y WooCommerce y ya funciona en un entorno de prueba.', con: ['Original', 'Renovado', 'Ampliaciones'], preg: ['¿Qué parte es su aporte?', 'El rediseño completo del sitio: identidad visual, catálogo, fichas, comparador y el recorrido de cotización. Las ampliaciones son propuestas.'] });
-    base(s, { kicker: '02 · La solución', title: 'Qué sistema entrego a Black Hawk' });
-    V.TRES.forEach((t, i) => {
-      const x = MX + i * 4.1;
-      card(s, x, 1.55, 3.9, 1.75, i === 1 ? C.pur : i === 2 ? C.purL : C.paper);
-      text(s, `${t.k} · ${t.n}`, { x: x + 0.25, y: 1.7, w: 3.4, h: 0.4, fontSize: 17, bold: true, color: i === 1 ? C.white : C.ink });
-      text(s, t.d, { x: x + 0.25, y: 2.15, w: 3.4, h: 0.8, fontSize: 12, color: i === 1 ? C.purL : C.mute });
-      tag(s, x + 0.25, 2.9, t.estado);
-      if (i < 2) arrow(s, x + 3.92, 2.42, x + 4.08, 2.42, C.pur);
-    });
-    img(s, 'img/v3-N-home.png', MX, 3.55, 6.2, 3.1, true);
-    tag(s, MX + 0.1, 3.65, 'DESPUÉS');
-    card(s, 7.1, 3.55, W - MX - 7.1, 3.1, C.ink);
-    text(s, 'La web renovada', { x: 7.35, y: 3.75, w: 5, h: 0.4, fontSize: 18, bold: true, color: C.white });
-    bullets(s, ['Rediseña la marca y la navegación', 'Ordena el catálogo y las fichas', 'Lleva cada producto a una consulta', 'Tema hijo sobre WordPress + WooCommerce', 'Funcionando en un entorno de prueba'], { x: 7.35, y: 4.25, w: 5.1, h: 2.3, fontSize: 13.5, color: C.white, gap: 7 });
-  }
-
-  const adSlide = async (n, pair, meta) => {
-    const s = add(meta);
-    base(s, { kicker: '02 · Antes y después', title: meta.visibleT });
-    pair.forEach((p, r) => {
-      const y = 1.5 + r * 2.72, portrait = p.n.includes('celular');
-      text(s, p.n, { x: MX, y, w: 3, h: 0.3, fontSize: 13, bold: true, color: C.pur });
-      const iw = portrait ? 1.15 : 3.2, gap = portrait ? 0.3 : 0.2;
-      const a = img(s, p.antes, MX, y + 0.35, iw, 2.2, true); tag(s, a.x + 0.06, a.y + 0.06, 'ANTES', 8.5);
-      const b = img(s, p.despues, MX + iw + gap, y + 0.35, iw, 2.2, true); tag(s, b.x + 0.06, b.y + 0.06, 'DESPUÉS', 8.5);
-      const tx = MX + 2 * iw + gap + 0.35, tw = W - MX - tx;
-      const rows = [['Antes', p.a], ['Necesidad', p.nec], ['Modificación', p.sol], ['Beneficio esperado', p.ben]];
-      rows.forEach(([k, v], j) => {
-        const yy = y + 0.35 + j * 0.56;
-        text(s, k, { x: tx, y: yy, w: 1.45, h: 0.5, fontSize: 10.5, bold: true, color: j === 2 ? C.pur : C.ink });
-        text(s, v, { x: tx + 1.5, y: yy, w: tw - 1.5, h: 0.54, fontSize: 11 });
-      });
-    });
-    source(s, `Capturas reales: sitio original y web renovada, mismas vistas (1440 × 900 y 390 × 844 px), ${V.FECHA}.`);
-  };
-  await adSlide(8, V.ANTES_DESPUES.slice(0, 2), { title: 'Antes y después: home y catálogo', visibleT: 'Antes y después: home y catálogo', kicker: '02 · Antes y después', t: 70,
-    msg: 'Comparo pantallas equivalentes: qué había, qué necesidad detecté, qué cambié y qué espero lograr.',
-    exp: 'Home: la marca ahora tiene jerarquía y el encabezado siempre ofrece buscar y cotizar. Catálogo: «Productos» ya no lleva a una tienda vacía; muestra los 118 productos con pestañas, contador y filtros.',
-    ej: 'En el sitio original, al pulsar «Productos» aparecía «Tienda» sin productos; en la web renovada, el catálogo muestra 118.', con: ['Jerarquía visual', 'Llamada a la acción', 'Catálogo'], preg: ['¿Cómo sabe que mejoró?', 'Por comparación directa de pantallas equivalentes. La mejora en uso se medirá con datos reales cuando se publique; no afirmo aumentos de ventas.'] });
-  await adSlide(9, V.ANTES_DESPUES.slice(2, 4), { title: 'Antes y después: ficha y recorrido móvil', visibleT: 'Antes y después: ficha y celular', kicker: '02 · Antes y después', t: 70,
-    msg: 'La ficha pasa de mostrar datos a llevar a una consulta, también en el celular.',
-    exp: 'Antes la ficha terminaba en las especificaciones. Ahora tiene «Cotizar» junto al modelo, «Comparar» y, en el celular, una barra fija con el botón de cotización.',
-    ej: 'En el celular, la ficha renovada del BH-SW12XXG muestra abajo «Cotizar · BH-SW12XXG» todo el tiempo.', con: ['Ficha', 'CTA', 'Diseño adaptable'], preg: ['¿Un clic en «Cotizar» es una venta?', 'No. Solo abre WhatsApp con el mensaje; la conversación y la venta ocurren fuera de la web.'] });
-
-  { // 10 Flujo comercial
-    const s = add({ title: 'Flujo comercial propuesto', t: 60, kicker: '02 · La solución', msg: 'El recorrido completo, desde el catálogo hasta la atención comercial, separando lo desarrollado de lo propuesto.',
-      exp: 'La fila negra es lo que ya funciona en la web renovada. Debajo, en morado punteado, las ampliaciones: registrar el inicio de la consulta, un directorio estructurado y el seguimiento, que requiere un mecanismo adicional.',
-      ej: 'El mensaje dice: «Hola Black Hawk, vengo de la web y quiero cotizar el modelo BH-SW12XXG».', con: ['Recorrido', 'CTA', 'Ampliación'], preg: ['¿El sistema sabe si el cliente compró?', 'No. Solo sabe que se abrió WhatsApp desde una página; el resultado requiere seguimiento manual u otra herramienta.'] });
-    base(s, { kicker: '02 · La solución', title: 'Flujo comercial: del catálogo a la atención' });
-    const steps = [['LuUser', 'Cliente'], ['LuLayoutGrid', 'Catálogo'], ['LuFileText', 'Producto'], ['LuGitCompare', 'Comparación'], ['LuMousePointerClick', '«Cotizar»'], ['LuMessageCircle', 'Dónde comprar / WhatsApp'], ['LuHeadset', 'Atención comercial']];
-    const fw = 1.55, gap = (W - 2 * MX - 7 * fw) / 6;
-    for (let i = 0; i < 7; i++) {
-      const x = MX + i * (fw + gap), last = i === 6;
-      card(s, x, 1.8, fw, 1.55, last ? C.paper : C.ink, last ? C.line : null);
-      s.addImage({ data: await icon(steps[i][0], last ? C.pur : C.purM), x: x + fw / 2 - 0.22, y: 1.95, w: 0.44, h: 0.44 });
-      text(s, steps[i][1], { x: x + 0.06, y: 2.5, w: fw - 0.12, h: 0.75, fontSize: 12.5, bold: true, align: 'center', color: last ? C.ink : C.white });
-      if (i < 6) arrow(s, x + fw + 0.02, 2.57, x + fw + gap - 0.02, 2.57, C.pur);
-    }
-    text(s, 'Desarrollado en la web renovada', { x: MX, y: 3.45, w: 5, h: 0.3, fontSize: 11, bold: true });
-    text(s, '(fuera de la web)', { x: MX + 6 * (fw + gap), y: 3.45, w: fw, h: 0.3, fontSize: 10, italic: true, color: C.mute, align: 'center' });
-    const amp = [[4, 'Registrar el inicio de la consulta'], [5, 'Directorio estructurado de distribuidores'], [6, 'Seguimiento y reportes (requiere un mecanismo adicional)']];
-    amp.forEach(([i, t]) => {
-      const x = MX + i * (fw + gap);
-      arrow(s, x + fw / 2, 3.8, x + fw / 2, 4.25, C.pur, 'dash');
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 4.3, w: fw, h: 1.25, rectRadius: 0.08, fill: { color: C.purL }, line: { color: C.pur, width: 1, dashType: 'dash' } });
-      text(s, t, { x: x + 0.08, y: 4.3, w: fw - 0.16, h: 1.25, fontSize: 11, bold: true, align: 'center', valign: 'middle' });
-    });
-    text(s, 'Ampliaciones propuestas', { x: MX + 4 * (fw + gap), y: 5.65, w: 5, h: 0.3, fontSize: 11, bold: true, color: C.pur });
-    card(s, MX, 4.3, 4 * (fw + gap) - 0.35, 2.25, C.paper);
-    text(s, 'Mensaje que genera la web renovada', { x: MX + 0.25, y: 4.45, w: 6, h: 0.3, fontSize: 11, bold: true, color: C.pur });
-    text(s, '«Hola Black Hawk, vengo de la web y quiero cotizar el modelo BH-SW12XXG.»', { x: MX + 0.25, y: 4.85, w: 6.3, h: 0.6, fontSize: 15, bold: true });
-    text(s, 'El clic abre una conversación: no equivale a una venta ni a una cotización aceptada.', { x: MX + 0.25, y: 5.6, w: 6.3, h: 0.7, fontSize: 12, italic: true, color: C.mute });
-  }
-
-  { // 11 Funcionalidades
-    const s = add({ title: 'Funcionalidades principales', t: 55, kicker: '02 · La solución', msg: 'Cinco grupos de funciones: cuatro desarrollados en el rediseño y uno propuesto.',
-      exp: 'No enumero módulos sueltos: agrupo por lo que resuelven. La administración usa el panel de WordPress y WooCommerce, que ya existía, sin programar uno nuevo.',
-      ej: 'El comparador admite hasta 3 modelos y guarda la selección en el navegador durante 24 horas.', con: ['Rediseño', 'Catálogo', 'Recorrido comercial'], preg: ['¿Qué funciones siguen pendientes?', 'El registro de consultas, el directorio estructurado, los reportes y la auditoría: son ampliaciones propuestas.'] });
-    base(s, { kicker: '02 · La solución', title: 'Funcionalidades principales' });
-    const ic = ['LuPalette', 'LuLayoutGrid', 'LuMessageCircle', 'LuSettings', 'LuSparkles'];
-    const cw = (W - 2 * MX - 4 * 0.18) / 5;
-    for (let i = 0; i < 5; i++) {
-      const f = V.FUNCIONES[i], x = MX + i * (cw + 0.18), prop = f.e === 'Propuesto';
-      card(s, x, 1.6, cw, 4.95, prop ? C.purL : i === 2 ? C.ink : C.paper);
-      await iconCircle(s, ic[i], x + 0.2, 1.8, 0.6, prop || i === 2 ? C.white : C.white, C.pur);
-      text(s, `${f.k} · ${f.n}`, { x: x + 0.2, y: 2.55, w: cw - 0.35, h: 0.65, fontSize: 14.5, bold: true, color: i === 2 ? C.white : C.ink });
-      tag(s, x + 0.2, 3.25, f.e, 8.5);
-      bullets(s, f.items, { x: x + 0.2, y: 3.75, w: cw - 0.35, h: 2.7, fontSize: 11.5, gap: 7, color: i === 2 ? C.white : C.ink });
-    }
-  }
-
-  // ═══════════ BLOQUE III — RUP
-  { // 12 Qué es RUP
-    const s = add({ title: '¿Qué es RUP y por qué se utiliza?', t: 60, kicker: '03 · Metodología RUP', msg: 'RUP es una metodología iterativa, dirigida por casos de uso y centrada en la arquitectura; encaja con un proyecto que se construye por partes.',
+  // ═══════════ BLOQUE II — RUP
+  { // 7 Qué es RUP
+    const s = add({ title: '¿Qué es RUP y por qué se utiliza?', t: 60, kicker: '02 · Metodología RUP', msg: 'RUP es una metodología iterativa, dirigida por casos de uso y centrada en la arquitectura; encaja con un proyecto que se construye por partes.',
       exp: 'La web renovada no se hizo de una vez: primero la home y la identidad, luego el catálogo y la ficha, después el recorrido de cotización. Cada parte se diseñó, construyó y verificó.',
       ej: 'El caso de uso «Cotizar por WhatsApp» guió el diseño de la ficha, del mensaje y de las pruebas.', con: ['Iterativo', 'Casos de uso', 'Arquitectura'], preg: ['¿Por qué RUP y no Scrum?', 'Porque el curso exige análisis y diseño formales con UML, y RUP combina iteraciones con hitos y artefactos de modelado.'] });
-    base(s, { kicker: '03 · Metodología RUP', title: '¿Qué es RUP y por qué lo utilizo?' });
+    base(s, { kicker: '02 · Metodología RUP', title: '¿Qué es RUP y por qué lo utilizo?' });
     text(s, 'Rational Unified Process: metodología de desarrollo de software que organiza el trabajo en fases e iteraciones, con disciplinas, artefactos e hitos definidos (Kruchten, 2004).', { x: MX, y: 1.5, w: 11.5, h: 0.7, fontSize: 15, color: C.mute });
     const c3 = [['LuRepeat', 'Iterativo e incremental', 'El sistema crece por partes que se prueban.', 'Home → catálogo → ficha → recorrido de cotización.'], ['LuUsers', 'Dirigido por casos de uso', 'Los casos de uso guían diseño, código y pruebas.', '«Cotizar por WhatsApp» definió la ficha y el mensaje.'], ['LuLayers', 'Centrado en la arquitectura', 'Se valida la estructura antes de construir.', 'Tema hijo sobre WooCommerce, sin tocar su núcleo.']];
     for (let i = 0; i < 3; i++) {
@@ -324,11 +228,11 @@ function diagSlide(meta, file, blocks, imgW = 8.55, src) {
     text(s, [{ text: 'Por qué RUP: ', options: { bold: true, color: C.pur } }, { text: 'exige analizar y modelar antes de construir, ataca los riesgos temprano y cada fase cierra con un hito verificable.' }], { x: MX + 0.3, y: 5.65, w: W - 2 * MX - 0.6, h: 0.9, fontSize: 14, valign: 'middle' });
   }
 
-  { // 13 Estructura general
-    const s = add({ title: 'Estructura general de RUP', t: 65, kicker: '03 · Metodología RUP', msg: 'RUP tiene dos dimensiones: en el tiempo, fases e iteraciones; en el contenido, disciplinas.',
+  { // 8 Estructura general
+    const s = add({ title: 'Estructura general de RUP', t: 65, kicker: '02 · Metodología RUP', msg: 'RUP tiene dos dimensiones: en el tiempo, fases e iteraciones; en el contenido, disciplinas.',
       exp: 'Las columnas son las fases, con sus iteraciones. Las filas son las disciplinas. La barra indica cuánto trabajo tiene cada disciplina en cada fase: requisitos pesa más al inicio, implementación en construcción. Todas conviven: no es una cascada.',
       ej: 'En Elaboración ya se programó un prototipo, y en Construcción se ajustaron requisitos.', con: ['Fase', 'Iteración', 'Disciplina', 'Hito'], preg: ['¿Qué diferencia hay entre fase y disciplina?', 'La fase es un periodo con un objetivo y un hito; la disciplina es un tipo de trabajo (requisitos, pruebas…) que ocurre en varias fases.'] });
-    base(s, { kicker: '03 · Metodología RUP', title: 'Estructura de RUP: fases, iteraciones y disciplinas' });
+    base(s, { kicker: '02 · Metodología RUP', title: 'Estructura de RUP: fases, iteraciones y disciplinas' });
     const lx = MX + 3.0, cw = (W - MX - lx) / 4, y0 = 1.55;
     const phases = [['Inicio', ['I1'], 'LCO'], ['Elaboración', ['E1', 'E2'], 'LCA'], ['Construcción', ['C1', 'C2', 'C3'], 'IOC'], ['Transición', ['T1'], 'PR']];
     phases.forEach(([n, its, h], i) => {
@@ -353,7 +257,7 @@ function diagSlide(meta, file, blocks, imgW = 8.55, src) {
   const phaseSlide = (i, meta) => {
     const f = V.FASES[i];
     const s = add(meta);
-    base(s, { kicker: `03 · Fase ${i + 1} de 4`, title: `Fase de ${f.n}` });
+    base(s, { kicker: `02 · Fase ${i + 1} de 4`, title: `Fase de ${f.n}` });
     tag(s, W - MX - 1.5, 0.82, f.estado, 11);
     card(s, MX, 1.55, 6.2, 1.0, C.ink);
     text(s, [{ text: 'Objetivo  ', options: { bold: true, color: C.purM } }, { text: f.obj, options: { color: C.white } }], { x: MX + 0.3, y: 1.55, w: 5.7, h: 1.0, fontSize: 15, valign: 'middle' });
@@ -386,24 +290,24 @@ function diagSlide(meta, file, blocks, imgW = 8.55, src) {
     card(s, rx, 6.15, rw, 0.5, C.white, C.ink);
     text(s, [{ text: `Hito ${f.hito}  `, options: { bold: true, color: C.pur } }, { text: f.hitoN }], { x: rx, y: 6.15, w: rw, h: 0.5, fontSize: 13, align: 'center', valign: 'middle' });
   };
-  phaseSlide(0, { title: 'Fase de Inicio', t: 60, kicker: '03', msg: 'En Inicio entendí el negocio y acordé qué construir. Está realizada.',
+  phaseSlide(0, { title: 'Fase de Inicio', t: 60, kicker: '02', msg: 'En Inicio entendí el negocio y acordé qué construir. Está realizada.',
     exp: 'Analicé el sitio original con capturas, identifiqué a los interesados y las necesidades, y fijé el alcance y las exclusiones. El hito LCO significa que los objetivos y el alcance quedan acordados.',
     ej: 'La tienda vacía y la ficha sin consulta se documentaron en esta fase.', con: ['Visión', 'Stakeholders', 'Viabilidad', 'LCO'], preg: ['¿Qué se entrega al terminar Inicio?', 'La visión, el análisis del sitio original, el modelo del negocio y los riesgos iniciales.'] });
-  phaseSlide(1, { title: 'Fase de Elaboración', t: 60, kicker: '03', msg: 'En Elaboración definí requisitos, modelé con UML y validé la arquitectura. Está realizada.',
+  phaseSlide(1, { title: 'Fase de Elaboración', t: 60, kicker: '02', msg: 'En Elaboración definí requisitos, modelé con UML y validé la arquitectura. Está realizada.',
     exp: 'Aquí se decide cómo será el sistema antes de construirlo: requisitos, casos de uso, diagramas, arquitectura y prototipos. La decisión clave fue rediseñar sobre la misma plataforma con un tema hijo. El hito LCA indica que la arquitectura está validada.',
     ej: 'Antes de construir se definió cómo serían la home, el catálogo, la ficha y el comparador, y cómo se conectarían con WooCommerce.', con: ['Requisitos', 'Casos de uso', 'Arquitectura', 'LCA'], preg: ['¿Por qué no reescribir la web desde cero?', 'Porque la plataforma ya tenía el catálogo y el equipo sabe usarla; rediseñar sobre ella es más barato y menos riesgoso.'] });
-  phaseSlide(2, { title: 'Fase de Construcción', t: 65, kicker: '03', msg: 'En Construcción desarrollé la web renovada por incrementos. Está en curso: el rediseño funciona; las ampliaciones están planificadas.',
+  phaseSlide(2, { title: 'Fase de Construcción', t: 65, kicker: '02', msg: 'En Construcción desarrollé la web renovada por incrementos. Está en curso: el rediseño funciona; las ampliaciones están planificadas.',
     exp: 'C1: identidad y home. C2: catálogo, fichas, búsqueda y comparador. C3: el recorrido de cotización con WhatsApp, Dónde comprar, Mayoristas y Soporte. Verifiqué cada incremento y lo documenté con capturas; las pruebas formales están planificadas.',
     ej: 'Se verificó que el comparador rechaza un cuarto producto y conserva la selección al cambiar de página.', con: ['Incremento', 'Integración', 'Verificación', 'IOC'], preg: ['¿Qué pruebas hizo?', 'Verificaciones funcionales documentadas con capturas. Las pruebas unitarias y de aceptación formales están planificadas, no ejecutadas.'] });
-  phaseSlide(3, { title: 'Fase de Transición', t: 50, kicker: '03', msg: 'Transición es la entrega a Black Hawk: validar, publicar, capacitar y mantener. Está planificada.',
+  phaseSlide(3, { title: 'Fase de Transición', t: 50, kicker: '02', msg: 'Transición es la entrega a Black Hawk: validar, publicar, capacitar y mantener. Está planificada.',
     exp: 'La web renovada funciona en un entorno de prueba; falta validarla con la empresa, publicarla en su dominio con respaldo previo y capacitar al gestor. El hito PR es la publicación del producto.',
     ej: 'Al publicarla en blackhawkcaraudio.com se podrá medir su uso con datos reales.', con: ['Aceptación', 'Despliegue', 'Capacitación', 'PR'], preg: ['¿Cuándo se considera terminado el proyecto?', 'Cuando Black Hawk acepta la web, se publica en su dominio y el gestor queda capacitado: el hito PR.'] });
 
-  { // 18 Matriz
-    const s = add({ title: 'Disciplinas, iteraciones y entregables', t: 60, kicker: '03 · Metodología RUP', msg: 'Esta matriz muestra qué se produjo en cada iteración y qué está realizado, en curso o planificado.',
+  { // 13 Matriz
+    const s = add({ title: 'Disciplinas, iteraciones y entregables', t: 60, kicker: '02 · Metodología RUP', msg: 'Esta matriz muestra qué se produjo en cada iteración y qué está realizado, en curso o planificado.',
       exp: 'Las columnas son las siete iteraciones; las filas, las disciplinas de ingeniería. Cada celda es el entregable principal. Se ve el carácter iterativo: requisitos y diseño aparecen varias veces, y la implementación empieza con un prototipo en Elaboración.',
       ej: 'C2 produjo el catálogo, la ficha y el comparador; C3 está en curso por las ampliaciones.', con: ['Iteración', 'Entregable', 'Estado'], preg: ['¿Por qué la implementación aparece en Elaboración?', 'Porque en RUP se construye un prototipo para validar la arquitectura antes de la construcción completa.'] });
-    base(s, { kicker: '03 · Metodología RUP', title: 'Disciplinas × iteraciones: qué se entregó y qué falta' });
+    base(s, { kicker: '02 · Metodología RUP', title: 'Disciplinas × iteraciones: qué se entregó y qué falta' });
     const hdr = (t) => ({ text: t, options: { bold: true, color: C.white, fill: { color: C.ink }, align: 'center' } });
     const rows = [[hdr('Disciplina'), ...V.ITER.map((it) => hdr(it.id))]];
     V.MATRIZ.forEach(([d_, cells]) => rows.push([{ text: d_, options: { bold: true } }, ...cells.map((c, j) => ({ text: c, options: { align: 'center', fill: c ? { color: V.ITER[j].e === 'Planificado' ? C.white : V.ITER[j].e === 'En curso' ? C.purL : 'F3F4F6' } : undefined, color: V.ITER[j].e === 'Planificado' ? C.mute : C.ink } }))]));
@@ -412,12 +316,12 @@ function diagSlide(meta, file, blocks, imgW = 8.55, src) {
     text(s, 'Semanas: estimación académica (I1 S1–2 · E1–E2 S3–6 · C1–C3 S7–12 · T1 S13–14). C3 incluye el recorrido de cotización (desarrollado) y las ampliaciones (propuestas).', { x: MX, y: 6.55, w: W - 2 * MX, h: 0.4, fontSize: 10, color: C.mute });
   }
 
-  // ═══════════ BLOQUE IV — MODELADO
-  { // 19 Requisitos
-    const s = add({ title: 'Requisitos funcionales y no funcionales', t: 55, kicker: '04 · Modelado y diseño', msg: 'Los requisitos dicen qué hace la web renovada y con qué calidad; cada uno se enlaza con el catálogo completo.',
+  // ═══════════ BLOQUE III — MODELADO
+  { // 14 Requisitos
+    const s = add({ title: 'Requisitos funcionales y no funcionales', t: 55, kicker: '03 · Modelado y diseño', msg: 'Los requisitos dicen qué hace la web renovada y con qué calidad; cada uno se enlaza con el catálogo completo.',
       exp: 'Funcionales: explorar, buscar, ver la ficha, comparar, cotizar y consultar dónde comprar ya están desarrollados; registrar la consulta, el directorio y los reportes son propuestos. No funcionales: celular, usabilidad, peso de página, idioma y datos personales.',
       ej: 'Requisito no funcional medido: la ficha del BH-SW12XXG pasó de 5,28 MB a 0,38 MB transferidos en escritorio.', con: ['Funcional', 'No funcional', 'Criterio de aceptación'], preg: ['¿Cómo se valida un requisito?', 'Con su criterio de aceptación: por ejemplo, el comparador debe rechazar un cuarto producto.'] });
-    base(s, { kicker: '04 · Modelado y diseño', title: 'Requisitos principales' });
+    base(s, { kicker: '03 · Modelado y diseño', title: 'Requisitos principales' });
     card(s, MX, 1.5, 7.2, 5.1, C.paper);
     text(s, 'FUNCIONALES · qué hace el sistema', { x: MX + 0.3, y: 1.68, w: 6, h: 0.3, fontSize: 10.5, bold: true, color: C.pur, charSpacing: 1.5 });
     V.REQ_F.forEach(([t, e, c], i) => { const y = 2.08 + i * 0.63; tag(s, MX + 0.3, y + 0.05, e, 8.5); text(s, t, { x: MX + 1.75, y, w: 4.0, h: 0.55, fontSize: 12, bold: true, valign: 'middle' }); text(s, c, { x: MX + 5.85, y, w: 1.25, h: 0.55, fontSize: 9, color: C.mute, valign: 'middle', align: 'right' }); });
@@ -426,26 +330,122 @@ function diagSlide(meta, file, blocks, imgW = 8.55, src) {
     V.REQ_NF.forEach(([c, t, k], i) => { const y = 2.08 + i * 0.88; text(s, c, { x: 8.3, y, w: 3, h: 0.3, fontSize: 13.5, bold: true, color: C.white }); text(s, k, { x: 11.3, y, w: 1.2, h: 0.3, fontSize: 9, color: C.mute2, align: 'right' }); text(s, t, { x: 8.3, y: y + 0.32, w: 4.3, h: 0.5, fontSize: 11.5, color: C.mute2 }); });
     source(s, 'Catálogo completo en anexos: 27 funcionales y 13 no funcionales. Peso medido con Lighthouse (mediana de 3, 23-09-2026).');
   }
-  diagSlide({ title: 'Diagrama de casos de uso', kicker: '04 · Modelado y diseño', t: 60, msg: 'Qué puede hacer cada actor con la web renovada.',
+  diagSlide({ title: 'Diagrama de casos de uso', kicker: '03 · Modelado y diseño', t: 60, msg: 'Qué puede hacer cada actor con la web renovada.',
     exp: 'Los actores externos están a la izquierda y el gestor a la derecha; WhatsApp es un sistema externo. El cliente interesado hereda lo que hace el visitante. «Cotizar por WhatsApp» incluiría registrar la consulta, que es una ampliación propuesta.',
     ej: 'CU-05 Comparar productos y CU-08 Cotizar por WhatsApp ya funcionan en la web renovada.', con: ['Actor', 'Caso de uso', '«include»', '«extend»'], preg: ['¿Qué diferencia hay entre actor y usuario?', 'El actor es un rol: una misma persona puede ser visitante y luego cliente interesado. WhatsApp también es un actor, porque es un sistema externo.'] },
   DG + 'V3_01_casos_de_uso.png', [['Qué muestra', 'Quién usa el sistema y qué puede hacer con él.'], ['Cómo leerlo', 'Actores a los lados; óvalos = casos de uso; morado = propuesto.'], ['En Black Hawk', 'Visitante, cliente, distribuidor, gestor y WhatsApp como sistema externo.']], 9.2, 'Adaptado del diagrama D-02 del proyecto. Completo en DIAGRAMAS_UML.');
-  diagSlide({ title: 'Diagrama de actividades', kicker: '04 · Modelado y diseño', t: 55, msg: 'Cómo avanza el recorrido comercial, paso a paso, y quién hace cada paso.',
+  diagSlide({ title: 'Diagrama de actividades', kicker: '03 · Modelado y diseño', t: 55, msg: 'Cómo avanza el recorrido comercial, paso a paso, y quién hace cada paso.',
     exp: 'Tres calles: el cliente, la web renovada y el área comercial o distribuidor. Las decisiones son rombos: si conoce el modelo, si quiere comparar, si tiene intención de compra. La acción en morado (registrar la consulta) es la ampliación.',
     ej: 'Si el cliente no conoce el modelo, explora y filtra el catálogo; si lo conoce, lo busca directamente.', con: ['Calle', 'Decisión', 'Flujo'], preg: ['¿Dónde termina el sistema?', 'Al abrir WhatsApp: la atención y la orientación al punto de venta ocurren fuera de la web.'] },
   DG + 'V3_02_actividades.png', [['Qué muestra', 'El proceso comercial completo, con decisiones.'], ['Cómo leerlo', 'Del punto negro al final; cada calle es un participante.'], ['En Black Hawk', 'La web guía hasta «Cotizar»; la venta se concreta con el área comercial.']], 6.6, 'Adaptado del diagrama D-16 del proyecto.');
-  diagSlide({ title: 'Diagrama de secuencia', kicker: '04 · Modelado y diseño', t: 60, msg: 'Cómo interactúan los componentes cuando el cliente consulta un producto por WhatsApp.',
+  diagSlide({ title: 'Diagrama de secuencia', kicker: '03 · Modelado y diseño', t: 60, msg: 'Cómo interactúan los componentes cuando el cliente consulta un producto por WhatsApp.',
     exp: 'Se lee de arriba hacia abajo, en el orden de los mensajes. La ficha pide el producto a WooCommerce, arma el mensaje con el modelo y abre WhatsApp. El recuadro morado es la ampliación: registrar el inicio de la consulta sin demorar la apertura.',
     ej: 'El mensaje 8 arma «quiero cotizar el modelo BH-SW12XXG».', con: ['Línea de vida', 'Mensaje', 'Fragmento'], preg: ['¿El sistema guarda la conversación?', 'No. Solo abriría un registro del inicio (ampliación); la conversación ocurre en WhatsApp.'] },
   DG + 'V3_03_secuencia.png', [['Qué muestra', 'El orden de los mensajes entre los objetos.'], ['Cómo leerlo', 'De arriba abajo; flecha continua = llamada; discontinua = respuesta.'], ['En Black Hawk', 'Ficha → WooCommerce → mensaje → WhatsApp.']], 8.9, 'Adaptado del diagrama D-14 del proyecto.');
-  diagSlide({ title: 'Diagrama de clases', kicker: '04 · Modelado y diseño', t: 55, msg: 'Cómo se estructura la información del sistema.',
+  diagSlide({ title: 'Diagrama de clases', kicker: '03 · Modelado y diseño', t: 55, msg: 'Cómo se estructura la información del sistema.',
     exp: 'El producto es el centro: pertenece a una o más categorías y se compone de especificaciones e imágenes. Las clases en morado son propuestas: el evento de consulta registra que se inició una consulta, y el distribuidor forma el directorio.',
     ej: 'Si se elimina el producto BH-SW12XXG, sus especificaciones desaparecen con él: eso es la composición.', con: ['Clase', 'Asociación', 'Multiplicidad', 'Composición'], preg: ['¿Qué significa 1..*?', 'Uno o más: cada producto pertenece al menos a una categoría.'] },
   DG + 'V3_04_clases.png', [['Qué muestra', 'Las entidades y cómo se relacionan.'], ['Cómo leerlo', 'Rombo negro = composición; números = multiplicidad.'], ['En Black Hawk', 'Producto, categoría y especificación ya existen en WooCommerce.']], 8.4, 'Adaptado del modelo de dominio D-07 del proyecto.');
-  diagSlide({ title: 'Arquitectura y componentes', kicker: '04 · Modelado y diseño', t: 60, msg: 'Cómo está organizado técnicamente el sistema.',
+  diagSlide({ title: 'Arquitectura y componentes', kicker: '03 · Modelado y diseño', t: 60, msg: 'Cómo está organizado técnicamente el sistema.',
     exp: 'El rediseño vive en el tema hijo: plantillas, páginas y el botón de WhatsApp. WooCommerce maneja los productos; YITH Catalog Mode oculta precio y carrito; todo corre sobre WordPress y MySQL. El módulo propio en morado alojaría las ampliaciones.',
     ej: 'Como el rediseño está en el tema hijo, actualizar WooCommerce no borra los cambios.', con: ['Componente', 'Dependencia', 'Tema hijo'], preg: ['¿Dónde está su desarrollo?', 'En el tema hijo rozer-child: plantillas, estilos, scripts del buscador y del comparador, y las páginas nuevas.'] },
   DG + 'V3_05_componentes.png', [['Qué muestra', 'Las piezas de software y cómo dependen entre sí.'], ['Cómo leerlo', 'Flecha discontinua = depende de; morado = propuesto.'], ['En Black Hawk', 'Tema hijo (rediseño) + WooCommerce + YITH + WordPress + MySQL; WhatsApp es externo.']], 8.9, 'Adaptado del diagrama D-19. Despliegue: diapositiva de respaldo.');
+
+  // ═══════════ BLOQUE IV — RESULTADO: WEB RENOVADA
+  { // 20 Sistema renovado
+    const s = add({ title: 'El sistema renovado', t: 55, kicker: '04 · La solución', msg: 'Lo que entrego a Black Hawk es la web renovada: rediseño, catálogo y recorrido comercial sobre la misma plataforma.',
+      exp: 'Hay que separar tres cosas: el sitio original (punto de partida), la web renovada que desarrollo (la solución) y las ampliaciones que propongo (lo que viene después).',
+      ej: 'La web renovada está construida como tema hijo sobre WordPress y WooCommerce y ya funciona en un entorno de prueba.', con: ['Original', 'Renovado', 'Ampliaciones'], preg: ['¿Qué parte es su aporte?', 'El rediseño completo del sitio: identidad visual, catálogo, fichas, comparador y el recorrido de cotización. Las ampliaciones son propuestas.'] });
+    base(s, { kicker: '04 · La solución', title: 'Qué sistema entrego a Black Hawk' });
+    V.TRES.forEach((t, i) => {
+      const x = MX + i * 4.1;
+      card(s, x, 1.55, 3.9, 1.75, i === 1 ? C.pur : i === 2 ? C.purL : C.paper);
+      text(s, `${t.k} · ${t.n}`, { x: x + 0.25, y: 1.7, w: 3.4, h: 0.4, fontSize: 17, bold: true, color: i === 1 ? C.white : C.ink });
+      text(s, t.d, { x: x + 0.25, y: 2.15, w: 3.4, h: 0.8, fontSize: 12, color: i === 1 ? C.purL : C.mute });
+      tag(s, x + 0.25, 2.9, t.estado);
+      if (i < 2) arrow(s, x + 3.92, 2.42, x + 4.08, 2.42, C.pur);
+    });
+    img(s, 'img/v3-N-home.png', MX, 3.55, 6.2, 3.1, true);
+    tag(s, MX + 0.1, 3.65, 'DESPUÉS');
+    card(s, 7.1, 3.55, W - MX - 7.1, 3.1, C.ink);
+    text(s, 'La web renovada', { x: 7.35, y: 3.75, w: 5, h: 0.4, fontSize: 18, bold: true, color: C.white });
+    bullets(s, ['Rediseña la marca y la navegación', 'Ordena el catálogo y las fichas', 'Lleva cada producto a una consulta', 'Tema hijo sobre WordPress + WooCommerce', 'Funcionando en un entorno de prueba'], { x: 7.35, y: 4.25, w: 5.1, h: 2.3, fontSize: 13.5, color: C.white, gap: 7 });
+  }
+
+  const adSlide = async (n, pair, meta) => {
+    const s = add(meta);
+    base(s, { kicker: '04 · Antes y después', title: meta.visibleT });
+    pair.forEach((p, r) => {
+      const y = 1.5 + r * 2.72, portrait = p.n.includes('celular');
+      text(s, p.n, { x: MX, y, w: 3, h: 0.3, fontSize: 13, bold: true, color: C.pur });
+      const iw = portrait ? 1.15 : 3.2, gap = portrait ? 0.3 : 0.2;
+      const a = img(s, p.antes, MX, y + 0.35, iw, 2.2, true); tag(s, a.x + 0.06, a.y + 0.06, 'ANTES', 8.5);
+      const b = img(s, p.despues, MX + iw + gap, y + 0.35, iw, 2.2, true); tag(s, b.x + 0.06, b.y + 0.06, 'DESPUÉS', 8.5);
+      const tx = MX + 2 * iw + gap + 0.35, tw = W - MX - tx;
+      const rows = [['Antes', p.a], ['Necesidad', p.nec], ['Modificación', p.sol], ['Beneficio esperado', p.ben]];
+      rows.forEach(([k, v], j) => {
+        const yy = y + 0.35 + j * 0.56;
+        text(s, k, { x: tx, y: yy, w: 1.45, h: 0.5, fontSize: 10.5, bold: true, color: j === 2 ? C.pur : C.ink });
+        text(s, v, { x: tx + 1.5, y: yy, w: tw - 1.5, h: 0.54, fontSize: 11 });
+      });
+    });
+    source(s, `Capturas reales: sitio original y web renovada, mismas vistas (1440 × 900 y 390 × 844 px), ${V.FECHA}.`);
+  };
+  await adSlide(8, V.ANTES_DESPUES.slice(0, 2), { title: 'Antes y después: home y catálogo', visibleT: 'Antes y después: home y catálogo', kicker: '04 · Antes y después', t: 70,
+    msg: 'Comparo pantallas equivalentes: qué había, qué necesidad detecté, qué cambié y qué espero lograr.',
+    exp: 'Home: la marca ahora tiene jerarquía y el encabezado siempre ofrece buscar y cotizar. Catálogo: «Productos» ya no lleva a una tienda vacía; muestra los 118 productos con pestañas, contador y filtros.',
+    ej: 'En el sitio original, al pulsar «Productos» aparecía «Tienda» sin productos; en la web renovada, el catálogo muestra 118.', con: ['Jerarquía visual', 'Llamada a la acción', 'Catálogo'], preg: ['¿Cómo sabe que mejoró?', 'Por comparación directa de pantallas equivalentes. La mejora en uso se medirá con datos reales cuando se publique; no afirmo aumentos de ventas.'] });
+  await adSlide(9, V.ANTES_DESPUES.slice(2, 4), { title: 'Antes y después: ficha y recorrido móvil', visibleT: 'Antes y después: ficha y celular', kicker: '04 · Antes y después', t: 70,
+    msg: 'La ficha pasa de mostrar datos a llevar a una consulta, también en el celular.',
+    exp: 'Antes la ficha terminaba en las especificaciones. Ahora tiene «Cotizar» junto al modelo, «Comparar» y, en el celular, una barra fija con el botón de cotización.',
+    ej: 'En el celular, la ficha renovada del BH-SW12XXG muestra abajo «Cotizar · BH-SW12XXG» todo el tiempo.', con: ['Ficha', 'CTA', 'Diseño adaptable'], preg: ['¿Un clic en «Cotizar» es una venta?', 'No. Solo abre WhatsApp con el mensaje; la conversación y la venta ocurren fuera de la web.'] });
+
+  { // 23 Flujo comercial
+    const s = add({ title: 'Flujo comercial propuesto', t: 60, kicker: '04 · La solución', msg: 'El recorrido completo, desde el catálogo hasta la atención comercial, separando lo desarrollado de lo propuesto.',
+      exp: 'La fila negra es lo que ya funciona en la web renovada. Debajo, en morado punteado, las ampliaciones: registrar el inicio de la consulta, un directorio estructurado y el seguimiento, que requiere un mecanismo adicional.',
+      ej: 'El mensaje dice: «Hola Black Hawk, vengo de la web y quiero cotizar el modelo BH-SW12XXG».', con: ['Recorrido', 'CTA', 'Ampliación'], preg: ['¿El sistema sabe si el cliente compró?', 'No. Solo sabe que se abrió WhatsApp desde una página; el resultado requiere seguimiento manual u otra herramienta.'] });
+    base(s, { kicker: '04 · La solución', title: 'Flujo comercial: del catálogo a la atención' });
+    const steps = [['LuUser', 'Cliente'], ['LuLayoutGrid', 'Catálogo'], ['LuFileText', 'Producto'], ['LuGitCompare', 'Comparación'], ['LuMousePointerClick', '«Cotizar»'], ['LuMessageCircle', 'Dónde comprar / WhatsApp'], ['LuHeadset', 'Atención comercial']];
+    const fw = 1.55, gap = (W - 2 * MX - 7 * fw) / 6;
+    for (let i = 0; i < 7; i++) {
+      const x = MX + i * (fw + gap), last = i === 6;
+      card(s, x, 1.8, fw, 1.55, last ? C.paper : C.ink, last ? C.line : null);
+      s.addImage({ data: await icon(steps[i][0], last ? C.pur : C.purM), x: x + fw / 2 - 0.22, y: 1.95, w: 0.44, h: 0.44 });
+      text(s, steps[i][1], { x: x + 0.06, y: 2.5, w: fw - 0.12, h: 0.75, fontSize: 12.5, bold: true, align: 'center', color: last ? C.ink : C.white });
+      if (i < 6) arrow(s, x + fw + 0.02, 2.57, x + fw + gap - 0.02, 2.57, C.pur);
+    }
+    text(s, 'Desarrollado en la web renovada', { x: MX, y: 3.45, w: 5, h: 0.3, fontSize: 11, bold: true });
+    text(s, '(fuera de la web)', { x: MX + 6 * (fw + gap), y: 3.45, w: fw, h: 0.3, fontSize: 10, italic: true, color: C.mute, align: 'center' });
+    const amp = [[4, 'Registrar el inicio de la consulta'], [5, 'Directorio estructurado de distribuidores'], [6, 'Seguimiento y reportes (requiere un mecanismo adicional)']];
+    amp.forEach(([i, t]) => {
+      const x = MX + i * (fw + gap);
+      arrow(s, x + fw / 2, 3.8, x + fw / 2, 4.25, C.pur, 'dash');
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 4.3, w: fw, h: 1.25, rectRadius: 0.08, fill: { color: C.purL }, line: { color: C.pur, width: 1, dashType: 'dash' } });
+      text(s, t, { x: x + 0.08, y: 4.3, w: fw - 0.16, h: 1.25, fontSize: 11, bold: true, align: 'center', valign: 'middle' });
+    });
+    text(s, 'Ampliaciones propuestas', { x: MX + 4 * (fw + gap), y: 5.65, w: 5, h: 0.3, fontSize: 11, bold: true, color: C.pur });
+    card(s, MX, 4.3, 4 * (fw + gap) - 0.35, 2.25, C.paper);
+    text(s, 'Mensaje que genera la web renovada', { x: MX + 0.25, y: 4.45, w: 6, h: 0.3, fontSize: 11, bold: true, color: C.pur });
+    text(s, '«Hola Black Hawk, vengo de la web y quiero cotizar el modelo BH-SW12XXG.»', { x: MX + 0.25, y: 4.85, w: 6.3, h: 0.6, fontSize: 15, bold: true });
+    text(s, 'El clic abre una conversación: no equivale a una venta ni a una cotización aceptada.', { x: MX + 0.25, y: 5.6, w: 6.3, h: 0.7, fontSize: 12, italic: true, color: C.mute });
+  }
+
+  { // 24 Funcionalidades
+    const s = add({ title: 'Funcionalidades principales', t: 55, kicker: '04 · La solución', msg: 'Cinco grupos de funciones: cuatro desarrollados en el rediseño y uno propuesto.',
+      exp: 'No enumero módulos sueltos: agrupo por lo que resuelven. La administración usa el panel de WordPress y WooCommerce, que ya existía, sin programar uno nuevo.',
+      ej: 'El comparador admite hasta 3 modelos y guarda la selección en el navegador durante 24 horas.', con: ['Rediseño', 'Catálogo', 'Recorrido comercial'], preg: ['¿Qué funciones siguen pendientes?', 'El registro de consultas, el directorio estructurado, los reportes y la auditoría: son ampliaciones propuestas.'] });
+    base(s, { kicker: '04 · La solución', title: 'Funcionalidades principales' });
+    const ic = ['LuPalette', 'LuLayoutGrid', 'LuMessageCircle', 'LuSettings', 'LuSparkles'];
+    const cw = (W - 2 * MX - 4 * 0.18) / 5;
+    for (let i = 0; i < 5; i++) {
+      const f = V.FUNCIONES[i], x = MX + i * (cw + 0.18), prop = f.e === 'Propuesto';
+      card(s, x, 1.6, cw, 4.95, prop ? C.purL : i === 2 ? C.ink : C.paper);
+      await iconCircle(s, ic[i], x + 0.2, 1.8, 0.6, prop || i === 2 ? C.white : C.white, C.pur);
+      text(s, `${f.k} · ${f.n}`, { x: x + 0.2, y: 2.55, w: cw - 0.35, h: 0.65, fontSize: 14.5, bold: true, color: i === 2 ? C.white : C.ink });
+      tag(s, x + 0.2, 3.25, f.e, 8.5);
+      bullets(s, f.items, { x: x + 0.2, y: 3.75, w: cw - 0.35, h: 2.7, fontSize: 11.5, gap: 7, color: i === 2 ? C.white : C.ink });
+    }
+  }
 
   // ═══════════ BLOQUE V — RESULTADOS
   { // 25 Resultado

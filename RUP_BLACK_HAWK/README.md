@@ -6,7 +6,7 @@ Proyecto académico del curso **Diseño de Sistemas de Información**: aplicaci�
 
 | Archivo | Contenido |
 |---|---|
-| `BLACK_HAWK_RUP_PRESENTACION_V3.pptx` | 28 diapositivas (26 de contenido, preguntas y respaldo), unos 25 min. Parte del sitio original con capturas anotadas, presenta la web renovada como la solución desarrollada, compara antes y después, aplica RUP fase por fase y muestra cinco diagramas UML grandes. |
+| `BLACK_HAWK_RUP_PRESENTACION_V3.pptx` | 28 diapositivas (26 de contenido, preguntas y respaldo), unos 25 min. Tres bloques: situación original con capturas anotadas (1–6); diseño con RUP fase por fase, requisitos y cinco diagramas UML grandes (7–19); y resultado: web renovada, antes y después, flujo y funcionalidades (20–27). |
 | `BLACK_HAWK_RUP_MONOGRAFIA_V3.docx` | 22 páginas (cuerpo: 15), 10 figuras, 10 tablas, referencias APA 7 y anexos A–B. |
 | `BLACK_HAWK_RUP_GUIA_EXPOSICION_V3.docx` | 11 páginas: el proyecto en dos minutos, siete explicaciones clave y, por diapositiva, mensaje principal, explicación natural, ejemplo, conceptos y posible pregunta. |
 | `ANEXOS/BLACK_HAWK_RUP_ANEXOS_V3.xlsx` | Libro V2 corregido: hojas nuevas «Sitio original», «Antes y después» e «Iteraciones V3»; RF con estado en el sitio original y en la web renovada. |

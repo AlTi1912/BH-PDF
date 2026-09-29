@@ -25,7 +25,7 @@ La V2 presentaba un sistema propuesto (SGCD-BH) cuyo núcleo era registrar consu
 
 1. **Sitio original como punto de partida.** Nuevas diapositivas 3 y 4 con capturas reales del 29-09-2026 y seis hallazgos numerados sobre ellas, clasificados como *inexistente*, *existe, poco visible* o *recorrido mejorable*. Ejemplo del matiz: WhatsApp sí existe en el sitio original, pero solo en «Ventas al mayor»; por eso no se dice que «no tiene WhatsApp».
 2. **Problema reformulado:** «La plataforma original muestra el catálogo, pero no guía al usuario desde el interés en un producto hasta el contacto comercial». Sustituye el problema de la V2, centrado en la falta de registro de consultas.
-3. **Antes y después (diapositivas 8 y 9).** Cuatro pares de pantallas equivalentes (home, catálogo, ficha, celular), todas capturas auténticas de cada sitio. Cada par indica antes, necesidad, modificación y beneficio esperado. Ninguna promete ventas.
+3. **Antes y después (diapositivas 21 y 22).** Cuatro pares de pantallas equivalentes (home, catálogo, ficha, celular), todas capturas auténticas de cada sitio. Cada par indica antes, necesidad, modificación y beneficio esperado. Ninguna promete ventas.
 4. **WhatsApp.** Se eliminó toda afirmación de que un clic equivale a una venta o de que el sistema «sabe» el resultado. No se menciona un CRM ni la API de WhatsApp Business, salvo como exclusiones.
 5. **RUP aplicado al proceso real.** Una diapositiva por fase con objetivo, actividades, aplicación a Black Hawk, artefactos, hito y estado (Inicio y Elaboración realizadas, Construcción en curso, Transición planificada), más una matriz disciplinas × iteraciones × entregables.
 6. **UML nuevo (V3-01 a V3-05)**, una diapositiva grande por diagrama: casos de uso, actividades, secuencia de «Cotizar por WhatsApp», clases y componentes (tema hijo `rozer-child`). Los elementos propuestos van en morado y con el estereotipo «propuesto». El despliegue queda como respaldo.
@@ -39,17 +39,31 @@ La V2 presentaba un sistema propuesto (SGCD-BH) cuyo núcleo era registrar consu
    - **Inventario de diagramas:** incluye los V3.
    - **Resto de hojas:** se conserva sin cambios.
 
-## 3. Puntos que debes revisar
+## 3. Orden de la presentación
+
+El orden sigue tres bloques, para que el resultado no se muestre antes del diseño:
+
+| Bloque | Diapositivas |
+|---|---|
+| 1. Situación original: empresa, sitio original, hallazgos, problema, objetivos | 1–6 |
+| 2. Diseño: RUP (7–13), y requisitos, UML y arquitectura (14–19) | 7–19 |
+| 3. Resultado: web renovada, antes/después, flujo, funcionalidades, resultado, cierre | 20–27 (28: respaldo) |
+
+Solo se reordenaron las diapositivas, sin cambiar textos, diagramas, notas ni diseño. Lo único que cambió en pantalla es el número de pie de página y el número de sección de la etiqueta superior: RUP pasó de 03 a 02, Modelado de 04 a 03 y La solución y Antes y después de 02 a 04. La guía y los anexos citan los números nuevos.
+
+Algunos textos de los bloques de RUP y UML nombran la web renovada antes de que se muestre, sin imágenes del «después». Por ejemplo, las fases 11 y 12, los requisitos (14, con la medición de la ficha) y los casos de uso (15). Además, la distinción entre original, renovada y ampliaciones se presenta formalmente en la diapositiva 20, aunque la 6 ya separa lo desarrollado de lo propuesto.
+
+## 4. Puntos que debes revisar
 
 - **Iteraciones y actividades de Elaboración.** El orden y el contenido de I1–T1 (C1 home, C2 catálogo, C3 cotización) son una reconstrucción a partir de la evidencia del rediseño. Si tu proceso real fue distinto, corrige `ITER`, `MATRIZ` y `FASES` en `_build/v3data.js` y reconstruye.
 - **Tamaño.** Pediste 22–26 diapositivas. Hay 26 de contenido más «Preguntas» y una de respaldo que solo se muestra si preguntan por la infraestructura.
-- **RF-004 y RF-015 aparecen como «Parcial» en los anexos**, aunque la diapositiva 19 dice «Desarrollado»:
+- **RF-004 y RF-015 aparecen como «Parcial» en los anexos**, aunque la diapositiva 14 dice «Desarrollado»:
   - RF-004: la diapositiva describe la ficha con especificaciones en lista, que sí está hecha. El requisito formal pide además datos estructurados con fuente, que no existen.
   - RF-015: la diapositiva describe la página Mayoristas con formulario, que sí existe. La validación del RUC que exige el criterio de aceptación no se verificó.
 - **Capturas del «antes».** Son suficientes para las cuatro comparaciones: home, tienda, ficha y celular. No se generó ni reconstruyó ninguna.
 - **Defecto heredado.** La monografía V1 sigue mostrando en cursiva y sin guiones bajos nombres como `wp_bh_consulta`. No se regeneró para no sobrescribirla. Las versiones V2 y V3 no tienen el defecto.
 
-## 4. Control de calidad
+## 5. Control de calidad
 
 - Los tres archivos de Office pasan la validación de formato. Se revisaron las 28 diapositivas, las 22 páginas de la monografía y las 11 de la guía, renderizadas con LibreOffice, sin textos cortados ni superposiciones.
 - Los índices de la monografía V3 están generados y sus números de página se comprobaron: 40 entradas, 10 figuras y 10 tablas.

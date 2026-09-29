@@ -43,7 +43,7 @@ c.push(new Paragraph({ spacing: { after: 40 }, children: [new TextRun({ text: 'G
 c.push(new Paragraph({ spacing: { after: 160 }, children: [new TextRun({ text: 'Aplicación de RUP en la renovación de la plataforma web de Black Hawk Car Audio', size: 20, color: L.MUTED })] }));
 c.push(small(`**Cómo usar esta guía.** Corresponde diapositiva por diapositiva a BLACK_HAWK_RUP_PRESENTACION_V3.pptx (${S.length} diapositivas, unos ${Math.round(total / 60)} minutos; la 28 es de respaldo y solo se muestra si preguntan). No es un texto para memorizar: explica qué cuenta cada diapositiva para que lo digas con tus palabras. Las notas del orador del PowerPoint tienen el mismo contenido.`, { after: 60 }));
 c.push(small('**Tres reglas.** (1) Separa siempre las tres partes: el **sitio original** (punto de partida), la **web renovada** (lo que desarrollaste) y las **ampliaciones** (lo que propones). (2) Si algo es propuesta, dilo: «esto lo propongo». (3) No prometas resultados comerciales: un clic en «Cotizar» abre WhatsApp, no es una venta.', { after: 60 }));
-c.push(small('**Tiempos.** Contexto y problema (1–6): unos 5,5 min. Solución y antes/después (7–11): unos 5 min. RUP (12–18): unos 7 min. Requisitos y UML (19–24): unos 5,5 min. Cierre (25–27): unos 2 min.', { after: 140 }));
+c.push(small('**Tiempos.** Situación original y problema (1–6): unos 5,5 min. RUP (7–13): unos 7 min. Requisitos y UML (14–19): unos 5,5 min. Resultado: web renovada, antes/después, flujo y funcionalidades (20–24): unos 5 min. Cierre (25–27): unos 2 min.', { after: 140 }));
 
 c.push(H1('1. El proyecto explicado en dos minutos'));
 [

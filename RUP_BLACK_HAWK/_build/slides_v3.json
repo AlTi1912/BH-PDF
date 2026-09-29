@@ -111,106 +111,9 @@
   "n": 6
  },
  {
-  "title": "El sistema renovado",
-  "t": 55,
-  "kicker": "02 · La solución",
-  "msg": "Lo que entrego a Black Hawk es la web renovada: rediseño, catálogo y recorrido comercial sobre la misma plataforma.",
-  "exp": "Hay que separar tres cosas: el sitio original (punto de partida), la web renovada que desarrollo (la solución) y las ampliaciones que propongo (lo que viene después).",
-  "ej": "La web renovada está construida como tema hijo sobre WordPress y WooCommerce y ya funciona en un entorno de prueba.",
-  "con": [
-   "Original",
-   "Renovado",
-   "Ampliaciones"
-  ],
-  "preg": [
-   "¿Qué parte es su aporte?",
-   "El rediseño completo del sitio: identidad visual, catálogo, fichas, comparador y el recorrido de cotización. Las ampliaciones son propuestas."
-  ],
-  "visible": "Qué sistema entrego a Black Hawk",
-  "n": 7
- },
- {
-  "title": "Antes y después: home y catálogo",
-  "visibleT": "Antes y después: home y catálogo",
-  "kicker": "02 · Antes y después",
-  "t": 70,
-  "msg": "Comparo pantallas equivalentes: qué había, qué necesidad detecté, qué cambié y qué espero lograr.",
-  "exp": "Home: la marca ahora tiene jerarquía y el encabezado siempre ofrece buscar y cotizar. Catálogo: «Productos» ya no lleva a una tienda vacía; muestra los 118 productos con pestañas, contador y filtros.",
-  "ej": "En el sitio original, al pulsar «Productos» aparecía «Tienda» sin productos; en la web renovada, el catálogo muestra 118.",
-  "con": [
-   "Jerarquía visual",
-   "Llamada a la acción",
-   "Catálogo"
-  ],
-  "preg": [
-   "¿Cómo sabe que mejoró?",
-   "Por comparación directa de pantallas equivalentes. La mejora en uso se medirá con datos reales cuando se publique; no afirmo aumentos de ventas."
-  ],
-  "visible": "Antes y después: home y catálogo",
-  "n": 8
- },
- {
-  "title": "Antes y después: ficha y recorrido móvil",
-  "visibleT": "Antes y después: ficha y celular",
-  "kicker": "02 · Antes y después",
-  "t": 70,
-  "msg": "La ficha pasa de mostrar datos a llevar a una consulta, también en el celular.",
-  "exp": "Antes la ficha terminaba en las especificaciones. Ahora tiene «Cotizar» junto al modelo, «Comparar» y, en el celular, una barra fija con el botón de cotización.",
-  "ej": "En el celular, la ficha renovada del BH-SW12XXG muestra abajo «Cotizar · BH-SW12XXG» todo el tiempo.",
-  "con": [
-   "Ficha",
-   "CTA",
-   "Diseño adaptable"
-  ],
-  "preg": [
-   "¿Un clic en «Cotizar» es una venta?",
-   "No. Solo abre WhatsApp con el mensaje; la conversación y la venta ocurren fuera de la web."
-  ],
-  "visible": "Antes y después: ficha y celular",
-  "n": 9
- },
- {
-  "title": "Flujo comercial propuesto",
-  "t": 60,
-  "kicker": "02 · La solución",
-  "msg": "El recorrido completo, desde el catálogo hasta la atención comercial, separando lo desarrollado de lo propuesto.",
-  "exp": "La fila negra es lo que ya funciona en la web renovada. Debajo, en morado punteado, las ampliaciones: registrar el inicio de la consulta, un directorio estructurado y el seguimiento, que requiere un mecanismo adicional.",
-  "ej": "El mensaje dice: «Hola Black Hawk, vengo de la web y quiero cotizar el modelo BH-SW12XXG».",
-  "con": [
-   "Recorrido",
-   "CTA",
-   "Ampliación"
-  ],
-  "preg": [
-   "¿El sistema sabe si el cliente compró?",
-   "No. Solo sabe que se abrió WhatsApp desde una página; el resultado requiere seguimiento manual u otra herramienta."
-  ],
-  "visible": "Flujo comercial: del catálogo a la atención",
-  "n": 10
- },
- {
-  "title": "Funcionalidades principales",
-  "t": 55,
-  "kicker": "02 · La solución",
-  "msg": "Cinco grupos de funciones: cuatro desarrollados en el rediseño y uno propuesto.",
-  "exp": "No enumero módulos sueltos: agrupo por lo que resuelven. La administración usa el panel de WordPress y WooCommerce, que ya existía, sin programar uno nuevo.",
-  "ej": "El comparador admite hasta 3 modelos y guarda la selección en el navegador durante 24 horas.",
-  "con": [
-   "Rediseño",
-   "Catálogo",
-   "Recorrido comercial"
-  ],
-  "preg": [
-   "¿Qué funciones siguen pendientes?",
-   "El registro de consultas, el directorio estructurado, los reportes y la auditoría: son ampliaciones propuestas."
-  ],
-  "visible": "Funcionalidades principales",
-  "n": 11
- },
- {
   "title": "¿Qué es RUP y por qué se utiliza?",
   "t": 60,
-  "kicker": "03 · Metodología RUP",
+  "kicker": "02 · Metodología RUP",
   "msg": "RUP es una metodología iterativa, dirigida por casos de uso y centrada en la arquitectura; encaja con un proyecto que se construye por partes.",
   "exp": "La web renovada no se hizo de una vez: primero la home y la identidad, luego el catálogo y la ficha, después el recorrido de cotización. Cada parte se diseñó, construyó y verificó.",
   "ej": "El caso de uso «Cotizar por WhatsApp» guió el diseño de la ficha, del mensaje y de las pruebas.",
@@ -224,12 +127,12 @@
    "Porque el curso exige análisis y diseño formales con UML, y RUP combina iteraciones con hitos y artefactos de modelado."
   ],
   "visible": "¿Qué es RUP y por qué lo utilizo?",
-  "n": 12
+  "n": 7
  },
  {
   "title": "Estructura general de RUP",
   "t": 65,
-  "kicker": "03 · Metodología RUP",
+  "kicker": "02 · Metodología RUP",
   "msg": "RUP tiene dos dimensiones: en el tiempo, fases e iteraciones; en el contenido, disciplinas.",
   "exp": "Las columnas son las fases, con sus iteraciones. Las filas son las disciplinas. La barra indica cuánto trabajo tiene cada disciplina en cada fase: requisitos pesa más al inicio, implementación en construcción. Todas conviven: no es una cascada.",
   "ej": "En Elaboración ya se programó un prototipo, y en Construcción se ajustaron requisitos.",
@@ -244,12 +147,12 @@
    "La fase es un periodo con un objetivo y un hito; la disciplina es un tipo de trabajo (requisitos, pruebas…) que ocurre en varias fases."
   ],
   "visible": "Estructura de RUP: fases, iteraciones y disciplinas",
-  "n": 13
+  "n": 8
  },
  {
   "title": "Fase de Inicio",
   "t": 60,
-  "kicker": "03",
+  "kicker": "02",
   "msg": "En Inicio entendí el negocio y acordé qué construir. Está realizada.",
   "exp": "Analicé el sitio original con capturas, identifiqué a los interesados y las necesidades, y fijé el alcance y las exclusiones. El hito LCO significa que los objetivos y el alcance quedan acordados.",
   "ej": "La tienda vacía y la ficha sin consulta se documentaron en esta fase.",
@@ -264,12 +167,12 @@
    "La visión, el análisis del sitio original, el modelo del negocio y los riesgos iniciales."
   ],
   "visible": "Fase de Inicio",
-  "n": 14
+  "n": 9
  },
  {
   "title": "Fase de Elaboración",
   "t": 60,
-  "kicker": "03",
+  "kicker": "02",
   "msg": "En Elaboración definí requisitos, modelé con UML y validé la arquitectura. Está realizada.",
   "exp": "Aquí se decide cómo será el sistema antes de construirlo: requisitos, casos de uso, diagramas, arquitectura y prototipos. La decisión clave fue rediseñar sobre la misma plataforma con un tema hijo. El hito LCA indica que la arquitectura está validada.",
   "ej": "Antes de construir se definió cómo serían la home, el catálogo, la ficha y el comparador, y cómo se conectarían con WooCommerce.",
@@ -284,12 +187,12 @@
    "Porque la plataforma ya tenía el catálogo y el equipo sabe usarla; rediseñar sobre ella es más barato y menos riesgoso."
   ],
   "visible": "Fase de Elaboración",
-  "n": 15
+  "n": 10
  },
  {
   "title": "Fase de Construcción",
   "t": 65,
-  "kicker": "03",
+  "kicker": "02",
   "msg": "En Construcción desarrollé la web renovada por incrementos. Está en curso: el rediseño funciona; las ampliaciones están planificadas.",
   "exp": "C1: identidad y home. C2: catálogo, fichas, búsqueda y comparador. C3: el recorrido de cotización con WhatsApp, Dónde comprar, Mayoristas y Soporte. Verifiqué cada incremento y lo documenté con capturas; las pruebas formales están planificadas.",
   "ej": "Se verificó que el comparador rechaza un cuarto producto y conserva la selección al cambiar de página.",
@@ -304,12 +207,12 @@
    "Verificaciones funcionales documentadas con capturas. Las pruebas unitarias y de aceptación formales están planificadas, no ejecutadas."
   ],
   "visible": "Fase de Construcción",
-  "n": 16
+  "n": 11
  },
  {
   "title": "Fase de Transición",
   "t": 50,
-  "kicker": "03",
+  "kicker": "02",
   "msg": "Transición es la entrega a Black Hawk: validar, publicar, capacitar y mantener. Está planificada.",
   "exp": "La web renovada funciona en un entorno de prueba; falta validarla con la empresa, publicarla en su dominio con respaldo previo y capacitar al gestor. El hito PR es la publicación del producto.",
   "ej": "Al publicarla en blackhawkcaraudio.com se podrá medir su uso con datos reales.",
@@ -324,12 +227,12 @@
    "Cuando Black Hawk acepta la web, se publica en su dominio y el gestor queda capacitado: el hito PR."
   ],
   "visible": "Fase de Transición",
-  "n": 17
+  "n": 12
  },
  {
   "title": "Disciplinas, iteraciones y entregables",
   "t": 60,
-  "kicker": "03 · Metodología RUP",
+  "kicker": "02 · Metodología RUP",
   "msg": "Esta matriz muestra qué se produjo en cada iteración y qué está realizado, en curso o planificado.",
   "exp": "Las columnas son las siete iteraciones; las filas, las disciplinas de ingeniería. Cada celda es el entregable principal. Se ve el carácter iterativo: requisitos y diseño aparecen varias veces, y la implementación empieza con un prototipo en Elaboración.",
   "ej": "C2 produjo el catálogo, la ficha y el comparador; C3 está en curso por las ampliaciones.",
@@ -343,12 +246,12 @@
    "Porque en RUP se construye un prototipo para validar la arquitectura antes de la construcción completa."
   ],
   "visible": "Disciplinas × iteraciones: qué se entregó y qué falta",
-  "n": 18
+  "n": 13
  },
  {
   "title": "Requisitos funcionales y no funcionales",
   "t": 55,
-  "kicker": "04 · Modelado y diseño",
+  "kicker": "03 · Modelado y diseño",
   "msg": "Los requisitos dicen qué hace la web renovada y con qué calidad; cada uno se enlaza con el catálogo completo.",
   "exp": "Funcionales: explorar, buscar, ver la ficha, comparar, cotizar y consultar dónde comprar ya están desarrollados; registrar la consulta, el directorio y los reportes son propuestos. No funcionales: celular, usabilidad, peso de página, idioma y datos personales.",
   "ej": "Requisito no funcional medido: la ficha del BH-SW12XXG pasó de 5,28 MB a 0,38 MB transferidos en escritorio.",
@@ -362,11 +265,11 @@
    "Con su criterio de aceptación: por ejemplo, el comparador debe rechazar un cuarto producto."
   ],
   "visible": "Requisitos principales",
-  "n": 19
+  "n": 14
  },
  {
   "title": "Diagrama de casos de uso",
-  "kicker": "04 · Modelado y diseño",
+  "kicker": "03 · Modelado y diseño",
   "t": 60,
   "msg": "Qué puede hacer cada actor con la web renovada.",
   "exp": "Los actores externos están a la izquierda y el gestor a la derecha; WhatsApp es un sistema externo. El cliente interesado hereda lo que hace el visitante. «Cotizar por WhatsApp» incluiría registrar la consulta, que es una ampliación propuesta.",
@@ -382,11 +285,11 @@
    "El actor es un rol: una misma persona puede ser visitante y luego cliente interesado. WhatsApp también es un actor, porque es un sistema externo."
   ],
   "visible": "Diagrama de casos de uso",
-  "n": 20
+  "n": 15
  },
  {
   "title": "Diagrama de actividades",
-  "kicker": "04 · Modelado y diseño",
+  "kicker": "03 · Modelado y diseño",
   "t": 55,
   "msg": "Cómo avanza el recorrido comercial, paso a paso, y quién hace cada paso.",
   "exp": "Tres calles: el cliente, la web renovada y el área comercial o distribuidor. Las decisiones son rombos: si conoce el modelo, si quiere comparar, si tiene intención de compra. La acción en morado (registrar la consulta) es la ampliación.",
@@ -401,11 +304,11 @@
    "Al abrir WhatsApp: la atención y la orientación al punto de venta ocurren fuera de la web."
   ],
   "visible": "Diagrama de actividades",
-  "n": 21
+  "n": 16
  },
  {
   "title": "Diagrama de secuencia",
-  "kicker": "04 · Modelado y diseño",
+  "kicker": "03 · Modelado y diseño",
   "t": 60,
   "msg": "Cómo interactúan los componentes cuando el cliente consulta un producto por WhatsApp.",
   "exp": "Se lee de arriba hacia abajo, en el orden de los mensajes. La ficha pide el producto a WooCommerce, arma el mensaje con el modelo y abre WhatsApp. El recuadro morado es la ampliación: registrar el inicio de la consulta sin demorar la apertura.",
@@ -420,11 +323,11 @@
    "No. Solo abriría un registro del inicio (ampliación); la conversación ocurre en WhatsApp."
   ],
   "visible": "Diagrama de secuencia",
-  "n": 22
+  "n": 17
  },
  {
   "title": "Diagrama de clases",
-  "kicker": "04 · Modelado y diseño",
+  "kicker": "03 · Modelado y diseño",
   "t": 55,
   "msg": "Cómo se estructura la información del sistema.",
   "exp": "El producto es el centro: pertenece a una o más categorías y se compone de especificaciones e imágenes. Las clases en morado son propuestas: el evento de consulta registra que se inició una consulta, y el distribuidor forma el directorio.",
@@ -440,11 +343,11 @@
    "Uno o más: cada producto pertenece al menos a una categoría."
   ],
   "visible": "Diagrama de clases",
-  "n": 23
+  "n": 18
  },
  {
   "title": "Arquitectura y componentes",
-  "kicker": "04 · Modelado y diseño",
+  "kicker": "03 · Modelado y diseño",
   "t": 60,
   "msg": "Cómo está organizado técnicamente el sistema.",
   "exp": "El rediseño vive en el tema hijo: plantillas, páginas y el botón de WhatsApp. WooCommerce maneja los productos; YITH Catalog Mode oculta precio y carrito; todo corre sobre WordPress y MySQL. El módulo propio en morado alojaría las ampliaciones.",
@@ -459,6 +362,103 @@
    "En el tema hijo rozer-child: plantillas, estilos, scripts del buscador y del comparador, y las páginas nuevas."
   ],
   "visible": "Arquitectura y componentes",
+  "n": 19
+ },
+ {
+  "title": "El sistema renovado",
+  "t": 55,
+  "kicker": "04 · La solución",
+  "msg": "Lo que entrego a Black Hawk es la web renovada: rediseño, catálogo y recorrido comercial sobre la misma plataforma.",
+  "exp": "Hay que separar tres cosas: el sitio original (punto de partida), la web renovada que desarrollo (la solución) y las ampliaciones que propongo (lo que viene después).",
+  "ej": "La web renovada está construida como tema hijo sobre WordPress y WooCommerce y ya funciona en un entorno de prueba.",
+  "con": [
+   "Original",
+   "Renovado",
+   "Ampliaciones"
+  ],
+  "preg": [
+   "¿Qué parte es su aporte?",
+   "El rediseño completo del sitio: identidad visual, catálogo, fichas, comparador y el recorrido de cotización. Las ampliaciones son propuestas."
+  ],
+  "visible": "Qué sistema entrego a Black Hawk",
+  "n": 20
+ },
+ {
+  "title": "Antes y después: home y catálogo",
+  "visibleT": "Antes y después: home y catálogo",
+  "kicker": "04 · Antes y después",
+  "t": 70,
+  "msg": "Comparo pantallas equivalentes: qué había, qué necesidad detecté, qué cambié y qué espero lograr.",
+  "exp": "Home: la marca ahora tiene jerarquía y el encabezado siempre ofrece buscar y cotizar. Catálogo: «Productos» ya no lleva a una tienda vacía; muestra los 118 productos con pestañas, contador y filtros.",
+  "ej": "En el sitio original, al pulsar «Productos» aparecía «Tienda» sin productos; en la web renovada, el catálogo muestra 118.",
+  "con": [
+   "Jerarquía visual",
+   "Llamada a la acción",
+   "Catálogo"
+  ],
+  "preg": [
+   "¿Cómo sabe que mejoró?",
+   "Por comparación directa de pantallas equivalentes. La mejora en uso se medirá con datos reales cuando se publique; no afirmo aumentos de ventas."
+  ],
+  "visible": "Antes y después: home y catálogo",
+  "n": 21
+ },
+ {
+  "title": "Antes y después: ficha y recorrido móvil",
+  "visibleT": "Antes y después: ficha y celular",
+  "kicker": "04 · Antes y después",
+  "t": 70,
+  "msg": "La ficha pasa de mostrar datos a llevar a una consulta, también en el celular.",
+  "exp": "Antes la ficha terminaba en las especificaciones. Ahora tiene «Cotizar» junto al modelo, «Comparar» y, en el celular, una barra fija con el botón de cotización.",
+  "ej": "En el celular, la ficha renovada del BH-SW12XXG muestra abajo «Cotizar · BH-SW12XXG» todo el tiempo.",
+  "con": [
+   "Ficha",
+   "CTA",
+   "Diseño adaptable"
+  ],
+  "preg": [
+   "¿Un clic en «Cotizar» es una venta?",
+   "No. Solo abre WhatsApp con el mensaje; la conversación y la venta ocurren fuera de la web."
+  ],
+  "visible": "Antes y después: ficha y celular",
+  "n": 22
+ },
+ {
+  "title": "Flujo comercial propuesto",
+  "t": 60,
+  "kicker": "04 · La solución",
+  "msg": "El recorrido completo, desde el catálogo hasta la atención comercial, separando lo desarrollado de lo propuesto.",
+  "exp": "La fila negra es lo que ya funciona en la web renovada. Debajo, en morado punteado, las ampliaciones: registrar el inicio de la consulta, un directorio estructurado y el seguimiento, que requiere un mecanismo adicional.",
+  "ej": "El mensaje dice: «Hola Black Hawk, vengo de la web y quiero cotizar el modelo BH-SW12XXG».",
+  "con": [
+   "Recorrido",
+   "CTA",
+   "Ampliación"
+  ],
+  "preg": [
+   "¿El sistema sabe si el cliente compró?",
+   "No. Solo sabe que se abrió WhatsApp desde una página; el resultado requiere seguimiento manual u otra herramienta."
+  ],
+  "visible": "Flujo comercial: del catálogo a la atención",
+  "n": 23
+ },
+ {
+  "title": "Funcionalidades principales",
+  "t": 55,
+  "kicker": "04 · La solución",
+  "msg": "Cinco grupos de funciones: cuatro desarrollados en el rediseño y uno propuesto.",
+  "exp": "No enumero módulos sueltos: agrupo por lo que resuelven. La administración usa el panel de WordPress y WooCommerce, que ya existía, sin programar uno nuevo.",
+  "ej": "El comparador admite hasta 3 modelos y guarda la selección en el navegador durante 24 horas.",
+  "con": [
+   "Rediseño",
+   "Catálogo",
+   "Recorrido comercial"
+  ],
+  "preg": [
+   "¿Qué funciones siguen pendientes?",
+   "El registro de consultas, el directorio estructurado, los reportes y la auditoría: son ampliaciones propuestas."
+  ],
+  "visible": "Funcionalidades principales",
   "n": 24
  },
  {

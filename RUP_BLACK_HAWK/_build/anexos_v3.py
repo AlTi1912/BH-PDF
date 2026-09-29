@@ -72,16 +72,16 @@ note(ws, ['«Beneficio esperado» no es un resultado medido: no se dispone de da
 # 3. Datos verificados (reemplaza la hoja V2: separa sitio original y web renovada)
 datos = [
     ['Productos y categorías del sitio original', '110 productos · 11 categorías', 'Sitemap de blackhawkcaraudio.com', F, 'Diapositiva 2'],
-    ['Página /shop/ del sitio original', 'Título «Tienda» sin productos', 'Captura del sitio original', F, 'Diapositivas 4 y 8'],
+    ['Página /shop/ del sitio original', 'Título «Tienda» sin productos', 'Captura del sitio original', F, 'Diapositivas 4 y 21'],
     ['Enlaces wa.me o tel: en home, ficha y categoría del sitio original', '0', 'Revisión de enlaces del sitio original', F, 'Diapositiva 4'],
     ['WhatsApp en el sitio original', 'Solo en la página «Ventas al mayor»', 'Revisión de enlaces del sitio original', F, 'Diapositiva 4'],
-    ['Productos y categorías de la web renovada', '118 productos · 12 categorías (se agrega «Cargadores»)', 'Sitemaps de la web renovada', F, 'Diapositiva 8'],
-    ['Máximo de productos en el comparador', '3', 'Código del tema (navigation.js)', F, 'Diapositivas 11 y 16'],
-    ['Vigencia de la selección del comparador', '24 h, en el navegador', 'Código del tema (navigation.js)', F, 'Diapositiva 11'],
-    ['Mensaje de WhatsApp desde la ficha', '«Hola Black Hawk, vengo de la web y quiero cotizar el modelo …» (sin URL)', 'Enlaces wa.me de las fichas', F, 'Diapositivas 10 y 22'],
-    ['Directorio de distribuidores', 'No existe: «Dónde comprar» deriva a WhatsApp (ampliación propuesta)', 'Página /distribuidores/', F, 'Diapositivas 10 y 11'],
-] + [[a, f'{b} → {c}', 'Lighthouse, medianas (evidence/data/lighthouse-medianas.json)', '23-09-2026', 'Diapositivas 19 y 25'] for a, b, c in V['MEDICIONES']] + [
-    ['Estado de las fases', 'Inicio y Elaboración realizadas; Construcción en curso; Transición planificada', 'Declaración del proyecto', F, 'Diapositivas 14–18'],
+    ['Productos y categorías de la web renovada', '118 productos · 12 categorías (se agrega «Cargadores»)', 'Sitemaps de la web renovada', F, 'Diapositiva 21'],
+    ['Máximo de productos en el comparador', '3', 'Código del tema (navigation.js)', F, 'Diapositivas 11 y 24'],
+    ['Vigencia de la selección del comparador', '24 h, en el navegador', 'Código del tema (navigation.js)', F, 'Diapositiva 24'],
+    ['Mensaje de WhatsApp desde la ficha', '«Hola Black Hawk, vengo de la web y quiero cotizar el modelo …» (sin URL)', 'Enlaces wa.me de las fichas', F, 'Diapositivas 17 y 23'],
+    ['Directorio de distribuidores', 'No existe: «Dónde comprar» deriva a WhatsApp (ampliación propuesta)', 'Página /distribuidores/', F, 'Diapositivas 23 y 24'],
+] + [[a, f'{b} → {c}', 'Lighthouse, medianas (evidence/data/lighthouse-medianas.json)', '23-09-2026', 'Diapositivas 14 y 25'] for a, b, c in V['MEDICIONES']] + [
+    ['Estado de las fases', 'Inicio y Elaboración realizadas; Construcción en curso; Transición planificada', 'Declaración del proyecto', F, 'Diapositivas 9–13'],
 ]
 ws = sheet('Datos verificados', 'Cifras y afirmaciones usadas en la V3, con su fuente', ['Dato', 'Valor', 'Fuente', 'Fecha', 'Dónde se usa (presentación V3)'], datos, [40, 44, 40, 12, 26], pos=3)
 note(ws, ['Las estimaciones de la V1 (14 semanas, 560 h, S/ 16 800 con tarifa hipotética) no se usan en la V3; se conservan en la hoja «Esfuerzo» como supuesto académico.'])
@@ -101,10 +101,10 @@ en_ppt_rnf = {c for _, _, c in V['REQ_NF']}
 ws = wb['RF']
 set_col(ws, 10, 'Sitio original', lambda c: ORIG.get(c, '—'), 34)
 set_col(ws, 11, 'Web renovada / proyecto (V3)', lambda c: DET.get(c, V3E[rfe[c]]), 30)
-set_col(ws, 12, 'En la presentación V3', lambda c: 'Sí (diap. 19)' if c in en_ppt_rf else '—', 14)
+set_col(ws, 12, 'En la presentación V3', lambda c: 'Sí (diap. 14)' if c in en_ppt_rf else '—', 14)
 ws.auto_filter.ref = f'A4:L{ws.max_row}'
 ws = wb['RNF']
-set_col(ws, 8, 'En la presentación V3', lambda c: 'Sí (diap. 19)' if c in en_ppt_rnf else '—', 14)
+set_col(ws, 8, 'En la presentación V3', lambda c: 'Sí (diap. 14)' if c in en_ppt_rnf else '—', 14)
 ws.auto_filter.ref = f'A4:H{ws.max_row}'
 
 # 5. Iteraciones reales del proyecto (la hoja «Cronograma» conserva el plan V1)
@@ -122,11 +122,11 @@ ws['A2'] = 'Plan de la V1 (supuesto académico). Sustituido en la V3 por la hoja
 # 6. Inventario de diagramas: agrega los de la V3
 ws = wb['Diagramas']
 v3d = [
-    ['V3-01', 'V3_01_casos_de_uso', 'Casos de uso de la web renovada (sitio público y administración; propuestos marcados)', 'Casos de uso', 'Presentación V3 diap. 20; monografía V3'],
-    ['V3-02', 'V3_02_actividades', 'Recorrido comercial: cliente, web renovada y área comercial', 'Actividades', 'Presentación V3 diap. 21; monografía V3'],
-    ['V3-03', 'V3_03_secuencia', 'Cotizar por WhatsApp desde la ficha', 'Secuencia', 'Presentación V3 diap. 22; monografía V3'],
-    ['V3-04', 'V3_04_clases', 'Clases del catálogo (Distribuidor y EventoConsulta propuestos)', 'Clases', 'Presentación V3 diap. 23; monografía V3'],
-    ['V3-05', 'V3_05_componentes', 'Componentes: tema hijo rozer-child sobre WooCommerce y WordPress', 'Componentes', 'Presentación V3 diap. 24; monografía V3'],
+    ['V3-01', 'V3_01_casos_de_uso', 'Casos de uso de la web renovada (sitio público y administración; propuestos marcados)', 'Casos de uso', 'Presentación V3 diap. 15; monografía V3'],
+    ['V3-02', 'V3_02_actividades', 'Recorrido comercial: cliente, web renovada y área comercial', 'Actividades', 'Presentación V3 diap. 16; monografía V3'],
+    ['V3-03', 'V3_03_secuencia', 'Cotizar por WhatsApp desde la ficha', 'Secuencia', 'Presentación V3 diap. 17; monografía V3'],
+    ['V3-04', 'V3_04_clases', 'Clases del catálogo (Distribuidor y EventoConsulta propuestos)', 'Clases', 'Presentación V3 diap. 18; monografía V3'],
+    ['V3-05', 'V3_05_componentes', 'Componentes: tema hijo rozer-child sobre WooCommerce y WordPress', 'Componentes', 'Presentación V3 diap. 19; monografía V3'],
     ['D-20', 'D20_despliegue', 'Despliegue (respaldo)', 'Despliegue', 'Presentación V3 diap. 28 (respaldo)'],
 ]
 start = ws.max_row + 1
