@@ -1,0 +1,37 @@
+@startuml D04_cu_comercial
+!include _estilo.iuml
+left to right direction
+title D-04 · Casos de uso — Consultas comerciales y distribuidores
+
+actor "Cliente\ninteresado" as CI
+actor "Distribuidor" as DI
+actor "Gestor del\ncatálogo" as GC
+actor "Servicio externo\nde WhatsApp" <<sistema>> as WA
+
+rectangle "SGCD-BH · Comercial" {
+  usecase "CU-07 Consultar dónde comprar" as CU07
+  usecase "CU-08 Enviar consulta\npor WhatsApp" as CU08
+  usecase "CU-09 Registrar consulta\ncomercial" <<propuesto>> as CU09
+  usecase "CU-10 Solicitar incorporación\ncomo distribuidor" as CU10
+  usecase "CU-16 Gestionar distribuidores" <<propuesto>> as CU16
+  usecase "CU-18 Dar seguimiento\na consultas" <<propuesto>> as CU18
+}
+CI -- CU07
+CI -- CU08
+CU08 .> CU09 : <<include>>
+CU08 -- WA
+DI -- CU10
+CU16 -- GC
+CU18 -- GC
+
+note bottom of CU07
+  Hoy «Dónde comprar» deriva a WhatsApp;
+  el directorio filtrable por ciudad
+  es la ampliación propuesta (RF-011).
+end note
+note bottom of CU09
+  Se registra antes de abrir WhatsApp:
+  fecha, producto, origen, intención.
+  Sin datos personales.
+end note
+@enduml

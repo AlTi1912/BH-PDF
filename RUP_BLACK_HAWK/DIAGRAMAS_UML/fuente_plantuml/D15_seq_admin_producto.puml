@@ -1,0 +1,43 @@
+@startuml D15_seq_admin_producto
+!include _estilo.iuml
+skinparam SequenceGroupBorderColor #6D28D9
+autonumber
+title D-15 · Secuencia — Administración de producto (CU-12, CU-14)
+
+actor "Gestor del\ncatálogo" as GC
+boundary "PanelProductoUI\n(wp-admin)" as UI
+control "ControlAcceso" as CA
+control "ControlProducto" as CP
+entity "Producto" as P
+entity "EspecificacionTecnica" as E
+control "ServicioAuditoria" as SA
+database "BD WordPress" as DB
+
+GC -> UI : edita el producto y pulsa «Publicar»
+activate UI
+UI -> CA : verificarPermiso(usuario, "edit_products")
+activate CA
+CA --> UI : autorizado
+deactivate CA
+UI -> CP : guardar(datos, especificaciones, imágenes)
+activate CP
+CP -> CP : validar(RN-02, RN-03, RN-10)
+alt datos incompletos
+  CP --> UI : errores por campo
+  UI --> GC : muestra errores
+else datos válidos
+  CP -> P : actualizar(datos)
+  activate P
+  P -> DB : UPDATE producto
+  P -> E : guardar(especificaciones)
+  E -> DB : UPSERT especificaciones\n(sin fuente → PENDIENTE)
+  P -> P : publicar()
+  deactivate P
+  CP -> SA : registrar(usuario, MODIFICAR, "Producto", id)
+  SA -> DB : INSERT registro_auditoria
+  CP --> UI : producto publicado
+  UI --> GC : confirmación y enlace a la ficha
+end
+deactivate CP
+deactivate UI
+@enduml

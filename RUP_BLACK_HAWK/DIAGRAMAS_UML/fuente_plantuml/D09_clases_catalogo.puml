@@ -1,0 +1,81 @@
+@startuml D09_clases_catalogo
+!include _estilo.iuml
+title D-09 · Diagrama de clases de diseño — Paquete Catálogo
+
+enum EstadoProducto {
+  BORRADOR
+  PUBLICADO
+  DESCONTINUADO
+}
+enum EstadoVerificacion {
+  VERIFICADO
+  PENDIENTE
+}
+class Categoria {
+  - id : int
+  - nombre : String
+  - slug : String
+  - descripcion : String
+  + obtenerProductos() : List<Producto>
+  + tieneProductos() : boolean
+}
+class Producto {
+  - id : int
+  - modelo : String {unique}
+  - nombre : String
+  - slug : String
+  - descripcion : String
+  - estado : EstadoProducto
+  - destacado : boolean
+  - fechaPublicacion : DateTime
+  + publicar() : void
+  + descontinuar() : void
+  + puedePublicarse() : boolean
+  + obtenerEspecificaciones() : List<EspecificacionTecnica>
+  + obtenerUrlFicha() : String
+}
+class EspecificacionTecnica {
+  - id : int
+  - atributo : String
+  - valor : String [0..1]
+  - unidad : String [0..1]
+  - estadoVerificacion : EstadoVerificacion
+  - fuente : String [0..1]
+  - orden : int
+  + valorVisible() : String
+}
+class ImagenProducto {
+  - id : int
+  - url : String
+  - textoAlternativo : String
+  - orden : int
+  - esPrincipal : boolean
+}
+class ComparacionProducto <<propuesto>> {
+  - id : long
+  - fechaHora : DateTime
+  - idSesionAnonima : UUID
+}
+class ServicioCatalogo {
+  + buscar(texto : String) : List<Producto>
+  + filtrar(categoria : String, atributos : Map) : List<Producto>
+  + obtenerFicha(slug : String) : Producto
+}
+class ServicioComparador {
+  + {static} MAX_PRODUCTOS : int = 3
+  + agregar(p : Producto) : boolean
+  + quitar(p : Producto) : void
+  + obtenerTabla() : TablaComparativa
+}
+
+Categoria "0..1" -- "0..*" Categoria : padre de >
+Producto "0..*" -- "1..*" Categoria : clasificado en >
+Producto "1" *-- "0..*" EspecificacionTecnica
+Producto "1" *-- "0..*" ImagenProducto
+ComparacionProducto "0..*" -- "2..3" Producto : compara >
+Producto ..> EstadoProducto
+EspecificacionTecnica ..> EstadoVerificacion
+ServicioCatalogo ..> Producto
+ServicioComparador ..> Producto
+ServicioComparador ..> ComparacionProducto : registra >
+@enduml

@@ -1,0 +1,49 @@
+@startuml D12_seq_consulta_producto
+!include _estilo.iuml
+skinparam SequenceGroupBorderColor #6D28D9
+autonumber
+title D-12 · Secuencia — Consulta de producto (CU-02 → CU-04)
+
+actor "Visitante" as VI
+boundary "BuscadorUI" as UI
+control "ServicioCatalogo" as SC
+entity "Producto" as P
+entity "EspecificacionTecnica" as E
+database "BD WordPress" as DB
+boundary "FichaProductoUI" as F
+
+VI -> UI : escribe «sw12»
+activate UI
+UI -> SC : buscar("sw12")
+activate SC
+SC -> DB : consulta de productos publicados
+DB --> SC : filas
+SC --> UI : sugerencias (modelo, tipo, potencia)
+deactivate SC
+UI --> VI : lista de sugerencias
+deactivate UI
+
+VI -> UI : selecciona el modelo
+UI -> F : abrir(slug)
+activate F
+F -> SC : obtenerFicha(slug)
+activate SC
+SC -> P : cargar(slug)
+activate P
+P -> E : obtenerEspecificaciones()
+activate E
+loop para cada especificación
+  alt estadoVerificacion = VERIFICADO
+    E --> P : valor + unidad
+  else estadoVerificacion = PENDIENTE
+    E --> P : «Pendiente de verificación»
+  end
+end
+deactivate E
+P --> SC : producto con especificaciones
+deactivate P
+SC --> F : ficha
+deactivate SC
+F --> VI : ficha técnica con «Cotizar» y «Comparar»\n(sin precio ni carrito)
+deactivate F
+@enduml

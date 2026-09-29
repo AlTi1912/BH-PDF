@@ -1,0 +1,18 @@
+@startsalt W01_wireframe_directorio
+title W-01 · Prototipo de baja fidelidad — Directorio «Dónde comprar» (propuesto, RF-011)
+{+
+  {* Black Hawk | Productos | Dónde comprar | Soporte | Mayoristas | [WhatsApp] }
+  ==
+  <b>Encuentra un distribuidor Black Hawk
+  { Región: | ^Lima    ^ | Ciudad: | ^Lima    ^ | [Buscar] }
+  --
+  {#
+    <b>Distribuidor | <b>Ciudad | <b>Dirección | <b>Contacto
+    Distribuidor A (ejemplo) | Lima | Av. … | [WhatsApp]
+    Distribuidor B (ejemplo) | Lima | Jr. … | [WhatsApp]
+    Distribuidor C (ejemplo) | Lima | Calle … | [WhatsApp]
+  }
+  --
+  ¿No hay distribuidor en tu ciudad? [Consultar a Black Hawk por WhatsApp]
+}
+@endsalt

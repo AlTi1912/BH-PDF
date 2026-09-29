@@ -1,0 +1,49 @@
+@startuml D22_arquitectura_capas
+!include _estilo.iuml
+skinparam packageStyle rectangle
+top to bottom direction
+title D-22 · Arquitectura lógica en capas
+
+package "Capa de presentación" {
+  component "Plantillas del tema hijo\n(home, catálogo, ficha)" as T1
+  component "Buscador y comparador (JS)" as T2
+  component "Pantallas wp-admin\n(productos, distribuidores, consultas)" as T3
+}
+package "Capa de aplicación (servicios)" {
+  component "ServicioCatalogo" as S1
+  component "ServicioComparador" as S2
+  component "ServicioConsulta" <<propuesto>> as S3
+  component "ServicioDistribuidor" <<propuesto>> as S4
+  component "ServicioReportes /\nServicioAuditoria" <<propuesto>> as S5
+}
+package "Capa de dominio y acceso a datos" {
+  component "Entidades del dominio" as D1
+  component "WP_Query /\nWooCommerce CRUD" as D2
+  component "$wpdb\n(tablas wp_bh_*)" <<propuesto>> as D3
+}
+package "Capa de infraestructura" {
+  component "Núcleo WordPress" as I1
+  database "MySQL / MariaDB" as I2
+  cloud "WhatsApp (wa.me)" as I3
+}
+T1 -down-> S1
+T2 -down-> S2
+T2 -down-> S3
+T3 -down-> S4
+T3 -down-> S5
+S1 -down-> D2
+S2 -down-> D2
+S3 -down-> D3
+S4 -down-> D1
+S5 -down-> D3
+D1 -down-> I1
+D2 -down-> I1
+D3 -down-> I2
+I1 -right-> I2
+S3 ..> I3 : genera enlace
+note right of S3
+  Las dependencias van siempre hacia
+  capas inferiores (arquitectura en
+  capas relajada).
+end note
+@enduml

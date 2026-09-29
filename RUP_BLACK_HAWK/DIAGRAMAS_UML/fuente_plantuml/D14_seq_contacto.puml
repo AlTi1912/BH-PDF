@@ -1,0 +1,49 @@
+@startuml D14_seq_contacto
+!include _estilo.iuml
+skinparam SequenceGroupBorderColor #6D28D9
+autonumber
+title D-14 · Secuencia — Contacto con distribuidor por WhatsApp (CU-07, CU-08, CU-09)
+
+actor "Cliente\ninteresado" as CI
+boundary "DirectorioUI /\nFichaProductoUI" as UI
+control "ServicioConsulta" as SQ
+control "API REST\n/wp-json/bh/v1" as API
+entity "ConsultaComercial" as CC
+database "BD WordPress" as DB
+participant "Servicio externo\nde WhatsApp" as WA
+
+opt directorio propuesto (RF-011)
+  CI -> UI : filtra por ciudad
+  UI -> API : GET /distribuidores?ciudad=…
+  API -> DB : distribuidores ACTIVOS
+  DB --> API : filas
+  API --> UI : listado
+  UI --> CI : distribuidores de la ciudad
+end
+
+CI -> UI : pulsa «Cotizar» o «Contactar»
+activate UI
+UI -> SQ : construirMensaje(intención, modelo, url)
+activate SQ
+SQ --> UI : texto prellenado
+UI -> SQ : generarEnlaceWhatsApp(número, texto)
+SQ --> UI : https://wa.me/<número>?text=<codificado>
+deactivate SQ
+
+group registro propuesto (CU-09, RF-014)
+  UI ->> API : POST /consultas (sendBeacon, asíncrono)
+  activate API
+  API -> CC : crear(origen, intención, producto, url)
+  CC -> DB : INSERT estado = REGISTRADA
+  deactivate API
+end
+
+UI -> WA : abrir enlace wa.me
+deactivate UI
+WA --> CI : chat con el mensaje ya escrito
+note over CI, WA
+  La conversación y la venta ocurren fuera del sistema.
+  Número de destino: corporativo (existente) o el del
+  distribuidor elegido (propuesto).
+end note
+@enduml

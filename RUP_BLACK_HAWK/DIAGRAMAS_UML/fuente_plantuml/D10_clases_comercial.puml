@@ -1,0 +1,113 @@
+@startuml D10_clases_comercial
+!include _estilo.iuml
+title D-10 · Diagrama de clases de diseño — Paquetes Comercial y Seguridad
+
+package "Comercial" {
+  enum EstadoConsulta {
+    REGISTRADA
+    ATENDIDA
+    DERIVADA
+    CERRADA
+    DESCARTADA
+  }
+  enum OrigenConsulta {
+    FICHA
+    COMPARADOR
+    VISTA_RAPIDA
+    DONDE_COMPRAR
+    SOPORTE
+    GENERAL
+  }
+  enum Intencion {
+    COTIZAR
+    DONDE_COMPRAR
+    SOPORTE
+  }
+  enum EstadoDistribuidor {
+    SOLICITADO
+    ACTIVO
+    SUSPENDIDO
+    RECHAZADO
+  }
+  class ConsultaComercial <<propuesto>> {
+    - id : long
+    - fechaHora : DateTime
+    - origen : OrigenConsulta
+    - intencion : Intencion
+    - urlOrigen : String
+    - mensaje : String
+    - estado : EstadoConsulta
+    - observacion : String [0..1]
+    + atender(u : Usuario) : void
+    + derivar(d : Distribuidor) : void
+    + cerrar() : void
+    + descartar(motivo : String) : void
+  }
+  class Distribuidor <<propuesto>> {
+    - id : int
+    - razonSocial : String
+    - ruc : String
+    - region : String
+    - ciudad : String
+    - whatsapp : String
+    - numTiendas : int [0..1]
+    - estado : EstadoDistribuidor
+    - consentimiento : boolean
+    + aprobar() : void
+    + suspender() : void
+    + esVisible() : boolean
+  }
+  class ServicioConsulta <<propuesto>> {
+    + construirMensaje(i : Intencion, p : Producto [0..1]) : String
+    + generarEnlaceWhatsApp(numero : String, mensaje : String) : String
+    + registrar(c : ConsultaComercial) : void
+  }
+}
+class "Producto\n(paquete Catálogo, ver D-09)" as Producto {
+  - modelo : String
+  + obtenerUrlFicha() : String
+}
+package "Seguridad" {
+  class Usuario {
+    - id : int
+    - nombre : String
+    - email : String
+    - passwordHash : String
+    - activo : boolean
+    + tienePermiso(clave : String) : boolean
+  }
+  class Rol {
+    - id : int
+    - nombre : String
+  }
+  class Permiso {
+    - id : int
+    - clave : String
+  }
+  class RegistroAuditoria <<propuesto>> {
+    - id : long
+    - fechaHora : DateTime
+    - accion : String
+    - entidad : String
+    - idEntidad : long
+    - ip : String
+    - detalle : JSON
+  }
+  class ServicioAuditoria <<propuesto>> {
+    + registrar(u : Usuario, accion : String, entidad : String, id : long) : void
+  }
+}
+
+ConsultaComercial "0..*" -- "0..1" Producto : sobre >
+ConsultaComercial "0..*" -- "0..1" Distribuidor : derivada a >
+ConsultaComercial "0..*" -- "0..1" Usuario : atendida por >
+ConsultaComercial ..> EstadoConsulta
+ConsultaComercial ..> OrigenConsulta
+ConsultaComercial ..> Intencion
+Distribuidor ..> EstadoDistribuidor
+ServicioConsulta ..> ConsultaComercial : crea >
+Usuario "0..*" -- "1" Rol : tiene >
+Rol "0..*" -- "1..*" Permiso : otorga >
+RegistroAuditoria "0..*" -- "1" Usuario : realizado por >
+ServicioAuditoria ..> RegistroAuditoria : crea >
+@enduml

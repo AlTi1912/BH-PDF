@@ -1,0 +1,45 @@
+@startuml D13_seq_comparacion
+!include _estilo.iuml
+skinparam SequenceGroupBorderColor #6D28D9
+autonumber
+title D-13 · Secuencia — Comparación de productos (CU-05)
+
+actor "Visitante" as VI
+boundary "TarjetaProductoUI" as T
+control "ServicioComparador\n(JavaScript)" as SCmp
+database "localStorage\n(navegador)" as LS
+boundary "ComparadorUI" as CUI
+control "API REST\n/wp-json/bh/v1" as API
+database "BD WordPress" as DB
+
+VI -> T : «Comparar» en el producto p
+T -> SCmp : agregar(p)
+activate SCmp
+SCmp -> LS : leer selección
+LS --> SCmp : ids[]
+alt ids.length < 3
+  SCmp -> LS : guardar ids + p
+  SCmp --> T : contador actualizado
+else límite alcanzado (RN-04)
+  SCmp --> T : aviso «Máximo 3 productos»
+end
+deactivate SCmp
+
+VI -> CUI : abrir comparador
+activate CUI
+CUI -> SCmp : obtenerTabla()
+activate SCmp
+SCmp -> API : GET /comparar?ids=…
+activate API
+API -> DB : productos + especificaciones
+DB --> API : filas
+API --> SCmp : JSON alineado por atributo
+deactivate API
+opt analítica propuesta (anónima)
+  SCmp -> API : POST /comparaciones (sendBeacon)
+end
+SCmp --> CUI : tabla comparativa
+deactivate SCmp
+CUI --> VI : columnas con «Quitar» y «Cotizar por WhatsApp»
+deactivate CUI
+@enduml

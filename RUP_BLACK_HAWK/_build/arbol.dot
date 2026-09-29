@@ -1,0 +1,20 @@
+digraph G {
+  rankdir=BT; nodesep=0.25; ranksep=0.45; bgcolor="white"; pad=0.2;
+  node [shape=box, style="rounded,filled", fontname="Liberation Sans", fontsize=12, fillcolor="#FFFFFF", color="#111111", margin="0.18,0.1", width=2.2];
+  edge [color="#6B7280", arrowsize=0.7];
+  labelloc=t; fontname="Liberation Sans"; fontsize=16; label=<<B>Árbol de problemas — caso Black Hawk (causas → problema → efectos)</B>>;
+  subgraph cluster_c { style=invis;
+    c5 [label="Sin validaciones ni auditoría\nde cambios (P-05)"];
+    c4 [label="WhatsApp abre fuera del sitio\nsin registro (P-04)"];
+    c3 [label="Sin directorio de\npuntos de venta (P-03)"];
+    c2 [label="Sin paso de consulta en la ficha\ndel sitio oficial (P-02)"];
+    c1 [label="Especificaciones incompletas\no no estructuradas (P-01)"];
+  }
+  pc [label="La información de productos y la derivación de compradores a distribuidores\nno están estructuradas ni son trazables", fillcolor="#6D28D9", fontcolor="white", color="#6D28D9", fontsize=13, width=6];
+  e1 [label="El cliente no encuentra o\nno puede comparar datos fiables"];
+  e2 [label="Consultas sin el modelo\ncorrecto; más tiempo de atención"];
+  e3 [label="La empresa no sabe qué productos\ngeneran interés"];
+  e4 [label="Riesgo de publicar datos\nerróneos o no autorizados"];
+  c1 -> pc; c2 -> pc; c3 -> pc; c4 -> pc; c5 -> pc;
+  pc -> e1; pc -> e2; pc -> e3; pc -> e4;
+}

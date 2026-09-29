@@ -1,0 +1,133 @@
+@startuml D21_entidad_relacion
+!include _estilo.iuml
+hide circle
+skinparam linetype ortho
+title D-21 · Modelo entidad-relación lógico del SGCD-BH
+
+entity "rol" as rol {
+  * id_rol : INT <<PK>>
+  --
+  nombre : VARCHAR(60) <<UQ>>
+  descripcion : VARCHAR(255)
+}
+entity "permiso" as permiso {
+  * id_permiso : INT <<PK>>
+  --
+  clave : VARCHAR(80) <<UQ>>
+}
+entity "rol_permiso" as rp {
+  * id_rol : INT <<PK,FK>>
+  * id_permiso : INT <<PK,FK>>
+}
+entity "usuario" as usuario {
+  * id_usuario : INT <<PK>>
+  --
+  * id_rol : INT <<FK>>
+  nombre : VARCHAR(120)
+  email : VARCHAR(150) <<UQ>>
+  password_hash : VARCHAR(255)
+  activo : BOOLEAN
+}
+entity "categoria" as categoria {
+  * id_categoria : INT <<PK>>
+  --
+  id_padre : INT <<FK>>
+  nombre : VARCHAR(80)
+  slug : VARCHAR(80) <<UQ>>
+}
+entity "producto" as producto {
+  * id_producto : INT <<PK>>
+  --
+  modelo : VARCHAR(40) <<UQ>>
+  nombre : VARCHAR(150)
+  slug : VARCHAR(150) <<UQ>>
+  estado : ENUM
+  destacado : BOOLEAN
+}
+entity "producto_categoria" as pc {
+  * id_producto : INT <<PK,FK>>
+  * id_categoria : INT <<PK,FK>>
+}
+entity "especificacion_tecnica" as esp {
+  * id_especificacion : INT <<PK>>
+  --
+  * id_producto : INT <<FK>>
+  atributo : VARCHAR(80)
+  valor : VARCHAR(120) NULL
+  unidad : VARCHAR(20)
+  estado_verificacion : ENUM
+  fuente : VARCHAR(255)
+}
+entity "imagen_producto" as img {
+  * id_imagen : INT <<PK>>
+  --
+  * id_producto : INT <<FK>>
+  url : VARCHAR(255)
+  texto_alternativo : VARCHAR(150)
+  es_principal : BOOLEAN
+}
+entity "distribuidor" as dis {
+  * id_distribuidor : INT <<PK>>
+  --
+  razon_social : VARCHAR(150)
+  ruc : CHAR(11) <<UQ>>
+  region, ciudad : VARCHAR(60)
+  whatsapp : VARCHAR(20)
+  estado : ENUM
+}
+entity "consulta_comercial" as con {
+  * id_consulta : BIGINT <<PK>>
+  --
+  id_producto : INT <<FK>>
+  id_distribuidor : INT <<FK>>
+  id_usuario_atiende : INT <<FK>>
+  fecha_hora : DATETIME
+  origen, intencion : ENUM
+  url_origen : VARCHAR(255)
+  estado : ENUM
+}
+entity "comparacion" as cmp {
+  * id_comparacion : BIGINT <<PK>>
+  --
+  fecha_hora : DATETIME
+  id_sesion_anonima : CHAR(36)
+}
+entity "comparacion_producto" as cp {
+  * id_comparacion : BIGINT <<PK,FK>>
+  * id_producto : INT <<PK,FK>>
+  posicion : TINYINT
+}
+entity "novedad" as nov {
+  * id_novedad : INT <<PK>>
+  --
+  * id_autor : INT <<FK>>
+  titulo : VARCHAR(200)
+  estado : ENUM
+}
+entity "registro_auditoria" as aud {
+  * id_registro : BIGINT <<PK>>
+  --
+  * id_usuario : INT <<FK>>
+  fecha_hora : DATETIME
+  accion : ENUM
+  entidad : VARCHAR(40)
+  id_entidad : BIGINT
+  ip : VARCHAR(45)
+}
+
+rol ||--o{ usuario
+rol ||--|{ rp
+permiso ||--o{ rp
+categoria |o--o{ categoria
+producto ||--|{ pc
+categoria ||--o{ pc
+producto ||--o{ esp
+producto ||--o{ img
+producto |o--o{ con
+dis |o--o{ con
+usuario |o--o{ con
+cmp ||--|{ cp
+producto ||--o{ cp
+usuario ||--o{ nov
+usuario ||--o{ aud
+@enduml

@@ -1,0 +1,23 @@
+@startuml D18_estados_consulta
+!include _estilo.iuml
+hide empty description
+title D-18 · Máquina de estados — ConsultaComercial
+
+[*] --> Registrada : clic en «Cotizar» / registrar()
+Registrada --> Atendida : gestor responde / atender(u)
+Registrada --> Descartada : duplicada o no válida / descartar(motivo)
+Registrada --> Descartada : after(30 días) sin atención
+Atendida --> Derivada : se asigna distribuidor / derivar(d)
+Atendida --> Cerrada : resuelta sin derivar / cerrar()
+Derivada --> Cerrada : distribuidor confirma / cerrar()
+Cerrada --> [*]
+Descartada --> [*]
+
+state Registrada : entry / guardar fecha, origen, intención
+state Atendida : entry / registrar usuario que atiende
+state Derivada : entry / notificar al distribuidor (manual)
+note right of Registrada
+  Regla RF-023: no se puede pasar
+  de Registrada a Cerrada sin atender.
+end note
+@enduml

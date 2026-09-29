@@ -1,0 +1,43 @@
+@startuml D11_objetos
+!include _estilo.iuml
+title D-11 · Diagrama de objetos — Consulta iniciada desde el comparador
+
+object "cmp1 : ComparacionProducto" as cmp1 {
+  fechaHora = 2026-09-29 18:40
+  idSesionAnonima = «uuid aleatorio»
+}
+object "p1 : Producto" as p1 {
+  modelo = "FR 1500.1"
+  estado = PUBLICADO
+}
+object "p2 : Producto" as p2 {
+  modelo = "FR 2000.1"
+  estado = PUBLICADO
+}
+object "amp : Categoria" as amp {
+  nombre = "Amplificadores"
+}
+object "e1 : EspecificacionTecnica" as e1 {
+  atributo = "Potencia RMS"
+  valor = null
+  estadoVerificacion = PENDIENTE
+}
+object "k1 : ConsultaComercial" as k1 {
+  origen = COMPARADOR
+  intencion = COTIZAR
+  estado = REGISTRADA
+  mensaje = "…quiero cotizar el modelo FR 2000.1…"
+}
+
+cmp1 -- p1
+cmp1 -- p2
+p1 -- amp
+p2 -- amp
+p1 *-- e1
+k1 -- p2
+note bottom of e1
+  Ejemplo de RN-03: sin fuente verificada
+  no se registra un valor; la ficha muestra
+  «Pendiente de verificación».
+end note
+@enduml

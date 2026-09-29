@@ -1,0 +1,37 @@
+@startuml D17_act_admin_catalogo
+!include _estilo.iuml
+title D-17 · Actividades — Administración del catálogo
+
+|Gestor del catálogo|
+start
+:Inicia sesión en el panel;
+:Crea o edita el producto
+(modelo, nombre, categorías);
+:Carga imágenes con texto alternativo;
+repeat
+  :Registra la especificación;
+  if (¿Tiene fuente verificada?) then (sí)
+    :Ingresa valor, unidad y fuente;
+  else (no)
+    :Marca PENDIENTE sin valor;
+  endif
+repeat while (¿Más especificaciones?) is (sí) not (no)
+:Solicita publicar;
+|Sistema SGCD-BH|
+:Valida campos obligatorios (RN-02);
+if (¿Válido?) then (no)
+  :Muestra errores por campo
+  y conserva el estado BORRADOR;
+  stop
+else (sí)
+  :Cambia el estado a PUBLICADO;
+  fork
+    :Registra la auditoría;
+  fork again
+    :Actualiza el sitemap y la caché;
+  end fork
+endif
+|Gestor del catálogo|
+:Verifica la ficha publicada;
+stop
+@enduml

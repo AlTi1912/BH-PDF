@@ -1,0 +1,663 @@
+[
+ {
+  "n": 1,
+  "title": "Portada",
+  "kicker": "",
+  "t": 40,
+  "obj": "Presentar el tema, el caso de estudio y al equipo.",
+  "oral": "Buenos días. Nuestro proyecto aplica la metodología RUP para analizar, diseñar y planificar un sistema de información web para Black Hawk Car Audio, una marca peruana de audio para autos. Lo llamamos SGCD-BH: Sistema de Gestión de Catálogo y Distribuidores Black Hawk. No vamos a explicar RUP en abstracto; vamos a mostrar cómo cada fase y cada diagrama se aplican a este caso concreto.",
+  "conceptos": [
+   "RUP",
+   "SGCD-BH",
+   "Caso de estudio real"
+  ],
+  "trans": "Primero les muestro cómo está organizada la exposición."
+ },
+ {
+  "n": 2,
+  "title": "Contenido",
+  "kicker": "Agenda",
+  "t": 30,
+  "obj": "Dar el mapa de la exposición.",
+  "oral": "La exposición tiene cinco bloques. Primero, el caso Black Hawk y el problema. Segundo, qué es RUP. Tercero, cómo aplicamos las cuatro fases al caso. Cuarto, los modelos UML que produjimos. Y quinto, la planificación, los riesgos, la trazabilidad y las conclusiones.",
+  "conceptos": [
+   "Estructura de la exposición"
+  ],
+  "trans": "Empecemos por conocer a la empresa.",
+  "visible": "Cinco bloques, un mismo sistema"
+ },
+ {
+  "n": 3,
+  "title": "Presentación de Black Hawk",
+  "kicker": "01 · El caso",
+  "t": 50,
+  "obj": "Presentar a la empresa y su modelo comercial.",
+  "oral": "Black Hawk es una marca de audio automotriz orientada al mercado peruano: amplificadores, subwoofers, procesadores, componentes, cargadores. Algunos modelos de referencia de nuestro caso son el procesador BH-4.8DSP, el subwoofer BH-SW12XZP o los amplificadores de la línea FR. Un detalle clave: la web no vende. No hay precios ni carrito. Funciona como catálogo, y la compra se concreta después, con el equipo comercial o un distribuidor. Esa decisión de negocio condiciona todo el diseño.",
+  "conceptos": [
+   "Modelo de catálogo",
+   "Sin venta en línea",
+   "Red de distribuidores"
+  ],
+  "trans": "Veamos sobre qué plataforma funciona hoy.",
+  "visible": "Black Hawk Car Audio"
+ },
+ {
+  "n": 4,
+  "title": "Contexto empresarial y plataforma",
+  "kicker": "01 · El caso",
+  "t": 60,
+  "obj": "Explicar la plataforma existente y el flujo comercial.",
+  "oral": "La plataforma ya existe: WordPress con WooCommerce, un tema hijo propio y el plugin YITH Catalog Mode, que oculta precio, carrito y pago. El flujo comercial tiene ocho pasos: el cliente entra al catálogo, busca, revisa la ficha técnica, compara si lo necesita, va a «Dónde comprar», llega a los distribuidores y termina en WhatsApp con un mensaje que incluye su intención, el modelo y, en nuestra propuesta, la URL del producto. Hay que notar dónde termina el sistema: en WhatsApp la conversación ya ocurre fuera.",
+  "conceptos": [
+   "WordPress + WooCommerce",
+   "YITH Catalog Mode",
+   "Flujo de 8 pasos"
+  ],
+  "trans": "Con este contexto, ¿cuál es el problema?",
+  "visible": "Una plataforma de catálogo que termina en WhatsApp"
+ },
+ {
+  "n": 5,
+  "title": "Problema identificado",
+  "kicker": "01 · El caso",
+  "t": 60,
+  "obj": "Formular el problema con sus causas y efectos.",
+  "oral": "El problema no es que falte una web: la web existe. El problema es que la información de productos y la derivación de compradores hacia los distribuidores no están estructuradas ni son trazables. Las causas: fichas con especificaciones incompletas, no hay directorio de puntos de venta y, sobre todo, WhatsApp se abre fuera del sitio sin dejar registro. Los efectos: el cliente no siempre encuentra datos fiables, la empresa no sabe qué productos generan interés y existe riesgo de publicar datos erróneos. Distinguimos lo observado en la evidencia de lo que es un supuesto académico.",
+  "conceptos": [
+   "Árbol de problemas",
+   "Trazabilidad de consultas",
+   "Observado frente a supuesto"
+  ],
+  "trans": "Por eso separamos claramente qué existe y qué proponemos.",
+  "visible": "El problema no es la web: es el dato y la derivación"
+ },
+ {
+  "n": 6,
+  "title": "Qué existe y qué se propone",
+  "kicker": "01 · El caso",
+  "t": 60,
+  "obj": "Distinguir lo conocido, lo problemático, lo propuesto y su estado.",
+  "oral": "Esta diapositiva es importante para ser honestos con el alcance. En la columna A está lo que ya existe y se puede verificar: catálogo, búsqueda, comparador de hasta tres modelos, botón Cotizar con el modelo escrito. En B, los problemas del caso. En C, lo que proponemos nosotros. Y en D, el estado: usamos cinco etiquetas, desde «existente verificado» hasta «propuesto». Así nadie confunde el diseño con algo ya implementado.",
+  "conceptos": [
+   "Existente frente a propuesto",
+   "Cinco estados de implementación"
+  ],
+  "trans": "Con eso claro, estos son nuestros objetivos.",
+  "visible": "Cuatro columnas para no confundir diseño con realidad"
+ },
+ {
+  "n": 7,
+  "title": "Objetivos del proyecto",
+  "kicker": "01 · El caso",
+  "t": 50,
+  "obj": "Presentar el objetivo general y los específicos.",
+  "oral": "El objetivo general es aplicar RUP para analizar, diseñar y planificar el SGCD-BH: un sistema que centraliza el catálogo, facilita consultar y comparar, conecta con los distribuidores y permite dar seguimiento a las consultas. Los objetivos específicos siguen las disciplinas de RUP: modelar el negocio, especificar requisitos, modelar casos de uso, diseñar la arquitectura, producir los diagramas UML, planificar y asegurar la trazabilidad.",
+  "conceptos": [
+   "Objetivo general",
+   "Objetivos específicos alineados con disciplinas"
+  ],
+  "trans": "¿Y qué sistema proponemos exactamente?",
+  "visible": "Objetivos"
+ },
+ {
+  "n": 8,
+  "title": "Propuesta del sistema: SGCD-BH",
+  "kicker": "01 · El caso",
+  "t": 60,
+  "obj": "Mostrar los 12 módulos y cuáles son ampliaciones.",
+  "oral": "El SGCD-BH tiene doce módulos. En blanco, los que ya existen en el rediseño o que WordPress y WooCommerce resuelven de forma nativa: catálogo, categorías, búsqueda, comparador, contenido. En morado, las ampliaciones que proponemos: gestión de distribuidores, registro y seguimiento de consultas, reportes y auditoría. Lo importante es lo que no incluimos: no es una tienda en línea, no es un ERP ni un sistema de inventario. Mantener ese límite fue una decisión consciente.",
+  "conceptos": [
+   "12 módulos",
+   "Alcance realista",
+   "Exclusiones"
+  ],
+  "trans": "Pasemos a la metodología: ¿qué es RUP?",
+  "visible": "12 módulos sobre la plataforma existente"
+ },
+ {
+  "n": 9,
+  "title": "¿Qué es RUP?",
+  "kicker": "02 · Metodología",
+  "t": 60,
+  "obj": "Definir RUP y sus tres características esenciales.",
+  "oral": "RUP, el Proceso Unificado de Rational, es un proceso de ingeniería de software que organiza quién hace qué, cómo y cuándo. Tiene tres características que hay que saber de memoria: está dirigido por casos de uso, porque los casos de uso guían desde los requisitos hasta las pruebas; está centrado en la arquitectura, porque la arquitectura se valida temprano; y es iterativo e incremental, porque el sistema crece en iteraciones que entregan algo ejecutable. Por eso las fases no son una cascada.",
+  "conceptos": [
+   "Dirigido por casos de uso",
+   "Centrado en la arquitectura",
+   "Iterativo e incremental"
+  ],
+  "trans": "Esas características se apoyan en seis buenas prácticas.",
+  "visible": "RUP: un proceso, tres ideas"
+ },
+ {
+  "n": 10,
+  "title": "Principios fundamentales",
+  "kicker": "02 · Metodología",
+  "t": 45,
+  "obj": "Presentar las seis buenas prácticas de RUP.",
+  "oral": "RUP se apoya en seis buenas prácticas. Desarrollar de forma iterativa, gestionar los requisitos, usar arquitecturas basadas en componentes, modelar visualmente con UML, verificar la calidad de forma continua y controlar los cambios. En nuestro proyecto cada práctica tiene algo concreto: por ejemplo, la arquitectura por componentes es el plugin bh-core separado del tema, y el control de cambios es Git más la matriz de trazabilidad.",
+  "conceptos": [
+   "Seis buenas prácticas",
+   "Aplicación concreta"
+  ],
+  "trans": "Veamos cómo se organiza RUP en el tiempo.",
+  "visible": "Seis buenas prácticas, aplicadas al caso"
+ },
+ {
+  "n": 11,
+  "title": "Arquitectura general de RUP",
+  "kicker": "02 · Metodología",
+  "t": 60,
+  "obj": "Explicar el gráfico de fases y disciplinas (dos dimensiones).",
+  "oral": "Este es el gráfico clásico de RUP, construido con los datos de nuestro proyecto. Tiene dos dimensiones: en horizontal, el tiempo, con fases e iteraciones; en vertical, las disciplinas. El área de cada curva es el esfuerzo. Fíjense: requisitos es fuerte en Inicio y Elaboración pero no desaparece; implementación empieza ya en Elaboración con el prototipo; y despliegue se concentra al final. Esto demuestra que RUP no es una cascada: todas las disciplinas conviven, con distinta intensidad.",
+  "conceptos": [
+   "Dimensión dinámica: fases",
+   "Dimensión estática: disciplinas",
+   "Esfuerzo variable"
+  ],
+  "trans": "Detallemos las cuatro fases y sus hitos.",
+  "visible": "Arquitectura general de RUP"
+ },
+ {
+  "n": 12,
+  "title": "Fases e iteraciones",
+  "kicker": "02 · Metodología",
+  "t": 60,
+  "obj": "Presentar las fases, las iteraciones y los hitos del proyecto.",
+  "oral": "Las cuatro fases son Inicio, Elaboración, Construcción y Transición. Cada una termina con un hito, que es un punto de decisión: LCO, objetivos del ciclo de vida; LCA, arquitectura del ciclo de vida; IOC, capacidad operativa inicial; y PR, liberación del producto. En nuestro plan de 14 semanas: Inicio con una iteración, Elaboración con dos, Construcción con tres y Transición con una. Siete iteraciones en total.",
+  "conceptos": [
+   "LCO",
+   "LCA",
+   "IOC",
+   "PR",
+   "7 iteraciones"
+  ],
+  "trans": "¿Y qué disciplinas se trabajan en esas fases?",
+  "visible": "4 fases · 7 iteraciones · 4 hitos"
+ },
+ {
+  "n": 13,
+  "title": "Disciplinas de RUP",
+  "kicker": "02 · Metodología",
+  "t": 55,
+  "obj": "Explicar las 9 disciplinas y su intensidad por fase.",
+  "oral": "RUP tiene nueve disciplinas: seis de ingeniería (modelado del negocio, requisitos, análisis y diseño, implementación, pruebas y despliegue) y tres de soporte (gestión de configuración y cambios, gestión del proyecto y entorno). La matriz muestra con qué intensidad trabajamos cada una en cada fase. Por ejemplo, análisis y diseño es máxima en Elaboración, e implementación en Construcción.",
+  "conceptos": [
+   "6 disciplinas de ingeniería",
+   "3 de soporte",
+   "Matriz de intensidad"
+  ],
+  "trans": "Ahora sí, apliquemos esto a Black Hawk, empezando por la fase de Inicio.",
+  "visible": "9 disciplinas con distinta intensidad por fase"
+ },
+ {
+  "n": 14,
+  "title": "Fase de Inicio",
+  "kicker": "03 · Aplicación · Inicio",
+  "t": 60,
+  "obj": "Mostrar qué se hizo en Inicio y cómo se cierra el hito LCO.",
+  "oral": "En Inicio, semanas uno y dos, el objetivo es ponerse de acuerdo sobre qué problema se resuelve y si vale la pena. Produjimos la visión, el modelo de casos de uso del negocio, el glosario, la lista de riesgos y el caso de negocio. La fase termina en el hito LCO cuando los stakeholders aceptan la visión y el alcance, están identificados los casos de uso críticos, los riesgos principales tienen respuesta y la viabilidad está aprobada.",
+  "conceptos": [
+   "Visión",
+   "Caso de negocio",
+   "Hito LCO"
+  ],
+  "trans": "¿Quiénes son esos stakeholders?",
+  "visible": "Inicio: acordar qué se construye y por qué"
+ },
+ {
+  "n": 15,
+  "title": "Stakeholders",
+  "kicker": "03 · Aplicación · Inicio",
+  "t": 50,
+  "obj": "Identificar a los interesados por influencia e interés.",
+  "oral": "Identificamos ocho stakeholders y los ubicamos por influencia e interés. Con alta influencia y alto interés están la gerencia y el área comercial: hay que gestionarlos de cerca. El gestor de contenidos, los distribuidores y los clientes tienen mucho interés, pero menos poder de decisión: hay que mantenerlos informados. Aclaramos que son stakeholders identificados para el caso; no hicimos entrevistas formales con la empresa.",
+  "conceptos": [
+   "Matriz influencia–interés",
+   "Stakeholder frente a actor"
+  ],
+  "trans": "Con ellos definimos el modelo del negocio.",
+  "visible": "Ocho stakeholders, cuatro estrategias"
+ },
+ {
+  "n": 16,
+  "title": "Modelo del negocio",
+  "kicker": "03 · Aplicación · Inicio",
+  "t": 55,
+  "obj": "Explicar el diagrama de casos de uso del negocio.",
+  "oral": "Este diagrama modela el negocio, no el software. Los actores del negocio son el cliente final y el distribuidor; los casos de uso del negocio son los procesos que les dan valor: difundir el catálogo, atender la consulta, derivar al punto de venta, incorporar distribuidores y dar soporte. La barra diagonal en los íconos es la notación de negocio. El área comercial no aparece como actor porque trabaja dentro del negocio: es un trabajador del negocio.",
+  "conceptos": [
+   "Actor del negocio",
+   "Caso de uso del negocio",
+   "Trabajador del negocio"
+  ],
+  "trans": "De aquí salen el alcance y la viabilidad.",
+  "visible": "Modelo del negocio"
+ },
+ {
+  "n": 17,
+  "title": "Alcance y viabilidad",
+  "kicker": "03 · Aplicación · Inicio",
+  "t": 55,
+  "obj": "Delimitar el alcance y justificar la viabilidad.",
+  "oral": "El alcance incluye el catálogo, el comparador, las consultas por WhatsApp con registro, el directorio de distribuidores, la administración y la auditoría. Excluimos lo que supondría vender en línea: carrito, pagos, inventario, facturación y la API de WhatsApp Business. La viabilidad es técnica, porque WordPress ya ofrece roles, API REST y tipos de contenido; económica, porque reutilizamos la plataforma; y operativa, porque el área comercial sigue usando WhatsApp.",
+  "conceptos": [
+   "Alcance",
+   "Exclusiones",
+   "Viabilidad técnica, económica y operativa"
+  ],
+  "trans": "Con el LCO aprobado pasamos a Elaboración.",
+  "visible": "Qué entra, qué no y por qué es viable"
+ },
+ {
+  "n": 18,
+  "title": "Fase de Elaboración",
+  "kicker": "03 · Aplicación · Elaboración",
+  "t": 60,
+  "obj": "Mostrar qué se estabiliza en Elaboración y qué valida el LCA.",
+  "oral": "Elaboración es la fase más importante para un analista. En las iteraciones E1 y E2 detallamos los requisitos, especificamos los casos de uso, construimos los modelos de dominio y de análisis, y diseñamos la arquitectura. Lo que la distingue es el prototipo arquitectónico: no basta con dibujar, hay que probar que el flujo más riesgoso funciona. En nuestro caso, registrar la consulta sin retrasar la apertura de WhatsApp. El hito LCA exige al menos el 80 % de los casos de uso especificados y la arquitectura probada.",
+  "conceptos": [
+   "Prototipo arquitectónico",
+   "SRS y SAD",
+   "Hito LCA"
+  ],
+  "trans": "Veamos los requisitos que salieron de esta fase.",
+  "visible": "Elaboración: estabilizar requisitos y probar la arquitectura"
+ },
+ {
+  "n": 19,
+  "title": "Requisitos funcionales y no funcionales",
+  "kicker": "03 · Aplicación · Elaboración",
+  "t": 60,
+  "obj": "Presentar el catálogo de requisitos y su estado.",
+  "oral": "Especificamos 27 requisitos funcionales y 13 no funcionales. Cada uno tiene código, prioridad, actor, caso de uso, criterio de aceptación y estado. El gráfico muestra el estado de los funcionales: una parte ya existe en el rediseño o en la plataforma, y el resto es propuesta. Un ejemplo funcional: RF-014, registrar la consulta antes de abrir WhatsApp. Un ejemplo no funcional: RNF-003, que la página cargue en menos de 2,5 segundos según Core Web Vitals. Los no funcionales se clasifican con la norma ISO/IEC 25010.",
+  "conceptos": [
+   "RF frente a RNF",
+   "Criterio de aceptación",
+   "MoSCoW",
+   "ISO/IEC 25010"
+  ],
+  "trans": "Los requisitos se organizan en casos de uso.",
+  "visible": "27 RF + 13 RNF, cada uno verificable"
+ },
+ {
+  "n": 20,
+  "title": "Casos de uso",
+  "kicker": "03 · Aplicación · Elaboración",
+  "t": 55,
+  "obj": "Mostrar los actores y los casos de uso significativos.",
+  "oral": "Definimos seis actores y 22 casos de uso. Hay que diferenciar: visitante, cliente interesado y distribuidor son humanos externos; gestor del catálogo y administrador son roles internos; y WhatsApp es un sistema externo. La base de datos no es actor, porque es parte del sistema. De los 22 casos especificamos seis en detalle, los arquitectónicamente significativos: consultar ficha, comparar, enviar consulta por WhatsApp con su registro, gestionar productos, gestionar distribuidores y dar seguimiento a consultas.",
+  "conceptos": [
+   "Actor humano, rol interno y sistema externo",
+   "Caso de uso significativo"
+  ],
+  "trans": "¿Sobre qué arquitectura se implementan?",
+  "visible": "6 actores · 22 casos de uso · 6 especificados en detalle"
+ },
+ {
+  "n": 21,
+  "title": "Arquitectura",
+  "kicker": "03 · Aplicación · Elaboración",
+  "t": 60,
+  "obj": "Explicar la arquitectura en capas y las decisiones principales.",
+  "oral": "La arquitectura tiene cuatro capas: presentación, aplicación, dominio y acceso a datos, e infraestructura. Las dependencias van siempre hacia abajo. Las tres decisiones más importantes: mantener WordPress y WooCommerce en lugar de reescribir; poner todo lo nuevo en un plugin propio llamado bh-core, para que las actualizaciones no borren nada; e integrar WhatsApp con enlaces wa.me, sin la API de pago, registrando antes la consulta. En morado está lo propuesto.",
+  "conceptos": [
+   "Arquitectura en capas",
+   "Plugin bh-core",
+   "Decisiones de arquitectura"
+  ],
+  "trans": "Con la arquitectura validada, entramos a Construcción.",
+  "visible": "Arquitectura"
+ },
+ {
+  "n": 22,
+  "title": "Fase de Construcción",
+  "kicker": "03 · Aplicación · Construcción",
+  "t": 55,
+  "obj": "Mostrar la organización por incrementos.",
+  "oral": "En Construcción, semanas siete a doce, el sistema crece en tres incrementos. C1: catálogo, fichas, especificaciones y modo catálogo. C2: comparador, WhatsApp y registro de consultas. C3: distribuidores, reportes, roles, auditoría y seguridad. Ordenamos así por valor y riesgo: primero la base del catálogo, luego el flujo comercial y al final la administración. El hito IOC exige los casos de uso de prioridad alta implementados y ninguna incidencia crítica abierta.",
+  "conceptos": [
+   "Incremento",
+   "Priorización por valor y riesgo",
+   "Hito IOC"
+  ],
+  "trans": "¿Qué módulos ya existen y cuáles se construyen?",
+  "visible": "Construcción: tres incrementos hacia el IOC"
+ },
+ {
+  "n": 23,
+  "title": "Módulos del sistema",
+  "kicker": "03 · Aplicación · Construcción",
+  "t": 50,
+  "obj": "Distinguir el desarrollo real de la implementación propuesta.",
+  "oral": "Aquí separamos el desarrollo real de nuestra propuesta. Ya desarrollado en el rediseño: tema hijo, catálogo con filtros, búsqueda, comparador, botón Cotizar y las páginas de dónde comprar, soporte y mayoristas. Propuesto en este proyecto: el plugin bh-core con registro y seguimiento de consultas, directorio de distribuidores, verificación de especificaciones, reportes, auditoría y seguridad reforzada. Lo propuesto está especificado y diseñado, pero no decimos que ya funcione.",
+  "conceptos": [
+   "Desarrollo real",
+   "Implementación propuesta"
+  ],
+  "trans": "Veamos la pieza central de la propuesta: la integración con WhatsApp.",
+  "visible": "Lo que ya existe y lo que se construye"
+ },
+ {
+  "n": 24,
+  "title": "Implementación propuesta: integración con WhatsApp",
+  "kicker": "03 · Aplicación · Construcción",
+  "t": 60,
+  "obj": "Explicar cómo funciona la integración con WhatsApp.",
+  "oral": "A la izquierda está la ficha real del rediseño, con el botón Cotizar. Hoy ese botón abre WhatsApp con el mensaje «quiero cotizar el modelo BH-SW12XXG». Nuestra propuesta agrega dos cosas: la URL de la ficha en el mensaje y un registro previo. El flujo: el sistema construye el mensaje, envía el registro de forma asíncrona con sendBeacon y abre wa.me. Si el registro falla, WhatsApp igual se abre: nunca bloqueamos al cliente. Y como no usamos la API de WhatsApp Business, el sistema no lee la conversación; el seguimiento lo hace el gestor.",
+  "conceptos": [
+   "Enlace wa.me",
+   "sendBeacon asíncrono",
+   "Tolerancia a fallos"
+  ],
+  "trans": "¿Cómo comprobamos que todo esto funciona? Con pruebas.",
+  "visible": "WhatsApp: registrar primero, sin hacer esperar al cliente"
+ },
+ {
+  "n": 25,
+  "title": "Pruebas",
+  "kicker": "03 · Aplicación · Construcción",
+  "t": 55,
+  "obj": "Presentar la estrategia de pruebas y su estado real.",
+  "oral": "Diseñamos 32 casos de prueba en cinco niveles: unitarias, de integración, funcionales, de sistema y de aceptación. Cada uno está asociado a un requisito. Por ejemplo, CP-007 prueba que el comparador rechace un cuarto producto, y CP-014 prueba que el registro se cree antes de abrir WhatsApp. Somos claros: están diseñados, no ejecutados. Ejecutarlos requiere implementar las ampliaciones en un entorno de pruebas.",
+  "conceptos": [
+   "Niveles de prueba",
+   "Caso de prueba asociado a requisito",
+   "Diseñado frente a ejecutado"
+  ],
+  "trans": "Con el IOC alcanzado, sigue la Transición.",
+  "visible": "32 casos de prueba, cada uno ligado a un requisito"
+ },
+ {
+  "n": 26,
+  "title": "Fase de Transición",
+  "kicker": "03 · Aplicación · Transición",
+  "t": 55,
+  "obj": "Presentar los criterios objetivos para salir a producción.",
+  "oral": "La Transición pone el sistema en manos de los usuarios. Para no decidir «a ojo», definimos criterios objetivos de salida: el 100 % de las pruebas de prioridad alta aprobadas, cero incidencias críticas o altas, al menos cuatro de cinco usuarios completan la consulta sin ayuda, LCP de 2,5 segundos o menos, restauración de respaldo en menos de cuatro horas, sin noindex en producción y usuarios capacitados. Si todo se cumple, se firma el acta y se alcanza el hito PR.",
+  "conceptos": [
+   "Criterios de salida",
+   "Pruebas de aceptación",
+   "Hito PR"
+  ],
+  "trans": "¿Cómo se despliega y se mantiene?",
+  "visible": "Transición: siete criterios objetivos para salir a producción"
+ },
+ {
+  "n": 27,
+  "title": "Despliegue y mantenimiento",
+  "kicker": "03 · Aplicación · Transición",
+  "t": 55,
+  "obj": "Explicar el despliegue, la reversión y el mantenimiento.",
+  "oral": "El despliegue sigue siete pasos, desde congelar la versión candidata hasta activar el monitoreo. Dos detalles importantes: no migramos productos, porque ya existen; solo cargamos los distribuidores validados y creamos las tablas nuevas. Y hay plan de reversión: si falla la prueba de humo, se restaura el respaldo y se desactiva el plugin, y el catálogo sigue funcionando. Después viene el mantenimiento, en cuatro tipos: correctivo, adaptativo, perfectivo y preventivo.",
+  "conceptos": [
+   "Plan de despliegue",
+   "Plan de reversión",
+   "Tipos de mantenimiento"
+  ],
+  "trans": "Pasemos al bloque de modelado: UML y Rational Rose.",
+  "visible": "Desplegar con red de seguridad"
+ },
+ {
+  "n": 28,
+  "title": "UML y Rational Rose",
+  "kicker": "04 · Modelado",
+  "t": 60,
+  "obj": "Distinguir UML (lenguaje) de Rational Rose (herramienta).",
+  "oral": "Una distinción que siempre preguntan: UML es un lenguaje de modelado, un estándar del OMG que define la notación. Rational Rose es una herramienta CASE que implementa UML. Rose organiza el modelo en cuatro vistas: casos de uso, lógica, componentes y despliegue, y a cada una le corresponden nuestros diagramas. No entregamos un archivo .mdl porque no podíamos verificar su compatibilidad; entregamos las fuentes PlantUML editables, SVG, PNG y una guía paso a paso para reconstruir el modelo en Rose.",
+  "conceptos": [
+   "UML = lenguaje",
+   "Rational Rose = herramienta",
+   "Cuatro vistas de Rose"
+  ],
+  "trans": "Empecemos por el diagrama general de casos de uso.",
+  "visible": "UML es el lenguaje; Rational Rose, la herramienta"
+ },
+ {
+  "n": 29,
+  "title": "Diagrama general de casos de uso",
+  "kicker": "04 · Modelado",
+  "t": 60,
+  "obj": "Leer el diagrama general de casos de uso.",
+  "oral": "Este es el diagrama general: 22 casos de uso en dos paquetes. A la izquierda están los actores externos y a la derecha los internos. Tiene dos generalizaciones: el cliente interesado hereda del visitante y el administrador hereda del gestor. Solo usamos dos relaciones entre casos de uso, y ambas se justifican: filtrar extiende a explorar, porque es opcional; y enviar consulta incluye registrar consulta, porque siempre ocurre. Autenticarse no se repite como include: es precondición. Los óvalos morados son propuestos.",
+  "conceptos": [
+   "Generalización de actores",
+   "«include» frente a «extend»",
+   "Precondición"
+  ],
+  "trans": "Veamos un caso de uso en detalle.",
+  "visible": "Diagrama general de casos de uso"
+ },
+ {
+  "n": 30,
+  "title": "Casos de uso detallados",
+  "kicker": "04 · Modelado",
+  "t": 60,
+  "obj": "Explicar una especificación de caso de uso completa.",
+  "oral": "Aquí está la especificación del caso de uso más importante: CU-08, enviar consulta por WhatsApp. Tiene actores, precondiciones, flujo básico, flujos alternativos y postcondiciones. El flujo básico: el cliente pulsa Cotizar, el sistema identifica el origen, construye el mensaje, registra la consulta, abre WhatsApp y el cliente envía. Los alternativos cubren lo que puede salir mal; el más importante es el 4a: si el registro falla, WhatsApp se abre igual. A la derecha está el diagrama del módulo comercial.",
+  "conceptos": [
+   "Flujo básico",
+   "Flujos alternativos",
+   "Pre y postcondiciones"
+  ],
+  "trans": "Pasemos a la estructura: el diagrama de clases.",
+  "visible": "CU-08 Enviar consulta por WhatsApp"
+ },
+ {
+  "n": 31,
+  "title": "Diagrama de clases",
+  "kicker": "04 · Modelado",
+  "t": 60,
+  "obj": "Explicar el modelo de dominio y las multiplicidades.",
+  "oral": "El diagrama de clases muestra la estructura estática del sistema. Este es el modelo de dominio, con doce clases. Fíjense en las multiplicidades: un producto pertenece a una o más categorías; las especificaciones y las imágenes son composiciones, porque no existen sin su producto; una comparación tiene entre 2 y 3 productos, que es la regla del comparador; y una consulta tiene cero o un producto, porque también hay consultas generales. Las versiones de diseño, con tipos y operaciones, están en los anexos.",
+  "conceptos": [
+   "Clase",
+   "Asociación y multiplicidad",
+   "Composición"
+  ],
+  "trans": "La estructura se completa con el comportamiento: secuencias.",
+  "visible": "Diagrama de clases"
+ },
+ {
+  "n": 32,
+  "title": "Diagrama de secuencia",
+  "kicker": "04 · Modelado",
+  "t": 60,
+  "obj": "Leer la secuencia del contacto con el distribuidor.",
+  "oral": "La secuencia muestra los mensajes entre objetos en el tiempo. En este caso, el contacto por WhatsApp. Arriba, en un fragmento opt, el directorio propuesto: filtrar por ciudad. Luego el cliente pulsa Cotizar, el servicio construye el mensaje y el enlace. El mensaje 12 tiene punta abierta: es asíncrono, y es la decisión de arquitectura llevada al diseño. Se crea la consulta en estado REGISTRADA y se abre WhatsApp. La nota final recuerda que la conversación ocurre fuera del sistema.",
+  "conceptos": [
+   "Línea de vida",
+   "Mensaje síncrono y asíncrono",
+   "Fragmentos opt, alt y loop"
+  ],
+  "trans": "Veamos el proceso completo con un diagrama de actividades.",
+  "visible": "Diagrama de secuencia"
+ },
+ {
+  "n": 33,
+  "title": "Diagrama de actividades",
+  "kicker": "04 · Modelado",
+  "t": 55,
+  "obj": "Explicar el proceso comercial con calles.",
+  "oral": "El diagrama de actividades muestra el proceso comercial completo, con una calle por participante: cliente, sistema, área comercial y distribuidor. El cliente decide si busca o explora, si compara y si tiene intención de compra. El sistema solo interviene en dos momentos: al registrar y generar el mensaje, y al final, al cerrar la consulta. Ese cierre es lo que hace medible un proceso que ocurre mayormente fuera de la web.",
+  "conceptos": [
+   "Calles",
+   "Decisiones",
+   "Proceso medible"
+  ],
+  "trans": "La consulta tiene estados; los vemos en el diagrama de estados.",
+  "visible": "Diagrama de actividades"
+ },
+ {
+  "n": 34,
+  "title": "Diagrama de estados",
+  "kicker": "04 · Modelado",
+  "t": 45,
+  "obj": "Justificar y explicar la máquina de estados de ConsultaComercial.",
+  "oral": "Elegimos ConsultaComercial para el diagrama de estados porque su comportamiento depende del estado. Nace REGISTRADA con el clic; pasa a ATENDIDA cuando el gestor responde; puede DERIVARSE a un distribuidor; y termina CERRADA o DESCARTADA. Hay una regla importante: no se puede cerrar sin atender. Y un evento de tiempo: si pasan 30 días sin atención, se descarta sola.",
+  "conceptos": [
+   "Estado",
+   "Transición con evento y acción",
+   "Evento temporal after"
+  ],
+  "trans": "Vamos a la vista de implementación: componentes.",
+  "visible": "Diagrama de estados"
+ },
+ {
+  "n": 35,
+  "title": "Diagrama de componentes",
+  "kicker": "04 · Modelado",
+  "t": 50,
+  "obj": "Mostrar la organización física del software.",
+  "oral": "El diagrama de componentes muestra cómo se organiza el software. En el servidor: WordPress, WooCommerce, YITH Catalog Mode, el tema hijo y el plugin bh-core con sus tres componentes propuestos. Las interfaces son los endpoints REST: los nativos de WordPress y WooCommerce, y los nuestros, bh/v1. En el navegador está el comparador en JavaScript. Y WhatsApp está fuera, conectado por enlace.",
+  "conceptos": [
+   "Componente",
+   "Interfaz provista",
+   "Dependencia"
+  ],
+  "trans": "¿Dónde se ejecuta todo esto? En el diagrama de despliegue.",
+  "visible": "Diagrama de componentes"
+ },
+ {
+  "n": 36,
+  "title": "Diagrama de despliegue",
+  "kicker": "04 · Modelado",
+  "t": 50,
+  "obj": "Mostrar los nodos físicos y sus conexiones.",
+  "oral": "El despliegue muestra el hardware y dónde corre cada artefacto. El visitante y el gestor se conectan por HTTPS, a través de una CDN o WAF que proponemos. El servidor de producción ejecuta LiteSpeed y PHP, que es lo que observamos en el sitio oficial, con WordPress y los plugins, y la base de datos local. Hay un servidor de staging, un repositorio Git para el despliegue y un almacenamiento externo de respaldos.",
+  "conceptos": [
+   "Nodo",
+   "Artefacto",
+   "Protocolo de conexión"
+  ],
+  "trans": "Por último, el modelo de datos.",
+  "visible": "Diagrama de despliegue"
+ },
+ {
+  "n": 37,
+  "title": "Modelo entidad-relación",
+  "kicker": "04 · Modelado",
+  "t": 55,
+  "obj": "Explicar el modelo de datos y su relación con WordPress.",
+  "oral": "El modelo entidad-relación tiene 15 tablas en tercera forma normal. Las relaciones de muchos a muchos se resuelven con tablas intermedias: producto_categoria, rol_permiso y comparacion_producto. Es coherente con el diagrama de clases: cada clase persistente es una tabla. En la implementación real, lo nativo vive en las tablas de WordPress y solo creamos tablas propias para consultas, comparaciones y auditoría.",
+  "conceptos": [
+   "Clave primaria y foránea",
+   "Cardinalidad",
+   "3FN",
+   "Mapeo a WordPress"
+  ],
+  "trans": "Pasamos al último bloque: gestión y resultados.",
+  "visible": "Modelo entidad-relación"
+ },
+ {
+  "n": 38,
+  "title": "Planificación y cronograma",
+  "kicker": "05 · Gestión",
+  "t": 55,
+  "obj": "Mostrar el cronograma y su coherencia con las iteraciones.",
+  "oral": "El cronograma dura 14 semanas y coincide con las iteraciones: el hito LCO en la semana 2, LCA en la 6, IOC en la 12 y PR en la 14. Fíjense en que las pruebas de integración empiezan en la semana 8 y se solapan con la construcción: en RUP las pruebas son continuas, no una etapa final. El esfuerzo estimado es de 560 horas-persona; el presupuesto referencial usa una tarifa hipotética, no es un costo real de la empresa.",
+  "conceptos": [
+   "Gantt",
+   "Hitos",
+   "Solapamiento de disciplinas",
+   "Estimación referencial"
+  ],
+  "trans": "¿Qué puede salir mal? Los riesgos.",
+  "visible": "14 semanas, hitos al cierre de cada fase"
+ },
+ {
+  "n": 39,
+  "title": "Matriz de riesgos",
+  "kicker": "05 · Gestión",
+  "t": 55,
+  "obj": "Presentar los riesgos principales y su mitigación.",
+  "oral": "Identificamos doce riesgos y los ubicamos por probabilidad e impacto. El más alto es R-01: especificaciones técnicas no verificadas, que es probable y tiene alto impacto; lo mitigamos con el estado de verificación y publicando «pendiente» en lugar de inventar. Otros relevantes: R-07, vulnerabilidades de WordPress; R-02, actualizaciones incompatibles de plugins; y R-11, que el alcance crezca hacia una tienda en línea. RUP ataca los riesgos temprano: por eso varios se tratan ya en Elaboración.",
+  "conceptos": [
+   "Probabilidad × impacto",
+   "Mitigación",
+   "Riesgo atacado temprano"
+  ],
+  "trans": "¿Cómo demostramos que todo es un mismo sistema? Con la trazabilidad.",
+  "visible": "12 riesgos, atacados desde las primeras fases"
+ },
+ {
+  "n": 40,
+  "title": "Trazabilidad",
+  "kicker": "05 · Gestión",
+  "t": 60,
+  "obj": "Demostrar que todos los artefactos pertenecen al mismo sistema.",
+  "oral": "La trazabilidad conecta cinco niveles: necesidad del negocio, requisito, caso de uso, componente y caso de prueba. Un ejemplo completo: la necesidad NB-06, dar trazabilidad a las consultas, se cubre con el requisito RF-014, registrar la consulta; que se modela en el caso de uso CU-09; se implementa en el componente de consultas de WhatsApp; y se verifica con el caso de prueba CP-014. Si mañana cambia RF-014, la matriz nos dice exactamente qué revisar. Las nueve necesidades tienen su cadena completa.",
+  "conceptos": [
+   "Matriz de trazabilidad",
+   "Análisis de impacto"
+  ],
+  "trans": "¿Qué resultados obtuvimos?",
+  "visible": "Una cadena por cada necesidad del negocio"
+ },
+ {
+  "n": 41,
+  "title": "Resultados esperados",
+  "kicker": "05 · Resultados",
+  "t": 55,
+  "obj": "Diferenciar resultados documentados, de diseño y beneficios esperados.",
+  "oral": "Separamos tres tipos de resultado. Documentados: lo que la evidencia muestra del rediseño, por ejemplo 118 productos y el comparador. De diseño: lo que produjimos nosotros, con 40 requisitos, 22 casos de uso, 22 diagramas UML, 15 tablas y 32 pruebas. Y beneficios esperados, que son hipótesis: para cada uno proponemos un indicador medible, como el porcentaje de consultas con producto identificado. No afirmamos mejoras de ventas ni de tráfico, porque no tenemos esos datos.",
+  "conceptos": [
+   "Resultado documentado",
+   "Resultado de diseño",
+   "Beneficio esperado con indicador"
+  ],
+  "trans": "Con esto, nuestras conclusiones.",
+  "visible": "Documentado, diseñado y esperado: tres cosas distintas"
+ },
+ {
+  "n": 42,
+  "title": "Conclusiones",
+  "kicker": "05 · Resultados",
+  "t": 60,
+  "obj": "Cerrar con las conclusiones principales.",
+  "oral": "Cuatro conclusiones. Primera: RUP nos permitió pasar de «mejorar la web» a un sistema delimitado de 22 casos de uso, con un alcance protegido. Segunda: el valor está en el tramo entre la ficha y el distribuidor; por eso los casos de uso críticos son consultar, comparar y enviar la consulta. Tercera: la arquitectura extiende en lugar de reemplazar, lo que reduce costo y riesgo. Cuarta: la trazabilidad demuestra que todos los entregables describen el mismo sistema y que lo propuesto está claramente separado de lo existente.",
+  "conceptos": [
+   "Alcance protegido",
+   "Valor en el flujo comercial",
+   "Extender, no reemplazar"
+  ],
+  "trans": "Y nuestras recomendaciones.",
+  "visible": "Conclusiones"
+ },
+ {
+  "n": 43,
+  "title": "Recomendaciones",
+  "kicker": "05 · Resultados",
+  "t": 45,
+  "obj": "Proponer los siguientes pasos concretos.",
+  "oral": "Recomendamos, en orden: primero, obtener la documentación técnica oficial de cada modelo antes de publicar especificaciones. Segundo, implementar el registro de consultas, porque es barato y genera un dato que hoy no existe. Tercero, validar la lista de distribuidores con el área comercial. Cuarto, medir el rendimiento en producción y no en el entorno temporal. Y quinto, evaluar la API de WhatsApp Business solo si el volumen lo justifica.",
+  "conceptos": [
+   "Priorización de siguientes pasos"
+  ],
+  "trans": "Estas son las fuentes que usamos.",
+  "visible": "Recomendaciones, en orden de prioridad"
+ },
+ {
+  "n": 44,
+  "title": "Referencias",
+  "kicker": "Fuentes",
+  "t": 20,
+  "obj": "Mostrar las fuentes principales.",
+  "oral": "Estas son las fuentes principales: los textos de Kruchten y de Jacobson, Booch y Rumbaugh sobre RUP y UML, la especificación UML del OMG, Larman para el análisis orientado a objetos y Quatrani para Rational Rose. La lista completa, en formato APA 7, está en la monografía.",
+  "conceptos": [
+   "APA 7"
+  ],
+  "trans": "Muchas gracias. Quedamos atentos a sus preguntas.",
+  "visible": "Referencias principales"
+ },
+ {
+  "n": 45,
+  "title": "Preguntas",
+  "kicker": "",
+  "t": 20,
+  "obj": "Abrir la ronda de preguntas.",
+  "oral": "Gracias por su atención. Quedamos atentos a sus preguntas.",
+  "conceptos": [],
+  "trans": "—"
+ }
+]

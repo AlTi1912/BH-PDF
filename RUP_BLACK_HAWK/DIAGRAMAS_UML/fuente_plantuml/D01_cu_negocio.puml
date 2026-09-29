@@ -1,0 +1,30 @@
+@startuml D01_cu_negocio
+!include _estilo.iuml
+left to right direction
+title D-01 · Modelo de casos de uso del negocio — Black Hawk Car Audio
+
+actor/ "Cliente final" as CF
+actor/ "Distribuidor /\ntienda" as DI
+
+rectangle "Black Hawk Car Audio (organización)" {
+  usecase/ "Difundir el catálogo\nde productos" as B1
+  usecase/ "Atender consulta\ncomercial" as B2
+  usecase/ "Derivar al punto\nde venta" as B3
+  usecase/ "Incorporar\ndistribuidor" as B4
+  usecase/ "Brindar soporte\nposventa" as B5
+}
+
+CF -- B1
+CF -- B2
+CF -- B5
+B3 .> B2 : <<extend>>\n[el cliente prefiere\nun punto de venta]
+B3 -- DI
+DI -- B4
+
+note right of B4
+  Trabajadores del negocio (modelo de
+  objetos del negocio): Área comercial,
+  Gestor de contenidos, Administración.
+  La venta se concreta fuera de la web.
+end note
+@enduml

@@ -1,0 +1,79 @@
+@startuml D07_dominio
+!include _estilo.iuml
+hide methods
+hide empty members
+title D-07 · Modelo de dominio del SGCD-BH
+
+class Usuario {
+  nombre
+  email
+  activo
+}
+class Rol {
+  nombre
+}
+class Permiso {
+  clave
+}
+class Producto {
+  modelo
+  nombre
+  estado
+  destacado
+}
+class Categoria {
+  nombre
+  slug
+}
+class EspecificacionTecnica {
+  atributo
+  valor
+  unidad
+  estadoVerificacion
+  fuente
+}
+class ImagenProducto {
+  url
+  textoAlternativo
+  esPrincipal
+}
+class Distribuidor <<propuesto>> {
+  razonSocial
+  ruc
+  ciudad
+  whatsapp
+  estado
+}
+class ConsultaComercial <<propuesto>> {
+  fechaHora
+  origen
+  intencion
+  estado
+}
+class ComparacionProducto <<propuesto>> {
+  fechaHora
+}
+class Novedad {
+  titulo
+  estado
+  fechaPublicacion
+}
+class RegistroAuditoria <<propuesto>> {
+  fechaHora
+  accion
+  entidad
+}
+
+Usuario "0..*" -- "1" Rol : tiene >
+Rol "0..*" -- "1..*" Permiso : otorga >
+Categoria "0..1" -- "0..*" Categoria : padre de >
+Producto "0..*" -- "1..*" Categoria : clasificado en >
+Producto "1" *-- "0..*" EspecificacionTecnica : describe <
+Producto "1" *-- "0..*" ImagenProducto : ilustra <
+ComparacionProducto "0..*" -- "2..3" Producto : compara >
+ConsultaComercial "0..*" -- "0..1" Producto : sobre >
+ConsultaComercial "0..*" -- "0..1" Distribuidor : derivada a >
+ConsultaComercial "0..*" -- "0..1" Usuario : atendida por >
+Novedad "0..*" -- "1" Usuario : autor >
+RegistroAuditoria "0..*" -- "1" Usuario : realizado por >
+@enduml

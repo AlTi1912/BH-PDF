@@ -1,0 +1,32 @@
+@startuml D05_cu_admin_catalogo
+!include _estilo.iuml
+left to right direction
+title D-05 · Casos de uso — Administración del catálogo y contenidos
+
+actor "Gestor del\ncatálogo" as GC
+actor "Administrador\ndel sistema" as AD
+AD -|> GC
+
+rectangle "SGCD-BH · Panel de administración" {
+  usecase "CU-11 Autenticarse" as CU11
+  usecase "CU-12 Gestionar productos" as CU12
+  usecase "CU-13 Gestionar categorías" as CU13
+  usecase "CU-14 Gestionar especificaciones\ntécnicas" as CU14
+  usecase "CU-15 Gestionar imágenes\nde producto" as CU15
+  usecase "CU-17 Gestionar contenido\ny novedades" as CU17
+}
+GC -- CU11
+GC -- CU12
+GC -- CU13
+GC -- CU14
+GC -- CU15
+GC -- CU17
+
+note right of CU12
+  Precondición de CU-12…CU-17:
+  sesión iniciada (CU-11) y rol
+  con la capacidad requerida.
+  Toda escritura genera un registro
+  de auditoría (RN-09).
+end note
+@enduml

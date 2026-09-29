@@ -1,0 +1,35 @@
+@startuml D20_despliegue
+!include _estilo.iuml
+title D-20 · Diagrama de despliegue del SGCD-BH
+
+node "Dispositivo del visitante\n(móvil / escritorio)" as DEV {
+  artifact "Navegador web" as NAV
+}
+node "Equipo del gestor" as ADM {
+  artifact "Navegador (wp-admin)" as NAV2
+}
+node "CDN / WAF" <<propuesto>> as CDN
+node "Servidor web de producción\n«hosting»" as WEB {
+  node "LiteSpeed + PHP" as LS {
+    artifact "WordPress" as AWP
+    artifact "WooCommerce" as AWC
+    artifact "YITH Catalog Mode" as AY
+    artifact "tema hijo" as ATH
+    artifact "bh-core" <<propuesto>> as ABH
+  }
+  database "MySQL / MariaDB" as DB
+}
+node "Almacenamiento de respaldos\n(externo)" <<propuesto>> as BK
+node "Servidor de staging" as STG
+node "Repositorio Git" as GIT
+cloud "Plataforma WhatsApp" as WA
+
+NAV --> CDN : HTTPS 443
+NAV2 --> CDN : HTTPS 443
+CDN --> LS : HTTPS 443
+LS --> DB : TCP 3306 (local)
+WEB --> BK : respaldo diario cifrado
+GIT --> STG : despliegue
+STG --> WEB : promoción aprobada
+NAV --> WA : wa.me (HTTPS)
+@enduml

@@ -1,0 +1,17 @@
+@startsalt W02_wireframe_consultas
+title W-02 · Prototipo de baja fidelidad — Panel de seguimiento de consultas (propuesto, RF-023)
+{+
+  {* Panel | Productos | Distribuidores | <b>Consultas | Reportes | Auditoría }
+  ==
+  { Estado: | ^REGISTRADA^ | Origen: | ^Todos^ | Desde: | "01/10/2026" | Hasta: | "31/10/2026" | [Filtrar] | [Exportar CSV] }
+  --
+  {#
+    <b>Fecha | <b>Producto | <b>Origen | <b>Intención | <b>Estado | <b>Acción
+    01/10 10:21 | BH-4.8DSP | FICHA | COTIZAR | REGISTRADA | [Atender]
+    01/10 11:05 | FR 2000.1 | COMPARADOR | COTIZAR | ATENDIDA | [Derivar]
+    01/10 12:40 | — | DONDE_COMPRAR | DONDE_COMPRAR | DERIVADA | [Cerrar]
+  }
+  --
+  { Observación: | "Cliente derivado a distribuidor de Lima       " | [Guardar] }
+}
+@endsalt

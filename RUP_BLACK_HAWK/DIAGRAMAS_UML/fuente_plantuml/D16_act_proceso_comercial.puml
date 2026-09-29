@@ -1,0 +1,45 @@
+@startuml D16_act_proceso_comercial
+!include _estilo.iuml
+title D-16 · Actividades — Proceso comercial propuesto (del catálogo a la consulta)
+
+|Cliente interesado|
+start
+:Ingresa al catálogo;
+if (¿Conoce el modelo?) then (sí)
+  :Busca el modelo;
+else (no)
+  :Explora la categoría
+  y aplica filtros;
+endif
+:Consulta la ficha técnica;
+if (¿Necesita comparar?) then (sí)
+  :Agrega modelos al comparador (máx. 3);
+  :Revisa la tabla comparativa;
+endif
+if (¿Tiene intención de compra?) then (no)
+  stop
+else (sí)
+  :Pulsa «Cotizar» o «Dónde comprar»;
+endif
+|Sistema SGCD-BH|
+:Registra la consulta (REGISTRADA);
+:Genera el mensaje con intención,
+modelo y URL;
+:Abre WhatsApp con el mensaje;
+|Área comercial|
+:Atiende la consulta por WhatsApp;
+if (¿Compra en un punto de venta?) then (sí)
+  :Deriva al distribuidor de su ciudad;
+  |Distribuidor|
+  :Atiende al cliente y concreta
+  la venta (fuera del sistema);
+  |Área comercial|
+  :Marca la consulta como DERIVADA;
+else (no)
+  :Resuelve la consulta directamente;
+endif
+|Sistema SGCD-BH|
+:Actualiza el estado a CERRADA
+y registra la auditoría;
+stop
+@enduml

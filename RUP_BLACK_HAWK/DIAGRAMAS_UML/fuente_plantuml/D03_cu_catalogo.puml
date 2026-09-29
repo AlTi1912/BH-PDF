@@ -1,0 +1,35 @@
+@startuml D03_cu_catalogo
+!include _estilo.iuml
+left to right direction
+title D-03 · Casos de uso — Módulos de búsqueda, fichas, comparación y novedades
+
+actor "Visitante" as VI
+actor "Cliente\ninteresado" as CI
+CI -|> VI
+
+rectangle "SGCD-BH · Catálogo público" {
+  usecase "CU-01 Explorar catálogo\npor categoría\n--\npuntos de extensión:\nfiltros" as CU01
+  usecase "CU-03 Filtrar productos" as CU03
+  usecase "CU-02 Buscar producto" as CU02
+  usecase "CU-04 Consultar ficha técnica" as CU04
+  usecase "CU-05 Comparar productos\n(máx. 3)" as CU05
+  usecase "CU-06 Consultar novedades" as CU06
+}
+VI -- CU01
+VI -- CU02
+VI -- CU04
+VI -- CU05
+VI -- CU06
+CU03 .> CU01 : <<extend>>\n[el visitante aplica\nun filtro]
+
+note right of CU04
+  Modo catálogo (RN-01): sin precio,
+  carrito ni checkout. Los datos sin
+  fuente se muestran como
+  «Pendiente de verificación» (RN-03).
+end note
+note right of CU05
+  Selección guardada entre páginas
+  (existente en el rediseño).
+end note
+@enduml

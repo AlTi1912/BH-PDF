@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><XMI xmlns:UML="href://org.omg/UML/1.3" xmi.version="1.1">
+    <XMI.header>
+        <XMI.documentation>
+            <XMI.exporter>PlantUML</XMI.exporter>
+            <XMI.exporterVersion>1.2024.8</XMI.exporterVersion>
+        </XMI.documentation>
+        <XMI.metamodel xmi.name="UML" xmi.version="1.4"/>
+    </XMI.header>
+    <XMI.content>
+        <UML:Model name="PlantUML" xmi.id="model1">
+            <UML:Namespace.ownedElement>
+                <UML:Class name="EstadoProducto" xmi.id="cl0002">
+                    <UML:Classifier.feature>
+                        <UML:Attribute name="BORRADOR" xmi.id="att21"/>
+                        <UML:Attribute name="PUBLICADO" xmi.id="att22"/>
+                        <UML:Attribute name="DESCONTINUADO" xmi.id="att23"/>
+                    </UML:Classifier.feature>
+                </UML:Class>
+                <UML:Class name="EstadoVerificacion" xmi.id="cl0003">
+                    <UML:Classifier.feature>
+                        <UML:Attribute name="VERIFICADO" xmi.id="att24"/>
+                        <UML:Attribute name="PENDIENTE" xmi.id="att25"/>
+                    </UML:Classifier.feature>
+                </UML:Class>
+                <UML:Class name="Categoria" xmi.id="cl0004">
+                    <UML:Classifier.feature>
+                        <UML:Attribute name="id : int" visibility="private" xmi.id="att26"/>
+                        <UML:Attribute name="nombre : String" visibility="private" xmi.id="att27"/>
+                        <UML:Attribute name="slug : String" visibility="private" xmi.id="att28"/>
+                        <UML:Attribute name="descripcion : String" visibility="private" xmi.id="att29"/>
+                        <UML:Operation name="obtenerProductos() : List&lt;Producto&gt;" visibility="public" xmi.id="att30"/>
+                        <UML:Operation name="tieneProductos() : boolean" visibility="public" xmi.id="att31"/>
+                    </UML:Classifier.feature>
+                </UML:Class>
+                <UML:Class name="Producto" xmi.id="cl0005">
+                    <UML:Classifier.feature>
+                        <UML:Attribute name="id : int" visibility="private" xmi.id="att32"/>
+                        <UML:Attribute name="modelo : String {unique}" visibility="private" xmi.id="att33"/>
+                        <UML:Attribute name="nombre : String" visibility="private" xmi.id="att34"/>
+                        <UML:Attribute name="slug : String" visibility="private" xmi.id="att35"/>
+                        <UML:Attribute name="descripcion : String" visibility="private" xmi.id="att36"/>
+                        <UML:Attribute name="estado : EstadoProducto" visibility="private" xmi.id="att37"/>
+                        <UML:Attribute name="destacado : boolean" visibility="private" xmi.id="att38"/>
+                        <UML:Attribute name="fechaPublicacion : DateTime" visibility="private" xmi.id="att39"/>
+                        <UML:Operation name="publicar() : void" visibility="public" xmi.id="att40"/>
+                        <UML:Operation name="descontinuar() : void" visibility="public" xmi.id="att41"/>
+                        <UML:Operation name="puedePublicarse() : boolean" visibility="public" xmi.id="att42"/>
+                        <UML:Operation name="obtenerEspecificaciones() : List&lt;EspecificacionTecnica&gt;" visibility="public" xmi.id="att43"/>
+                        <UML:Operation name="obtenerUrlFicha() : String" visibility="public" xmi.id="att44"/>
+                    </UML:Classifier.feature>
+                </UML:Class>
+                <UML:Class name="EspecificacionTecnica" xmi.id="cl0006">
+                    <UML:Classifier.feature>
+                        <UML:Attribute name="id : int" visibility="private" xmi.id="att45"/>
+                        <UML:Attribute name="atributo : String" visibility="private" xmi.id="att46"/>
+                        <UML:Attribute name="valor : String [0..1]" visibility="private" xmi.id="att47"/>
+                        <UML:Attribute name="unidad : String [0..1]" visibility="private" xmi.id="att48"/>
+                        <UML:Attribute name="estadoVerificacion : EstadoVerificacion" visibility="private" xmi.id="att49"/>
+                        <UML:Attribute name="fuente : String [0..1]" visibility="private" xmi.id="att50"/>
+                        <UML:Attribute name="orden : int" visibility="private" xmi.id="att51"/>
+                        <UML:Operation name="valorVisible() : String" visibility="public" xmi.id="att52"/>
+                    </UML:Classifier.feature>
+                </UML:Class>
+                <UML:Class name="ImagenProducto" xmi.id="cl0007">
+                    <UML:Classifier.feature>
+                        <UML:Attribute name="id : int" visibility="private" xmi.id="att53"/>
+                        <UML:Attribute name="url : String" visibility="private" xmi.id="att54"/>
+                        <UML:Attribute name="textoAlternativo : String" visibility="private" xmi.id="att55"/>
+                        <UML:Attribute name="orden : int" visibility="private" xmi.id="att56"/>
+                        <UML:Attribute name="esPrincipal : boolean" visibility="private" xmi.id="att57"/>
+                    </UML:Classifier.feature>
+                </UML:Class>
+                <UML:Class name="ComparacionProducto" xmi.id="cl0008">
+                    <UML:ModelElement.stereotype>
+                        <UML:Stereotype name="propuesto"/>
+                    </UML:ModelElement.stereotype>
+                    <UML:Classifier.feature>
+                        <UML:Attribute name="id : long" visibility="private" xmi.id="att58"/>
+                        <UML:Attribute name="fechaHora : DateTime" visibility="private" xmi.id="att59"/>
+                        <UML:Attribute name="idSesionAnonima : UUID" visibility="private" xmi.id="att60"/>
+                    </UML:Classifier.feature>
+                </UML:Class>
+                <UML:Class name="ServicioCatalogo" xmi.id="cl0009">
+                    <UML:Classifier.feature>
+                        <UML:Operation name="buscar(texto : String) : List&lt;Producto&gt;" visibility="public" xmi.id="att61"/>
+                        <UML:Operation name="filtrar(categoria : String, atributos : Map) : List&lt;Producto&gt;" visibility="public" xmi.id="att62"/>
+                        <UML:Operation name="obtenerFicha(slug : String) : Producto" visibility="public" xmi.id="att63"/>
+                    </UML:Classifier.feature>
+                </UML:Class>
+                <UML:Class name="ServicioComparador" xmi.id="cl0010">
+                    <UML:Classifier.feature>
+                        <UML:Attribute isStatic="true" name="MAX_PRODUCTOS : int = 3" visibility="public" xmi.id="att64"/>
+                        <UML:Operation name="agregar(p : Producto) : boolean" visibility="public" xmi.id="att65"/>
+                        <UML:Operation name="quitar(p : Producto) : void" visibility="public" xmi.id="att66"/>
+                        <UML:Operation name="obtenerTabla() : TablaComparativa" visibility="public" xmi.id="att67"/>
+                    </UML:Classifier.feature>
+                </UML:Class>
+                <UML:Association name="padre de" namespace="model1" xmi.id="ass68">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd association="ass68" name="0..1" type="cl0004" xmi.id="end69">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass68" name="0..*" type="cl0004" xmi.id="end70">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+                <UML:Association name="clasificado en" namespace="model1" xmi.id="ass71">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd association="ass71" name="0..*" type="cl0005" xmi.id="end72">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass71" name="1..*" type="cl0004" xmi.id="end73">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+                <UML:Association namespace="model1" xmi.id="ass74">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd aggregation="composite" association="ass74" name="1" type="cl0005" xmi.id="end75">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass74" name="0..*" type="cl0006" xmi.id="end76">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+                <UML:Association namespace="model1" xmi.id="ass77">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd aggregation="composite" association="ass77" name="1" type="cl0005" xmi.id="end78">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass77" name="0..*" type="cl0007" xmi.id="end79">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+                <UML:Association name="compara" namespace="model1" xmi.id="ass80">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd association="ass80" name="0..*" type="cl0008" xmi.id="end81">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass80" name="2..3" type="cl0005" xmi.id="end82">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+                <UML:Association namespace="model1" xmi.id="ass83">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd association="ass83" type="cl0005" xmi.id="end84">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass83" type="cl0002" xmi.id="end85">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+                <UML:Association namespace="model1" xmi.id="ass86">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd association="ass86" type="cl0006" xmi.id="end87">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass86" type="cl0003" xmi.id="end88">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+                <UML:Association namespace="model1" xmi.id="ass89">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd association="ass89" type="cl0009" xmi.id="end90">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass89" type="cl0005" xmi.id="end91">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+                <UML:Association namespace="model1" xmi.id="ass92">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd association="ass92" type="cl0010" xmi.id="end93">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass92" type="cl0005" xmi.id="end94">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+                <UML:Association name="registra" namespace="model1" xmi.id="ass95">
+                    <UML:Association.connection>
+                        <UML:AssociationEnd association="ass95" type="cl0010" xmi.id="end96">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                        <UML:AssociationEnd association="ass95" type="cl0008" xmi.id="end97">
+                            <UML:AssociationEnd.participant/>
+                        </UML:AssociationEnd>
+                    </UML:Association.connection>
+                </UML:Association>
+            </UML:Namespace.ownedElement>
+        </UML:Model>
+    </XMI.content>
+</XMI>

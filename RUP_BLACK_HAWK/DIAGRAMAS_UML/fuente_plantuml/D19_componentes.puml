@@ -1,0 +1,45 @@
+@startuml D19_componentes
+!include _estilo.iuml
+title D-19 · Diagrama de componentes del SGCD-BH
+
+package "Navegador" {
+  component "Interfaz pública\n(HTML, CSS, JS)" as UIpub
+  component "Comparador JS" as CMPJS
+}
+package "Servidor WordPress" {
+  component "Tema hijo\nBlack Hawk" as TH
+  component "WooCommerce" as WC
+  component "YITH Catalog Mode" as YITH
+  component "Núcleo WordPress\n(usuarios, roles, REST, medios)" as WP
+  package "Plugin bh-core" {
+    component "Consultas WhatsApp" <<propuesto>> as MCON
+    component "Distribuidores" <<propuesto>> as MDIS
+    component "Reportes y auditoría" <<propuesto>> as MREP
+  }
+  interface "REST /wp-json/wp/v2\n/wp-json/wc/v3" as IREST
+  interface "REST /wp-json/bh/v1" as IBH
+}
+database "MySQL / MariaDB" as DB
+cloud "WhatsApp\n(wa.me)" as WA
+
+WP - IREST
+MCON - IBH
+UIpub ..> TH : HTTPS
+CMPJS ..> IREST
+CMPJS ..> IBH
+TH ..> WC
+YITH ..> WC : oculta precio,\ncarrito y checkout
+WC ..> WP
+MCON ..> WC
+MDIS ..> WP
+MREP ..> MCON
+WP ..> DB
+MCON ..> DB
+UIpub ..> WA : enlace wa.me
+
+legend right
+  <back:#EDE4FB>      </back>  Propuesto (alcance académico)
+  Búsqueda, filtros y comparador existen en el rediseño;
+  su ubicación exacta en el código no se documenta aquí.
+endlegend
+@enduml
