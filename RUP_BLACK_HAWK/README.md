@@ -8,6 +8,8 @@ Proyecto académico del curso **Diseño de Sistemas de Información**: aplicaci�
 
 `BLACK_HAWK_RUP_PRESENTACION_V4_ANIMADA.pptx`: la misma V4 con fundidos de 450 ms, Transformar (Morph) en 7 secuencias de diapositivas duplicadas (57 en total) y entradas por clic en riesgos, funcionalidades, pruebas, transición y conclusiones. Requiere PowerPoint de Microsoft 365 o 2019 en adelante para Transformar. Reconstruir: `cd _build && node presentacion_v4.js && python3 anim_v4.py`.
 
+`BLACK_HAWK_RUP_GUIA_EXPOSICION_V4.docx`: guion hablado de la versión animada (8 páginas, unos 23 min): qué decir en cada diapositiva con sus clics, qué omitir y por qué, mapa de repeticiones y plan de recorte. Reconstruir: `node guia_v4.js` (después de `anim_v4.py`).
+
 ## Versión 3 · sitio original → web renovada → ampliaciones
 
 | Archivo | Contenido |
