@@ -16,22 +16,6 @@
   "n": 1
  },
  {
-  "title": "Agenda",
-  "t": 20,
-  "msg": "La exposición sigue el orden del proyecto: de la situación original al resultado.",
-  "exp": "Primero el punto de partida y el problema; luego cómo se organizó el trabajo con RUP; después los requisitos, los diagramas y la arquitectura; la solución construida y cómo se verificó; y al final el resultado, la transición y las conclusiones.",
-  "ej": "La web renovada se muestra en el bloque 4, cuando ya se explicó cómo se diseñó.",
-  "con": [
-   "Estructura de la exposición"
-  ],
-  "preg": [
-   "",
-   ""
-  ],
-  "visible": "Agenda",
-  "n": 2
- },
- {
   "title": "Presentación de Black Hawk",
   "t": 45,
   "kicker": "01 · La empresa",
@@ -48,7 +32,7 @@
    "Porque su modelo comercial pasa por el área comercial y los distribuidores; la web orienta la compra."
   ],
   "visible": "Black Hawk Car Audio",
-  "n": 3
+  "n": 2
  },
  {
   "title": "Plataforma web original",
@@ -67,7 +51,7 @@
    "Sí tenía: una plataforma con catálogo. El proyecto mejora su diseño, su experiencia y su recorrido comercial."
   ],
   "visible": "La plataforma original: una base que ya funciona",
-  "n": 4
+  "n": 3
  },
  {
   "title": "Análisis de la plataforma original",
@@ -86,7 +70,7 @@
    "Están en capturas del sitio original, con fecha; en el caso de WhatsApp, además, revisé los enlaces de la página."
   ],
   "visible": "Análisis del sitio original: qué se observa",
-  "n": 5
+  "n": 4
  },
  {
   "title": "Problema y necesidad empresarial",
@@ -105,7 +89,7 @@
    "Que la web original no guía al usuario desde el interés en un producto hasta el contacto comercial."
   ],
   "visible": "El problema",
-  "n": 6
+  "n": 5
  },
  {
   "title": "Objetivos y alcance",
@@ -124,7 +108,7 @@
    "Carrito y pagos, ERP e inventario, un CRM o la API de WhatsApp Business y una aplicación móvil."
   ],
   "visible": "Objetivos y alcance",
-  "n": 7
+  "n": 6
  },
  {
   "title": "¿Qué es RUP y por qué se utiliza?",
@@ -143,7 +127,7 @@
    "Porque el curso exige análisis y diseño formales con UML, y RUP combina iteraciones con hitos y artefactos de modelado."
   ],
   "visible": "¿Qué es RUP y por qué lo utilizo?",
-  "n": 8
+  "n": 7
  },
  {
   "title": "Estructura general de RUP",
@@ -163,7 +147,7 @@
    "La fase es un periodo con un objetivo y un hito; la disciplina es un tipo de trabajo (requisitos, pruebas…) que ocurre en varias fases."
   ],
   "visible": "Estructura de RUP: fases, iteraciones y disciplinas",
-  "n": 9
+  "n": 8
  },
  {
   "title": "Fase de Inicio",
@@ -183,7 +167,7 @@
    "La visión, el análisis del sitio original, el modelo del negocio y los riesgos iniciales."
   ],
   "visible": "Fase de Inicio",
-  "n": 10
+  "n": 9
  },
  {
   "title": "Fase de Elaboración",
@@ -203,7 +187,7 @@
    "Porque la plataforma ya tenía el catálogo y el equipo sabe usarla; rediseñar sobre ella es más barato y menos riesgoso."
   ],
   "visible": "Fase de Elaboración",
-  "n": 11
+  "n": 10
  },
  {
   "title": "Fase de Construcción",
@@ -223,7 +207,7 @@
    "Verificaciones funcionales documentadas con capturas. Las pruebas unitarias y de aceptación formales están planificadas, no ejecutadas."
   ],
   "visible": "Fase de Construcción",
-  "n": 12
+  "n": 11
  },
  {
   "title": "Fase de Transición",
@@ -243,7 +227,7 @@
    "Cuando Black Hawk acepta la web, se publica en su dominio y el gestor queda capacitado: el hito PR."
   ],
   "visible": "Fase de Transición",
-  "n": 13
+  "n": 12
  },
  {
   "title": "Disciplinas, iteraciones y entregables",
@@ -262,7 +246,7 @@
    "Porque en RUP se construye un prototipo para validar la arquitectura antes de la construcción completa."
   ],
   "visible": "Disciplinas × iteraciones: qué se entregó y qué falta",
-  "n": 14
+  "n": 13
  },
  {
   "title": "Gestión de riesgos",
@@ -282,7 +266,7 @@
    "Cualitativamente, por el equipo: probabilidad e impacto en tres niveles. No son cifras estadísticas."
   ],
   "visible": "Gestión de riesgos",
-  "n": 15
+  "n": 14
  },
  {
   "title": "Requisitos funcionales y no funcionales",
@@ -301,7 +285,7 @@
    "Con su criterio de aceptación: por ejemplo, el comparador debe rechazar un cuarto producto."
   ],
   "visible": "Requisitos principales",
-  "n": 16
+  "n": 15
  },
  {
   "title": "Diagrama de casos de uso",
@@ -321,7 +305,7 @@
    "El actor es un rol: una misma persona puede ser visitante y luego cliente interesado. WhatsApp también es un actor, porque es un sistema externo."
   ],
   "visible": "Diagrama de casos de uso",
-  "n": 17
+  "n": 16
  },
  {
   "title": "Diagrama de actividades",
@@ -340,7 +324,7 @@
    "Al abrir WhatsApp: la atención y la orientación al punto de venta ocurren fuera de la web."
   ],
   "visible": "Diagrama de actividades",
-  "n": 18
+  "n": 17
  },
  {
   "title": "Diagrama de secuencia",
@@ -359,7 +343,7 @@
    "No. Solo abriría un registro del inicio (ampliación); la conversación ocurre en WhatsApp."
   ],
   "visible": "Diagrama de secuencia",
-  "n": 19
+  "n": 18
  },
  {
   "title": "Diagrama de clases",
@@ -379,7 +363,7 @@
    "Uno o más: cada producto pertenece al menos a una categoría."
   ],
   "visible": "Diagrama de clases",
-  "n": 20
+  "n": 19
  },
  {
   "title": "Modelo físico de datos",
@@ -399,7 +383,7 @@
    "No para lo desarrollado: se usa el esquema estándar de WordPress y WooCommerce. La tabla wp_bh_consulta es propuesta, para registrar el inicio de cada consulta."
   ],
   "visible": "Modelo físico de datos",
-  "n": 21
+  "n": 20
  },
  {
   "title": "Arquitectura y componentes",
@@ -418,7 +402,7 @@
    "En el tema hijo rozer-child: plantillas, estilos, scripts del buscador y del comparador, y las páginas nuevas."
   ],
   "visible": "Arquitectura y componentes",
-  "n": 22
+  "n": 21
  },
  {
   "title": "Diagrama de despliegue",
@@ -437,7 +421,7 @@
    "En el hosting actual de Black Hawk, sobre el mismo WordPress; el entorno de prueba sirve para validar antes de publicar."
   ],
   "visible": "Diagrama de despliegue",
-  "n": 23
+  "n": 22
  },
  {
   "title": "El sistema renovado",
@@ -456,7 +440,7 @@
    "El rediseño completo del sitio: identidad visual, catálogo, fichas, comparador y el recorrido de cotización. Las ampliaciones son propuestas."
   ],
   "visible": "Qué sistema entrego a Black Hawk",
-  "n": 24
+  "n": 23
  },
  {
   "title": "Antes y después: home y catálogo",
@@ -476,7 +460,7 @@
    "Por comparación directa de pantallas equivalentes. La mejora en uso se medirá con datos reales cuando se publique; no afirmo aumentos de ventas."
   ],
   "visible": "Antes y después: home y catálogo",
-  "n": 25
+  "n": 24
  },
  {
   "title": "Antes y después: ficha y recorrido móvil",
@@ -496,7 +480,7 @@
    "No. Solo abre WhatsApp con el mensaje; la conversación y la venta ocurren fuera de la web."
   ],
   "visible": "Antes y después: ficha y celular",
-  "n": 26
+  "n": 25
  },
  {
   "title": "Flujo comercial propuesto",
@@ -515,7 +499,7 @@
    "No. Solo sabe que se abrió WhatsApp desde una página; el resultado requiere seguimiento manual u otra herramienta."
   ],
   "visible": "Flujo comercial: del catálogo a la atención",
-  "n": 27
+  "n": 26
  },
  {
   "title": "Funcionalidades principales",
@@ -534,7 +518,7 @@
    "El registro de consultas, el directorio estructurado, los reportes y la auditoría: son ampliaciones propuestas."
   ],
   "visible": "Funcionalidades principales",
-  "n": 28
+  "n": 27
  },
  {
   "title": "Verificación y pruebas",
@@ -553,7 +537,7 @@
    "No. Hicimos verificación funcional documentada con capturas; las pruebas formales de aceptación están planificadas para la Transición."
   ],
   "visible": "Verificación y pruebas",
-  "n": 29
+  "n": 28
  },
  {
   "title": "Resultado visual y funcional",
@@ -572,7 +556,7 @@
    "No lo sé ni lo afirmo: la web aún no está publicada. Se medirá con datos reales después."
   ],
   "visible": "Resultado: la web renovada",
-  "n": 30
+  "n": 29
  },
  {
   "title": "Plan de transición y capacitación por rol",
@@ -592,7 +576,7 @@
    "Se restaura el respaldo tomado justo antes de publicar; el sitio original vuelve a funcionar mientras se corrige el error en el entorno de prueba."
   ],
   "visible": "Plan de transición y capacitación por rol",
-  "n": 31
+  "n": 30
  },
  {
   "title": "Conclusiones y próximos pasos",
@@ -611,7 +595,7 @@
    "Validar con la empresa, publicar, medir con datos reales e implementar el registro de consultas y el directorio."
   ],
   "visible": "Conclusiones y próximos pasos",
-  "n": 32
+  "n": 31
  },
  {
   "title": "Preguntas",
@@ -624,6 +608,6 @@
    "",
    ""
   ],
-  "n": 33
+  "n": 32
  }
 ]

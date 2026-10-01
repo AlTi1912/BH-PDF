@@ -1,5 +1,6 @@
 // Genera BLACK_HAWK_RUP_PRESENTACION_V4.pptx y slides_v4.json. Parte de la V3 con los ajustes del autor
-// (portada, sin notas de fuente internas) y agrega agenda, riesgos, modelo físico, despliegue, pruebas y transición.
+// (portada, sin notas de fuente internas) y agrega riesgos, modelo físico, despliegue, pruebas y transición.
+// Los nombres de objeto («!!…» para Transformar, «@…» para animaciones por clic) son invisibles; los usa anim_v4.py.
 const fs = require('fs');
 const pptxgen = require('pptxgenjs');
 const React = require('react');
@@ -31,15 +32,23 @@ pres.layout = 'LAYOUT_WIDE';
 pres.title = 'Aplicación de RUP — Web renovada de Black Hawk (V4)';
 pres.author = 'Nils Alexander Tovar Pinzón';
 const META = [];
+let NAME = null; const NAMEC = {};
+function setName(n) { NAME = n; }
+function nm() { if (!NAME) return {}; NAMEC[NAME] = (NAMEC[NAME] || 0) + 1; return { objectName: `${NAME}#${NAMEC[NAME]}` }; }
 
-function text(s, t, o) { s.addText(t, { fontFace: F, fontSize: 15, color: C.ink, margin: 0, valign: 'top', isTextBox: true, ...o }); }
+function text(s, t, o) { s.addText(t, { fontFace: F, fontSize: 15, color: C.ink, margin: 0, valign: 'top', isTextBox: true, ...o, ...nm() }); }
 function base(s, { kicker, title, dark = false }) {
   s.background = { color: dark ? C.ink : C.white };
+  const prev = NAME;
+  setName('!!kicker');
   if (kicker) text(s, kicker.toUpperCase(), { x: MX, y: 0.38, w: 9, h: 0.3, fontSize: 11, bold: true, color: dark ? C.purM : C.pur, charSpacing: 3 });
+  setName('!!title');
   if (title) { text(s, title, { x: MX, y: 0.68, w: W - 2 * MX, h: 0.75, fontSize: 30, bold: true, color: dark ? C.white : C.ink }); META[META.length - 1].visible = title; }
+  setName('!!footer');
   text(s, `Black Hawk · RUP   ${META.length}`, { x: W - 3.2, y: H - 0.42, w: 2.6, h: 0.25, fontSize: 9, color: dark ? C.mute : C.mute2, align: 'right' });
+  setName(prev);
 }
-function card(s, x, y, w, h, fill = C.paper, line) { s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, fill: { color: fill }, line: line ? { color: line, width: 1 } : { type: 'none' }, rectRadius: 0.08 }); }
+function card(s, x, y, w, h, fill = C.paper, line) { s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, fill: { color: fill }, line: line ? { color: line, width: 1 } : { type: 'none' }, rectRadius: 0.08, ...nm() }); }
 const TAG = {
   Existente: [C.white, C.ink, C.ink], Desarrollado: [C.white, C.ink, C.ink], 'Base WordPress': [C.white, C.mute, C.mute],
   Propuesto: [C.pur, C.white, C.pur], Realizado: [C.ink, C.white, C.ink], 'En curso': [C.purL, C.pur, C.pur], Planificado: [C.white, C.mute, C.mute2],
@@ -49,7 +58,7 @@ const TAG = {
 function tag(s, x, y, label, fs = 9.5) {
   const [fill, col, ln] = TAG[label] || [C.white, C.ink, C.ink];
   const w = 0.28 + label.length * fs * 0.0085;
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h: 0.28, rectRadius: 0.14, fill: { color: fill }, line: { color: ln, width: 0.75 } });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h: 0.28, rectRadius: 0.14, fill: { color: fill }, line: { color: ln, width: 0.75 }, ...nm() });
   text(s, label, { x, y, w, h: 0.28, fontSize: fs, bold: true, color: col, align: 'center', valign: 'middle' });
   return w;
 }
@@ -58,24 +67,25 @@ function img(s, file, x, y, w, h, frame) {
   let iw = w, ih = w * ph / pw;
   if (ih > h) { ih = h; iw = h * pw / ph; }
   const ix = x + (w - iw) / 2, iy = y + (h - ih) / 2;
-  s.addImage({ path: file, x: ix, y: iy, w: iw, h: ih });
-  if (frame) s.addShape(pres.shapes.RECTANGLE, { x: ix, y: iy, w: iw, h: ih, fill: { type: 'none' }, line: { color: C.line, width: 1 } });
+  s.addImage({ path: file, x: ix, y: iy, w: iw, h: ih, ...nm() });
+  if (frame) s.addShape(pres.shapes.RECTANGLE, { x: ix, y: iy, w: iw, h: ih, fill: { type: 'none' }, line: { color: C.line, width: 1 }, ...nm() });
   return { x: ix, y: iy, w: iw, h: ih };
 }
 function marker(s, x, y, n) {
-  s.addShape(pres.shapes.OVAL, { x: x - 0.19, y: y - 0.19, w: 0.38, h: 0.38, fill: { color: C.pur }, line: { color: C.white, width: 1.5 } });
+  s.addShape(pres.shapes.OVAL, { x: x - 0.19, y: y - 0.19, w: 0.38, h: 0.38, fill: { color: C.pur }, line: { color: C.white, width: 1.5 }, ...nm() });
   text(s, String(n), { x: x - 0.19, y: y - 0.19, w: 0.38, h: 0.38, fontSize: 12, bold: true, color: C.white, align: 'center', valign: 'middle' });
 }
 async function iconCircle(s, name, x, y, d = 0.62, fill = C.purL, color = C.pur) {
-  s.addShape(pres.shapes.OVAL, { x, y, w: d, h: d, fill: { color: fill }, line: { type: 'none' } });
-  s.addImage({ data: await icon(name, color), x: x + d * 0.24, y: y + d * 0.24, w: d * 0.52, h: d * 0.52 });
+  s.addShape(pres.shapes.OVAL, { x, y, w: d, h: d, fill: { color: fill }, line: { type: 'none' }, ...nm() });
+  s.addImage({ data: await icon(name, color), x: x + d * 0.24, y: y + d * 0.24, w: d * 0.52, h: d * 0.52, ...nm() });
 }
 function arrow(s, x1, y1, x2, y2, color = C.ink, dash) {
-  s.addShape(pres.shapes.LINE, { x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.abs(x2 - x1), h: Math.abs(y2 - y1), flipH: x2 < x1, flipV: y2 < y1, line: { color, width: 1.25, endArrowType: 'triangle', dashType: dash || 'solid' } });
+  s.addShape(pres.shapes.LINE, { x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.abs(x2 - x1), h: Math.abs(y2 - y1), flipH: x2 < x1, flipV: y2 < y1, line: { color, width: 1.25, endArrowType: 'triangle', dashType: dash || 'solid' }, ...nm() });
 }
 function bullets(s, items, o) { text(s, items.map((t, i) => ({ text: t, options: { breakLine: i < items.length - 1, bullet: { code: o.code || '25A0' }, paraSpaceAfter: o.gap ?? 6 } })), o); }
 function add(meta) {
   const s = pres.addSlide(); META.push(meta);
+  NAME = null; for (const k in NAMEC) delete NAMEC[k];
   s.addNotes(`${meta.msg}\n\n${meta.exp}\n\nEjemplo: ${meta.ej}`);
   return s;
 }
@@ -96,7 +106,9 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
   base(s, { kicker: meta.kicker, title: meta.title });
   const key = (file.match(/V4_0\d/) || [])[0];
   imgW = DW[key] || imgW;
+  setName('!!diag');
   img(s, file, MX, 1.4, imgW, 5.65);
+  setName(null);
   sidePanel(s, MX + imgW + 0.25, 1.5, W - MX - (MX + imgW + 0.25), 5.45, blocks);
   return s;
 }
@@ -115,29 +127,6 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
     text(s, 'Aplicación de la metodología RUP en el análisis, diseño y desarrollo de la web renovada de Black Hawk', { x: MX, y: 2.25, w: 5.6, h: 2.3, fontSize: 27, bold: true, color: C.white });
     text(s, 'Del sitio original a una plataforma que guía al cliente hasta la consulta comercial', { x: MX, y: 4.6, w: 5.4, h: 0.7, fontSize: 14, color: C.mute2 });
     text(s, [{ text: 'Nils Alexander Tovar Pinzón', options: { breakLine: true } }, { text: 'Diseño de Sistemas de Información - José Rojas', options: { breakLine: true } }, { text: 'IESTP José Pardo · 2026' }], { x: MX, y: 5.75, w: 5.5, h: 1.0, fontSize: 12, color: C.mute2, paraSpaceAfter: 4 });
-  }
-
-  { // Agenda
-    const s = add({ title: 'Agenda', t: 20, msg: 'La exposición sigue el orden del proyecto: de la situación original al resultado.',
-      exp: 'Primero el punto de partida y el problema; luego cómo se organizó el trabajo con RUP; después los requisitos, los diagramas y la arquitectura; la solución construida y cómo se verificó; y al final el resultado, la transición y las conclusiones.',
-      ej: 'La web renovada se muestra en el bloque 4, cuando ya se explicó cómo se diseñó.', con: ['Estructura de la exposición'], preg: ['', ''] });
-    base(s, { title: 'Agenda' });
-    const A = [
-      ['01', 'Situación original', 'LuBuilding2', ['La empresa', 'El sitio original y sus hallazgos', 'Problema y objetivos']],
-      ['02', 'Metodología RUP', 'LuRefreshCw', ['Fases e hitos', 'Iteraciones y entregables', 'Gestión de riesgos']],
-      ['03', 'Modelado y diseño', 'LuShapes', ['Requisitos', 'Diagramas UML', 'Datos, arquitectura y despliegue']],
-      ['04', 'La solución', 'LuMonitorSmartphone', ['La web renovada', 'Antes y después', 'Funcionalidades y pruebas']],
-      ['05', 'Resultados y cierre', 'LuFlag', ['Resultado medido', 'Plan de transición', 'Conclusiones']],
-    ];
-    const gap = 0.25, cw = (W - 2 * MX - 4 * gap) / 5;
-    for (let i = 0; i < A.length; i++) {
-      const [n, t, ic, items] = A[i]; const x = MX + i * (cw + gap);
-      card(s, x, 1.75, cw, 4.45, C.paper);
-      await iconCircle(s, ic, x + 0.3, 2.05, 0.7);
-      text(s, n, { x: x + 0.3, y: 3.0, w: 1.2, h: 0.6, fontSize: 30, bold: true, color: C.pur });
-      text(s, t, { x: x + 0.3, y: 3.65, w: cw - 0.5, h: 0.75, fontSize: 17, bold: true });
-      bullets(s, items, { x: x + 0.3, y: 4.5, w: cw - 0.5, h: 1.9, fontSize: 12.5, gap: 6 });
-    }
   }
 
   { // 2 Black Hawk
@@ -159,7 +148,8 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
       ej: 'Estas tres capturas son del sitio original, tomadas el 29-09-2026: home, tienda y ficha del BH-SW12XXG.', con: ['Punto de partida', 'WordPress', 'WooCommerce'], preg: ['¿Entonces Black Hawk no tenía sistema?', 'Sí tenía: una plataforma con catálogo. El proyecto mejora su diseño, su experiencia y su recorrido comercial.'] });
     base(s, { kicker: '01 · Situación original', title: 'La plataforma original: una base que ya funciona' });
     const shots = [['img/v3-A-home.png', 'Home'], ['img/v3-A-shop.png', 'Tienda (/shop/)'], ['img/v3-A-ficha.png', 'Ficha BH-SW12XXG']];
-    shots.forEach(([f, l], i) => { const x = MX + i * 2.72; img(s, f, x, 1.6, 2.6, 1.63, true); text(s, l, { x, y: 3.3, w: 2.6, h: 0.3, fontSize: 11, bold: true }); });
+    shots.forEach(([f, l], i) => { const x = MX + i * 2.72, k = ['home', 'shop', 'ficha'][i]; setName('!!cap-' + k); img(s, f, x, 1.6, 2.6, 1.63, true); setName('!!lbl-' + k); text(s, l, { x, y: 3.3, w: 2.6, h: 0.3, fontSize: 11, bold: true }); });
+    setName(null);
     tag(s, MX, 3.7, 'ANTES'); text(s, 'Capturas reales del sitio original, 20-09-2026', { x: MX + 0.9, y: 3.72, w: 6, h: 0.25, fontSize: 10.5, color: C.mute });
     card(s, 8.95, 1.6, W - MX - 8.95, 4.95, C.paper);
     text(s, 'LO QUE YA TIENE', { x: 9.2, y: 1.8, w: 3.5, h: 0.3, fontSize: 10.5, bold: true, color: C.pur, charSpacing: 2 });
@@ -174,25 +164,31 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
       exp: 'Cada número está marcado sobre una captura real. No digo que al sitio le falte algo que sí tiene: por ejemplo, WhatsApp existe, pero solo en la página de ventas al mayor.',
       ej: 'Al pulsar «Productos» se abre una tienda sin productos (1); la ficha del BH-SW12XXG no tiene botón de consulta (2).', con: ['Inexistente', 'Poco visible', 'Recorrido mejorable'], preg: ['¿Cómo sabe que son problemas reales?', 'Están en capturas del sitio original, con fecha; en el caso de WhatsApp, además, revisé los enlaces de la página.'] });
     base(s, { kicker: '01 · Situación original', title: 'Análisis del sitio original: qué se observa' });
+    setName('!!cap-shop');
     const a = img(s, 'img/v3-A-shop.png', MX, 1.55, 3.9, 2.44, true);
-    marker(s, a.x + a.w * 0.62, a.y + a.h * 0.72, 1);
-    marker(s, a.x + a.w * 0.1, a.y + a.h * 0.065, 3);
-    text(s, 'Tienda (/shop/)', { x: MX, y: a.y + a.h + 0.05, w: 3.9, h: 0.25, fontSize: 10, color: C.mute });
+    setName('!!hall1'); marker(s, a.x + a.w * 0.62, a.y + a.h * 0.72, 1);
+    setName('!!hall3'); marker(s, a.x + a.w * 0.1, a.y + a.h * 0.065, 3);
+    setName('!!lbl-shop'); text(s, 'Tienda (/shop/)', { x: MX, y: a.y + a.h + 0.05, w: 3.9, h: 0.25, fontSize: 10, color: C.mute });
+    setName('!!cap-ficha');
     const b = img(s, 'img/v3-A-ficha.png', MX + 4.05, 1.55, 3.9, 2.44, true);
-    marker(s, b.x + b.w * 0.75, b.y + b.h * 0.85, 2);
-    text(s, 'Ficha BH-SW12XXG', { x: MX + 4.05, y: b.y + b.h + 0.05, w: 3.9, h: 0.25, fontSize: 10, color: C.mute });
+    setName('!!hall2'); marker(s, b.x + b.w * 0.75, b.y + b.h * 0.85, 2);
+    setName('!!lbl-ficha'); text(s, 'Ficha BH-SW12XXG', { x: MX + 4.05, y: b.y + b.h + 0.05, w: 3.9, h: 0.25, fontSize: 10, color: C.mute });
+    setName('!!cap-may');
     const c = img(s, 'img/v3-A-mayoristas.png', MX, 4.4, 3.9, 2.2, true);
-    marker(s, c.x + c.w * 0.5, c.y + c.h * 0.4, 4);
-    text(s, '«Ventas al mayor»', { x: MX, y: c.y + c.h + 0.03, w: 3.9, h: 0.25, fontSize: 10, color: C.mute });
+    setName('!!hall4'); marker(s, c.x + c.w * 0.5, c.y + c.h * 0.4, 4);
+    setName('!!lbl-may'); text(s, '«Ventas al mayor»', { x: MX, y: c.y + c.h + 0.03, w: 3.9, h: 0.25, fontSize: 10, color: C.mute });
+    setName('!!cap-cat');
     const d = img(s, EV + 'screens/A-cat-sub-d-view.png', MX + 4.05, 4.4, 3.9, 2.2, true);
-    marker(s, d.x + d.w * 0.45, d.y + d.h * 0.37, 5);
-    text(s, 'Categoría Subwoofer', { x: MX + 4.05, y: d.y + d.h + 0.03, w: 3.9, h: 0.25, fontSize: 10, color: C.mute });
+    setName('!!hall5'); marker(s, d.x + d.w * 0.45, d.y + d.h * 0.37, 5);
+    setName('!!lbl-cat'); text(s, 'Categoría Subwoofer', { x: MX + 4.05, y: d.y + d.h + 0.03, w: 3.9, h: 0.25, fontSize: 10, color: C.mute });
     V.HALLAZGOS.forEach((h, i) => {
       const y = 1.55 + i * 0.86, x = 8.75;
+      setName('!!hall' + h.n);
       marker(s, x + 0.19, y + 0.2, h.n);
       text(s, h.t, { x: x + 0.5, y: y - 0.04, w: 3.55, h: 0.45, fontSize: 11.5, bold: true });
       tag(s, x + 0.5, y + 0.5, V.TIPOS[h.tipo], 8.5);
     });
+    setName(null);
   }
 
   { // 5 Problema
@@ -284,23 +280,24 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
     const f = V.FASES[i];
     const s = add(meta);
     base(s, { kicker: `02 · Fase ${i + 1} de 4`, title: `Fase de ${f.n}` });
-    tag(s, W - MX - 1.5, 0.82, f.estado, 11);
-    card(s, MX, 1.55, 6.2, 1.0, C.ink);
+    setName('!!ph-tag'); tag(s, W - MX - 1.5, 0.82, f.estado, 11);
+    setName('!!ph-obj'); card(s, MX, 1.55, 6.2, 1.0, C.ink);
     text(s, [{ text: 'Objetivo  ', options: { bold: true, color: C.purM } }, { text: f.obj, options: { color: C.white } }], { x: MX + 0.3, y: 1.55, w: 5.7, h: 1.0, fontSize: 15, valign: 'middle' });
-    text(s, 'ACTIVIDADES PRINCIPALES', { x: MX, y: 2.75, w: 5, h: 0.3, fontSize: 10.5, bold: true, color: C.pur, charSpacing: 1.5 });
+    setName('!!ph-act'); text(s, 'ACTIVIDADES PRINCIPALES', { x: MX, y: 2.75, w: 5, h: 0.3, fontSize: 10.5, bold: true, color: C.pur, charSpacing: 1.5 });
     bullets(s, f.act, { x: MX, y: 3.1, w: 6.1, h: 2.3, fontSize: 13.5, gap: 8 });
-    text(s, 'ARTEFACTOS', { x: MX, y: 5.35, w: 5, h: 0.3, fontSize: 10.5, bold: true, color: C.pur, charSpacing: 1.5 });
+    setName('!!ph-artl'); text(s, 'ARTEFACTOS', { x: MX, y: 5.35, w: 5, h: 0.3, fontSize: 10.5, bold: true, color: C.pur, charSpacing: 1.5 });
     let ax = MX, ay = 5.7;
-    f.art.forEach((a) => { const w = 0.3 + a.length * 0.085; if (ax + w > MX + 6.3) { ax = MX; ay += 0.42; } card(s, ax, ay, w, 0.34, C.paper, C.line); text(s, a, { x: ax, y: ay, w, h: 0.34, fontSize: 10.5, align: 'center', valign: 'middle' }); ax += w + 0.12; });
+    f.art.forEach((a, j) => { setName('!!ph-art' + j); const w = 0.3 + a.length * 0.085; if (ax + w > MX + 6.3) { ax = MX; ay += 0.42; } card(s, ax, ay, w, 0.34, C.paper, C.line); text(s, a, { x: ax, y: ay, w, h: 0.34, fontSize: 10.5, align: 'center', valign: 'middle' }); ax += w + 0.12; });
     const rx = 7.2, rw = W - MX - rx;
-    card(s, rx, 1.55, rw, 1.6, C.purL);
+    setName('!!ph-bh'); card(s, rx, 1.55, rw, 1.6, C.purL);
     text(s, 'EN BLACK HAWK', { x: rx + 0.25, y: 1.7, w: 4, h: 0.3, fontSize: 10.5, bold: true, color: C.pur, charSpacing: 1.5 });
     text(s, f.bh, { x: rx + 0.25, y: 2.0, w: rw - 0.5, h: 1.1, fontSize: 13.5, bold: true });
+    setName('!!ph-box2');
     if (f.extra) {
       card(s, rx, 3.3, rw, 1.35, C.paper);
       text(s, 'STAKEHOLDERS', { x: rx + 0.25, y: 3.42, w: 4, h: 0.3, fontSize: 10, bold: true, color: C.pur, charSpacing: 1.5 });
       text(s, f.extra.stake.join(' · '), { x: rx + 0.25, y: 3.72, w: rw - 0.5, h: 0.85, fontSize: 12 });
-      card(s, rx, 4.8, rw, 1.2, C.paper);
+      setName('!!ph-box3'); card(s, rx, 4.8, rw, 1.2, C.paper);
       text(s, 'VIABILIDAD', { x: rx + 0.25, y: 4.9, w: 4, h: 0.3, fontSize: 10, bold: true, color: C.pur, charSpacing: 1.5 });
       text(s, f.extra.viab.map(([k, v], j) => ({ text: `${k}: `, options: { bold: true } })).flatMap((a, j) => [a, { text: f.extra.viab[j][1], options: { breakLine: j < 2 } }]), { x: rx + 0.25, y: 5.18, w: rw - 0.5, h: 0.8, fontSize: 11 });
     } else if (f.pruebas) {
@@ -313,8 +310,9 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
       const items = i === 1 ? ['Conservar WordPress + WooCommerce', 'Rediseño como tema hijo: las actualizaciones no borran los cambios', 'YITH Catalog Mode: sin carrito ni pago', 'WhatsApp por enlace wa.me, sin API de pago'] : ['Aceptación de Black Hawk', 'Sin errores críticos abiertos', 'Funciona en celular y escritorio', 'Respaldo previo y plan de reversión'];
       bullets(s, items, { x: rx + 0.25, y: 3.75, w: rw - 0.5, h: 2.2, fontSize: 12.5, gap: 6, code: '2713' });
     }
-    card(s, rx, 6.15, rw, 0.5, C.white, C.ink);
+    setName('!!ph-hito'); card(s, rx, 6.15, rw, 0.5, C.white, C.ink);
     text(s, [{ text: `Hito ${f.hito}  `, options: { bold: true, color: C.pur } }, { text: f.hitoN }], { x: rx, y: 6.15, w: rw, h: 0.5, fontSize: 13, align: 'center', valign: 'middle' });
+    setName(null);
   };
   phaseSlide(0, { title: 'Fase de Inicio', t: 60, kicker: '02', msg: 'En Inicio entendí el negocio y acordé qué construir. Está realizada.',
     exp: 'Analicé el sitio original con capturas, identifiqué a los interesados y las necesidades, y fijé el alcance y las exclusiones. El hito LCO significa que los objetivos y el alcance quedan acordados.',
@@ -369,20 +367,23 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
     const cells = {};
     R.forEach((r) => { const k = r[2] + '-' + r[3]; (cells[k] = cells[k] || []).push(r[0]); });
     const off = { 1: [[0, 0]], 2: [[-0.22, 0], [0.22, 0]], 3: [[-0.22, -0.2], [0.22, -0.2], [0, 0.22]], 4: [[-0.22, -0.22], [0.22, -0.22], [-0.22, 0.22], [0.22, 0.22]] };
-    Object.entries(cells).forEach(([k, ns]) => { const [r, c] = k.split('-').map(Number); ns.forEach((n, i) => { const [dx, dy] = off[ns.length][i]; marker(s, gx + c * cs + cs / 2 + dx, gy + r * cs + cs / 2 + dy, n); }); });
+    Object.entries(cells).forEach(([k, ns]) => { const [r, c] = k.split('-').map(Number); ns.forEach((n, i) => { const [dx, dy] = off[ns.length][i]; setName('@rk' + n); marker(s, gx + c * cs + cs / 2 + dx, gy + r * cs + cs / 2 + dy, n); }); });
     // Tabla de respuesta
+    setName(null);
     const tx = 5.35, tw = W - MX - tx;
     text(s, 'RIESGO', { x: tx + 0.5, y: 1.6, w: 2.5, h: 0.25, fontSize: 9.5, bold: true, color: C.pur, charSpacing: 1.5 });
     text(s, 'RESPUESTA', { x: tx + 3.45, y: 1.6, w: 2.5, h: 0.25, fontSize: 9.5, bold: true, color: C.pur, charSpacing: 1.5 });
     text(s, 'ESTADO', { x: tx + tw - 1.25, y: 1.6, w: 1.25, h: 0.25, fontSize: 9.5, bold: true, color: C.pur, charSpacing: 1.5 });
     R.forEach(([n, t, , , m, e], i) => {
       const y = 1.95 + i * 0.78;
-      s.addShape(pres.shapes.LINE, { x: tx, y: y - 0.04, w: tw, h: 0, line: { color: C.line, width: 0.75 } });
+      setName('@rk' + n);
+      s.addShape(pres.shapes.LINE, { x: tx, y: y - 0.04, w: tw, h: 0, line: { color: C.line, width: 0.75 }, ...nm() });
       marker(s, tx + 0.2, y + 0.36, n);
       text(s, t, { x: tx + 0.5, y, w: 2.8, h: 0.72, fontSize: 12, bold: true, valign: 'middle' });
       text(s, m, { x: tx + 3.45, y, w: 2.5, h: 0.72, fontSize: 10.5, color: C.mute, valign: 'middle' });
       tag(s, tx + tw - 1.25, y + 0.22, e, 9);
     });
+    setName(null);
   }
 
   // ═══════════ BLOQUE III — MODELADO
@@ -456,10 +457,11 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
     base(s, { kicker: '04 · Antes y después', title: meta.visibleT });
     pair.forEach((p, r) => {
       const y = 1.5 + r * 2.72, portrait = p.n.includes('celular');
-      text(s, p.n, { x: MX, y, w: 3, h: 0.3, fontSize: 13, bold: true, color: C.pur });
+      setName(`!!ad${r}-lbl`); text(s, p.n, { x: MX, y, w: 3, h: 0.3, fontSize: 13, bold: true, color: C.pur });
       const iw = portrait ? 1.15 : 3.2, gap = portrait ? 0.3 : 0.2;
-      const a = img(s, p.antes, MX, y + 0.35, iw, 2.2, true); tag(s, a.x + 0.06, a.y + 0.06, 'ANTES', 8.5);
-      const b = img(s, p.despues, MX + iw + gap, y + 0.35, iw, 2.2, true); tag(s, b.x + 0.06, b.y + 0.06, 'DESPUÉS', 8.5);
+      setName(`!!ad${r}-a`); const a = img(s, p.antes, MX, y + 0.35, iw, 2.2, true); setName(`!!ad${r}-ta`); tag(s, a.x + 0.06, a.y + 0.06, 'ANTES', 8.5);
+      setName(`!!ad${r}-d`); const b = img(s, p.despues, MX + iw + gap, y + 0.35, iw, 2.2, true); setName(`!!ad${r}-td`); tag(s, b.x + 0.06, b.y + 0.06, 'DESPUÉS', 8.5);
+      setName(`!!ad${r}-txt`);
       const tx = MX + 2 * iw + gap + 0.35, tw = W - MX - tx;
       const rows = [['Antes', p.a], ['Necesidad', p.nec], ['Modificación', p.sol], ['Beneficio esperado', p.ben]];
       rows.forEach(([k, v], j) => {
@@ -468,6 +470,7 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
         text(s, v, { x: tx + 1.5, y: yy, w: tw - 1.5, h: 0.54, fontSize: 11 });
       });
     });
+    setName(null);
   };
   await adSlide(8, V.ANTES_DESPUES.slice(0, 2), { title: 'Antes y después: home y catálogo', visibleT: 'Antes y después: home y catálogo', kicker: '04 · Antes y después', t: 70,
     msg: 'Comparo pantallas equivalentes: qué había, qué necesidad detecté, qué cambié y qué espero lograr.',
@@ -487,25 +490,29 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
     const fw = 1.55, gap = (W - 2 * MX - 7 * fw) / 6;
     for (let i = 0; i < 7; i++) {
       const x = MX + i * (fw + gap), last = i === 6;
+      setName('!!fl' + i);
       card(s, x, 1.8, fw, 1.55, last ? C.paper : C.ink, last ? C.line : null);
-      s.addImage({ data: await icon(steps[i][0], last ? C.pur : C.purM), x: x + fw / 2 - 0.22, y: 1.95, w: 0.44, h: 0.44 });
+      s.addImage({ data: await icon(steps[i][0], last ? C.pur : C.purM), x: x + fw / 2 - 0.22, y: 1.95, w: 0.44, h: 0.44, ...nm() });
       text(s, steps[i][1], { x: x + 0.06, y: 2.5, w: fw - 0.12, h: 0.75, fontSize: 12.5, bold: true, align: 'center', color: last ? C.ink : C.white });
+      setName('!!fa' + i);
       if (i < 6) arrow(s, x + fw + 0.02, 2.57, x + fw + gap - 0.02, 2.57, C.pur);
     }
-    text(s, 'Desarrollado en la web renovada', { x: MX, y: 3.45, w: 5, h: 0.3, fontSize: 11, bold: true });
-    text(s, '(fuera de la web)', { x: MX + 6 * (fw + gap), y: 3.45, w: fw, h: 0.3, fontSize: 10, italic: true, color: C.mute, align: 'center' });
+    setName('!!flb-dev'); text(s, 'Desarrollado en la web renovada', { x: MX, y: 3.45, w: 5, h: 0.3, fontSize: 11, bold: true });
+    setName('!!fl6'); text(s, '(fuera de la web)', { x: MX + 6 * (fw + gap), y: 3.45, w: fw, h: 0.3, fontSize: 10, italic: true, color: C.mute, align: 'center' });
     const amp = [[4, 'Registrar el inicio de la consulta'], [5, 'Directorio estructurado de distribuidores'], [6, 'Seguimiento y reportes (requiere un mecanismo adicional)']];
     amp.forEach(([i, t]) => {
       const x = MX + i * (fw + gap);
+      setName('!!flb-amp' + i);
       arrow(s, x + fw / 2, 3.8, x + fw / 2, 4.25, C.pur, 'dash');
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 4.3, w: fw, h: 1.25, rectRadius: 0.08, fill: { color: C.purL }, line: { color: C.pur, width: 1, dashType: 'dash' } });
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 4.3, w: fw, h: 1.25, rectRadius: 0.08, fill: { color: C.purL }, line: { color: C.pur, width: 1, dashType: 'dash' }, ...nm() });
       text(s, t, { x: x + 0.08, y: 4.3, w: fw - 0.16, h: 1.25, fontSize: 11, bold: true, align: 'center', valign: 'middle' });
     });
-    text(s, 'Ampliaciones propuestas', { x: MX + 4 * (fw + gap), y: 5.65, w: 5, h: 0.3, fontSize: 11, bold: true, color: C.pur });
-    card(s, MX, 4.3, 4 * (fw + gap) - 0.35, 2.25, C.paper);
+    setName('!!flb-amplbl'); text(s, 'Ampliaciones propuestas', { x: MX + 4 * (fw + gap), y: 5.65, w: 5, h: 0.3, fontSize: 11, bold: true, color: C.pur });
+    setName('!!flb-msg'); card(s, MX, 4.3, 4 * (fw + gap) - 0.35, 2.25, C.paper);
     text(s, 'Mensaje que genera la web renovada', { x: MX + 0.25, y: 4.45, w: 6, h: 0.3, fontSize: 11, bold: true, color: C.pur });
     text(s, '«Hola Black Hawk, vengo de la web y quiero cotizar el modelo BH-SW12XXG.»', { x: MX + 0.25, y: 4.85, w: 6.3, h: 0.6, fontSize: 15, bold: true });
     text(s, 'El clic abre una conversación: no equivale a una venta ni a una cotización aceptada.', { x: MX + 0.25, y: 5.6, w: 6.3, h: 0.7, fontSize: 12, italic: true, color: C.mute });
+    setName(null);
   }
 
   { // 24 Funcionalidades
@@ -517,12 +524,14 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
     const cw = (W - 2 * MX - 4 * 0.18) / 5;
     for (let i = 0; i < 5; i++) {
       const f = V.FUNCIONES[i], x = MX + i * (cw + 0.18), prop = f.e === 'Propuesto';
+      setName('@fun' + (i + 1));
       card(s, x, 1.6, cw, 4.95, prop ? C.purL : i === 2 ? C.ink : C.paper);
       await iconCircle(s, ic[i], x + 0.2, 1.8, 0.6, prop || i === 2 ? C.white : C.white, C.pur);
       text(s, `${f.k} · ${f.n}`, { x: x + 0.2, y: 2.55, w: cw - 0.35, h: 0.65, fontSize: 14.5, bold: true, color: i === 2 ? C.white : C.ink });
       tag(s, x + 0.2, 3.25, f.e, 8.5);
       bullets(s, f.items, { x: x + 0.2, y: 3.75, w: cw - 0.35, h: 2.7, fontSize: 11.5, gap: 7, color: i === 2 ? C.white : C.ink });
     }
+    setName(null);
   }
 
   { // Verificación y pruebas
@@ -548,11 +557,13 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
     text(s, 'ESTADO', { x: MX + tw - 1.2, y: 1.6, w: 1.2, h: 0.25, fontSize: 9.5, bold: true, color: C.pur, charSpacing: 1.5 });
     T.forEach(([p, r, e], i) => {
       const y = 1.95 + i * 0.53;
-      s.addShape(pres.shapes.LINE, { x: MX, y: y - 0.02, w: tw, h: 0, line: { color: C.line, width: 0.75 } });
+      setName('@pr' + (i + 1));
+      s.addShape(pres.shapes.LINE, { x: MX, y: y - 0.02, w: tw, h: 0, line: { color: C.line, width: 0.75 }, ...nm() });
       text(s, p, { x: MX, y, w: 2.85, h: 0.5, fontSize: 12, bold: true, valign: 'middle', color: e === 'Planificado' ? C.mute : C.ink });
       text(s, r, { x: MX + 2.95, y, w: 3.25, h: 0.5, fontSize: 11, valign: 'middle', color: C.mute });
       tag(s, MX + tw - 1.2, y + 0.11, e, 9);
     });
+    setName(null);
     const rx = MX + tw + 0.45, rw = W - MX - rx;
     const d = img(s, EV + 'interactions/N-cmp-03-add4-limit-d.png', rx, 1.6, rw, 2.75, true);
     text(s, 'Evidencia: el comparador rechaza un cuarto modelo.', { x: rx, y: d.y + d.h + 0.08, w: rw, h: 0.3, fontSize: 10.5, color: C.mute });
@@ -596,12 +607,14 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
     ];
     P.forEach(([t, d_], i) => {
       const y = 1.98 + i * 0.83;
-      s.addShape(pres.shapes.OVAL, { x: MX, y, w: 0.5, h: 0.5, fill: { color: i === 4 ? C.white : C.ink }, line: { color: C.ink, width: 1.25 } });
+      setName('@tr' + (i + 1));
+      s.addShape(pres.shapes.OVAL, { x: MX, y, w: 0.5, h: 0.5, fill: { color: i === 4 ? C.white : C.ink }, line: { color: C.ink, width: 1.25 }, ...nm() });
       text(s, String(i + 1), { x: MX, y, w: 0.5, h: 0.5, fontSize: 14, bold: true, color: i === 4 ? C.ink : C.white, align: 'center', valign: 'middle' });
-      if (i < 4) s.addShape(pres.shapes.LINE, { x: MX + 0.25, y: y + 0.5, w: 0, h: 0.33, line: { color: C.mute2, width: 1, dashType: i === 3 ? 'dash' : 'solid' } });
+      if (i < 4) s.addShape(pres.shapes.LINE, { x: MX + 0.25, y: y + 0.5, w: 0, h: 0.33, line: { color: C.mute2, width: 1, dashType: i === 3 ? 'dash' : 'solid' }, ...nm() });
       text(s, t, { x: MX + 0.7, y: y - 0.02, w: 4.6, h: 0.3, fontSize: 13.5, bold: true });
       text(s, d_, { x: MX + 0.7, y: y + 0.27, w: 4.9, h: 0.45, fontSize: 11, color: C.mute });
     });
+    setName(null);
     const rx = 6.65, rw = W - MX - rx;
     text(s, 'CAPACITACIÓN POR ROL', { x: rx, y: 1.6, w: 5, h: 0.25, fontSize: 9.5, bold: true, color: C.pur, charSpacing: 1.5 });
     const RO = [
@@ -625,10 +638,11 @@ function diagSlide(meta, file, blocks, imgW = 9.2) {
       exp: 'Punto de partida: había plataforma, pero no guiaba a la venta. Solución: la web renovada rediseña marca, catálogo y recorrido. Metodología: RUP con Inicio y Elaboración realizados, Construcción avanzada y Transición planificada.',
       ej: 'Próximo paso inmediato: validar la web renovada con Black Hawk y publicarla en su dominio.', con: ['Necesidad', 'Solución', 'RUP'], preg: ['¿Qué haría después?', 'Validar con la empresa, publicar, medir con datos reales e implementar el registro de consultas y el directorio.'] });
     base(s, { kicker: '05 · Cierre', title: 'Conclusiones y próximos pasos', dark: true });
-    V.CONCLUSIONES.forEach(([k, t], i) => { const x = MX + i * 4.1; text(s, `0${i + 1}`, { x, y: 1.6, w: 1, h: 0.6, fontSize: 28, bold: true, color: C.purM }); text(s, k, { x, y: 2.25, w: 3.8, h: 0.4, fontSize: 17, bold: true, color: C.white }); text(s, t, { x, y: 2.7, w: 3.8, h: 1.7, fontSize: 13, color: C.mute2 }); });
-    card(s, MX, 4.6, W - 2 * MX, 1.95, C.ink2);
+    V.CONCLUSIONES.forEach(([k, t], i) => { const x = MX + i * 4.1; setName('@co' + (i + 1)); text(s, `0${i + 1}`, { x, y: 1.6, w: 1, h: 0.6, fontSize: 28, bold: true, color: C.purM }); text(s, k, { x, y: 2.25, w: 3.8, h: 0.4, fontSize: 17, bold: true, color: C.white }); text(s, t, { x, y: 2.7, w: 3.8, h: 1.7, fontSize: 13, color: C.mute2 }); });
+    setName('@co4'); card(s, MX, 4.6, W - 2 * MX, 1.95, C.ink2);
     text(s, 'PRÓXIMOS PASOS', { x: MX + 0.3, y: 4.75, w: 4, h: 0.3, fontSize: 10.5, bold: true, color: C.purM, charSpacing: 2 });
     V.PROXIMOS.forEach((p, i) => { const x = MX + 0.3 + i * 3.0; text(s, String(i + 1), { x, y: 5.15, w: 0.5, h: 0.5, fontSize: 22, bold: true, color: C.pur }); text(s, p, { x: x + 0.45, y: 5.18, w: 2.4, h: 1.2, fontSize: 12.5, color: C.white }); });
+    setName(null);
   }
 
   { // 27 Preguntas

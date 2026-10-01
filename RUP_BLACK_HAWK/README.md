@@ -4,7 +4,9 @@ Proyecto académico del curso **Diseño de Sistemas de Información**: aplicaci�
 
 ## Versión 4 · presentación final (usar esta)
 
-`BLACK_HAWK_RUP_PRESENTACION_V4.pptx`: 33 diapositivas, unos 30 min. Parte de la V3 con los ajustes del autor (portada completa, sin notas de fuente internas) y agrega agenda, gestión de riesgos, modelo físico de datos, diagrama de despliegue en el bloque de diseño, verificación y pruebas, y plan de transición con capacitación por rol (hito PR). Diagramas nuevos y ampliados: `DIAGRAMAS_UML/*/V4_0*`. Reconstruir: `cd _build && node presentacion_v4.js`.
+`BLACK_HAWK_RUP_PRESENTACION_V4.pptx`: 32 diapositivas, unos 30 min, sin animaciones. Parte de la V3 con los ajustes del autor (portada completa, sin notas de fuente internas) y agrega gestión de riesgos, modelo físico de datos, diagrama de despliegue en el bloque de diseño, verificación y pruebas, y plan de transición con capacitación por rol (hito PR). Diagramas nuevos y ampliados: `DIAGRAMAS_UML/*/V4_0*`.
+
+`BLACK_HAWK_RUP_PRESENTACION_V4_ANIMADA.pptx`: la misma V4 con fundidos de 450 ms, Transformar (Morph) en 7 secuencias de diapositivas duplicadas (57 en total) y entradas por clic en riesgos, funcionalidades, pruebas, transición y conclusiones. Requiere PowerPoint de Microsoft 365 o 2019 en adelante para Transformar. Reconstruir: `cd _build && node presentacion_v4.js && python3 anim_v4.py`.
 
 ## Versión 3 · sitio original → web renovada → ampliaciones
 
