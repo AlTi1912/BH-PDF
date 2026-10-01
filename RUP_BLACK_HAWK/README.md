@@ -2,7 +2,11 @@
 
 Proyecto académico del curso **Diseño de Sistemas de Información**: aplicación de la metodología RUP al análisis, diseño y planificación del **Sistema de Gestión de Catálogo y Distribuidores Black Hawk (SGCD-BH)**.
 
-## Versión 3 · sitio original → web renovada → ampliaciones (usar esta)
+## Versión 4 · presentación final (usar esta)
+
+`BLACK_HAWK_RUP_PRESENTACION_V4.pptx`: 33 diapositivas, unos 30 min. Parte de la V3 con los ajustes del autor (portada completa, sin notas de fuente internas) y agrega agenda, gestión de riesgos, modelo físico de datos, diagrama de despliegue en el bloque de diseño, verificación y pruebas, y plan de transición con capacitación por rol (hito PR). Diagramas nuevos y ampliados: `DIAGRAMAS_UML/*/V4_0*`. Reconstruir: `cd _build && node presentacion_v4.js`.
+
+## Versión 3 · sitio original → web renovada → ampliaciones
 
 | Archivo | Contenido |
 |---|---|

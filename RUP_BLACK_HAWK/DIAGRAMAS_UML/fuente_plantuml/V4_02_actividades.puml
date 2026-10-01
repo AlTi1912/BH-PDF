@@ -1,0 +1,34 @@
+@startuml V4_02_actividades
+!include _estilo.iuml
+skinparam defaultFontSize 17
+
+|Cliente|
+start
+:Entra a la web renovada;
+if (¿Conoce el modelo?) then (sí)
+  :Busca el modelo;
+else (no)
+  :Explora el catálogo
+  y filtra por categoría;
+endif
+:Revisa la ficha técnica;
+if (¿Quiere comparar?) then (sí)
+  :Compara hasta 3 modelos;
+endif
+if (¿Tiene intención de compra?) then (no)
+  stop
+else (sí)
+  :Pulsa «Cotizar» o
+  «Dónde comprar»;
+endif
+|Web renovada|
+#EDE4FB:Registra el inicio de la consulta
+(ampliación propuesta);
+:Genera el mensaje con el modelo;
+:Abre WhatsApp;
+|Área comercial / distribuidor|
+:Atiende la consulta por WhatsApp
+(fuera de la web);
+:Orienta al punto de venta;
+stop
+@enduml

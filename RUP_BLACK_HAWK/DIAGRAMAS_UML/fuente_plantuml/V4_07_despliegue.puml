@@ -1,0 +1,31 @@
+@startuml V4_07_despliegue
+!include _estilo.iuml
+skinparam defaultFontSize 15
+
+node "Dispositivo del cliente\n(celular / escritorio)" as DEV {
+  artifact "Navegador web" as NAV
+}
+node "Equipo del gestor" as ADM {
+  artifact "Navegador\n(panel de WordPress)" as NAV2
+}
+node "Servidor de producción «hosting»" as WEB {
+  node "LiteSpeed + PHP" as LS {
+    artifact "WordPress" as AWP
+    artifact "WooCommerce" as AWC
+    artifact "YITH Catalog Mode" as AY
+    artifact "Tema hijo rozer-child\n(rediseño)" as ATH
+    artifact "Módulo propio" <<propuesto>> as ABH
+  }
+  database "MySQL / MariaDB" as DB
+}
+node "Entorno de prueba (staging)\nweb renovada actual" as STG
+node "Respaldo externo" <<propuesto>> as BK
+cloud "WhatsApp" as WA
+
+NAV --> LS : HTTPS
+NAV2 --> LS : HTTPS
+LS --> DB : SQL (local)
+STG ..> WEB : publicación\n(Transición)
+WEB ..> BK : respaldo programado
+NAV --> WA : enlace wa.me
+@enduml

@@ -1,0 +1,34 @@
+@startuml V4_03_secuencia
+!include _estilo.iuml
+skinparam SequenceGroupBorderColor #6D28D9
+skinparam defaultFontSize 17
+autonumber
+
+actor "Cliente" as CL
+boundary "Ficha del producto\n(tema hijo)" as UI
+control "WooCommerce" as WC
+database "Base de datos" as DB
+control "Registro de consultas\n«propuesto»" as RC
+participant "WhatsApp\n(externo)" as WA
+
+CL -> UI : abre la ficha de BH-SW12XXG
+activate UI
+UI -> WC : obtener producto
+WC -> DB : consulta
+DB --> WC : datos y especificaciones
+WC --> UI : producto
+UI --> CL : ficha con «Cotizar» y «Comparar»
+CL -> UI : pulsa «Cotizar»
+UI -> UI : arma el mensaje con el modelo
+group ampliación propuesta
+  UI ->> RC : registrar inicio de consulta\n(fecha, producto, origen)
+  RC -> DB : guardar
+end
+UI -> WA : abrir wa.me con el mensaje
+deactivate UI
+WA --> CL : chat con el mensaje escrito
+note over CL, WA
+  La web solo inicia la consulta. La conversación, la cotización
+  y la venta ocurren fuera del sistema y no se registran.
+end note
+@enduml

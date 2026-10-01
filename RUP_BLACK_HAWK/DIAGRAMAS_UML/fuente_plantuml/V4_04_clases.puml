@@ -1,0 +1,53 @@
+@startuml V4_04_clases
+!include _estilo.iuml
+skinparam defaultFontSize 17
+hide empty methods
+
+class Categoria {
+  nombre
+  slug
+}
+class Producto {
+  modelo
+  nombre
+  potencia
+  estado
+}
+class EspecificacionTecnica {
+  atributo
+  valor
+  unidad
+}
+class ImagenProducto {
+  url
+  textoAlternativo
+}
+class Usuario {
+  nombre
+  rol
+}
+class Distribuidor <<propuesto>> {
+  razonSocial
+  ciudad
+  whatsapp
+  estado
+}
+class EventoConsulta <<propuesto>> {
+  fechaHora
+  origen
+  intencion
+}
+
+Categoria "0..1" -- "0..*" Categoria : padre de >
+Producto "0..*" -- "1..*" Categoria : pertenece a >
+Producto "1" *-- "0..*" EspecificacionTecnica : describe <
+Producto "1" *-- "0..*" ImagenProducto : ilustra <
+EventoConsulta "0..*" -- "0..1" Producto : sobre >
+EventoConsulta "0..*" -- "0..1" Distribuidor : derivada a >
+Usuario "1" -- "0..*" Producto : gestiona >
+note bottom of EventoConsulta
+  Registra que se inició una consulta
+  desde la web. No representa una venta
+  ni una conversación completada.
+end note
+@enduml

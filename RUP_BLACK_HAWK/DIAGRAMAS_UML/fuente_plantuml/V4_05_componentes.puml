@@ -1,0 +1,33 @@
+@startuml V4_05_componentes
+!include _estilo.iuml
+skinparam defaultFontSize 17
+
+package "Navegador del cliente" {
+  component "Páginas públicas\n(HTML, CSS)" as PUB
+  component "Scripts del tema\n(buscador, catálogo,\ncomparador)" as JS
+}
+package "Servidor WordPress" {
+  package "Tema hijo rozer-child (rediseño)" {
+    component "Plantillas: home,\ncatálogo, ficha" as T1
+    component "Páginas: dónde comprar,\nmayoristas, soporte" as T2
+    component "CTA de WhatsApp\ncon mensaje contextual" as T3
+  }
+  component "WooCommerce\n(productos y categorías)" as WC
+  component "YITH Catalog Mode\n(sin carrito ni pago)" as YI
+  component "Núcleo WordPress\n(usuarios, contenidos)" as WP
+  component "Módulo propio\n(registro, directorio, reportes)" <<propuesto>> as BH
+}
+database "MySQL / MariaDB" as DB
+cloud "WhatsApp (wa.me)" as WA
+
+PUB ..> T1 : HTTPS
+JS ..> WC : datos de productos
+T1 ..> WC
+T2 ..> WP
+YI ..> WC : oculta precio y carrito
+WC ..> WP
+WP ..> DB
+BH ..> DB
+T3 ..> WA : enlace
+T3 ..> BH : evento (propuesto)
+@enduml

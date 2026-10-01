@@ -1,0 +1,68 @@
+@startuml V4_06_modelo_fisico
+!include _estilo.iuml
+skinparam defaultFontSize 15
+hide circle
+hide empty members
+
+entity "wp_users" as U {
+  * ID : BIGINT <<PK>>
+  --
+  user_login : VARCHAR(60)
+  user_email : VARCHAR(100)
+  user_registered : DATETIME
+}
+entity "wp_posts" as P {
+  * ID : BIGINT <<PK>>
+  --
+  post_author : BIGINT <<FK>>
+  post_title : TEXT
+  post_name : VARCHAR(200)
+  post_type : VARCHAR(20)
+  post_status : VARCHAR(20)
+  post_parent : BIGINT
+  post_date : DATETIME
+}
+entity "wp_postmeta" as PM {
+  * meta_id : BIGINT <<PK>>
+  --
+  post_id : BIGINT <<FK>>
+  meta_key : VARCHAR(255)
+  meta_value : LONGTEXT
+}
+entity "wp_term_relationships" as TR {
+  * object_id : BIGINT <<PK, FK>>
+  * term_taxonomy_id : BIGINT <<PK, FK>>
+  --
+  term_order : INT
+}
+entity "wp_term_taxonomy" as TT {
+  * term_taxonomy_id : BIGINT <<PK>>
+  --
+  term_id : BIGINT <<FK>>
+  taxonomy : VARCHAR(32)
+  parent : BIGINT
+  count : BIGINT
+}
+entity "wp_terms" as T {
+  * term_id : BIGINT <<PK>>
+  --
+  name : VARCHAR(200)
+  slug : VARCHAR(200)
+}
+entity "wp_bh_consulta" as BC <<propuesto>> {
+  * id_consulta : BIGINT <<PK>>
+  --
+  id_producto : BIGINT <<FK>>
+  fecha_hora : DATETIME
+  origen : VARCHAR(30)
+  intencion : VARCHAR(30)
+  url_origen : VARCHAR(255)
+}
+
+U ||--o{ P : "es autor de"
+P ||--o{ PM : "tiene metadatos"
+P ||--o{ TR : "se clasifica en"
+TT ||--o{ TR : "agrupa"
+T ||--|| TT : "se define en"
+P ||--o{ BC : "origina"
+@enduml
